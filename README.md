@@ -27,13 +27,13 @@ description: 学习 Authing 的开发方法和身份认证的专业知识。
 
 > ## Authing 基础概念
 
-
+学习 Authing 的基础知识以及我们会用到的专业术语。
 
 > ## Authing 控制台概览
 
-
+控制台是你管理所有 Authing 资源的地方，这篇文章会简要说明一下 Authing 控制台各部分包含的内容和你可以在控制台中做的事情。
 
 > ## Authing 部署模型
 
-
+了解 Authing 提供的多种部署模型。
 
