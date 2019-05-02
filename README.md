@@ -2,7 +2,7 @@
 description: 学习 Authing 的基础
 ---
 
-# 快速开始
+# 欢迎
 
 > ## Authing 助你业务腾飞
 

@@ -1,6 +1,6 @@
 # Table of contents
 
-* [快速开始](README.md)
+* [欢迎](README.md)
 
 ## 快速开始
 
