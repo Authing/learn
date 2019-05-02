@@ -1,27 +1,41 @@
 ---
-description: 学习 Authing 开发和关于身份认证的一切知识
+description: 学习 Authing 的基础
 ---
 
 # 快速开始
+
+> ## Authing 助你业务腾飞
 
 {% hint style="success" %}
  Authing 提供身份认证和授权服务，是中国领先的身份认证云：[https://authing.cn](https://authing.cn)
 {% endhint %}
 
-> ## Authing 助你业务腾飞
+欢迎来到 Authing，本文档将会带你快速了解如何使用 Authing 进行应用开发，内容包括：
 
-Becoming a super hero is a fairly straight forward process:
+* Authing 是做什么的？
+* 我们能帮助你做什么？
+* 我们用到的专业术语
+* Authing 目前的开发进展
+* Authing 开发者生态
+* .... 等等
+
+让我们开始吧！
+
+> ## Authing 概述
 
 ```
 $ give me super-powers
 ```
 
-Once you're strong enough, save the world:
+> ## Authing 基础概念
 
-```
-// Ain't no code for that yet, sorry
-echo 'You got to trust me on this, I saved the world'
-```
+
+
+> ## Authing 控制台概览
+
+
+
+> ## Authing 部署模型
 
 
 
