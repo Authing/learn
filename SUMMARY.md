@@ -42,3 +42,8 @@
 * [LDAP](xie-yi/ldap.md)
 * [Fido](xie-yi/fido.md)
 
+## SoLiD
+
+* [SoLiD 是什么](solid/solid-shi-shen-me.md)
+* [Authing 与 SoLiD](solid/authing-yu-solid.md)
+
