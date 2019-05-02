@@ -1,5 +1,5 @@
 ---
-description: 学习 Authing 的基础
+description: 学习 Authing 的开发方法和身份认证的专业知识。
 ---
 
 # 欢迎
