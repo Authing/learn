@@ -29,11 +29,6 @@
 * [邮件](tong-xin/you-jian.md)
 * [SMS](tong-xin/sms.md)
 
-## 安全
-
-* [Authing 安全概要](an-quan/authing-an-quan-gai-yao.md)
-* [数据隐私政策](an-quan/shu-ju-yin-si-zheng-ce.md)
-
 ## 协议
 
 * [OAuth 2.0](xie-yi/oauth-2.0.md)
@@ -42,16 +37,19 @@
 * [LDAP](xie-yi/ldap.md)
 * [Fido](xie-yi/fido.md)
 
+## 安全
+
+* [Authing 安全概要](an-quan/authing-an-quan-gai-yao.md)
+* [数据隐私政策](an-quan/shu-ju-yin-si-zheng-ce.md)
+
 ## 其他
 
-* [开发资源](qi-ta/libraries/README.md)
-  * [Authing SDK for Web](qi-ta/libraries/authing-sdk-for-web.md)
-  * [Authing SDK for iOS](qi-ta/libraries/authing-sdk-for-ios.md)
-  * [Authing SDK for Android](qi-ta/libraries/authing-sdk-for-android.md)
-* [常见问题](qi-ta/faq.md)
-
-## SoLiD
-
-* [SoLiD 是什么](solid/solid-shi-shen-me.md)
-* [Authing 与 SoLiD](solid/authing-yu-solid.md)
+* [开发资源](others/libraries/README.md)
+  * [Authing SDK for Web](others/libraries/authing-sdk-for-web.md)
+  * [Authing SDK for iOS](others/libraries/authing-sdk-for-ios.md)
+  * [Authing SDK for Android](others/libraries/authing-sdk-for-android.md)
+* [常见问题](others/faq.md)
+* [SoLiD](others/solid/README.md)
+  * [SoLiD 是什么](others/solid/solid-shi-shen-me.md)
+  * [Authing 与 SoLiD](others/solid/authing-yu-solid.md)
 
