@@ -1,5 +1,5 @@
 ---
-description: 学习如何使用 Authing 进行开发和身份认证的专业知识。
+description: 学习如何使用 Authing 进行开发，并理解身份认证的专业知识。
 ---
 
 # 欢迎

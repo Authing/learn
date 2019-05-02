@@ -4,43 +4,43 @@
 
 ## 快速开始
 
-* [Authing 概述](quickstart/authing-gai-shu.md)
-* [基础概念](quickstart/authing-ji-chu-gai-nian.md)
-* [控制台概览](quickstart/authing-kong-zhi-tai-gai-lan.md)
+* [Authing 概述](quickstart/overviews.md)
+* [基础概念](quickstart/basic.md)
+* [控制台概览](quickstart/dashboard.md)
 * [部署模型](quickstart/deployment.md)
 
 ## 进阶指南
 
-* [认证](jin-jie-zhi-nan/ren-zheng.md)
-* [授权](jin-jie-zhi-nan/shou-quan.md)
-* [第三方登录](jin-jie-zhi-nan/di-san-fang-deng-lu.md)
-* [单点登录](jin-jie-zhi-nan/dan-dian-deng-lu.md)
-* [用户权限](jin-jie-zhi-nan/yong-hu-quan-xian.md)
-* [企业级认证](jin-jie-zhi-nan/qi-ye-ji-ren-zheng.md)
-* [最佳实践](jin-jie-zhi-nan/zui-jia-shi-jian.md)
+* [认证](advanced/authentication.md)
+* [授权](advanced/authorization.md)
+* [第三方登录](advanced/connections.md)
+* [单点登录](advanced/sso.md)
+* [用户权限](advanced/roles.md)
+* [企业级认证](advanced/enterprise.md)
+* [最佳实践](advanced/best-practise.md)
 
 ## UI 组件
 
-* [Login-Form](ui-zu-jian/login-form.md)
-* [Guard](ui-zu-jian/guard.md)
+* [Login-Form](ui/login-form.md)
+* [Guard](ui/guard.md)
 
 ## 通信
 
-* [邮件](tong-xin/you-jian.md)
-* [SMS](tong-xin/sms.md)
+* [邮件](messages/email.md)
+* [SMS](messages/sms.md)
 
 ## 协议
 
-* [OAuth 2.0](xie-yi/oauth-2.0.md)
-* [OpenID Connect](xie-yi/openid-connect.md)
-* [SAML](xie-yi/saml.md)
-* [LDAP](xie-yi/ldap.md)
-* [Fido](xie-yi/fido.md)
+* [OAuth 2.0](protocol/oauth-2.0.md)
+* [OpenID Connect](protocol/openid-connect.md)
+* [SAML](protocol/saml.md)
+* [LDAP](protocol/ldap.md)
+* [Fido](protocol/fido.md)
 
 ## 安全
 
-* [Authing 安全概要](an-quan/authing-an-quan-gai-yao.md)
-* [数据隐私政策](an-quan/shu-ju-yin-si-zheng-ce.md)
+* [Authing 安全概要](security/overviews.md)
+* [数据隐私政策](security/data-privacy.md)
 
 ## 其他
 
@@ -50,6 +50,6 @@
   * [Authing SDK for Android](others/libraries/authing-sdk-for-android.md)
 * [常见问题](others/faq.md)
 * [SoLiD](others/solid/README.md)
-  * [SoLiD 是什么](others/solid/solid-shi-shen-me.md)
-  * [Authing 与 SoLiD](others/solid/authing-yu-solid.md)
+  * [SoLiD 是什么](others/solid/basic.md)
+  * [Authing 与 SoLiD](others/solid/authing-solid.md)
 
