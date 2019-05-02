@@ -1,4 +1,4 @@
 # Table of contents
 
-* [Authing 知识库](README.md)
+* [Authing 开发文档](README.md)
 
