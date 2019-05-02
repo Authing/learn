@@ -21,11 +21,9 @@ description: 学习 Authing 的开发方法和身份认证的专业知识。
 
 让我们开始吧！
 
-> ## Authing 概述
+> ## [Authing 概述](https://learn.authing.cn/authing/kuai-su-kai-shi/authing-gai-shu)
 
-```
-$ give me super-powers
-```
+了解 Authing 是什么以及你可以将 Authing 应用到哪些场景中。
 
 > ## Authing 基础概念
 
