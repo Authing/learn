@@ -44,11 +44,11 @@
 
 ## 其他
 
-* [开发资源](qi-ta/kai-fa-zi-yuan/README.md)
-  * [Authing SDK for Web](qi-ta/kai-fa-zi-yuan/authing-sdk-for-web.md)
-  * [Authing SDK for iOS](qi-ta/kai-fa-zi-yuan/authing-sdk-for-ios.md)
-  * [Authing SDK for Android](qi-ta/kai-fa-zi-yuan/authing-sdk-for-android.md)
-* [常见问题](qi-ta/chang-jian-wen-ti.md)
+* [开发资源](qi-ta/libraries/README.md)
+  * [Authing SDK for Web](qi-ta/libraries/authing-sdk-for-web.md)
+  * [Authing SDK for iOS](qi-ta/libraries/authing-sdk-for-ios.md)
+  * [Authing SDK for Android](qi-ta/libraries/authing-sdk-for-android.md)
+* [常见问题](qi-ta/faq.md)
 
 ## SoLiD
 
