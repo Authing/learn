@@ -4,9 +4,7 @@ description: 学习 LDAP 的基础知识以及如何在 Authing 中配置 LDAP�
 
 # LDAP
 
-## 配置 LDAP 服务
-
-### LDAP 是什么？
+## LDAP 是什么？
 
 LDAP 是轻量目录访问协议，英文全称是 Lightweight Directory Access Protocol，一般都简称为 LDAP。你可以把它理解为一个树型的用来存储用户和组织信息的数据库，常被用来做单点登录（ SSO ），更多介绍请[点击这里](https://baike.baidu.com/item/LDAP/2875565)。
 
@@ -20,17 +18,17 @@ LDAP 是轻量目录访问协议，英文全称是 Lightweight Directory Access 
 
 如果你想接入 LDAP 服务，请按照以下步骤完成 LDAP 配置。
 
-### 添加 LDAP 服务
+## 添加 LDAP 服务
 
 ![https://usercontents.authing.cn/docs/oauth/ldap/ldap\_new.png](https://usercontents.authing.cn/docs/oauth/ldap/ldap_new.png)
 
-### 填写相关信息
+## 填写 LDAP 信息
 
 在弹出的对话框中填写相关信息，如果你不知道如何填写可以点击右上角的「点击这里」填充测试配置信息。
 
 ![https://usercontents.authing.cn/docs/oauth/ldap/ldap\_creator\_form.png](https://usercontents.authing.cn/docs/oauth/ldap/ldap_creator_form.png)
 
-#### 参数解释
+### 参数解释
 
 1. `LDAP 别名`，必填，自定义的 LDAP 服务名称
 2. `LDAP 链接`，必填，LDAP 服务器的地址，如：ldap://dc.fabrikam.com
@@ -40,7 +38,7 @@ LDAP 是轻量目录访问协议，英文全称是 Lightweight Directory Access 
 6. `查询条件`，必填，如果这里是 mail 表示查询用户信息是通过邮箱信息来查询的。注意，该字段信息与 LDAP 数据库存储数据的字段相对应，如果如果存储用户邮箱信息的字段是 email, 这里就需要修改成 email。同时此处支持自定义 filter 表达式，基本形式为：&\(objectClass=user\)\(cn=%s\), 其中 %s 会被用户在登录时填写的用户名替换
 7. `LDAP 描述`，选填，描述下这个 LDAP 服务是做什么用的
 
-### 连通性测试
+## 连通性测试
 
 连通性测试可以帮助你检查参数是否填写正确了，如果你填入了「测试配置」，那么点击页面上的「连通性测试」应该可以看到如下结果：
 
@@ -48,7 +46,7 @@ LDAP 是轻量目录访问协议，英文全称是 Lightweight Directory Access 
 
 你可以用这个测试来测试不同的 `Base DN` 和`密码`。
 
-### 验证用户
+## 验证用户
 
 验证用户可以帮助你检查查询条件是否正确，如果查询条件不正确，会返回无法找到用户的错误。
 
