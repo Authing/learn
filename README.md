@@ -1,2 +1,2 @@
-# learn
-Learn everything about Authing
+# Initial page
+
