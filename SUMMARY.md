@@ -48,9 +48,9 @@
   * [Authing SDK for Web](others/libraries/authing-sdk-for-web.md)
   * [Authing SDK for iOS](others/libraries/authing-sdk-for-ios.md)
   * [Authing SDK for Android](others/libraries/authing-sdk-for-android.md)
+* [为 Authing 贡献 SDK](others/wei-authing-gong-xian-sdk.md)
 * [常见问题](others/faq.md)
 * [SoLiD](others/solid/README.md)
   * [SoLiD 是什么](others/solid/basic.md)
   * [Authing 与 SoLiD](others/solid/authing-solid.md)
-* [为 Authing 贡献 SDK](others/wei-authing-gong-xian-sdk.md)
 
