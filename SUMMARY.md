@@ -36,7 +36,8 @@
 ## 协议
 
 * [OAuth 2.0](protocol/oauth-2.0.md)
-* [OpenID Connect](protocol/openid-connect.md)
+* [OpenID Connect \(OIDC\)](protocol/openid-connect/README.md)
+  * [OIDC 授权流程](protocol/openid-connect/oidc-authorization.md)
 * [SAML](protocol/saml.md)
 * [LDAP](protocol/ldap.md)
 * [Fido](protocol/fido.md)
