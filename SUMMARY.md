@@ -52,4 +52,5 @@
 * [SoLiD](others/solid/README.md)
   * [SoLiD 是什么](others/solid/basic.md)
   * [Authing 与 SoLiD](others/solid/authing-solid.md)
+* [为 Authing 贡献 SDK](others/wei-authing-gong-xian-sdk.md)
 
