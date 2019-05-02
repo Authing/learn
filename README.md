@@ -2,9 +2,11 @@
 description: 学习 Authing 开发和关于身份认证的一切知识
 ---
 
-# Authing 开发文档
+# 快速开始
 
-## Getting Super Powers
+> Authing 提供身份认证和授权服务，是中国领先的身份认证云：https://authing.cn
+
+## Authing 助你业务腾飞
 
 Becoming a super hero is a fairly straight forward process:
 
