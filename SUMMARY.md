@@ -24,6 +24,11 @@
 * [Login-Form](ui-zu-jian/login-form.md)
 * [Guard](ui-zu-jian/guard.md)
 
+## 通信
+
+* [邮件](tong-xin/you-jian.md)
+* [SMS](tong-xin/sms.md)
+
 ## 安全
 
 * [Authing 安全概要](an-quan/authing-an-quan-gai-yao.md)
