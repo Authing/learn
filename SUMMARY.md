@@ -11,12 +11,16 @@
 
 ## 进阶指南
 
-* [认证](advanced/authentication.md)
+* [认证](advanced/authentication/README.md)
+  * [账号密码认证](advanced/authentication/zhang-hao-mi-ma-ren-zheng.md)
+  * [手机 - 验证码认证](advanced/authentication/shou-ji-yan-zheng-ma-ren-zheng.md)
+  * [小程序扫码认证](advanced/authentication/xiao-cheng-xu-sao-ma-ren-zheng.md)
 * [授权](advanced/authorization.md)
-* [第三方登录](advanced/connections.md)
-* [单点登录](advanced/sso.md)
+* [第三方登录](advanced/connections/README.md)
+  * [社会化登录](advanced/connections/she-hui-hua-deng-lu.md)
+  * [企业级认证](advanced/connections/enterprise.md)
+  * [单点登录](advanced/connections/sso.md)
 * [用户权限](advanced/roles.md)
-* [企业级认证](advanced/enterprise.md)
 * [最佳实践](advanced/best-practise.md)
 
 ## UI 组件
