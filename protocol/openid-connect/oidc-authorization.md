@@ -119,7 +119,7 @@ Content-Type: application/x-www-form-urlencoded
 Authorization: Basic NWNhNzY1ZTM5MzE5NGQ1ODkxZGIxOTI3OmJmNGQ0ZTI4ZTg4NWQ4NjBlZWM5YmIzNzEwYjAyMDY1
 ```
 
-其中 `Basic<空格>` 后的值为 `code` 的值。
+其中 `Basic<空格>` 后的值为 `<client_id>:<client_secret>` 的 base64 值。
 
 ### **body 参数**
 
