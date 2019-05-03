@@ -169,5 +169,10 @@ Authing 提供自定义二级域名（\*.authing.cn）的能力，这个二级�
 
 同时，Authing 有权对用户自定义的域名名称进行审核，若发现违法违规的域名，Authing 有权对其关闭和上报公安机关。
 
+## 接下来你可能还需要
+
+1. [了解 Authing 的控制台，以帮助你更快速的完成相关配置](https://learn.authing.cn/authing/quickstart/dashboard)
+2. [了解 Authing 的部署模型，以帮助你了解该选择什么样的部署方式](https://learn.authing.cn/authing/quickstart/deployment)
+
 
 
