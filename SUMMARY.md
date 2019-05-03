@@ -22,7 +22,7 @@
   * [单点登录](advanced/connections/sso.md)
 * [配置用户权限](advanced/roles/README.md)
   * [使用 API 操作用户权限](advanced/roles/shi-yong-api-cao-zuo-yong-hu-quan-xian.md)
-* [开发资源](advanced/libraries/README.md)
+* [SDK 开发资源](advanced/libraries/README.md)
   * [Authing SDK for Web](advanced/libraries/authing-sdk-for-web.md)
   * [Authing SDK for iOS](advanced/libraries/authing-sdk-for-ios.md)
   * [Authing SDK for Android](advanced/libraries/authing-sdk-for-android.md)
