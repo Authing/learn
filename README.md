@@ -19,8 +19,6 @@ description: 学习如何使用 Authing 进行开发，并理解身份认证的�
 * Authing 开发者生态
 * .... 等等
 
-![Authing Logo](.gitbook/assets/image%20%2816%29.png)
-
 让我们开始吧！
 
 > ## [Authing 概述](https://learn.authing.cn/authing/quickstart/authing-gai-shu)
@@ -38,6 +36,8 @@ description: 学习如何使用 Authing 进行开发，并理解身份认证的�
 > ## [Authing 部署模型](https://learn.authing.cn/authing/quickstart/deployment)
 
 了解 Authing 提供的多种部署模型。
+
+![Authing Logo](.gitbook/assets/image%20%2816%29.png)
 
 
 
