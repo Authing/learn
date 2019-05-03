@@ -6,7 +6,7 @@ description: 控制台是你管理和配置所有 Authing 资源的地方，这�
 
 在 [Authing 控制台](https://authing.cn/dashboard)中你可以对 Authing 的资源、用户等信息进行配置和修改。
 
-![Authing &#x5E94;&#x7528;&#xFF08;&#x7528;&#x6237;&#x6C60;&#xFF09;&#x7684;&#x4E3B;&#x63A7;&#x754C;&#x9762;](../.gitbook/assets/image%20%287%29.png)
+![Authing &#x5E94;&#x7528;&#xFF08;&#x7528;&#x6237;&#x6C60;&#xFF09;&#x7684;&#x4E3B;&#x63A7;&#x754C;&#x9762;](../.gitbook/assets/image%20%285%29.png)
 
 在界面的右上角有六个选项可以选择，以下是**从左到右**每个模块的介绍：
 
@@ -33,11 +33,6 @@ description: 控制台是你管理和配置所有 Authing 资源的地方，这�
         JSON &#x6570;&#x636E;&#xFF0C;&#x540C;&#x65F6;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x7528;&#x6237;&#x7EC4;&#x548C;&#x7528;&#x6237;&#x89D2;&#x8272;&#x3002;</td>
     </tr>
     <tr>
-      <td style="text-align:left"><b>&#x6D88;&#x606F;&#x670D;&#x52A1;</b>
-      </td>
-      <td style="text-align:left">&lt;b&gt;&lt;/b&gt;</td>
-    </tr>
-    <tr>
       <td style="text-align:left"><b>&#x7B2C;&#x4E09;&#x65B9;&#x767B;&#x5F55;</b>
       </td>
       <td style="text-align:left">&#x5728;&#x8FD9;&#x4E2A;&#x9875;&#x9762;&#x4E2D;&#x53EF;&#x4EE5;&#x914D;&#x7F6E;
@@ -61,25 +56,5 @@ description: 控制台是你管理和配置所有 Authing 资源的地方，这�
       <td style="text-align:left">&#x6210;&#x4E3A; Authing &#x7684;&#x4ED8;&#x8D39;&#x8BA1;&#x5212;&#x53C2;&#x4E0E;&#x8005;&#x3002;</td>
     </tr>
   </tbody>
-</table>## 用户中心
-
-![](../.gitbook/assets/image%20%2811%29.png)
-
-![](../.gitbook/assets/image%20%288%29.png)
-
-## 消息服务
-
-![](../.gitbook/assets/image%20%286%29.png)
-
-## 第三方登录
-
-![](../.gitbook/assets/image%20%284%29.png)
-
-## 设置
-
-![](../.gitbook/assets/image%20%2814%29.png)
-
-## 价格
-
-![](../.gitbook/assets/image%20%2817%29.png)
+</table>
 
