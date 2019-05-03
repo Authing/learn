@@ -50,7 +50,15 @@ Authing 提供专业的身份认证和授权服务。
 
 ## 接下来你可能还需要
 
-1. [了解 Authing 的基础概念和术语，以清除学习 Authing 过程中的障碍](https://learn.authing.cn/authing/quickstart/basic)
-2. [了解 Authing 的控制台，以帮助你更快速的完成相关配置](https://learn.authing.cn/authing/quickstart/dashboard)
-3. [了解 Authing 的部署模型，以帮助你了解该选择什么样的部署方式](https://learn.authing.cn/authing/quickstart/deployment)
+了解 Authing 的基础概念和术语，以清除学习 Authing 过程中的障碍：
+
+{% page-ref page="basic.md" %}
+
+了解 Authing 的控制台，以帮助你更快速的完成相关配置：
+
+{% page-ref page="dashboard.md" %}
+
+了解 Authing 的部署模型，以帮助你了解该选择什么样的部署方式
+
+{% page-ref page="deployment.md" %}
 
