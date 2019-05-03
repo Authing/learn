@@ -54,6 +54,7 @@
   * [Authing SDK for Web](others/libraries/authing-sdk-for-web.md)
   * [Authing SDK for iOS](others/libraries/authing-sdk-for-ios.md)
   * [Authing SDK for Android](others/libraries/authing-sdk-for-android.md)
+  * [Authing SDK for 微信小程序](others/libraries/authing-sdk-for-wei-xin-xiao-cheng-xu.md)
 * [为 Authing 贡献 SDK](others/wei-authing-gong-xian-sdk.md)
 * [常见问题](others/faq.md)
 * [SoLiD](others/solid/README.md)
