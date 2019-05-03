@@ -37,7 +37,7 @@ description: 学习如何使用 Authing 进行开发，并理解身份认证的�
 
 了解 Authing 提供的多种部署模型。
 
-![Authing Logo](.gitbook/assets/image%20%2816%29.png)
+![Authing Logo](.gitbook/assets/image%20%2823%29.png)
 
 
 

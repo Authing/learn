@@ -20,7 +20,7 @@
   * [社会化登录](advanced/connections/she-hui-hua-deng-lu.md)
   * [企业级认证](advanced/connections/enterprise.md)
   * [单点登录](advanced/connections/sso.md)
-* [用户权限](advanced/roles.md)
+* [配置用户权限](advanced/roles.md)
 * [最佳实践](advanced/best-practise.md)
 
 ## UI 组件
