@@ -22,6 +22,11 @@
   * [单点登录](advanced/connections/sso.md)
 * [配置用户权限](advanced/roles/README.md)
   * [使用 API 操作用户权限](advanced/roles/shi-yong-api-cao-zuo-yong-hu-quan-xian.md)
+* [开发资源](advanced/libraries/README.md)
+  * [Authing SDK for Web](advanced/libraries/authing-sdk-for-web.md)
+  * [Authing SDK for iOS](advanced/libraries/authing-sdk-for-ios.md)
+  * [Authing SDK for Android](advanced/libraries/authing-sdk-for-android.md)
+  * [Authing SDK for 微信小程序](advanced/libraries/authing-sdk-for-wei-xin-xiao-cheng-xu.md)
 * [最佳实践](advanced/best-practise.md)
 
 ## UI 组件
@@ -51,11 +56,6 @@
 
 ## 其他
 
-* [开发资源](others/libraries/README.md)
-  * [Authing SDK for Web](others/libraries/authing-sdk-for-web.md)
-  * [Authing SDK for iOS](others/libraries/authing-sdk-for-ios.md)
-  * [Authing SDK for Android](others/libraries/authing-sdk-for-android.md)
-  * [Authing SDK for 微信小程序](others/libraries/authing-sdk-for-wei-xin-xiao-cheng-xu.md)
 * [为 Authing 贡献 SDK](others/wei-authing-gong-xian-sdk.md)
 * [常见问题](others/faq.md)
 * [SoLiD](others/solid/README.md)
