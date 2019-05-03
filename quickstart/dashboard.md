@@ -116,3 +116,9 @@ description: 控制台是你管理和配置所有 Authing 资源的地方，这�
 
 ![](../.gitbook/assets/image%20%2817%29.png)
 
+
+
+## 接下来你可能还需要
+
+1. [了解 Authing 的部署模型，以帮助你了解该选择什么样的部署方式](https://learn.authing.cn/authing/quickstart/deployment)
+
