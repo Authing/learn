@@ -4,7 +4,7 @@ description: 学习 Authing 的基础知识以及我们会用到的一些术语�
 
 # 基础概念
 
-Often, the biggest barrier to learning new things, especially in the tech industry, is terminology. The words that are used to describe things can cause problems when you try to understand new concepts. This document explains some of the basic terminology we use here at Authing, and maps these terms to concepts you are already familiar with.
+在科技领域，学习新知识最大的障碍就来自于「术语」，当你试图去了解一个新概念时，大量的术语将会对你的理解造成阻碍。这篇文章将会解释在 Authing 中常用的术语，以期能帮助你尽快熟悉 Authing 涉及到的概念。
 
 ## 应用
 
@@ -25,6 +25,12 @@ Often, the biggest barrier to learning new things, especially in the tech indust
 
 
 ## 第三方登录
+
+### 社会化登录
+
+### 单点登录
+
+### 企业级认证
 
 
 

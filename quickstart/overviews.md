@@ -48,3 +48,9 @@ Authing 提供专业的身份认证和授权服务。
 * **Security Assertion Markup Language \(SAML\):** 一种基于 XML 的开放数据格式，SAML 允许企业应用程序和内部、外部程序无缝连接。
 * **LDAP:** LDAP 是轻量目录访问协议，英文全称是 Lightweight Directory Access Protocol，一般都简称为 LDAP。你可以把它理解为一个树型的用来存储用户和组织信息的数据库，常被用来做单点登录（ SSO ）和企业员工信息管理。
 
+## 接下来你可能还需要
+
+1. 了解 Authing 的基础概念
+2. 了解 Authing 的控制台，以帮助你更快速的在控制台中完成相关配置
+3. 了解 Authing 的部署模型
+
