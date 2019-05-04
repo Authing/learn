@@ -31,6 +31,7 @@
 * [SDK for iOS](sdk/authing-sdk-for-ios.md)
 * [SDK for Android](sdk/authing-sdk-for-android.md)
 * [SDK for 微信小程序](sdk/authing-sdk-for-wei-xin-xiao-cheng-xu.md)
+* [Open Graphql](sdk/open-graphql.md)
 
 ## UI 组件
 

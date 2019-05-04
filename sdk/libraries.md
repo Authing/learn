@@ -8,5 +8,5 @@
 
 {% page-ref page="authing-sdk-for-wei-xin-xiao-cheng-xu.md" %}
 
-
+{% page-ref page="open-graphql.md" %}
 
