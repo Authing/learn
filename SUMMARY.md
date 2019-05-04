@@ -26,11 +26,11 @@
 
 ## 开发资源（SDK）
 
-* [SDK 开发资源](kai-fa-zi-yuan-sdk/libraries.md)
-* [SDK for Web](kai-fa-zi-yuan-sdk/authing-sdk-for-web.md)
-* [SDK for iOS](kai-fa-zi-yuan-sdk/authing-sdk-for-ios.md)
-* [SDK for Android](kai-fa-zi-yuan-sdk/authing-sdk-for-android.md)
-* [SDK for 微信小程序](kai-fa-zi-yuan-sdk/authing-sdk-for-wei-xin-xiao-cheng-xu.md)
+* [开发资源](sdk/libraries.md)
+* [SDK for Web](sdk/authing-sdk-for-web.md)
+* [SDK for iOS](sdk/authing-sdk-for-ios.md)
+* [SDK for Android](sdk/authing-sdk-for-android.md)
+* [SDK for 微信小程序](sdk/authing-sdk-for-wei-xin-xiao-cheng-xu.md)
 
 ## UI 组件
 
