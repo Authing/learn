@@ -4,7 +4,8 @@
 
 ## 快速开始
 
-* [Hello World](quickstart/hello-world.md)
+* [Hello World](quickstart/hello-world/README.md)
+  * [面向后端开发者的 Hello World](quickstart/hello-world/be-hello-world.md)
 * [Authing 概述](quickstart/overviews.md)
 * [基础概念](quickstart/basic.md)
 * [控制台概览](quickstart/dashboard.md)

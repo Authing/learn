@@ -22,7 +22,7 @@ description: 学习如何使用 Authing 进行开发，并理解身份认证的�
 
 让我们先从使用 Authing 实现一个 Hello World 开始吧：
 
-{% page-ref page="quickstart/hello-world.md" %}
+{% page-ref page="quickstart/hello-world/" %}
 
 了解 Authing 是什么以及你可以将 Authing 应用到哪些场景中：
 
