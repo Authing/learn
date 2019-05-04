@@ -22,12 +22,15 @@
   * [单点登录](advanced/connections/sso.md)
 * [配置用户权限](advanced/roles/README.md)
   * [使用 API 操作用户权限](advanced/roles/shi-yong-api-cao-zuo-yong-hu-quan-xian.md)
-* [SDK 开发资源](advanced/libraries/README.md)
-  * [Authing SDK for Web](advanced/libraries/authing-sdk-for-web.md)
-  * [Authing SDK for iOS](advanced/libraries/authing-sdk-for-ios.md)
-  * [Authing SDK for Android](advanced/libraries/authing-sdk-for-android.md)
-  * [Authing SDK for 微信小程序](advanced/libraries/authing-sdk-for-wei-xin-xiao-cheng-xu.md)
 * [最佳实践](advanced/best-practise.md)
+
+## 开发资源（SDK）
+
+* [SDK 开发资源](kai-fa-zi-yuan-sdk/libraries.md)
+* [SDK for Web](kai-fa-zi-yuan-sdk/authing-sdk-for-web.md)
+* [SDK for iOS](kai-fa-zi-yuan-sdk/authing-sdk-for-ios.md)
+* [SDK for Android](kai-fa-zi-yuan-sdk/authing-sdk-for-android.md)
+* [SDK for 微信小程序](kai-fa-zi-yuan-sdk/authing-sdk-for-wei-xin-xiao-cheng-xu.md)
 
 ## UI 组件
 

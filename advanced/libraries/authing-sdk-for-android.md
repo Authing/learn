@@ -1,2 +1,0 @@
-# Authing SDK for Android
-
