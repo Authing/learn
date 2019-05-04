@@ -22,17 +22,32 @@ P.S. 暂无移动端 Hello World 文档。
 
 ### 使用 CDN
 
-```text
-
+```markup
+<script src="https://cdn.jsdelivr.net/npm/authing-js-sdk"></script>
 ```
 
-### 在工程化前端项目中推荐使用 NPM
+如果你想使用 NPM 安装 SDK，请参考：
 
-```bash
-$ npm install authing-js-sdk --save
+{% page-ref page="../../sdk/authing-sdk-for-web.md" %}
+
+## 第零步：注册 Authing 账号并创建一个应用
+
+## 第一步：配置一个基本的 HTML 页面
+
+创建一个空白的 HTML 文档用来编写 Authing 程序：
+
+```markup
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Profile Viewer</title>
+</head>
+<body>
+  <h1>Profile viewer</h1>
+</body>
+</html>
 ```
-
-P.S. 本文的演示不需要使用 NPM。
 
 ## 接下来你可能还需要
 
