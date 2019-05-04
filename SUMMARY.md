@@ -33,7 +33,7 @@
 * [SDK for 微信小程序](sdk/authing-sdk-for-wxapp.md)
 * [Open Graphql](sdk/open-graphql.md)
 * [Open APIs](sdk/open-apis.md)
-* [函数计算](sdk/faas.md)
+* [函数计算（FaaS）](sdk/faas.md)
 
 ## UI 组件
 
