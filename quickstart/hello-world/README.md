@@ -12,8 +12,6 @@ description: 实现第一个基于 Authing 的应用。
 
 {% page-ref page="be-hello-world.md" %}
 
-P.S. 暂无移动端 Hello World 文档。 
-
 {% hint style="success" %}
 本文使用 Authing 实现一个基于 Web 的登录登出应用，同时为了简单起见，本文不使用任何高级前端框架。
 {% endhint %}
@@ -30,7 +28,30 @@ P.S. 暂无移动端 Hello World 文档。
 
 {% page-ref page="../../sdk/authing-sdk-for-web.md" %}
 
+### 学习目标：
+
+1. 学会创建 Authing 应用
+2. 使用 Authing 实现登录和退出
+
+### 预备知识：
+
+1. 基本的 HTML 和 CSS 知识
+2. 中级 JavaScript 技能
+
+### 所需工具：
+
+1. 你喜欢的文本编辑器
+2. 可以在本地运行的 Web 服务器（比如：`npm install http-server -g`）
+
 ## 第零步：注册 Authing 账号并创建一个应用
+
+如果你还没有账号，请[点击这里注册 Authing 账号](https://authing.cn/login)，注册完成后请创建一个应用：
+
+![&#x70B9;&#x51FB;&#x300C;+ &#x521B;&#x5EFA;&#x5E94;&#x7528;&#x300D;](../../.gitbook/assets/image%20%284%29.png)
+
+![&#x586B;&#x5199;&#x5E94;&#x7528;&#x540D;&#x79F0;&#xFF0C;&#x7C7B;&#x578B;&#x9009;&#x62E9; Web &#x7C7B;&#x578B;](../../.gitbook/assets/image%20%2827%29.png)
+
+![&#x521B;&#x5EFA;&#x6210;&#x529F;&#x540E;&#x5373;&#x53EF;&#x8FDB;&#x5165;&#x5E94;&#x7528;&#x63A7;&#x5236;&#x53F0;](../../.gitbook/assets/image%20%288%29.png)
 
 ## 第一步：配置一个基本的 HTML 页面
 
