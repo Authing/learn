@@ -16,7 +16,7 @@ The main purpose of this article is to show you how to use [Authing](https://lin
 
 In addition, Authing follows the OIDC specification, so this article will use OIDC for authentication. If you don't know what OIDC is, [check out this article](https://en.wikipedia.org/wiki/OpenID_Connect).
 
-### First: confirm the user's operation process 
+### Understand the operational process we are going to implement
 
 1. Open the page: [https://sample.authing.cn/aws/](https://sample.authing.cn/aws/); 
 2. Click Login to log in. At this point, the page will go to the login page of Authing \(the second-level domain name of the application\); 
