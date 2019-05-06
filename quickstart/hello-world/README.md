@@ -47,11 +47,11 @@ description: 实现第一个基于 Authing 的应用。
 
 如果你还没有账号，请[点击这里注册 Authing 账号](https://authing.cn/login)，注册完成后请创建一个应用：
 
-![&#x70B9;&#x51FB;&#x300C;+ &#x521B;&#x5EFA;&#x5E94;&#x7528;&#x300D;](../../.gitbook/assets/image%20%284%29.png)
+![&#x70B9;&#x51FB;&#x300C;+ &#x521B;&#x5EFA;&#x5E94;&#x7528;&#x300D;](../../.gitbook/assets/image%20%286%29.png)
 
-![&#x586B;&#x5199;&#x5E94;&#x7528;&#x540D;&#x79F0;&#xFF0C;&#x7C7B;&#x578B;&#x9009;&#x62E9; Web &#x7C7B;&#x578B;](../../.gitbook/assets/image%20%2829%29.png)
+![&#x586B;&#x5199;&#x5E94;&#x7528;&#x540D;&#x79F0;&#xFF0C;&#x7C7B;&#x578B;&#x9009;&#x62E9; Web &#x7C7B;&#x578B;](../../.gitbook/assets/image%20%2853%29.png)
 
-![&#x521B;&#x5EFA;&#x6210;&#x529F;&#x540E;&#x5373;&#x53EF;&#x8FDB;&#x5165;&#x5E94;&#x7528;&#x63A7;&#x5236;&#x53F0;](../../.gitbook/assets/image%20%288%29.png)
+![&#x521B;&#x5EFA;&#x6210;&#x529F;&#x540E;&#x5373;&#x53EF;&#x8FDB;&#x5165;&#x5E94;&#x7528;&#x63A7;&#x5236;&#x53F0;](../../.gitbook/assets/image%20%2812%29.png)
 
 ## 第一步：配置一个基本的 HTML 页面
 
@@ -103,7 +103,7 @@ description: 实现第一个基于 Authing 的应用。
 
 该库生成的登录表单如下图所示：
 
-![&#x767B;&#x5F55;&#x8868;&#x5355;](../../.gitbook/assets/image%20%2820%29.png)
+![&#x767B;&#x5F55;&#x8868;&#x5355;](../../.gitbook/assets/image%20%2833%29.png)
 
 同时你可以点击这里[访问 DEMO 网站](https://sample.authing.cn/#/)。
 
@@ -122,7 +122,7 @@ description: 实现第一个基于 Authing 的应用。
 
 初始化需要的 clientId 参数获取方式如下：
 
-![](../../.gitbook/assets/image%20%2812%29.png)
+![](../../.gitbook/assets/image%20%2818%29.png)
 
 ## 第四步：监听登录事件
 

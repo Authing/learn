@@ -71,5 +71,6 @@
   * [Authing 与 SoLiD](others/solid/authing-solid.md)
 * [集成案例](others/cases/README.md)
   * [使用 Authing 补充 AWS 中国区 Cognito User Pool](others/cases/shi-yong-authing-bu-chong-aws-zhong-guo-qu-cognito-user-pool.md)
+  * [Using Authing to replace AWS Cognito user pool](others/cases/using-authing-to-replace-aws-cognito-user-pool.md)
   * [使用 Authing 认证 IPFS 节点](others/cases/shi-yong-authing-ren-zheng-ipfs-jie-dian.md)
 
