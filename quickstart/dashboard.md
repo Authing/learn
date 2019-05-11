@@ -1,5 +1,5 @@
 ---
-description: 控制台是你管理和配置所有 Authing 资源的地方，这篇文章会帮助你学会使用 Authing 提升生产力！
+description: 控制台是你管理和配置所有 Authing 资源的地方，这篇文章会帮助你学会使用 Authing 控制台提升生产力！
 ---
 
 # 控制台概览
