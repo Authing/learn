@@ -18,17 +18,17 @@ description: 实现第一个基于 Authing 的应用。
 
 ## 开发前准备
 
-### 学习目标：
+### 学习目标
 
-1. 学会创建 Authing 应用
+1. 学会在控制台中创建 Authing 应用
 2. 使用 Authing 实现登录和退出
 
-### 预备知识：
+### 预备知识
 
 1. 基本的 HTML 和 CSS 知识
 2. 中级 JavaScript 技能
 
-### 所需工具：
+### 所需工具
 
 1. 你喜欢的文本编辑器
 2. 可以在本地运行的 Web 服务器（比如：`npm install http-server -g`）
