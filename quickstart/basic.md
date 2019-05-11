@@ -4,7 +4,7 @@ description: 学习 Authing 的基础知识以及我们会用到的一些术语�
 
 # 基础概念
 
-在科技领域，学习新知识最大的障碍就来自于「术语」，当你试图去了解一个新概念时，大量的术语将会对你的理解造成阻碍。本文将会解释 Authing 中的常用术语，以期能帮助你尽快熟悉 在 Authing 中涉及到的知识。
+在科技领域，学习新知识最大的障碍就来自于「术语」，当你试图去了解一个新概念时，大量的术语将会对你的理解造成阻碍。本文将会解释 Authing 中的常用术语，以期能帮助你尽快熟悉在 Authing 中涉及到的知识。
 
 {% hint style="success" %}
 本文将介绍**应用、账户、通信、域名和第三方登录**等概念，如果你对这些概念比较熟悉，可以放心跳过本章。
@@ -22,7 +22,9 @@ description: 学习 Authing 的基础知识以及我们会用到的一些术语�
 
 ![&#x53EF;&#x4F9B;&#x9009;&#x62E9;&#x7684;&#x56DB;&#x79CD; Authing &#x5E94;&#x7528;&#x7C7B;&#x578B;](../.gitbook/assets/image%20%281%29.png)
 
-每一个应用都有一个唯一的 clientId，比如「5cc59bdf1bbaf0188cce6d84」，这个 clientId 是唯一的且不可修改，主要用来标识你的用户池；同时会有一个 secret，clientId 和 secret 加在一起可以让你不经过授权直接修改用户池内的用户数据（包含注册、登录、退出、修改资料等操作），或者换个说法，如果你不了解上文介绍的四种协议，那么使用 clientId 和 secret 是最简单的方式（如何使用请参考：[Authing SDK for Web](https://learn.authing.cn/authing/others/libraries/authing-sdk-for-web)）。
+每一个应用都有一个唯一的 clientId，比如「5cc59bdf1bbaf0188cce6d84」，这个 clientId 是唯一的且不可修改，主要用来标识你的用户池；除了 clientId ，每一个应用还有一个 secret，clientId 和 secret 加在一起可以让你在被授权通过后修改用户池内的用户数据（包含注册、登录、退出、修改资料等操作）。
+
+如果你不了解上文介绍的四种协议（OAuth、SAML、OIDC 和 LDAP），那么使用 clientId 和 secret 是最简单的方式（如何使用请参考：[Authing SDK for Web](https://learn.authing.cn/authing/others/libraries/authing-sdk-for-web)）。
 
 clientId 和 secret 在控制台中的查看位置如下图所示：
 
