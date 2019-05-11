@@ -1,12 +1,12 @@
 # Table of contents
 
 * [欢迎](README.md)
+* [Authing 概述](overviews.md)
 
 ## 快速开始
 
 * [第一个应用](quickstart/hello-world/README.md)
   * [面向后端开发者的 Hello World](quickstart/hello-world/be-hello-world.md)
-* [Authing 概述](quickstart/overviews.md)
 * [基础概念](quickstart/basic.md)
 * [控制台概览](quickstart/dashboard.md)
 * [部署模型](quickstart/deployment.md)
