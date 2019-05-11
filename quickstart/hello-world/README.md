@@ -33,7 +33,7 @@ description: 实现第一个基于 Authing 的应用。
 1. 你喜欢的文本编辑器
 2. 可以在本地运行的 Web 服务器（比如：`npm install http-server -g`）
 
-本文的全部代码可以在 [Github](https://github.com/Authing/getting-started) 上找到。
+本文的全部代码可以在 [Github](https://github.com/Authing/getting-started) 上找到，你也可以[点击这里查看线上 DEMO](https://sample.authing.cn/)。
 
 ## 第零步：注册 Authing 账号并创建一个应用
 
@@ -264,7 +264,7 @@ form.on('authingLoad', async function(authing) {
 
 恭喜你，到此为止，你已经学会了如何使用 Authing 开发第一个应用。
 
-本文的所有代码都可以在 [Github](https://github.com/authing/getting-started) 中找到。
+本文的全部代码可以在 [Github](https://github.com/Authing/getting-started) 上找到，你也可以[点击这里查看线上 DEMO](https://sample.authing.cn/)。
 
 若你想要了解更多 Login-Form 的使用方法，下面有几个链接可供参考：
 
