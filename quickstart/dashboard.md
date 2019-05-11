@@ -96,7 +96,7 @@ description: 控制台是你管理和配置所有 Authing 资源的地方，这�
   </tbody>
 </table>## 用户中心
 
-![](../.gitbook/assets/image%20%2831%29.png)
+![](../.gitbook/assets/image%20%2834%29.png)
 
 ![](../.gitbook/assets/image%20%2821%29.png)
 
@@ -110,11 +110,11 @@ description: 控制台是你管理和配置所有 Authing 资源的地方，这�
 
 ## 设置
 
-![](../.gitbook/assets/image%20%2836%29.png)
+![](../.gitbook/assets/image%20%2839%29.png)
 
 ## 价格
 
-![](../.gitbook/assets/image%20%2850%29.png)
+![](../.gitbook/assets/image%20%2854%29.png)
 
 
 

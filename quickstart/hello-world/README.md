@@ -43,17 +43,19 @@ description: 实现第一个基于 Authing 的应用。
 1. 你喜欢的文本编辑器
 2. 可以在本地运行的 Web 服务器（比如：`npm install http-server -g`）
 
+本文的全部代码可以在 [Github](https://github.com/Authing/getting-started) 上找到。
+
 ## 第零步：注册 Authing 账号并创建一个应用
 
 如果你还没有账号，请[点击这里注册 Authing 账号](https://authing.cn/login)，注册完成后请创建一个应用：
 
 ![&#x70B9;&#x51FB;&#x300C;+ &#x521B;&#x5EFA;&#x5E94;&#x7528;&#x300D;](../../.gitbook/assets/image%20%286%29.png)
 
-![&#x586B;&#x5199;&#x5E94;&#x7528;&#x540D;&#x79F0;&#xFF0C;&#x7C7B;&#x578B;&#x9009;&#x62E9; Web &#x7C7B;&#x578B;](../../.gitbook/assets/image%20%2853%29.png)
+![&#x586B;&#x5199;&#x5E94;&#x7528;&#x540D;&#x79F0;&#xFF0C;&#x7C7B;&#x578B;&#x9009;&#x62E9; Web &#x7C7B;&#x578B;](../../.gitbook/assets/image%20%2857%29.png)
 
 ![&#x521B;&#x5EFA;&#x6210;&#x529F;&#x540E;&#x5373;&#x53EF;&#x8FDB;&#x5165;&#x5E94;&#x7528;&#x63A7;&#x5236;&#x53F0;](../../.gitbook/assets/image%20%2812%29.png)
 
-## 第一步：配置一个基本的 HTML 页面
+## 第一步：配置一个基本的 HTML 页面和 CSS
 
 创建一个空白的 HTML 文档用来编写 Authing 程序：
 
@@ -63,6 +65,19 @@ description: 实现第一个基于 Authing 的应用。
 <head>
   <meta charset="utf-8">
   <title>Authing Hello World</title>
+  <style>
+    .btn {
+        background-color: #45bbee;
+        border: none;
+        border-radius: 4px;
+        padding: 5px 10px;
+        color: #fff;
+    }
+    .btn:hover {
+        background-color: #45aaff;
+        cursor: pointer;
+    }
+  </style>  
 </head>
 <body>
   <script src="https://cdn.jsdelivr.net/npm/authing-js-sdk"></script>
@@ -80,15 +95,17 @@ description: 实现第一个基于 Authing 的应用。
 
 ## 第二步：增加登录状态 UI 元素
 
-增加 2 个 `<p>` 元素到 HTML 页面中，一个显示已经登录，另外一个显示未登录。
+增加一段 HTML 到 HTML 页面中，用处是显示已经登录用户的用户名和完整用户信息（一段 JSON 字符串），并且又一个「退出」按钮可以用来退出。
 
 ```markup
-<p id="login">
-  你尚未登录
-</p>
-<p id="logout">
-  你已登录，用户名为：<span id="user"></span>。
-</p>
+<div id="logout" style="display: none">
+    你已登录，用户名为：<span id="user"></span>。
+    <div>
+        完整用户信息：
+        <code id="userInfo"></code>
+    </div>
+    <button class="btn" id="logout-btn" style="margin-top:11px">退出</button>
+</div>
 ```
 
 ## 第三步：增加 Authing 身份认证表单
@@ -103,30 +120,41 @@ description: 实现第一个基于 Authing 的应用。
 
 该库生成的登录表单如下图所示：
 
-![&#x767B;&#x5F55;&#x8868;&#x5355;](../../.gitbook/assets/image%20%2833%29.png)
+![&#x767B;&#x5F55;&#x8868;&#x5355;](../../.gitbook/assets/image%20%2836%29.png)
 
 同时你可以点击这里[访问 DEMO 网站](https://sample.authing.cn/#/)。
 
 调用方法非常简单，代码如下所示：
 
 ```javascript
-  new AuthingForm({
-    // 必填，client ID
-    clientId: 'your_client_id',
-    // 必填，timestamp
-    timestamp: Math.round(new Date() / 1000),
-    // 必填，nonce
-    nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
-  });
+const form = new AuthingForm({
+  // 必填，client ID
+  clientId: 'your_client_id',
+  // 必填，timestamp
+  timestamp: Math.round(new Date() / 1000),
+  // 必填，nonce
+  nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+});
 ```
 
-初始化需要的 clientId 参数获取方式如下：
+所需参数解释如下：
+
+* **clientId**
+  * 应用 ID，可从 [Authing 控制台](https://authing.cn/dashboard) 中[获取](https://docs.authing.cn/#/quick_start/howto)。
+* **timestamp**
+  * 当前时间戳 `Math.round(new Date() / 1000)`
+* **nonce**
+  * 一个随机数字，不要超过十位数
+
+**clientId** 参数获取方式如下：
 
 ![](../../.gitbook/assets/image%20%2818%29.png)
 
-## 第四步：监听登录事件
+## 第四步：监听登录成功事件并显示用户名
 
-在 Login-Form 中，开发者可以使用 `.on` 的方法监听登录成功的事件。
+在 Login-Form 中，开发者可以使用 `.on` 的方法监听登录成功的事件，[完整的事件列表请参考这里](https://github.com/authing/login-form#%E4%BA%8B%E4%BB%B6%E5%93%8D%E5%BA%94)。
+
+登录成功的事件名称为「login」：
 
 ```javascript
 const form = new AuthingForm({
@@ -141,32 +169,120 @@ const form = new AuthingForm({
 });
 
 form.on('login', function(user) {
-	// 成功登录后的回调事件，参数 user 为用户数据
-	
-	localStorage.setItem('userInfo', JSON.stringify(user));
-	localStorage.setItem('userId', user._id); // 存储用户 id 到 localStorage 中
-	
-	form.hide(); // 为了简单起见，这里在登录成功后直接隐藏表单，在 React 或 Vue 应用中，你可以执行路由跳转或其他业务
-	
-	
+    // 成功登录后的回调事件，参数 user 为用户数据
+
+    localStorage.setItem('userInfo', JSON.stringify(user));
+    localStorage.setItem('userId', user._id); // 存储用户 id 到 localStorage 中
+    localStorage.setItem('username', user.username); // 存储用户 username 到 localStorage 中
+
+    form.hide(); // 为了简单起见，这里在登录成功后直接隐藏表单，在 React 或 Vue 应用中，你可以执行路由跳转或其他业务
+
+    showLoginStatus(); // 改变 UI 状态的函数
 });
+
+const showLoginStatus = () => {
+    $('#logout').show(); // 显示退出按钮
+    $('#user').html(localStorage.getItem('username')); // 显示用户名
+    $('#userInfo').html(localStorage.getItem('userInfo')); // 显示完整的用户信息
+}
+
 ```
 
-完整事件列表请[点击这里查看](https://github.com/Authing/login-form#%E4%BA%8B%E4%BB%B6%E5%93%8D%E5%BA%94)。
+## 第五步：调试登录/注册功能
 
-## 第五步：增加一个退出按钮
+到第四步为止，恭喜你已经完成了登录和注册功能，现在让我们运行程序体验一下。
 
+调试 Authing 程序需要启动一个 Web 服务器，推荐 http-server，如果你还未安装 http-server，那么请使用下面的命令进行安装：
 
+```bash
+$ npm install http-server -g
+```
 
-## 第六步：显示当前用户的用户名
+安装完成后请进入项目根目录然后执行以下命令：
 
+```bash
+$ http-server
+```
 
+如果你看到下列输出（端口可能不同），那么代表已经启动成功：
+
+```bash
+Starting up http-server, serving ./
+Available on:
+  http://127.0.0.1:8080
+  http://192.168.0.103:8080
+Hit CTRL-C to stop the server
+```
+
+现在让我们用浏览器打开 http://127.0.0.1:8080，应该可以看到如下界面：
+
+![](../../.gitbook/assets/image%20%2823%29.png)
+
+此时，请先点击「注册」按钮注册一个账户：
+
+![](../../.gitbook/assets/image%20%2827%29.png)
+
+![&#x6CE8;&#x518C;&#x6210;&#x529F;&#x540E;&#x70B9;&#x51FB;&#x300C;&#x767B;&#x5F55;&#x300D;&#x4FBF;&#x53EF;&#x4EE5;&#x767B;&#x5F55;](../../.gitbook/assets/image%20%2822%29.png)
+
+登录完成后可以看到如下信息：
+
+![](../../.gitbook/assets/image%20%2859%29.png)
+
+登录后能看到此界面表明已经调试成功了。
+
+## 第六步：为退出按钮增加事件
+
+到上一步，我们完成了登录功能并体验了流程，下面，我们还需要支持退出功能：
+
+退出功能需要用到 authing 对象的 logout 方法，authing 对象需要在 authingLoad 事件中获取，代码如下：
+
+```javascript
+form.on('authingLoad', async function(authing) {
+    // Authing 实例加载成功后的回调函数，参数 authing 为 authing 对象
+
+    // 使用 checkLoginStatus 方法判断当前的登录状态，需要使用 await
+    // 如已经登录则隐藏登录框并显示当前的用户信息
+    // 这段代码的作用是用户如果已经登录，那么刷新后还可以看到自己的用户信息
+    const result = await authing.checkLoginStatus();
+    if (result.status) {
+        // 隐藏登录框
+        form.hide();
+        // 显示用户基础信息
+        showLoginStatus();
+    }
+    
+    // 使用 jQuery 监听退出按钮的点击事件
+    $('#logout-btn').click(async function() {
+        // 使用 logout 方法，并传入用户的 userId 进行退出
+        await authing.logout(localStorage.getItem('userId'));
+        alert('退出成功');
+        // 刷新页面，此时可以重新看到登录框
+        location.reload();
+    });
+})
+```
+
+最后，我们来测试下退出功能。
+
+请打开浏览器，刷新页面，点击「退出」，稍等片刻后可以看到页面弹出了下面这个提示：
+
+![&#x9000;&#x51FA;&#x6D89;&#x53CA;&#x5230;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x51FA;&#x73B0;&#x7F51;&#x7EDC;&#x5EF6;&#x8FDF;&#xFF0C;&#x82E5;&#x6CA1;&#x7ACB;&#x5373;&#x51FA;&#x73B0;&#xFF0C;&#x8BF7;&#x7B49;&#x5F85;&#x4E00;&#x4E0B;&#x5373;&#x53EF;&#x770B;&#x5230;&#x63D0;&#x793A;](../../.gitbook/assets/image%20%2840%29.png)
+
+然后可以看到页面重新启用了登录框：
+
+![](../../.gitbook/assets/image%20%2858%29.png)
+
+恭喜你，到此为止，你已经学会了如何使用 Authing 开发第一个应用。
+
+本文的所有代码都可以在 [Github](https://github.com/authing/getting-started) 中找到。
+
+若你想要了解更多 Login-Form 的使用方法，下面有几个链接可供参考：
+
+1. [Login-Form Github](https://github.com/authing/login-form)
+2. [Login-Form 完整初始化参数列表](https://github.com/authing/login-form#%E5%AE%8C%E6%95%B4%E5%8F%82%E6%95%B0)
+3. [Login-Form 完成事件列表](https://github.com/authing/login-form#%E4%BA%8B%E4%BB%B6%E5%93%8D%E5%BA%94)
 
 ## 接下来你可能还需要
-
-了解 Authing 是什么以及你可以将 Authing 应用到哪些场景中：
-
-{% page-ref page="../../overviews.md" %}
 
  学习 Authing 的基础知识以及我们会用到的专业术语：
 
