@@ -13,20 +13,10 @@ description: 实现第一个基于 Authing 的应用。
 {% page-ref page="be-hello-world.md" %}
 
 {% hint style="success" %}
-本文使用 Authing 实现一个基于 Web 的登录登出应用，同时为了简单起见，本文不使用任何高级前端框架。
+本文使用 Authing 实现一个基于 Web 的登录退出应用，同时为了简单起见，本文不使用任何高级前端框架。
 {% endhint %}
 
-## 安装 Authing SDK
-
-### 使用 CDN
-
-```markup
-<script src="https://cdn.jsdelivr.net/npm/authing-js-sdk"></script>
-```
-
-如果你想使用 NPM 安装 SDK，请参考：
-
-{% page-ref page="../../sdk/authing-sdk-for-web.md" %}
+## 开发前准备
 
 ### 学习目标：
 
