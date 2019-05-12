@@ -270,7 +270,7 @@ form.on('authingLoad', async function(authing) {
 
 1. [Login-Form Github](https://github.com/authing/login-form)
 2. [Login-Form 完整初始化参数列表](https://github.com/authing/login-form#%E5%AE%8C%E6%95%B4%E5%8F%82%E6%95%B0)
-3. [Login-Form 完成事件列表](https://github.com/authing/login-form#%E4%BA%8B%E4%BB%B6%E5%93%8D%E5%BA%94)
+3. [Login-Form 完整事件列表](https://github.com/authing/login-form#%E4%BA%8B%E4%BB%B6%E5%93%8D%E5%BA%94)
 
 ## 接下来你可能还需要
 
