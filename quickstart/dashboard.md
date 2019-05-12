@@ -96,35 +96,35 @@ description: 控制台是你管理和配置所有 Authing 资源的地方，这�
   </tbody>
 </table>## 用户中心
 
-### 用户列表
+### 查看用户列表
 
 ![](../.gitbook/assets/image%20%2834%29.png)
 
-### 用户角色
+### 配置用户角色
 
 ![](../.gitbook/assets/image%20%2821%29.png)
 
 ## 消息服务
 
-### 邮件模版
+### 使用邮件模版
 
 ![](../.gitbook/assets/image%20%2817%29.png)
 
-### 第三方邮件服务
+### 使用第三方邮件服务
 
 
 
-### 短信验证
+### 查看短信登录模版
 
 ## 第三方登录
 
-### 社会化登录
+### 配置社会化登录
 
 ![](../.gitbook/assets/image%20%2813%29.png)
 
-### OAuth 应用
+### 添加 OAuth 应用
 
-### OIDC 应用
+### 添加 OIDC 应用
 
 ### 配置 LDAP 服务
 
