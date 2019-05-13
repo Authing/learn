@@ -29,18 +29,17 @@
 ## 开发资源（SDK）
 
 * [开发资源](sdk/libraries.md)
-* [SDK for Web](sdk/authing-sdk-for-web.md)
-* [SDK for iOS](sdk/authing-sdk-for-ios.md)
-* [SDK for Android](sdk/authing-sdk-for-android.md)
-* [SDK for 微信小程序](sdk/authing-sdk-for-wxapp.md)
+* [UI 自动生成](sdk/ui-zi-dong-sheng-cheng/README.md)
+  * [Login-Form for Web](sdk/ui-zi-dong-sheng-cheng/login-form.md)
+  * [单点登录](sdk/ui-zi-dong-sheng-cheng/guard.md)
+* [SDK](sdk/sdk/README.md)
+  * [SDK for Web](sdk/sdk/authing-sdk-for-web.md)
+  * [SDK for iOS](sdk/sdk/authing-sdk-for-ios.md)
+  * [SDK for Android](sdk/sdk/authing-sdk-for-android.md)
+  * [SDK for 微信小程序](sdk/sdk/authing-sdk-for-wxapp.md)
 * [Open Graphql](sdk/open-graphql.md)
 * [Open APIs](sdk/open-apis.md)
 * [函数计算（FaaS）](sdk/faas.md)
-
-## UI 组件
-
-* [Login-Form](ui/login-form.md)
-* [Guard](ui/guard.md)
 
 ## 通信
 
