@@ -357,7 +357,7 @@ mutation UpdateUser(
 
 此接口需要发送 Token，建议直接使用 `OwnerToken`。
 
-### 修改密码流程
+## 修改密码流程
 
 1. sendResetPasswordEmail 发送重置密码邮件给用户 
 2. verifyResetPasswordVerifyCode 检查验证码是否正确
@@ -367,7 +367,7 @@ mutation UpdateUser(
 
 以下三个修改密码的 Token 可以不发送任何`Token`。
 
-## sendResetPasswordEmail
+### sendResetPasswordEmail
 
 ```text
 mutation sendResetPasswordEmail(
@@ -384,7 +384,7 @@ mutation sendResetPasswordEmail(
 }
 ```
 
-## verifyResetPasswordVerifyCode
+### verifyResetPasswordVerifyCode
 
 ```text
 mutation verifyResetPasswordVerifyCode(
@@ -403,7 +403,7 @@ mutation verifyResetPasswordVerifyCode(
 }
 ```
 
-## changePassword
+### changePassword
 
 此接口用来更改忘记密码后的新密码，需要携带 verifyCode，不用发送 `Token`，正常的密码修正请使用上面的 `update` 接口。
 
