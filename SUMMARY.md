@@ -64,7 +64,8 @@
 
 ## 其他
 
-* [为 Authing 贡献 SDK](others/wei-authing-gong-xian-sdk.md)
+* [为 Authing 贡献 SDK](others/wei-authing-gong-xian-sdk/README.md)
+  * [了解 Authing 的模块](others/wei-authing-gong-xian-sdk/le-jie-authing-de-mo-kuai.md)
 * [常见问题](others/faq.md)
 * [SoLiD](others/solid/README.md)
   * [SoLiD 是什么](others/solid/basic.md)
