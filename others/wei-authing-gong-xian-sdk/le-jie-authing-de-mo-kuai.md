@@ -88,3 +88,9 @@ this.OAuthService = new ApolloClient({
 3. 做好错误处理，边界检查
 4. **Authing 的某些 GraphQL 查询需要发送不同的token，详情请看** [**GraphQL 请求列表**](https:///docs.authing.cn/#/sdk/gql)**中的相关说明**
 
+## 接下来你可能还需要
+
+查看 GraphQL 文档以使用 GraphQL 与 Authing 服务器交互：
+
+{% page-ref page="../../sdk/open-graphql.md" %}
+
