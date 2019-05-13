@@ -357,7 +357,7 @@ mutation UpdateUser(
 
 此接口需要发送 Token，建议直接使用 `OwnerToken`。
 
-## 修改密码流程
+## 重置密码流程
 
 1. sendResetPasswordEmail 发送重置密码邮件给用户 
 2. verifyResetPasswordVerifyCode 检查验证码是否正确
