@@ -4,69 +4,32 @@ description: 学习如何为 Authing 编写 SDK
 
 # 为 Authing 贡献 SDK
 
-{% api-method method="get" host="https://api.cakes.com" path="/v1/cakes/:id" %}
-{% api-method-summary %}
-Get Cakes
-{% endapi-method-summary %}
+## SDK 编写导览
 
-{% api-method-description %}
-This endpoint allows you to get free cakes.
-{% endapi-method-description %}
+Authing 的客户端 SDK 使用 GraphQL 进行通信，各语言需安装必要的 GraphQL 客户端。
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="id" type="string" %}
-ID of the cake to get, for free of course.
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
+开始编写：
 
-{% api-method-headers %}
-{% api-method-parameter name="Authentication" type="string" required=true %}
-Authentication token to track down who is emptying our stocks.
-{% endapi-method-parameter %}
-{% endapi-method-headers %}
+* [开始编写 Authing SDK](https://docs.authing.cn/#/sdk/modules)
+* [Authing GraphQL 请求列表](https://docs.authing.cn/#/sdk/gql)
 
-{% api-method-query-parameters %}
-{% api-method-parameter name="recipe" type="string" %}
-The API will do its best to find a cake matching the provided recipe.
-{% endapi-method-parameter %}
+GraphQL教程：
 
-{% api-method-parameter name="gluten" type="boolean" %}
-Whether the cake should be gluten-free or not.
-{% endapi-method-parameter %}
-{% endapi-method-query-parameters %}
-{% endapi-method-request %}
+* [GraphQL 官方文档](http://facebook.github.io/graphql/October2016/)
+* [GraphQL: 一种用于 API 的查询语言\(中文文档\)](http://graphql.cn/)
+* [Apollo GraphQL Github](https://github.com/apollographql)
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-Cake successfully retrieved.
-{% endapi-method-response-example-description %}
+参考案例：
 
-```javascript
-{
-    "name": "Cake's name",
-    "recipe": "Cake's recipe name",
-    "cake": "Binary cake"
-}
-```
-{% endapi-method-response-example %}
+* [Authing JavaScript SDK](https://github.com/Authing/authing-js-sdk)
+* [Authing Python SDK](https://github.com/Authing/authing-py-sdk)
 
-{% api-method-response-example httpCode=404 %}
-{% api-method-response-example-description %}
-Could not find a cake matching this query.
-{% endapi-method-response-example-description %}
+各语言对应的 GraphQL SDK（仅供参考）：
 
-```javascript
-{
-    "message": "Ain't no cake like that."
-}
-```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
-
-
+* [Python: sgqlc](https://github.com/profusion/sgqlc)
+* [PHP: graphql-php](https://github.com/webonyx/graphql-php)
+* [Java: graphql-java](https://github.com/graphql-java/graphql-java)
+* [JavaScript: apollo-client](https://github.com/apollographql/apollo-client)
+* [Swift: GraphqlSwift](https://github.com/GraphQLSwift/GraphQL)
+* [Go: graphql-go](https://github.com/shurcooL/graphql)
 
