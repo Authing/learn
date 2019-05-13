@@ -68,7 +68,7 @@ mutation login($unionid: String, $email: String, $password: String, $lastIP: Str
 
 ### **注意事项**
 
-1. 此处（登录）的密码需要加密，Authing 使用了非对称加密算法，加密方式是 `PKCS1v1.5`。注意，个别语言，如 JavaScript（非 Node ）和 Go 在加密之后还要使用 `base64` 包一层，要注意喔；
+1. 此处（登录）的密码需要加密，Authing 使用了非对称加密算法，加密方式是 `PKCS1v1.5`。注意，个别语言，如 JavaScript（非 Node ）和 Go 在加密之后还要使用 `base64` 包一层；
 2. 此接口不需要发送任何 `Token`。
 
 ### **Public Key**
@@ -131,7 +131,7 @@ mutation register(
 
 ### **注意事项**
 
-1. 此处（登录）的密码需要加密，Authing 使用了非对称加密算法，加密方式是 `PKCS1v1.5`。注意，个别语言，如 JavaScript（非 Node）和 Go 在加密之后还要使用 `base64` 包一层，要注意喔。
+1. 此处（登录）的密码需要加密，Authing 使用了非对称加密算法，加密方式是 `PKCS1v1.5`。注意，个别语言，如 JavaScript（非 Node）和 Go 在加密之后还要使用 `base64` 包一层。
 2. 此接口不需要发送任何 `Token`。
 
 ### **Public Key**
