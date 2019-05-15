@@ -1,10 +1,10 @@
-# JWT Token
+# JWT Token 解释
 
-Authing 基于 JWT Token 进行身份认证。
+Authing 默认基于 JWT Token 进行身份认证。
 
 ## JWT 简介
 
-Json web token \(JWT\), 是为了在网络应用环境间传递声明而执行的一种基于 JSON 的开放标准（\(RFC 7519\)。该 token 被设计为紧凑且安全的，特别适用于分布式站点的单点登录（SSO）场景。JWT 的声明一般被用来在身份提供者和服务提供者间传递被认证的用户身份信息，以便于从资源服务器获取资源，也可以增加一些额外的其它业务逻辑所必须的声明信息，该 token 也可直接被用于认证，也可被加密。
+Json web token \(JWT\)，是为了在网络应用环境间传递声明而执行的一种基于 JSON 的开放标准（\(RFC 7519\)。该 token 被设计为紧凑且安全的，特别适用于分布式站点的单点登录（SSO）场景。JWT 的声明一般被用来在身份提供者和服务提供者间传递被认证的用户身份信息，以便于从资源服务器获取资源，也可以增加一些额外的其它业务逻辑所必须的声明信息，该 token 也可直接被用于认证，也可被加密。
 
 详细内容可以参考这篇文章：[什么是 JWT](https://www.jianshu.com/p/576dbf44b2ae)。
 
@@ -12,11 +12,16 @@ Json web token \(JWT\), 是为了在网络应用环境间传递声明而执行�
 
 ![auth\_uml](https://usercontents.authing.cn/white_paper/authing_auth_uml.png)
 
-* 用户使用用户名密码来请求服务器
-* 服务器进行验证用户的信息
-* 服务器通过验证发送给用户一个 Token
-* 客户端存储 Token，并在每次请求时附送上这个 Token 值
-* 服务端验证 Token值，并返回数据（如何验证？）
+### 用户认证的流程
+
+* 用户使用账号（手机/邮箱/用户名）密码请求服务器
+* 服务器验证用户账号是否和数据库匹配
+* 服务器通过验证后发送给客户端一个 JWT Token
+* **客户端存储 Token，并在每次请求时附带该 Token**
+  * **附带方式建议使用 HTTP Header Authorization 头的形式（如何使用？）**
+* **服务端验证 Token 值，并根据 Token 合法性返回对应资源（**[**如何验证？**](https://learn.authing.cn/authing/advanced/authentication/jwt-token#ru-he-yan-zheng-token-he-fa-xing)**）**
+
+加粗部分为开发者需要进行的工作。
 
 ## 安全限制
 
@@ -27,7 +32,34 @@ Json web token \(JWT\), 是为了在网络应用环境间传递声明而执行�
 
 若想开启/关闭或修改此限制，请参考：[开启/关闭/配置注册频率限制](https://learn.authing.cn/authing/quickstart/dashboard#kai-qi-guan-bi-pei-zhi-zhu-ce-pin-lv-xian-zhi)。
 
+## 客户端附带 JWT Token 的方式
+
+用户在完成认证后会返回开发者一个 JWT Token，开发者需将此 Token 存储于客户端，然后将此 Token 发送给开发者受限的后端服务器进行验证。
+
+建议使用 **HTTP Header Authorization** 的形式携带 Token，以下以 JavaScript 的 axios 库为例示范如何携带：
+
+```javascript
+const axios = require('axios');
+axios.get({
+  url: 'https://yourdomain.com/api/v1/your/resources',
+  headers: {
+    'Authorization': 'Bearer YOUR_JWT_TOKN'
+  }
+}).then((res) => {
+ // custom codes
+})
+```
+
+注意第五行前面有 **Bearer 类型。**
+
+### **Bearer 是什么意思？**
+
+Bearer Token \([RFC 6750](http://www.rfcreader.com/#rfc6750)\) 用于授权访问资源，任何 Bearer 持有者都可以无差别地用它来访问相关的资源，而无需证明持有加密 key。一个 Bearer 代表授权范围、有效期，以及其他授权事项；一个 Bearer 在存储和传输过程中应当防止泄露，需实现 Transport Layer Security \(TLS\)；一个 Bearer 有效期不能过长，过期后可用 Refresh Token 申请更新。
+
 ## 如何验证 Token 合法性
+
+  
+
 
 
 
