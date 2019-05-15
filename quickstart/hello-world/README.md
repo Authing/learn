@@ -39,11 +39,11 @@ description: 实现第一个基于 Authing 的应用。
 
 如果你还没有账号，请[点击这里注册 Authing 账号](https://authing.cn/login)，注册完成后请创建一个应用：
 
-![&#x70B9;&#x51FB;&#x300C;+ &#x521B;&#x5EFA;&#x5E94;&#x7528;&#x300D;](../../.gitbook/assets/image%20%286%29.png)
+![&#x70B9;&#x51FB;&#x300C;+ &#x521B;&#x5EFA;&#x5E94;&#x7528;&#x300D;](../../.gitbook/assets/image%20%287%29.png)
 
-![&#x586B;&#x5199;&#x5E94;&#x7528;&#x540D;&#x79F0;&#xFF0C;&#x7C7B;&#x578B;&#x9009;&#x62E9; Web &#x7C7B;&#x578B;](../../.gitbook/assets/image%20%2860%29.png)
+![&#x586B;&#x5199;&#x5E94;&#x7528;&#x540D;&#x79F0;&#xFF0C;&#x7C7B;&#x578B;&#x9009;&#x62E9; Web &#x7C7B;&#x578B;](../../.gitbook/assets/image%20%2862%29.png)
 
-![&#x521B;&#x5EFA;&#x6210;&#x529F;&#x540E;&#x5373;&#x53EF;&#x8FDB;&#x5165;&#x5E94;&#x7528;&#x63A7;&#x5236;&#x53F0;](../../.gitbook/assets/image%20%2813%29.png)
+![&#x521B;&#x5EFA;&#x6210;&#x529F;&#x540E;&#x5373;&#x53EF;&#x8FDB;&#x5165;&#x5E94;&#x7528;&#x63A7;&#x5236;&#x53F0;](../../.gitbook/assets/image%20%2815%29.png)
 
 ## 第一步：配置一个基本的 HTML 页面和 CSS
 
@@ -110,7 +110,7 @@ description: 实现第一个基于 Authing 的应用。
 
 该库生成的登录表单如下图所示：
 
-![&#x767B;&#x5F55;&#x8868;&#x5355;](../../.gitbook/assets/image%20%2839%29.png)
+![&#x767B;&#x5F55;&#x8868;&#x5355;](../../.gitbook/assets/image%20%2841%29.png)
 
 同时你可以点击这里[访问 DEMO 网站](https://sample.authing.cn/#/)。
 
@@ -138,7 +138,7 @@ const form = new AuthingForm({
 
 **clientId** 参数获取方式如下：
 
-![](../../.gitbook/assets/image%20%2819%29.png)
+![](../../.gitbook/assets/image%20%2821%29.png)
 
 ## 第四步：监听登录成功事件并显示用户名
 
@@ -207,17 +207,17 @@ Hit CTRL-C to stop the server
 
 现在让我们用浏览器打开 http://127.0.0.1:8080，应该可以看到如下界面：
 
-![](../../.gitbook/assets/image%20%2824%29.png)
+![](../../.gitbook/assets/image%20%2826%29.png)
 
 此时，请先点击「注册」按钮注册一个账户：
 
-![](../../.gitbook/assets/image%20%2829%29.png)
+![](../../.gitbook/assets/image%20%2831%29.png)
 
-![&#x6CE8;&#x518C;&#x6210;&#x529F;&#x540E;&#x70B9;&#x51FB;&#x300C;&#x767B;&#x5F55;&#x300D;&#x4FBF;&#x53EF;&#x4EE5;&#x767B;&#x5F55;](../../.gitbook/assets/image%20%2823%29.png)
+![&#x6CE8;&#x518C;&#x6210;&#x529F;&#x540E;&#x70B9;&#x51FB;&#x300C;&#x767B;&#x5F55;&#x300D;&#x4FBF;&#x53EF;&#x4EE5;&#x767B;&#x5F55;](../../.gitbook/assets/image%20%2825%29.png)
 
 登录完成后可以看到如下信息：
 
-![](../../.gitbook/assets/image%20%2862%29.png)
+![](../../.gitbook/assets/image%20%2865%29.png)
 
 登录后能看到此界面表明已经调试成功了。
 
@@ -257,11 +257,11 @@ form.on('authingLoad', async function(authing) {
 
 请打开浏览器，刷新页面，点击「退出」，稍等片刻后可以看到页面弹出了下面这个提示：
 
-![&#x9000;&#x51FA;&#x6D89;&#x53CA;&#x5230;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x51FA;&#x73B0;&#x7F51;&#x7EDC;&#x5EF6;&#x8FDF;&#xFF0C;&#x82E5;&#x6CA1;&#x7ACB;&#x5373;&#x51FA;&#x73B0;&#xFF0C;&#x8BF7;&#x7B49;&#x5F85;&#x4E00;&#x4E0B;&#x5373;&#x53EF;&#x770B;&#x5230;&#x63D0;&#x793A;](../../.gitbook/assets/image%20%2843%29.png)
+![&#x9000;&#x51FA;&#x6D89;&#x53CA;&#x5230;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x51FA;&#x73B0;&#x7F51;&#x7EDC;&#x5EF6;&#x8FDF;&#xFF0C;&#x82E5;&#x6CA1;&#x7ACB;&#x5373;&#x51FA;&#x73B0;&#xFF0C;&#x8BF7;&#x7B49;&#x5F85;&#x4E00;&#x4E0B;&#x5373;&#x53EF;&#x770B;&#x5230;&#x63D0;&#x793A;](../../.gitbook/assets/image%20%2845%29.png)
 
 然后可以看到页面重新启用了登录框：
 
-![](../../.gitbook/assets/image%20%2861%29.png)
+![](../../.gitbook/assets/image%20%2864%29.png)
 
 ## 第七步：在后端验证 JWT Token 的合法性
 
@@ -269,7 +269,7 @@ form.on('authingLoad', async function(authing) {
 
 验证 JWT 的合法性需要使用应用的密钥，密钥在控制台中可以获取到，如下图所示：
 
-![&#x82E5;&#x4F60;&#x7684;&#x5BC6;&#x94A5;&#x53D1;&#x751F;&#x6CC4;&#x6F0F;&#xFF0C;&#x8BF7;&#x70B9;&#x51FB;&#x300C;&#x5237;&#x65B0;&#x300D;&#x91CD;&#x7F6E;&#x5BC6;&#x94A5;](../../.gitbook/assets/image%20%2837%29.png)
+![&#x82E5;&#x4F60;&#x7684;&#x5BC6;&#x94A5;&#x53D1;&#x751F;&#x6CC4;&#x6F0F;&#xFF0C;&#x8BF7;&#x70B9;&#x51FB;&#x300C;&#x5237;&#x65B0;&#x300D;&#x91CD;&#x7F6E;&#x5BC6;&#x94A5;](../../.gitbook/assets/image%20%2839%29.png)
 
 以下验证合法性的代码以 Node 为例（需要安装 `jsonwebtoken`）。
 
