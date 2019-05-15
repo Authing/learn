@@ -100,7 +100,11 @@ description: 控制台是你管理和配置所有 Authing 资源的地方，这�
 
 ![](../.gitbook/assets/image%20%2834%29.png)
 
-### 配置用户角色
+### 配置用户权限
+
+配置方式请参考：
+
+{% page-ref page="../advanced/roles/" %}
 
 ![](../.gitbook/assets/image%20%2821%29.png)
 
@@ -132,7 +136,7 @@ description: 控制台是你管理和配置所有 Authing 资源的地方，这�
 
 ### 修改基础信息
 
-![](../.gitbook/assets/image%20%2839%29.png)
+![](../.gitbook/assets/image%20%2840%29.png)
 
 ### 配置 CORS 域
 
@@ -146,7 +150,7 @@ description: 控制台是你管理和配置所有 Authing 资源的地方，这�
 
 ## 价格
 
-![](../.gitbook/assets/image%20%2854%29.png)
+![](../.gitbook/assets/image%20%2855%29.png)
 
 
 

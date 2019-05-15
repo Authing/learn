@@ -57,7 +57,7 @@ clientId 和 secret 在控制台中的查看位置如下图所示：
 在本文的例子中，「非凡科技」创建了一个邮箱为「test@feifantech.com」的账号用来测试 Authing 的账号系统。
 {% endhint %}
 
-![&#x5728;&#x63A7;&#x5236;&#x53F0;&#x4E2D;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x7684;&#x7528;&#x6237;&#x8D44;&#x6599;](../.gitbook/assets/image%20%2838%29.png)
+![&#x5728;&#x63A7;&#x5236;&#x53F0;&#x4E2D;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x7684;&#x7528;&#x6237;&#x8D44;&#x6599;](../.gitbook/assets/image%20%2839%29.png)
 
 在「原始 JSON 数据」选项卡中可以看到一段用来表示该账号的 JSON 数据：
 
@@ -110,7 +110,7 @@ Authing 中可以配置每个账号所属的用户组和用户组权限，如果
 
 此外，如果用户使用手机 - 验证码登录，那么其背后的短信发送也由 Authing 完成，Authing 的短信发送能力依赖于第三方短信服务。
 
-![&#x6D88;&#x606F;&#x670D;&#x52A1;&#x5728;&#x63A7;&#x5236;&#x53F0;&#x4E2D;&#x7684;&#x4F4D;&#x7F6E;](../.gitbook/assets/image%20%2860%29.png)
+![&#x6D88;&#x606F;&#x670D;&#x52A1;&#x5728;&#x63A7;&#x5236;&#x53F0;&#x4E2D;&#x7684;&#x4F4D;&#x7F6E;](../.gitbook/assets/image%20%2861%29.png)
 
 {% hint style="success" %}
 在本文的例子中，「非凡科技」修改了邮件模版，将邮件主题「你已成功注册 {{ client\_name }}」修改为了「欢迎注册 {{ client\_name }}」。

@@ -41,7 +41,7 @@ description: 实现第一个基于 Authing 的应用。
 
 ![&#x70B9;&#x51FB;&#x300C;+ &#x521B;&#x5EFA;&#x5E94;&#x7528;&#x300D;](../../.gitbook/assets/image%20%286%29.png)
 
-![&#x586B;&#x5199;&#x5E94;&#x7528;&#x540D;&#x79F0;&#xFF0C;&#x7C7B;&#x578B;&#x9009;&#x62E9; Web &#x7C7B;&#x578B;](../../.gitbook/assets/image%20%2857%29.png)
+![&#x586B;&#x5199;&#x5E94;&#x7528;&#x540D;&#x79F0;&#xFF0C;&#x7C7B;&#x578B;&#x9009;&#x62E9; Web &#x7C7B;&#x578B;](../../.gitbook/assets/image%20%2858%29.png)
 
 ![&#x521B;&#x5EFA;&#x6210;&#x529F;&#x540E;&#x5373;&#x53EF;&#x8FDB;&#x5165;&#x5E94;&#x7528;&#x63A7;&#x5236;&#x53F0;](../../.gitbook/assets/image%20%2812%29.png)
 
@@ -110,7 +110,7 @@ description: 实现第一个基于 Authing 的应用。
 
 该库生成的登录表单如下图所示：
 
-![&#x767B;&#x5F55;&#x8868;&#x5355;](../../.gitbook/assets/image%20%2836%29.png)
+![&#x767B;&#x5F55;&#x8868;&#x5355;](../../.gitbook/assets/image%20%2837%29.png)
 
 同时你可以点击这里[访问 DEMO 网站](https://sample.authing.cn/#/)。
 
@@ -164,6 +164,7 @@ form.on('login', function(user) {
     localStorage.setItem('userInfo', JSON.stringify(user));
     localStorage.setItem('userId', user._id); // 存储用户 id 到 localStorage 中
     localStorage.setItem('username', user.username); // 存储用户 username 到 localStorage 中
+    localStorage.setItem('token', user.token); // 存储用户的 JWT Token
 
     form.hide(); // 为了简单起见，这里在登录成功后直接隐藏表单，在 React 或 Vue 应用中，你可以执行路由跳转或其他业务
 
@@ -216,7 +217,7 @@ Hit CTRL-C to stop the server
 
 登录完成后可以看到如下信息：
 
-![](../../.gitbook/assets/image%20%2859%29.png)
+![](../../.gitbook/assets/image%20%2860%29.png)
 
 登录后能看到此界面表明已经调试成功了。
 
@@ -256,11 +257,37 @@ form.on('authingLoad', async function(authing) {
 
 请打开浏览器，刷新页面，点击「退出」，稍等片刻后可以看到页面弹出了下面这个提示：
 
-![&#x9000;&#x51FA;&#x6D89;&#x53CA;&#x5230;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x51FA;&#x73B0;&#x7F51;&#x7EDC;&#x5EF6;&#x8FDF;&#xFF0C;&#x82E5;&#x6CA1;&#x7ACB;&#x5373;&#x51FA;&#x73B0;&#xFF0C;&#x8BF7;&#x7B49;&#x5F85;&#x4E00;&#x4E0B;&#x5373;&#x53EF;&#x770B;&#x5230;&#x63D0;&#x793A;](../../.gitbook/assets/image%20%2840%29.png)
+![&#x9000;&#x51FA;&#x6D89;&#x53CA;&#x5230;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x51FA;&#x73B0;&#x7F51;&#x7EDC;&#x5EF6;&#x8FDF;&#xFF0C;&#x82E5;&#x6CA1;&#x7ACB;&#x5373;&#x51FA;&#x73B0;&#xFF0C;&#x8BF7;&#x7B49;&#x5F85;&#x4E00;&#x4E0B;&#x5373;&#x53EF;&#x770B;&#x5230;&#x63D0;&#x793A;](../../.gitbook/assets/image%20%2841%29.png)
 
 然后可以看到页面重新启用了登录框：
 
-![](../../.gitbook/assets/image%20%2858%29.png)
+![](../../.gitbook/assets/image%20%2859%29.png)
+
+## 第七步：在后端验证 JWT Token 的合法性
+
+你可以在任意客户端将 JWT Token 发送给后端验证该 JWT 的合法性以及是否过期。
+
+验证 JWT 的合法性需要使用应用的密钥，密钥在控制台中可以获取到，如下图所示：
+
+![&#x82E5;&#x4F60;&#x7684;&#x5BC6;&#x94A5;&#x53D1;&#x751F;&#x6CC4;&#x6F0F;&#xFF0C;&#x8BF7;&#x70B9;&#x51FB;&#x300C;&#x5237;&#x65B0;&#x300D;&#x91CD;&#x7F6E;&#x5BC6;&#x94A5;](../../.gitbook/assets/image%20%2835%29.png)
+
+以下验证合法性的代码以 Node 为例（需要安装 `jsonwebtoken`）。
+
+```javascript
+const jwt = require('jsonwebtoken');
+
+try {
+  let decoded = jwt.verify('JSON Web Token from client', 'your_secret'),
+    expired = (Date.parse(new Date()) / 1000) > decoded.exp
+  if (expired) {
+    // 过期
+  }else {
+    // 合法也没过期，正常放行
+  }
+} catch (error) {
+  // 不合法
+}
+```
 
 恭喜你，到此为止，你已经学会了如何使用 Authing 开发第一个应用。
 
