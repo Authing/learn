@@ -41,7 +41,9 @@ description: 实现第一个基于 Authing 的应用。
 
 ![&#x586B;&#x5199;&#x5E94;&#x7528;&#x540D;&#x79F0;&#xFF0C;&#x7C7B;&#x578B;&#x9009;&#x62E9; Web &#x7C7B;&#x578B;](../.gitbook/assets/image%20%2872%29.png)
 
-![&#x521B;&#x5EFA;&#x6210;&#x529F;&#x540E;&#x5373;&#x53EF;&#x8FDB;&#x5165;&#x5E94;&#x7528;&#x63A7;&#x5236;&#x53F0;](../.gitbook/assets/image%20%2817%29.png)
+![&#x521B;&#x5EFA;&#x6210;&#x529F;&#x540E;&#x5373;&#x53EF;&#x8FDB;&#x5165;&#x5E94;&#x7528;&#x63A7;&#x5236;&#x53F0;&#xFF08;&#x7A7A;&#x7A7A;&#x5982;&#x4E5F;&#xFF09;](../.gitbook/assets/image%20%2817%29.png)
+
+如果你有很多独立的系统，那么可以创建多个「用户池」来分割用户，如果你想多个应用共用一个用户池，请学习我们的[单点登录](https://learn.authing.cn/authing/quickstart/basic#dan-dian-deng-lu)概念。
 
 ## 第一步：配置一个基本的 HTML 页面和 CSS
 
@@ -68,7 +70,6 @@ description: 实现第一个基于 Authing 的应用。
   </style>  
 </head>
 <body>
-  <script src="https://cdn.jsdelivr.net/npm/authing-js-sdk"></script>
   <script src="https://cdn.jsdelivr.net/npm/jquery"></script>
   <script>
       // Custom Codes
@@ -77,7 +78,7 @@ description: 实现第一个基于 Authing 的应用。
 </html>
 ```
 
-示例中使用了 jQuery 和 Authing。
+示例中使用了 jQuery。
 
 本教程只是为了演示，因此我们没选择其他更加高级的框架，这可以让我们专注于 Authing 本身。
 
@@ -106,11 +107,9 @@ description: 实现第一个基于 Authing 的应用。
 
 将脚本文件放到入口脚本之前即可。
 
-该库生成的登录表单如下图所示：
+使用该库可以生成一个登录表单，其样式如下图所示：
 
 ![&#x767B;&#x5F55;&#x8868;&#x5355;](../.gitbook/assets/image%20%2848%29.png)
-
-同时你可以点击这里[访问 DEMO 网站](https://sample.authing.cn/#/)。
 
 调用方法非常简单，代码如下所示：
 
@@ -138,9 +137,11 @@ const form = new AuthingForm({
 
 ![](../.gitbook/assets/image%20%2826%29.png)
 
+你可以点击这里[访问 DEMO 网站](https://sample.authing.cn/#/)。
+
 ## 第四步：监听登录成功事件并显示用户名
 
-在 Login-Form 中，开发者可以使用 `.on` 的方法监听登录成功的事件，[完整的事件列表请参考这里](https://github.com/authing/login-form#%E4%BA%8B%E4%BB%B6%E5%93%8D%E5%BA%94)。
+在 Login-Form 中，开发者可以使用 `.on` 方法监听登录成功的事件，[完整的事件列表请参考这里](https://github.com/authing/login-form#%E4%BA%8B%E4%BB%B6%E5%93%8D%E5%BA%94)。
 
 登录成功的事件名称为「login」：
 
@@ -159,14 +160,14 @@ const form = new AuthingForm({
 form.on('login', function(user) {
     // 成功登录后的回调事件，参数 user 为用户数据
 
-    localStorage.setItem('userInfo', JSON.stringify(user));
+    localStorage.setItem('userInfo', JSON.stringify(user)); // 存储用户 id 到 localStorage 中
     localStorage.setItem('userId', user._id); // 存储用户 id 到 localStorage 中
     localStorage.setItem('username', user.username); // 存储用户 username 到 localStorage 中
-    localStorage.setItem('token', user.token); // 存储用户的 JWT Token
+    localStorage.setItem('token', user.token); // 存储用户的 JWT Token 到 localStorage 中
 
     form.hide(); // 为了简单起见，这里在登录成功后直接隐藏表单，在 React 或 Vue 应用中，你可以执行路由跳转或其他业务
 
-    showLoginStatus(); // 改变 UI 状态的函数
+    showLoginStatus(); // 改变 UI 状态，显示用户名和完整的用户 JSON 信息
 });
 
 const showLoginStatus = () => {
@@ -176,6 +177,8 @@ const showLoginStatus = () => {
 }
 
 ```
+
+登录成功的回调事件中会返回登录用户的 userInfo，其中有 JWT Token，点击此处[查看 JWT Token 的释义、使用及验证](https://learn.authing.cn/authing/advanced/authentication/jwt-token)。
 
 ## 第五步：调试登录/注册功能
 
@@ -257,35 +260,15 @@ form.on('authingLoad', async function(authing) {
 
 ![&#x9000;&#x51FA;&#x6D89;&#x53CA;&#x5230;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x51FA;&#x73B0;&#x7F51;&#x7EDC;&#x5EF6;&#x8FDF;&#xFF0C;&#x82E5;&#x6CA1;&#x7ACB;&#x5373;&#x51FA;&#x73B0;&#xFF0C;&#x8BF7;&#x7B49;&#x5F85;&#x4E00;&#x4E0B;&#x5373;&#x53EF;&#x770B;&#x5230;&#x63D0;&#x793A;](../.gitbook/assets/image%20%2852%29.png)
 
-然后可以看到页面重新启用了登录框：
+点击弹出对话框的「OK」或「确认」按钮后可以看到页面重新启用了登录框：
 
 ![](../.gitbook/assets/image%20%2874%29.png)
 
-## 第七步：在后端验证 JWT Token 的合法性
+{% hint style="info" %}
+若你需要在后端验证 JWT Token 的合法性请[点击这里查看](https://learn.authing.cn/authing/advanced/authentication/jwt-token#yan-zheng-token-he-fa-xing)。
 
-你可以在任意客户端将 JWT Token 发送给后端验证该 JWT 的合法性以及是否过期。
-
-验证 JWT 的合法性需要使用应用的密钥，密钥在控制台中可以获取到，如下图所示：
-
-![&#x82E5;&#x4F60;&#x7684;&#x5BC6;&#x94A5;&#x53D1;&#x751F;&#x6CC4;&#x6F0F;&#xFF0C;&#x8BF7;&#x70B9;&#x51FB;&#x300C;&#x5237;&#x65B0;&#x300D;&#x91CD;&#x7F6E;&#x5BC6;&#x94A5;](../.gitbook/assets/image%20%2846%29.png)
-
-以下验证合法性的代码以 Node 为例（需要安装 `jsonwebtoken`）。
-
-```javascript
-const jwt = require('jsonwebtoken');
-
-try {
-  let decoded = jwt.verify('JSON Web Token from client', 'your_secret'),
-    expired = (Date.parse(new Date()) / 1000) > decoded.exp
-  if (expired) {
-    // 过期
-  }else {
-    // 合法也没过期，正常放行
-  }
-} catch (error) {
-  // 不合法
-}
-```
+如果你还不理解什么是 JWT Token 请[查看这篇文章](https://learn.authing.cn/authing/advanced/authentication/jwt-token)。
+{% endhint %}
 
 恭喜你，到此为止，你已经学会了如何使用 Authing 开发第一个应用。
 
