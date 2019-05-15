@@ -6,7 +6,7 @@ description: 控制台是你管理和配置所有 Authing 资源的地方，这�
 
 在 [Authing 控制台](https://authing.cn/dashboard)中你可以对 Authing 的资源、用户等信息进行配置和修改。
 
-![Authing &#x5E94;&#x7528;&#xFF08;&#x7528;&#x6237;&#x6C60;&#xFF09;&#x7684;&#x4E3B;&#x63A7;&#x754C;&#x9762;](../.gitbook/assets/image%20%2820%29.png)
+![Authing &#x5E94;&#x7528;&#xFF08;&#x7528;&#x6237;&#x6C60;&#xFF09;&#x7684;&#x4E3B;&#x63A7;&#x754C;&#x9762;](../.gitbook/assets/image%20%2821%29.png)
 
 在界面的右上角有六个选项可以选择，以下是**从左到右**每个模块的介绍：
 
@@ -98,7 +98,7 @@ description: 控制台是你管理和配置所有 Authing 资源的地方，这�
 
 ### 查看用户列表
 
-![](../.gitbook/assets/image%20%2834%29.png)
+![](../.gitbook/assets/image%20%2836%29.png)
 
 ### 配置用户权限
 
@@ -106,25 +106,38 @@ description: 控制台是你管理和配置所有 Authing 资源的地方，这�
 
 {% page-ref page="../advanced/roles/" %}
 
-![](../.gitbook/assets/image%20%2821%29.png)
+![](../.gitbook/assets/image%20%2822%29.png)
 
 ## 消息服务
 
 ### 使用邮件模版
 
-![](../.gitbook/assets/image%20%2817%29.png)
+在邮件模版中可以配置四种类型的邮件模版，分别是：
+
+1. **欢迎邮件** - 若用户使用邮箱注册会发送此邮件；
+2. **验证邮件** - 若用户使用邮箱注册会发送一封验证邮件给用户用来验证邮箱，用户点击邮箱中的链接即可完成验证；
+3. **修改密码** - 每当用户要求更改密码时，都会发送此电子邮件，邮件中附带一个验证码，用户需要填写此验证码完成密码修改；
+4. **重置密码** - 当用户忘记密码时系统将发送此重置密码的邮件，邮件中附带一个验证码，用户提交验证码和新密码后将可以重置密码。
+
+![](../.gitbook/assets/image%20%2818%29.png)
 
 ### 使用第三方邮件服务
 
+我们自带的邮件发送服务器使用阿里云企业邮箱，若你想自定义邮件服务器可在此页面中设置（目前支持阿里企业邮箱和腾讯企业邮箱）。
 
+![](../.gitbook/assets/image%20%2827%29.png)
 
 ### 查看短信登录模版
+
+短信验证让用户能够使用以短信形式发送到其手机上的一次性密码登录，目前不支持短信模版修改。
+
+![](../.gitbook/assets/image%20%2810%29.png)
 
 ## 第三方登录
 
 ### 配置社会化登录
 
-![](../.gitbook/assets/image%20%2813%29.png)
+![](../.gitbook/assets/image%20%2814%29.png)
 
 ### 添加 OAuth 应用
 
@@ -136,7 +149,7 @@ description: 控制台是你管理和配置所有 Authing 资源的地方，这�
 
 ### 修改基础信息
 
-![](../.gitbook/assets/image%20%2840%29.png)
+![](../.gitbook/assets/image%20%2842%29.png)
 
 ### 配置 CORS 域
 
@@ -150,7 +163,7 @@ description: 控制台是你管理和配置所有 Authing 资源的地方，这�
 
 ## 价格
 
-![](../.gitbook/assets/image%20%2855%29.png)
+![](../.gitbook/assets/image%20%2857%29.png)
 
 
 
