@@ -1,4 +1,4 @@
-# JWT Token 解释
+# JWT Token 释义、使用及验证
 
 Authing 默认基于 JWT Token 进行身份认证。
 
