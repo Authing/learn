@@ -18,6 +18,7 @@
   * [用户名 - 密码认证](advanced/authentication/yong-hu-ming-mi-ma-ren-zheng.md)
   * [手机 - 验证码认证](advanced/authentication/shou-ji-yan-zheng-ma-ren-zheng.md)
   * [小程序扫码认证](advanced/authentication/xiao-cheng-xu-sao-ma-ren-zheng.md)
+  * [JWT Token](advanced/authentication/jwt-token.md)
 * [第三方登录](advanced/connections/README.md)
   * [使用社会化登录](advanced/connections/she-hui-hua-deng-lu.md)
   * [理解单点登录](advanced/connections/sso.md)

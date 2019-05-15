@@ -8,7 +8,7 @@ description: 了解 Authing 的认证方式
 
 ## 普通认证
 
-普通认证是在创建 Authing 用户池后默认支持的认证方式
+普通认证是在创建 Authing 用户池后默认支持的认证方式，此种认证方式在认证成功后会返回由 Authing 签发的 JWT Token 作为认证凭据（什么是 JWT Token？）。
 
 {% page-ref page="zhang-hao-mi-ma-ren-zheng.md" %}
 
