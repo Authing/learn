@@ -26,7 +26,7 @@ description: 学习如何使用 Authing 进行开发，并理解身份认证的�
 
 之后，让我们使用 Authing 实现第一个应用：
 
-{% page-ref page="quickstart/hello-world/" %}
+{% page-ref page="quickstart/hello-world.md" %}
 
 接着，学习 Authing 的基础知识以及我们会用到的专业术语：
 

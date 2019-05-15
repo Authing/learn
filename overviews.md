@@ -52,7 +52,7 @@ Authing 提供专业的身份认证和授权服务。
 
 使用 Authing 开发第一个应用：
 
-{% page-ref page="quickstart/hello-world/" %}
+{% page-ref page="quickstart/hello-world.md" %}
 
 了解 Authing 的基础概念和术语，以清除学习 Authing 过程中的障碍：
 

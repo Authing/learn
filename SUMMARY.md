@@ -5,8 +5,7 @@
 
 ## 快速开始
 
-* [第一个应用](quickstart/hello-world/README.md)
-  * [面向后端开发者的 Hello World](quickstart/hello-world/be-hello-world.md)
+* [第一个应用](quickstart/hello-world.md)
 * [基础概念](quickstart/basic.md)
 * [控制台概览](quickstart/dashboard.md)
 * [部署模型](quickstart/deployment.md)
