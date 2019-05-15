@@ -1,2 +1,2 @@
-# 配置 OIDC
+# 使用 OpenID Connect
 

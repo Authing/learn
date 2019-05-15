@@ -13,7 +13,7 @@
 
 ## 进阶指南
 
-* [认证](advanced/authentication/README.md)
+* [认证和授权](advanced/authentication/README.md)
   * [邮箱 - 密码认证](advanced/authentication/zhang-hao-mi-ma-ren-zheng.md)
   * [用户名 - 密码认证](advanced/authentication/yong-hu-ming-mi-ma-ren-zheng.md)
   * [手机 - 验证码认证](advanced/authentication/shou-ji-yan-zheng-ma-ren-zheng.md)
@@ -21,11 +21,11 @@
 * [第三方登录](advanced/connections/README.md)
   * [使用社会化登录](advanced/connections/she-hui-hua-deng-lu.md)
   * [理解单点登录](advanced/connections/sso.md)
-  * [配置企业级认证](advanced/connections/enterprise/README.md)
-    * [配置 OAuth 2.0](advanced/connections/enterprise/pei-zhi-oauth-2.0.md)
-    * [配置 OIDC](advanced/connections/enterprise/pei-zhi-oidc.md)
-    * [配置 SAML](advanced/connections/enterprise/pei-zhi-saml.md)
-    * [配置 LDAP](advanced/connections/enterprise/pei-zhi-ldap.md)
+  * [使用企业级认证](advanced/connections/enterprise/README.md)
+    * [使用 OAuth 2.0](advanced/connections/enterprise/pei-zhi-oauth-2.0.md)
+    * [使用 OpenID Connect](advanced/connections/enterprise/pei-zhi-oidc.md)
+    * [使用 SAML 认证](advanced/connections/enterprise/pei-zhi-saml.md)
+    * [配置 LDAP 服务](advanced/connections/enterprise/pei-zhi-ldap.md)
 * [配置用户权限](advanced/roles/README.md)
   * [使用 API 操作用户权限](advanced/roles/shi-yong-api-cao-zuo-yong-hu-quan-xian.md)
 * [最佳实践](advanced/best-practise.md)

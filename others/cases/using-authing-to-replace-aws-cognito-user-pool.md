@@ -35,7 +35,7 @@ The final result is shown below:
 
 If you have not registered for Authing, please [click here to register](https://authing.cn/login) by email and password. 
 
-![](../../.gitbook/assets/image%20%2863%29.png)
+![](../../.gitbook/assets/image%20%2864%29.png)
 
 After registration is complete, follow the steps below to create an Authing app.
 
@@ -57,7 +57,7 @@ Please refer to the image below to create an OIDC app:
 
 ![](../../.gitbook/assets/image%20%2862%29.png)
 
-![](../../.gitbook/assets/image%20%2869%29.png)
+![](../../.gitbook/assets/image%20%2870%29.png)
 
 ![Create an OIDC App](../../.gitbook/assets/image.png)
 
@@ -79,13 +79,13 @@ For example:
 
 For the sake of simplicity, our response\_type is set to "id\_token token", so you don't need to use "code" for tokens, the token will be attached directly to the redirect\_uri.
 
-![If your authorization link is correct, you should see the login window like the one above.](../../.gitbook/assets/image%20%2868%29.png)
+![If your authorization link is correct, you should see the login window like the one above.](../../.gitbook/assets/image%20%2869%29.png)
 
 If your authorization link is correct, you should see the login window like the one above, and this form is also the form used by your users, they will login from here and redirect to your configured redirect\_uri.
 
 You can try to sign up for an account and login. 
 
-![Register](../../.gitbook/assets/image%20%2864%29.png)
+![Register](../../.gitbook/assets/image%20%2865%29.png)
 
 After logging in, you can see the UI below:
 
@@ -377,7 +377,7 @@ Enojoy!
 
 Authing.cn - the leading identity authentication cloud.
 
-![](../../.gitbook/assets/image%20%2866%29.png)
+![](../../.gitbook/assets/image%20%2867%29.png)
 
 
 

@@ -41,7 +41,7 @@ description: 实现第一个基于 Authing 的应用。
 
 ![&#x70B9;&#x51FB;&#x300C;+ &#x521B;&#x5EFA;&#x5E94;&#x7528;&#x300D;](../../.gitbook/assets/image%20%289%29.png)
 
-![&#x586B;&#x5199;&#x5E94;&#x7528;&#x540D;&#x79F0;&#xFF0C;&#x7C7B;&#x578B;&#x9009;&#x62E9; Web &#x7C7B;&#x578B;](../../.gitbook/assets/image%20%2871%29.png)
+![&#x586B;&#x5199;&#x5E94;&#x7528;&#x540D;&#x79F0;&#xFF0C;&#x7C7B;&#x578B;&#x9009;&#x62E9; Web &#x7C7B;&#x578B;](../../.gitbook/assets/image%20%2872%29.png)
 
 ![&#x521B;&#x5EFA;&#x6210;&#x529F;&#x540E;&#x5373;&#x53EF;&#x8FDB;&#x5165;&#x5E94;&#x7528;&#x63A7;&#x5236;&#x53F0;](../../.gitbook/assets/image%20%2817%29.png)
 
@@ -217,7 +217,7 @@ Hit CTRL-C to stop the server
 
 登录完成后可以看到如下信息：
 
-![](../../.gitbook/assets/image%20%2874%29.png)
+![](../../.gitbook/assets/image%20%2875%29.png)
 
 登录后能看到此界面表明已经调试成功了。
 
@@ -261,7 +261,7 @@ form.on('authingLoad', async function(authing) {
 
 然后可以看到页面重新启用了登录框：
 
-![](../../.gitbook/assets/image%20%2873%29.png)
+![](../../.gitbook/assets/image%20%2874%29.png)
 
 ## 第七步：在后端验证 JWT Token 的合法性
 
