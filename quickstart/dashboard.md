@@ -155,7 +155,7 @@ OAuth 是一种企业级认证方案，使用方法请参考：
 
 OIDC 是 OAuth 2.0 的超集，使用方法请参考：
 
-{% page-ref page="../advanced/sso/pei-zhi-oidc.md" %}
+{% page-ref page="../advanced/sso/pei-zhi-oidc/" %}
 
 ![](../.gitbook/assets/image%20%2811%29.png)
 

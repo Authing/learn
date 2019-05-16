@@ -24,7 +24,7 @@ description: 了解 Authing 的认证方式
 
 {% page-ref page="../sso/pei-zhi-oauth-2.0.md" %}
 
-{% page-ref page="../sso/pei-zhi-oidc.md" %}
+{% page-ref page="../sso/pei-zhi-oidc/" %}
 
 {% page-ref page="../sso/pei-zhi-ldap.md" %}
 
