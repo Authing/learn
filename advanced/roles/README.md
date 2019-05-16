@@ -42,7 +42,7 @@ Authing 控制台中支持快速配置用户权限，操作流程如下。
 
 ![](../../.gitbook/assets/image%20%2858%29.png)
 
-## 接下来你可能需要
+## 接下来你可能还需要
 
-1. 使用 API 修改和读取用户权限
+{% page-ref page="shi-yong-api-cao-zuo-yong-hu-quan-xian.md" %}
 

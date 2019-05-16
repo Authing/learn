@@ -139,7 +139,7 @@ description: 控制台是你管理和配置所有 Authing 资源的地方，这�
 
 社会化登录指使用「Github」或「微信」等第三方社交网络进行登录，配置方式请参考：
 
-{% page-ref page="../advanced/connections/she-hui-hua-deng-lu.md" %}
+{% page-ref page="../advanced/she-hui-hua-deng-lu.md" %}
 
 ![](../.gitbook/assets/image%20%2819%29.png)
 
@@ -147,7 +147,7 @@ description: 控制台是你管理和配置所有 Authing 资源的地方，这�
 
 OAuth 是一种企业级认证方案，使用方法请参考：
 
-{% page-ref page="../advanced/connections/enterprise/pei-zhi-oauth-2.0.md" %}
+{% page-ref page="../advanced/sso/pei-zhi-oauth-2.0.md" %}
 
 ![](../.gitbook/assets/image%20%287%29.png)
 
@@ -155,7 +155,7 @@ OAuth 是一种企业级认证方案，使用方法请参考：
 
 OIDC 是 OAuth 2.0 的超集，使用方法请参考：
 
-{% page-ref page="../advanced/connections/enterprise/pei-zhi-oidc.md" %}
+{% page-ref page="../advanced/sso/pei-zhi-oidc.md" %}
 
 ![](../.gitbook/assets/image%20%2811%29.png)
 
@@ -163,7 +163,7 @@ OIDC 是 OAuth 2.0 的超集，使用方法请参考：
 
 LDAP 是轻量目录访问协议，英文全称是 Lightweight Directory Access Protocol，一般都简称为 LDAP。你可以把它理解为一个树型的用来 **存储用户和组织信息** 的数据库，常被用来做单点登录（ SSO ），使用方法请参考：
 
-{% page-ref page="../advanced/connections/enterprise/pei-zhi-ldap.md" %}
+{% page-ref page="../advanced/sso/pei-zhi-ldap.md" %}
 
 ![](../.gitbook/assets/image%20%2877%29.png)
 

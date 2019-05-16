@@ -4,23 +4,15 @@
 
 {% page-ref page="ui-zi-dong-sheng-cheng/login-form.md" %}
 
-{% page-ref page="ui-zi-dong-sheng-cheng/guard.md" %}
-
 ## SDK
 
 {% page-ref page="sdk/authing-sdk-for-web.md" %}
-
-{% page-ref page="sdk/authing-sdk-for-ios.md" %}
-
-{% page-ref page="sdk/authing-sdk-for-android.md" %}
 
 {% page-ref page="sdk/authing-sdk-for-wxapp.md" %}
 
 ## Open API
 
 {% page-ref page="open-graphql.md" %}
-
-{% page-ref page="open-apis.md" %}
 
 ## 函数计算
 
