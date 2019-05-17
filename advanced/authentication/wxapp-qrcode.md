@@ -30,12 +30,6 @@ description: 扫描小程序二维码并使用小程序「身份管家」进行�
 
 在弹出框中依次填入小程序的 AppID、App Secret 和回调地址并点击「确定」即可完成配置。
 
-一个扫码认证成功后的回调 URL 示例：
-
-[https://sample.authing.cn/\#/redirect?code=200&data=balabala...very...long...](https://sample.authing.cn/#/redirect?code=200&data=%7B%22_id%22%3A%225b4d5f37f5bca40001c1206f%22,%22email%22%3Anull,%22emailVerified%22%3Afalse,%22unionid%22%3A%22oVzVG46cjx0bOf_kmtVpOqv5t0EQ%22,%22oauth%22%3A%22%7B%5C%22nickName%5C%22%3A%5C%22ivy%5C%22,%5C%22gender%5C%22%3A1,%5C%22language%5C%22%3A%5C%22en%5C%22,%5C%22city%5C%22%3A%5C%22%5C%22,%5C%22province%5C%22%3A%5C%22Beijing%5C%22,%5C%22country%5C%22%3A%5C%22China%5C%22,%5C%22avatarUrl%5C%22%3A%5C%22https%3A%2F%2Fwx.qlogo.cn%2Fmmopen%2Fvi_32%2FQ0j4TwGTfTLkQc7PfrbBqFMib6lkPUxaA5UsMiadibfWQtKv0CBcKnH2khXicvUB9WB2ibYxN6GRTaTsQfPtlsAafBg%2F132%5C%22,%5C%22openid%5C%22%3A%5C%22oVzVG46cjx0bOf_kmtVpOqv5t0EQ%5C%22%7D%22,%22registerMethod%22%3A%22oauth%3Awechat%22,%22username%22%3A%22ivy%22,%22nickname%22%3A%22ivy%22,%22company%22%3A%22%22,%22photo%22%3A%22https%3A%2F%2Fwx.qlogo.cn%2Fmmopen%2Fvi_32%2FQ0j4TwGTfTLkQc7PfrbBqFMib6lkPUxaA5UsMiadibfWQtKv0CBcKnH2khXicvUB9WB2ibYxN6GRTaTsQfPtlsAafBg%2F132%22,%22browser%22%3A%22%22,%22token%22%3A%22eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjpudWxsLCJ1bmlvbmlkIjoib1Z6Vkc0NmNqeDBiT2Zfa210VnBPcXY1dDBFUSIsImlkIjoiNWI0ZDVmMzdmNWJjYTQwMDAxYzEyMDZmIiwiY2xpZW50SWQiOiI1YTlmYTI2Y2Y4NjM1YTAwMDE4NTUyOGMifSwiaWF0IjoxNTU3OTY3Njg3LCJleHAiOjE1NTkyNjM2ODd9.dlm1ZJs9bBIkM3aa8oDcI_JfQWnkmtNzNj9rxviUDz4%22,%22tokenExpiredAt%22%3A%22Fri%20May%2031%202019%2008%3A48%3A07%20GMT%200800%20%28CST%29%22,%22loginsCount%22%3A117,%22lastLogin%22%3A%22Thu%20May%2016%202019%2008%3A48%3A07%20GMT%200800%20%28CST%29%22,%22lastIP%22%3A%22106.121.160.135%22,%22signedUp%22%3A%22Tue%20Jul%2017%202018%2011%3A15%3A03%20GMT%200800%20%28CST%29%22,%22blocked%22%3Afalse,%22isDeleted%22%3Afalse%7D)
-
-开发者可自行获取 URL 中的参数以获取 userInfo，获取方式见[获取用户数据](https://learn.authing.cn/authing/advanced/social-login#huo-qu-yong-hu-shu-ju)。
-
 ### 使用 SDK for Web 初始化扫码界面
 
 ```javascript
@@ -53,6 +47,16 @@ auth.then(function(authing) {
     authing.startWXAppScaning();
 })
 ```
+
+运行成功后将生成如下图片：
+
+![](../../.gitbook/assets/image%20%2864%29.png)
+
+当扫码成功后将跳转到回调 URL 中，链接例如：
+
+[https://sample.authing.cn/\#/redirect?code=200&data=balabala...very...long...](https://sample.authing.cn/#/redirect?code=200&data=%7B%22_id%22%3A%225b4d5f37f5bca40001c1206f%22,%22email%22%3Anull,%22emailVerified%22%3Afalse,%22unionid%22%3A%22oVzVG46cjx0bOf_kmtVpOqv5t0EQ%22,%22oauth%22%3A%22%7B%5C%22nickName%5C%22%3A%5C%22ivy%5C%22,%5C%22gender%5C%22%3A1,%5C%22language%5C%22%3A%5C%22en%5C%22,%5C%22city%5C%22%3A%5C%22%5C%22,%5C%22province%5C%22%3A%5C%22Beijing%5C%22,%5C%22country%5C%22%3A%5C%22China%5C%22,%5C%22avatarUrl%5C%22%3A%5C%22https%3A%2F%2Fwx.qlogo.cn%2Fmmopen%2Fvi_32%2FQ0j4TwGTfTLkQc7PfrbBqFMib6lkPUxaA5UsMiadibfWQtKv0CBcKnH2khXicvUB9WB2ibYxN6GRTaTsQfPtlsAafBg%2F132%5C%22,%5C%22openid%5C%22%3A%5C%22oVzVG46cjx0bOf_kmtVpOqv5t0EQ%5C%22%7D%22,%22registerMethod%22%3A%22oauth%3Awechat%22,%22username%22%3A%22ivy%22,%22nickname%22%3A%22ivy%22,%22company%22%3A%22%22,%22photo%22%3A%22https%3A%2F%2Fwx.qlogo.cn%2Fmmopen%2Fvi_32%2FQ0j4TwGTfTLkQc7PfrbBqFMib6lkPUxaA5UsMiadibfWQtKv0CBcKnH2khXicvUB9WB2ibYxN6GRTaTsQfPtlsAafBg%2F132%22,%22browser%22%3A%22%22,%22token%22%3A%22eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjpudWxsLCJ1bmlvbmlkIjoib1Z6Vkc0NmNqeDBiT2Zfa210VnBPcXY1dDBFUSIsImlkIjoiNWI0ZDVmMzdmNWJjYTQwMDAxYzEyMDZmIiwiY2xpZW50SWQiOiI1YTlmYTI2Y2Y4NjM1YTAwMDE4NTUyOGMifSwiaWF0IjoxNTU3OTY3Njg3LCJleHAiOjE1NTkyNjM2ODd9.dlm1ZJs9bBIkM3aa8oDcI_JfQWnkmtNzNj9rxviUDz4%22,%22tokenExpiredAt%22%3A%22Fri%20May%2031%202019%2008%3A48%3A07%20GMT%200800%20%28CST%29%22,%22loginsCount%22%3A117,%22lastLogin%22%3A%22Thu%20May%2016%202019%2008%3A48%3A07%20GMT%200800%20%28CST%29%22,%22lastIP%22%3A%22106.121.160.135%22,%22signedUp%22%3A%22Tue%20Jul%2017%202018%2011%3A15%3A03%20GMT%200800%20%28CST%29%22,%22blocked%22%3Afalse,%22isDeleted%22%3Afalse%7D)
+
+开发者可自行获取 URL 中的参数以获取 userInfo，获取方式见[获取用户数据](https://learn.authing.cn/authing/advanced/social-login#huo-qu-yong-hu-shu-ju)。
 
 {% hint style="info" %}
 若不想在扫码登录后发生页面跳转，可以配置 redirect 参数为 false，然后在 onSuccess 函数中获取用户数据后执行相应业务，如：
@@ -75,11 +79,7 @@ authing.startWXAppScaning({
 若你想在后端验证 Token 合法性，请参考：[验证 Token 合法性](https://learn.authing.cn/authing/advanced/authentication/jwt-token#yan-zheng-token-he-fa-xing)。
 {% endhint %}
 
-运行成功后将生成如下图片：
-
-![](../../.gitbook/assets/image%20%2864%29.png)
-
-#### 参数说明
+#### 完整参数说明
 
 ```javascript
 authing.startWXAppScaning({
