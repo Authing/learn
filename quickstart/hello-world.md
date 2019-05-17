@@ -39,7 +39,7 @@ description: 实现第一个基于 Authing 的应用。
 
 ![&#x70B9;&#x51FB;&#x300C;+ &#x521B;&#x5EFA;&#x5E94;&#x7528;&#x300D;](../.gitbook/assets/image%20%289%29.png)
 
-![&#x586B;&#x5199;&#x5E94;&#x7528;&#x540D;&#x79F0;&#xFF0C;&#x7C7B;&#x578B;&#x9009;&#x62E9; Web &#x7C7B;&#x578B;](../.gitbook/assets/image%20%2878%29.png)
+![&#x586B;&#x5199;&#x5E94;&#x7528;&#x540D;&#x79F0;&#xFF0C;&#x7C7B;&#x578B;&#x9009;&#x62E9; Web &#x7C7B;&#x578B;](../.gitbook/assets/image%20%2880%29.png)
 
 ![&#x521B;&#x5EFA;&#x6210;&#x529F;&#x540E;&#x5373;&#x53EF;&#x8FDB;&#x5165;&#x5E94;&#x7528;&#x63A7;&#x5236;&#x53F0;&#xFF08;&#x7A7A;&#x7A7A;&#x5982;&#x4E5F;&#xFF09;](../.gitbook/assets/image%20%2819%29.png)
 
@@ -109,7 +109,7 @@ description: 实现第一个基于 Authing 的应用。
 
 使用该库可以生成一个登录表单，其样式如下图所示：
 
-![&#x767B;&#x5F55;&#x8868;&#x5355;](../.gitbook/assets/image%20%2852%29.png)
+![&#x767B;&#x5F55;&#x8868;&#x5355;](../.gitbook/assets/image%20%2853%29.png)
 
 调用方法非常简单，代码如下所示：
 
@@ -218,7 +218,7 @@ Hit CTRL-C to stop the server
 
 登录完成后可以看到如下信息：
 
-![](../.gitbook/assets/image%20%2881%29.png)
+![](../.gitbook/assets/image%20%2883%29.png)
 
 登录后能看到此界面表明已经调试成功了。
 
@@ -258,11 +258,11 @@ form.on('authingLoad', async function(authing) {
 
 请打开浏览器，刷新页面，点击「退出」，稍等片刻后可以看到页面弹出了下面这个提示：
 
-![&#x9000;&#x51FA;&#x6D89;&#x53CA;&#x5230;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x51FA;&#x73B0;&#x7F51;&#x7EDC;&#x5EF6;&#x8FDF;&#xFF0C;&#x82E5;&#x6CA1;&#x7ACB;&#x5373;&#x51FA;&#x73B0;&#xFF0C;&#x8BF7;&#x7B49;&#x5F85;&#x4E00;&#x4E0B;&#x5373;&#x53EF;&#x770B;&#x5230;&#x63D0;&#x793A;](../.gitbook/assets/image%20%2857%29.png)
+![&#x9000;&#x51FA;&#x6D89;&#x53CA;&#x5230;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x51FA;&#x73B0;&#x7F51;&#x7EDC;&#x5EF6;&#x8FDF;&#xFF0C;&#x82E5;&#x6CA1;&#x7ACB;&#x5373;&#x51FA;&#x73B0;&#xFF0C;&#x8BF7;&#x7B49;&#x5F85;&#x4E00;&#x4E0B;&#x5373;&#x53EF;&#x770B;&#x5230;&#x63D0;&#x793A;](../.gitbook/assets/image%20%2859%29.png)
 
 点击弹出对话框的「OK」或「确认」按钮后可以看到页面重新启用了登录框：
 
-![](../.gitbook/assets/image%20%2880%29.png)
+![](../.gitbook/assets/image%20%2882%29.png)
 
 {% hint style="info" %}
 若你需要在后端验证 JWT Token 的合法性请[点击这里查看](https://learn.authing.cn/authing/advanced/authentication/jwt-token#yan-zheng-token-he-fa-xing)。
