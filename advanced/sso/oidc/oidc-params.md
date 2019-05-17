@@ -1,8 +1,8 @@
 ---
-description: 了解 OIDC 包含的各项参数，在开发时可以查阅此文档。
+description: 了解 OIDC 包含的常见问题，在开发时可以查阅此文档。
 ---
 
-# OIDC 参数参考
+# OIDC 常见问题
 
 ## OIDC 三种认证流程的特征对比
 

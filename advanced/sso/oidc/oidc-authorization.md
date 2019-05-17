@@ -2,7 +2,7 @@
 description: 结合 Authing 实现 OIDC 授权的方法。
 ---
 
-# OIDC 授权流程
+# 使用 OIDC 授权
 
 ## 术语
 
@@ -18,33 +18,9 @@ P.S. 文档中出现的 `testapp.authing.cn` 和 `example.authing.cn` 两个域�
 
 ## 创建 OIDC 应用
 
-在完成了 Authing 应用的创建后相当于你拥有了一个用户池，接下来需要创建一个 OIDC 应用，这样你可以在其他第三方软件中读取用户池中的用户数据。
+在完成了 Authing 应用的创建后相当于你拥有了一个用户池，接下来需要创建一个 OIDC 应用，这样你可以在其他第三方软件中读取用户池中的用户数据，其你给参考：
 
-创建方式很简单，首先进入到刚刚创建好的 Authing 应用中，选择「第三方登录选项卡」，如下图所示：
-
-![&#x70B9;&#x51FB;&#x7B2C;&#x4E09;&#x65B9;&#x767B;&#x5F55;&#x9009;&#x9879;&#x5361;](https://usercontents.authing.cn/docs/oidc/third-party.png)
-
-接着选择「OIDC 应用」，点击「创建 OIDC 应用」，如下图所示：
-
-![https://usercontents.authing.cn/docs/oidc/new.png](https://usercontents.authing.cn/docs/oidc/new.png)
-
-在弹出的模态框中输入 OIDC 应用的基础信息，如下图所示：
-
-![https://usercontents.authing.cn/docs/oidc/form.png](https://usercontents.authing.cn/docs/oidc/form.png)
-
-### **参数解释：**
-
-这些参数解释假设你有 OIDC 的背景知识，如果你还不拥有背景知识，请[参考这篇文章了解 OIDC 的授权流程](https://www.cnblogs.com/linianhui/archive/2017/05/30/openid-connect-core.html)。
-
-1. `应用 Logo`：应用的 Logo，用户登录时会在登录窗口中看到;
-2. `应用名`：应用的名称，用户登录时会在登录窗口中看到；
-3. `认证地址`：输入一个二级域名，作为终端用户进行登录的地址；
-4. `回调 URL`：用户验证通过后回调的地址，在 OIDC 中必须使用 HTTPS，并且不可以为 localhost。这个值可以为多个，如需要多个，请用英文状态下的分号分割；
-5. `返回类型`：指示该 OIDC 应用支持什么样的返回类型，不同返回类型的区别请参考：[不同返回类型对应的授权流程](https://doc.authing.cn/#/OIDCProvider/OIDCFeatures?id=不同-response_type-对应的授权流程)；
-6. `token 换取方式`：指示换取 token 的方式，通常使用默认选项即可；
-7. `id_token 签名算法`：签发 id\_token 时的算法，如选择第一项则可以使用 OIDC 应用的 secret 验证 id\_token 的合法性，其他请参考验证 id\_token 合法性。
-
-填写完参数后就可以点击「确定」完成创建了，此时可以在详细信息中看到 secret 等值。
+{% page-ref page="create-oidc.md" %}
 
 ## OIDC 的基本流程
 
@@ -56,7 +32,7 @@ P.S. 文档中出现的 `testapp.authing.cn` 和 `example.authing.cn` 两个域�
 
 如果你想直观的体验 OIDC 认证流程，请[点击这里查看我们提供的示例](http://oidc-test.authing.cn)或[点击这里可视化的理解 OIDC](https://openidconnect.net/)。
 
-## 使用授权码模式进行授权（Authorization Code Flow）
+## 使用授权码模式（Authorization Code Flow）
 
 这个小节介绍如何使用 code （response\_type 为 code）换取 access\_token（access\_token 可用来换取用户信息）。
 
@@ -183,10 +159,10 @@ cwIDAQAB
 
 ### **参考链接**
 
-1. jwks [参考规范](https://openid.net/specs/openid-connect-registration-1_0.html#ClientMetadata)
-2. 可以检验 jwt 的签名的 playground：[https://jwt.io](https://jwt.io)
-3. RSA 的 pem 格式 与 jwk 格式互转：[https://8gwifi.org/jwkconvertfunctions.jsp](https://8gwifi.org/jwkconvertfunctions.jsp)
-4. 生成 jwk：[https://mkjwk.org/](https://mkjwk.org/)
+1. jwks [参考规范](https://openid.net/specs/openid-connect-registration-1_0.html#ClientMetadata)；
+2. 可以检验 jwt 的签名的 playground：[https://jwt.io](https://jwt.io)；
+3. RSA 的 pem 格式 与 jwk 格式互转：[https://8gwifi.org/jwkconvertfunctions.jsp](https://8gwifi.org/jwkconvertfunctions.jsp)；
+4. 生成 jwk：[https://mkjwk.org/](https://mkjwk.org/)；
 
 ### 使用 access\_token 换取用户信息
 
@@ -310,4 +286,8 @@ https://example.com/#code=pIY83Jl_bcerNN9Wt57Sq0TAjTr&id_token=eyJhbGciOiJSUzI1N
 ```
 
 换取用户信息的流程和授权码模式相同。
+
+## 接下来你可能需要
+
+{% page-ref page="oidc-params.md" %}
 

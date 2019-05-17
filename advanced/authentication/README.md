@@ -24,7 +24,7 @@ description: 了解 Authing 的认证方式
 
 {% page-ref page="../sso/knowledge.md" %}
 
-{% page-ref page="../sso/oauth2.md" %}
+{% page-ref page="../sso/oauth2/" %}
 
 {% page-ref page="../sso/oidc/" %}
 
