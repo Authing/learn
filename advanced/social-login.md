@@ -32,7 +32,7 @@ description: 使用微信、Github 等社会化登录。
 
 ## 在 Authing 控制台配置 Github OAuth 信息
 
-创建完成 OAuth 应用后请按照下图所示开始配置 Github OAuth 信息：
+在 Github 创建完 OAuth 应用后请按照下图所示在 Authing 控制台中配置 Github OAuth 信息：
 
 ![](../.gitbook/assets/image%20%2823%29.png)
 
