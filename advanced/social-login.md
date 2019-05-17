@@ -24,6 +24,10 @@ description: 使用微信、Github 等社会化登录。
 **重要提示，在创建 Github OAuth 应用时填写的 Callback URI 请填写为：**
 
 \*\*\*\*[https://oauth.authing.cn/oauth/github/redirect](https://oauth.authing.cn/oauth/github/redirect)
+
+如下图所示：
+
+![](../.gitbook/assets/image%20%2843%29.png)
 {% endhint %}
 
 ## 在 Authing 控制台配置 Github OAuth 信息
