@@ -12,7 +12,7 @@
 
 ## 进阶指南
 
-* [认证和授权](advanced/authentication/README.md)
+* [理解认证和授权](advanced/authentication/README.md)
   * [邮箱 - 密码认证](advanced/authentication/email-password.md)
   * [手机 - 验证码认证](advanced/authentication/phone-code.md)
   * [小程序扫码认证](advanced/authentication/wxapp-qrcode.md)
