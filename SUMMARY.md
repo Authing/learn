@@ -15,7 +15,7 @@
 * [理解认证和授权](advanced/authentication/README.md)
   * [邮箱 - 密码认证](advanced/authentication/email-password.md)
   * [手机 - 验证码认证](advanced/authentication/phone-code.md)
-  * [小程序扫码认证](advanced/authentication/wxapp-qrcode.md)
+  * [使用小程序扫码认证](advanced/authentication/wxapp-qrcode.md)
   * [JWT Token 释义、使用及验证](advanced/authentication/jwt-token.md)
 * [使用社会化登录](advanced/social-login.md)
 * [接入单点登录](advanced/sso/README.md)

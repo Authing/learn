@@ -2,7 +2,7 @@
 description: 扫描小程序二维码并使用小程序「身份管家」进行认证
 ---
 
-# 小程序扫码认证
+# 使用小程序扫码认证
 
 小程序扫码登录指使用 Authing 小程序`身份管家`执行微信登录，目前 SDK 仅支持客户端 JavaScript。其它语言若想使用可参考 [HTTP 接口说明](https://docs.authing.cn/#/quick_start/wxapp_scan_login?id=http%E6%8E%A5%E5%8F%A3%E8%AF%B4%E6%98%8E)。
 
