@@ -19,6 +19,7 @@
   * [JWT Token 释义、使用及验证](advanced/authentication/jwt-token.md)
 * [使用社会化登录](advanced/social-login.md)
 * [接入单点登录](advanced/sso/README.md)
+  * [理解单点登录](advanced/sso/knowledge.md)
   * [使用 OAuth 2.0](advanced/sso/oauth2.md)
   * [使用 OpenID Connect](advanced/sso/oidc/README.md)
     * [OIDC 授权流程](advanced/sso/oidc/oidc-authorization.md)
