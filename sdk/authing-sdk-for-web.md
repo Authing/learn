@@ -637,11 +637,6 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](https://learn.authing.cn
     * isDeleted: `{Boolean}，选填，是否被删除`
 * **使用方法:**
   * ```javascript
-    Authing.update({
-        _id: "59e5ff4935eebf1913cfe8a1",
-        email: email,
-        password: password
-    });
     (async function() {
       const authing = await new Authing({
         clientId: 'your_client_id',
@@ -650,7 +645,7 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](https://learn.authing.cn
       });
   
       // 修改邮箱
-      authing.update({
+      await authing.update({
         _id: "59e5ff4935eebf1913cfe8a1",
         email: 'xxx@xxx.com',
       });
@@ -685,7 +680,188 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](https://learn.authing.cn
      }
     ```
 
+## 重置密码 <a id="&#x91CD;&#x7F6E;&#x5BC6;&#x7801;"></a>
 
+### **1. 发送验证码 Authing.sendResetPasswordEmail\(options\)**
+
+* **参数:**
+  * `{Object} options`
+    * email
+* **使用方法:**
+  * ```javascript
+    (async function() {
+      const authing = await new Authing({
+        clientId: 'your_client_id',
+        timestamp: Math.round(new Date() / 1000),
+        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      });
+  
+      // 发送验证码到指定邮箱
+      await authing.sendResetPasswordEmail({
+        email: 'xxx@xxx.com',
+      });
+    })();
+    ```
+* **返回数据:**
+  * ```javascript
+    {
+      "message":"成功",
+      "code":null,
+      "__typename": "CommonMessage"
+    }
+    ```
+
+### **2. 验证验证码 Authing.verifyResetPasswordVerifyCode\(options\)**
+
+* **参数:**
+  * `{Object} options`
+    * email
+    * verifyCode
+* **使用方法:**
+  * ```javascript
+    (async function() {
+      const authing = await new Authing({
+        clientId: 'your_client_id',
+        timestamp: Math.round(new Date() / 1000),
+        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      });
+  
+      // 验证验证码
+      await authing.verifyResetPasswordVerifyCode({
+        email: 'xxx@xxx.com',
+        verifyCode: 'verifyCode',
+      });
+    })();
+    ```
+* **返回数据:**
+  * ```javascript
+    {
+      "message": "验证成功，请输入新密码",
+      "code": null,
+      "__typename": "CommonMessage"
+    }
+    ```
+
+### **3. 发送新密码 Authing.changePassword\(options\)**
+
+* **参数:**
+  * `{Object} options`
+    * email
+    * password
+    * verifyCode
+* **使用方法:**
+  * ```javascript
+    (async function() {
+      const authing = await new Authing({
+        clientId: 'your_client_id',
+        timestamp: Math.round(new Date() / 1000),
+        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      });
+  
+      await authing.changePassword({
+        email: 'xxx@xxx.com',
+        password: 'new_password',
+        verifyCode: 'verifyCode',
+      });
+    })();
+    ```
+* **返回数据:**
+  * ```javascript
+      {
+        "_id":"5a2a723d598e37000106786a",
+        "email":"1968108962@qq.com",
+        "emailVerified":true,
+        "username":"1968108962@qq.com",
+        "nickname":"",
+        "company":"","photo":"http://oxacbp94f.bkt.clouddn.com/authing-avatar.png","browser":"",
+        "registerInClient":"59f86b4832eb28071bdd9214","registerMethod":"default:username-password",
+        "oauth":"","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiMTk2ODEwODk2MkBxcS5jb20iLCJpZCI6IjVhMmE3MjNkNTk4ZTM3MDAwMTA2Nzg2YSJ9LCJpYXQiOjE1MTQwMjcyNDd9.vWrlzKY-Qr0SXwx8k__BF0ADCBjqGgMWP-wVOWgbH7A","tokenExpiredAt":"Sat Dec 23 2017 19:07:27 GMT+0800 (CST)","loginsCount":1,"lastLogin":"Fri Dec 08 2017 19:07:27 GMT+0800 (CST)","lastIP":"172.20.0.1",
+        "signedUp":"Fri Dec 08 2017 19:06:37 GMT+0800 (CST)",
+        "blocked":false,"isDeleted":false,
+        "__typename":"ExtendUser"
+      }
+    ```
+
+## 验证用户邮箱 <a id="&#x9A8C;&#x8BC1;&#x90AE;&#x7BB1;"></a>
+
+### **发送验证邮件 Authing.sendVerifyEmail\(options\)**
+
+* **参数:**
+  * `{Object} options`
+    * email: 需要验证的邮箱
+* **使用方法:**
+  * ```javascript
+    (async function() {
+      const authing = await new Authing({
+        clientId: 'your_client_id',
+        timestamp: Math.round(new Date() / 1000),
+        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      });
+  
+      await authing.sendVerifyEmail({
+        email: 'xxx@xxx.com',
+      });
+    })();
+    ```
+* **返回数据:**
+  * ```javascript
+    {
+         message: "发送验证邮件成功", 
+         __typename: "CommonMessage"
+    }
+    ```
+
+发送之后，用户将会收到一个包含验证链接的邮件，当用户打开此链接，我们将进行验证。
+
+## 解绑邮箱 <a id="&#x89E3;&#x7ED1;&#x90AE;&#x7BB1;"></a>
+
+若使用 `JavaScript` 调用，需要使用 `then().catch()` 捕获结果和错误。
+
+**Authing.unbindEmail\(options\)**
+
+* **参数:**
+  * `{Object} options`
+    * user `{String} 用户 ID，可选，默认为当前登录用户的 ID`
+    * client `{String} 应用 ID，可选，默认为当前登录应用的 ID`
+* **使用方法:**
+  * ```text
+    Authing.unbindEmail();
+    (async function() {
+      const authing = await new Authing({
+        clientId: 'your_client_id',
+        timestamp: Math.round(new Date() / 1000),
+        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      });
+  
+      await authing.unbindEmail();
+    })();
+    ```
+* **返回数据:**
+  * ```javascript
+
+    {
+        "_id": "59e5ff4935eebf1913cfe8a1",
+        "email": "86700229ww6ss@163.com",
+        "emailVerified": false,
+        "username": "86700229ww6ss@163.com",
+        "nickname": "",
+        "company": "",
+        "photo": "http://www.xiaohehe.net/uploads/allimg/150305/304-1503051H136.png",
+        "browser": "",
+        "token": null,
+        "tokenExpiredAt": null,
+        "loginsCount": 0,
+        "lastLogin": "Tue Oct 17 2017 21:02:01 GMT+0800 (CST)",
+        "lastIP": null,
+        "signedUp": "Tue Oct 17 2017 21:02:01 GMT+0800 (CST)",
+        "blocked": false,
+        "isDeleted": false
+     }
+    ```
+
+**注意事项**
+
+若未绑定其他登录方式, 则不可解绑邮箱
 
 ## 验证 JWT Token 的合法性以及是否过期
 
