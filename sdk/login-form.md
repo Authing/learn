@@ -12,7 +12,7 @@ Login-Form 是一种可嵌入的登录表单，可根据你的需求进行配置
 * 响应式特性（兼容移动端和 PC 端）；
 * 使用 LDAP 登录（[什么是 LDAP？](https://learn.authing.cn/authing/advanced/sso/ldap)）。
 
-![](../../.gitbook/assets/image%20%2819%29.png)
+![](../.gitbook/assets/image%20%2819%29.png)
 
 {% hint style="info" %}
 访问 [https://sample.authing.cn](https://sample.authing.cn) 可以体验 Login-Form。
@@ -53,7 +53,9 @@ const form = new AuthingForm({
 
 完成这两步后就可以使用表单了。
 
-### [3. 监听登录事件以获取用户信息](https://docs.authing.cn/#/quick_start/login-form?id=_4-%e7%9b%91%e5%90%ac%e7%99%bb%e5%bd%95%e4%ba%8b%e4%bb%b6%e4%bb%a5%e8%8e%b7%e5%8f%96%e7%94%a8%e6%88%b7%e4%bf%a1%e6%81%af)
+### 3. 监听登录事件以获取用户信息
+
+你可以使用 `.on` 方法监听 Login-Form 的事件，如：
 
 ```javascript
 // 使用 `.on` 方法，并监听 `login` 事件即可在用户登录成功后获得用户信息
@@ -63,9 +65,9 @@ form.on('login', (userInfo) => {
 });
 ```
 
-如果你想获取其他事件（如：登录失败、注册失败、注册成功等），请参考[完整事件列表](https://docs.authing.cn/#/quick_start/login-form?id=%E4%BA%8B%E4%BB%B6%E5%93%8D%E5%BA%94)。
+如果你想监听其他事件（如：登录失败、注册失败、注册成功等），请参考[完整事件列表](https://docs.authing.cn/#/quick_start/login-form?id=%E4%BA%8B%E4%BB%B6%E5%93%8D%E5%BA%94)。
 
-### [4. 在服务器端验证 JWT Token 的合法性以及是否过期](https://docs.authing.cn/#/quick_start/login-form?id=_5-%e5%9c%a8%e6%9c%8d%e5%8a%a1%e5%99%a8%e7%ab%af%e9%aa%8c%e8%af%81-jwt-token-%e7%9a%84%e5%90%88%e6%b3%95%e6%80%a7%e4%bb%a5%e5%8f%8a%e6%98%af%e5%90%a6%e8%bf%87%e6%9c%9f)
+### 4. 验证 JWT Token 的合法性以及是否过期
 
 验证 JWT 的合法性需要使用应用的密钥，密钥在控制台中可以获取到。
 
@@ -80,12 +82,16 @@ try {
   if (expired) {
     // 过期
   }else {
-    // 合法也没过期，正常放行
+    // 合法也没过期，正常放行，返回不同的资源或执行不同的业务
   }
 } catch (error) {
   // 不合法
 }
 ```
+
+{% hint style="info" %}
+建议将验证 Token 合法性的代码放在后端，**避免 Client Secret 在前端泄漏**。
+{% endhint %}
 
 ## 显示和隐藏表单
 
@@ -157,7 +163,7 @@ form.on('login', function(user) {
 | authingUnload | Authing Client ID 和 Secret验证失败 | `error` | 错误信息 |
 | oauthLoad | OAuth列表加载完成 | oauthList | 完整的 OAuth 列表，若用户未在后台配置过则为空 |
 | oauthUnload | OAuth列表加载失败 | `error` | 错误信息 |
-| login | 用户登录成功（无论是扫码登录，还是正常方式登录，都会广播此事件） | userInfo | 用户数据 |
+| login | 用户登录成功（扫码成功，请监听 scanning 事件） | userInfo | 用户数据 |
 | loginError | 用户登录失败 | `error` | 错误信息，包含字段缺失／非法或服务器错误等信息 |
 | register | 用户注册成功 | userInfo | 用户数据 |
 | registerError | 用户注册失败 | `error` | 错误信息，包含字段缺失／非法或服务器错误等信息 |
@@ -169,4 +175,10 @@ form.on('login', function(user) {
 | scanningError | 扫码登录失败 | `error` | 错误信息 |
 | scanningIntervalStarting | 开始监听扫码事件 | interval | 用户可使用 `clearInterval` 停止监听 |
 | formClosed | Login Form 关闭事件 | null | 用户按下 ESC 或点击右上方的关闭按钮后会触发此事件 |
+
+## 接下来你可能还需要
+
+对比与自己开发 UI 的优势以理解为什么要使用 Login-Form：
+
+{% page-ref page="loginform-vs-custom-ui.md" %}
 

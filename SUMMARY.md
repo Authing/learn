@@ -35,9 +35,8 @@
 ## 开发资源（SDK）
 
 * [开发资源](sdk/libraries.md)
-* [UI 自动生成](sdk/ui-lib/README.md)
-  * [Login-Form for Web](sdk/ui-lib/login-form.md)
-  * [Login-Form VS 自定义 UI](sdk/ui-lib/loginform-vs-custom-ui.md)
+* [Login-Form for Web](sdk/login-form.md)
+* [Login-Form VS 自定义 UI](sdk/loginform-vs-custom-ui.md)
 * [SDK](sdk/sdk/README.md)
   * [SDK for Web](sdk/sdk/authing-sdk-for-web.md)
   * [SDK for 微信小程序](sdk/sdk/authing-sdk-for-wxapp.md)
