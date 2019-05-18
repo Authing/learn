@@ -12,7 +12,7 @@ Login-Form 是一种可嵌入的登录表单，可根据你的需求进行配置
 * 响应式特性（兼容移动端和 PC 端）；
 * 使用 LDAP 登录（[什么是 LDAP？](https://learn.authing.cn/authing/advanced/sso/ldap)）。
 
-![](../.gitbook/assets/image%20%2820%29.png)
+![](../.gitbook/assets/image%20%2821%29.png)
 
 {% hint style="info" %}
 访问 [https://sample.authing.cn](https://sample.authing.cn) 可以体验 Login-Form。
