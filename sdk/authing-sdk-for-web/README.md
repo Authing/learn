@@ -933,7 +933,7 @@ try {
 
 ####  使用方法请参考：
 
-{% page-ref page="../advanced/wxapp-qrcode.md" %}
+{% page-ref page="../../advanced/wxapp-qrcode.md" %}
 
 ## 自定义请求链接
 

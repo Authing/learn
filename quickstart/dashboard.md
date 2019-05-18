@@ -104,7 +104,7 @@ description: 控制台是你管理和配置所有 Authing 资源的地方，这�
 
 配置方式请参考：
 
-{% page-ref page="../advanced/roles/" %}
+{% page-ref page="../advanced/roles.md" %}
 
 ![](../.gitbook/assets/image%20%2843%29.png)
 

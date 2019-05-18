@@ -2,7 +2,7 @@
 
 相关接口和 SDK for Web 版本相同：
 
-{% page-ref page="authing-sdk-for-web.md" %}
+{% page-ref page="authing-sdk-for-web/" %}
 
 Github 地址：
 

@@ -27,7 +27,7 @@
 
 ## 如何配置用户权限？
 
-{% page-ref page="../advanced/roles/" %}
+{% page-ref page="../advanced/roles.md" %}
 
 ## Authing 支持哪些标准协议？
 

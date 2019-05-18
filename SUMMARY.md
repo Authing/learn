@@ -28,8 +28,7 @@
     * [使用 OIDC 授权](advanced/sso/oidc/oidc-authorization.md)
     * [OIDC 常见问题](advanced/sso/oidc/oidc-params.md)
   * [配置 LDAP 服务](advanced/sso/ldap.md)
-* [配置用户权限](advanced/roles/README.md)
-  * [使用 API 操作用户权限](advanced/roles/shi-yong-api-cao-zuo-yong-hu-quan-xian.md)
+* [配置用户权限](advanced/roles.md)
 * [最佳实践](advanced/best-practise.md)
 
 ## 开发资源
@@ -37,7 +36,8 @@
 * [开发资源](sdk/libraries.md)
 * [Login-Form for Web](sdk/login-form.md)
 * [Login-Form VS 自定义 UI](sdk/loginform-vs-custom-ui.md)
-* [SDK for Web](sdk/authing-sdk-for-web.md)
+* [SDK for Web](sdk/authing-sdk-for-web/README.md)
+  * [在 SDK 中操作用户权限](sdk/authing-sdk-for-web/shi-yong-api-cao-zuo-yong-hu-quan-xian.md)
 * [SDK for 微信小程序](sdk/authing-sdk-for-wxapp.md)
 * [Open Graphql](sdk/open-graphql.md)
 * [函数计算（FaaS）](sdk/faas.md)
