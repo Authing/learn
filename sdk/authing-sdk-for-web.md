@@ -348,7 +348,7 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](https://learn.authing.cn
     }
     ```
 
-## 退出登录
+## 退出
 
 **Authing.logout\(uid\)**
 
@@ -381,6 +381,311 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](https://learn.authing.cn
 > https://&lt;你的域名&gt;.authing.cn/login/profile/logout?app\_id=&lt;OAuth 应用 ID&gt;&redirect\_uri=&lt;退出之后的回调地址&gt;
 
 其中 `app_id` 和 `redirect_uri` 都是必填选项，`redirect_uri` 是退出后你想要返回的地址。
+
+## 获取单个用户资料
+
+**Authing.user\(options\)**
+
+* **参数:**
+  * `{Object} options`
+    * **id**，必填，用户的 \_id
+* **使用方法:**
+  * ```javascript
+    (async function() {
+      const authing = await new Authing({
+        clientId: 'your_client_id',
+        timestamp: Math.round(new Date() / 1000),
+        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      });
+  
+      const userInfo = await authing.user('59e5ff4935eebf1913cfe8a1')
+        .catch((error) => { ... })
+    })();
+    ```
+* **返回数据:**
+  * ```javascript
+      {
+        "_id": "5a584dcd32e6510001a8f144", 
+        "email": "1968198962@qq.com", 
+        "emailVerified": false, 
+        "username": "1968198962@qq.com", 
+        "nickname": "", 
+        "company": "", 
+        "photo": "http://oxacbp94f.bkt.clouddn.com/user-avatars/Fqy_de1Jj5TmngEFiiY1-RsCCDcO", 
+        "browser": "", 
+        "registerInClient": "59f86b4832eb28071bdd9214", 
+        "registerMethod": "default:username-password", 
+        "oauth": "", 
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiMTk2ODE5ODk2MkBxcS5jb20iLCJpZCI6IjVhNTg0ZGNkMzJlNjUxMDAwMWE4ZjE0NCJ9LCJpYXQiOjE1MTcwMzI1MjV9.Ah0Oii741L_wJHhiE5KtWDgRU1Q3x_fNZBNNM5MhqDc", 
+        "tokenExpiredAt": "Sat Jan 27 2018 13:55:25 GMT+0800 (CST)", 
+        "loginsCount": 0, 
+        "lastLogin": "Fri Jan 12 2018 13:55:25 GMT+0800 (CST)", 
+        "lastIP": null, 
+        "signedUp": "Fri Jan 12 2018 13:55:25 GMT+0800 (CST)", 
+        "blocked": false, 
+        "isDeleted": false, 
+        "__typename": "ExtendUser"
+    }
+    ```
+
+## 一次性获取多个用户的资料 <a id="&#x4E00;&#x6B21;&#x6027;&#x83B7;&#x53D6;&#x591A;&#x4E2A;&#x7528;&#x6237;&#x7684;&#x8D44;&#x6599;"></a>
+
+**Authing.userPatch\(options\)**
+
+* **参数:**
+  * `{Object} options`
+    * ids
+      * 要获取的用户 id 列表，使用逗号分割，不要出现多余的空格；如果使用非法 id 查询时系统会自动忽略。
+* **使用方法:**
+  * ```javascript
+    (async function() {
+      const authing = await new Authing({
+        clientId: 'your_client_id',
+        timestamp: Math.round(new Date() / 1000),
+        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      });
+  
+      const userInfo = await authing.userPatch({
+        ids: '5a584dcd32e6510001a8f144,5c08fa74583d9d00019d245e'
+      })
+        .catch((error) => { ... })
+    })();
+    ```
+* **返回数据:**
+  * ```javascript
+    { list: 
+    [ { _id: '5c0a3565583d9d000219d3960',
+       unionid: 'oVzVG4wo1v0c7uyiFQtHc3Nrl2hg',
+       email: null,
+       emailVerified: false,
+       username: 'xxxxxxxxxxxxxxxxx',
+       nickname: 'xxxxxxxxxxxxxxxxx',
+       company: '',
+       photo: 'xxxxxxxxxxxxxxxxx',
+       browser: '',
+       registerInClient: 'xxxxxxxxxxxxxxxxx',
+       registerMethod: 'oauth:wechat',
+       oauth: 'xxxxxxxxxxxxxxxxx',
+       token: 'xxxxxxxxxxxxxxxxx',
+       tokenExpiredAt: 'Sat Dec 22 2018 16:55:01 GMT+0800 (CST)',
+       loginsCount: 1,
+       lastLogin: 'Fri Dec 07 2018 16:55:01 GMT+0800 (CST)',
+       lastIP: '114.93.36.228',
+       signedUp: 'Fri Dec 07 2018 16:55:01 GMT+0800 (CST)',
+       blocked: false,
+       isDeleted: false,
+       userLocation: null,
+       userLoginHistory: null },
+     { _id: '5c08fa74583d9d00019d24ee',
+       unionid: 'xxxxxxxxxxxxxxxxx',
+       email: null,
+       emailVerified: false,
+       username: 'xxxxxxxxxxxxxxxxx',
+       nickname: 'xxxxxxxxxxxxxxxxx',
+       company: '',
+       photo: 'xxxxxxxxxxxxxxxxx',
+       browser: '',
+       registerInClient: 'xxxxxxxxxxxxxxxxx',
+       registerMethod: 'oauth:wechat',
+       oauth: 'xxxxxxx',
+       token: 'xxxxxxx',
+       tokenExpiredAt: 'Fri Dec 21 2018 18:31:16 GMT+0800 (CST)',
+       loginsCount: 1,
+       lastLogin: 'Thu Dec 06 2018 18:31:16 GMT+0800 (CST)',
+       lastIP: '221.192.178.75',
+       signedUp: 'Thu Dec 06 2018 18:31:16 GMT+0800 (CST)',
+       blocked: false,
+       isDeleted: false,
+       userLocation: null,
+       userLoginHistory: null } ],
+    totalCount: 2 }
+    ```
+
+## 获取用户列表 <a id="&#x83B7;&#x53D6;&#x7528;&#x6237;&#x5217;&#x8868;"></a>
+
+**Authing.list\(page, count\)**
+
+* **参数:**
+  * `{Number} page`
+    * Default: `1`
+  * `{Number} count`
+    * Default: `10`
+* **使用方法:**
+  * ```javascript
+    (async function() {
+      const authing = await new Authing({
+        clientId: 'your_client_id',
+        timestamp: Math.round(new Date() / 1000),
+        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      });
+  
+      const userInfo = await authing.list()
+        .catch((error) => { ... })
+    })();
+    ```
+* **返回数据:**
+  * ```javascript
+    {
+      totalCount: 222,
+      list: [{
+                "_id": "59e5ff4935eebf1913cfe8a1",
+                "email": "86700229ww6ss@163.com",
+                "emailVerified": false,
+                "username": "86700229ww6ss@163.com",
+                "nickname": "",
+                "company": "",
+                "photo": "http://www.xiaohehe.net/uploads/allimg/150305/304-1503051H136.png",
+                "browser": "",
+                "token": null,
+                "tokenExpiredAt": null,
+                "loginsCount": 0,
+                "lastLogin": "Tue Oct 17 2017 21:02:01 GMT+0800 (CST)",
+                "lastIP": null,
+                "signedUp": "Tue Oct 17 2017 21:02:01 GMT+0800 (CST)",
+                "blocked": false,
+                "isDeleted": false,
+                "group": {
+                  "_id": "59e374332023830871913ebd",
+                  "name": "default",
+                  "descriptions": "default",
+                  "createdAt": "Sun Oct 15 2017 22:44:03 GMT+0800 (CST)"
+                  }
+             },
+              ...
+            ]
+    }
+    ```
+
+## 删除用户 <a id="&#x5220;&#x9664;&#x7528;&#x6237;"></a>
+
+**Authing.remove\(uid\)**
+
+* **参数:**
+  * `{String} uid`
+* **使用方法:**
+  * ```javascript
+    (async function() {
+      const authing = await new Authing({
+        clientId: 'your_client_id',
+        timestamp: Math.round(new Date() / 1000),
+        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      });
+  
+      const uid = '59e5ff4935eebf1913cfe8a1';
+      const userInfo = await authing.remove(uid)
+        .catch((error) => { ... })
+    })();
+    ```
+* **返回数据:**
+  * ```javascript
+    {
+        _id: '59e5ff4935eebf1913cfe8a1'
+    }
+    ```
+
+## 上传头像 <a id="&#x4E0A;&#x4F20;&#x5934;&#x50CF;"></a>
+
+**Authing.selectAvatarFile\(cb\)**
+
+* **参数:**
+  * `{function} cb`
+* **使用方法:**
+  * ```javascript
+    (async function() {
+      const authing = await new Authing({
+        clientId: 'your_client_id',
+        timestamp: Math.round(new Date() / 1000),
+        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      });
+  
+      authing.selectAvatarFile((avatarURL) => {
+        // avatarURL 即为头像地址（公网 URL）
+      })
+    })();
+    ```
+* **结果:**
+  * 此 API 会打开文件选择窗口供用户选择文件，用户选取文件后，系统会自动上传，上传成功后会调用 cb，并把头像 URL 作为参数传入 cb 函数，开发者可将回调函数中的 avatarURL 作为 photo 参数传入 [update](https://docs.authing.cn/#/user_service/update_user) 方法中修改用户头像。
+
+## 修改用户资料 <a id="&#x4FEE;&#x6539;&#x7528;&#x6237;&#x8BBE;&#x7F6E;"></a>
+
+若使用 `JavaScript` 调用，需要使用 `then().catch()` 捕获结果和错误。
+
+**Authing.update\(options\)**
+
+此接口可以用来修改密码、昵称、头像等各种用户信息
+
+* **参数:**
+  * `{Object} options`
+    * \_id `{String} 必填`
+    * email `{String}，选填`
+    * emailVerified: `{Boolean}，选填，邮箱是否经过验证`
+    * username: `{String}，选填`
+    * nickname: `{String}，选填`
+    * company: `{String}，选填`
+    * oauth: `{String}，选填，oauth 信息`
+    * photo: `{String || file object}，选填，用户头像`
+    * browser: `{String}，选填，用户注册时所用的浏览器`
+    * password: `{String}，选填，用户密码`
+    * oldPassword: `{String}（`当有 password 时，旧密码参数必需填写）
+    * token: `{String}，选填`
+    * tokenExpiredAt: `{String}，选填，token 过期时间`
+    * loginsCount: `{Number}，选填，登录次数`
+    * lastLogin: `{String}，选填，最后登录时间`
+    * lastIP: `{String}，选填，最后登录 IP`
+    * signedUp: `{String}，选填，注册时间`
+    * blocked: `{Boolean}，选填，是否被锁定`
+    * isDeleted: `{Boolean}，选填，是否被删除`
+* **使用方法:**
+  * ```javascript
+    Authing.update({
+        _id: "59e5ff4935eebf1913cfe8a1",
+        email: email,
+        password: password
+    });
+    (async function() {
+      const authing = await new Authing({
+        clientId: 'your_client_id',
+        timestamp: Math.round(new Date() / 1000),
+        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      });
+  
+      // 修改邮箱
+      authing.update({
+        _id: "59e5ff4935eebf1913cfe8a1",
+        email: 'xxx@xxx.com',
+      });
+    })();
+    ```
+* **返回数据:**
+  * ```javascript
+
+    {
+        "_id": "59e5ff4935eebf1913cfe8a1",
+        "email": "xxx@xxx.com",
+        "emailVerified": false,
+        "username": "premail@premail.com",
+        "nickname": "",
+        "company": "",
+        "photo": "http://www.xiaohehe.net/uploads/allimg/150305/304-1503051H136.png",
+        "browser": "",
+        "token": null,
+        "tokenExpiredAt": null,
+        "loginsCount": 0,
+        "lastLogin": "Tue Oct 17 2017 21:02:01 GMT+0800 (CST)",
+        "lastIP": null,
+        "signedUp": "Tue Oct 17 2017 21:02:01 GMT+0800 (CST)",
+        "blocked": false,
+        "isDeleted": false,
+        "group": {
+          "_id": "59e374332023830871913ebd",
+          "name": "default",
+          "descriptions": "default",
+          "createdAt": "Sun Oct 15 2017 22:44:03 GMT+0800 (CST)"
+        }
+     }
+    ```
+
+
 
 ## 验证 JWT Token 的合法性以及是否过期
 
