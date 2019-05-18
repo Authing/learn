@@ -262,6 +262,46 @@ main();
      }
     ```
 
+## 发送手机验证码
+
+此接口可结合[使用手机验证码登录](https://github.com/Authing/docs/blob/master/user_serivce/login_by_phone_code)使用。
+
+**Authing.getVerificationCode\(phone\)**
+
+* **参数:**
+  * `{String} phone`
+  * 手机号
+* **使用方法:**
+  * ```javascript
+    (async function() {
+      const authing = await new Authing({
+        clientId: 'your_client_id',
+        timestamp: Math.round(new Date() / 1000),
+        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      });
+  
+      const userInfo = await authing.getVerificationCode('phone number')
+        .catch((error) => { ... })
+    })();
+    ```
+* **返回数据:**
+  * ```javascript
+    {
+      code: 200, // 500 为失败
+      message: '发送成功'
+    }
+    ```
+
+**短信模版**
+
+> 【Authing】{S8} 是你的验证码，有效时间为 {S2} 分钟。如非本人操作请忽略。
+
+{% hint style="info" %}
+当前不支持修改短信模版。
+{% endhint %}
+
+验证码接口可结合[使用手机验证码登录](https://learn.authing.cn/authing/sdk/authing-sdk-for-web#shi-yong-shou-ji-yan-zheng-ma-deng-lu)使用。
+
 ## 使用手机验证码登录
 
 **Authing.loginByPhoneCode\(options\)**
@@ -269,7 +309,7 @@ main();
 * **参数:**
   * `{Object} options`
     * **phone**，必填，手机号
-    * **phoneCode**，必填，使用[发送短信接口](https://github.com/Authing/docs/blob/master/user_service/send_phone_code.md)获取
+    * **phoneCode**，必填，使用发送短信接口获取
 * **使用方法:**
   * ```javascript
     (async function() {
