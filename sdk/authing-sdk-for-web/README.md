@@ -422,6 +422,12 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](https://learn.authing.cn
 
 其中 `app_id` 和 `redirect_uri` 都是必填选项，`redirect_uri` 是退出后你想要返回的地址。
 
+## 管理用户权限
+
+{% page-ref page="../../advanced/roles.md" %}
+
+{% page-ref page="web-sdk-for-roles.md" %}
+
 ## 获取单个用户资料
 
 **Authing.user\(options\)**
