@@ -151,7 +151,7 @@ description: 控制台是你管理和配置所有 Authing 资源的地方，这�
 
 OAuth 是一种企业级认证方案，使用方法请参考：
 
-{% page-ref page="../advanced/sso/oauth2/" %}
+{% page-ref page="../advanced/oauth2/" %}
 
 ![](../.gitbook/assets/image%20%287%29.png)
 
@@ -159,7 +159,7 @@ OAuth 是一种企业级认证方案，使用方法请参考：
 
 OIDC 是 OAuth 2.0 的超集，使用方法请参考：
 
-{% page-ref page="../advanced/sso/oidc/" %}
+{% page-ref page="../advanced/oidc/" %}
 
 ![](../.gitbook/assets/image%20%2812%29.png)
 
@@ -167,7 +167,7 @@ OIDC 是 OAuth 2.0 的超集，使用方法请参考：
 
 LDAP 是轻量目录访问协议，英文全称是 Lightweight Directory Access Protocol，一般都简称为 LDAP。你可以把它理解为一个树型的用来 **存储用户和组织信息** 的数据库，常被用来做单点登录（ SSO ），使用方法请参考：
 
-{% page-ref page="../advanced/sso/ldap.md" %}
+{% page-ref page="../advanced/ldap.md" %}
 
 ![](../.gitbook/assets/image%20%28106%29.png)
 

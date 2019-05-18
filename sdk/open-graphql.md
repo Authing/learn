@@ -4,7 +4,7 @@ description: 使用原生 GraphQL 与 Authing 服务器交互。
 
 # Open Graphql
 
-本文档包含了所有方法的 GraphQL 请求，可直接复制粘贴使用。
+本文档包含了 Authing 的 GraphQL 请求，可直接复制粘贴使用。
 
 ## getAccessTokenByAppSecret
 
@@ -18,7 +18,7 @@ query getAccessTokenByAppSecret($secret: String!, $clientId: String!){
 
 ## ReadOAuthList
 
-此接口用来读取用户在 Authing 控制台中配置的 OAuth 信息。
+此接口用来读取用户在 Authing 控制台中配置的 OAuth 信息，enabled 为是否启用。
 
 ```text
 query ReadOAuthList($clientId: String!) {

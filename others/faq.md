@@ -23,8 +23,6 @@
 
 ## 什么是单点登录？
 
-{% page-ref page="../advanced/sso/knowledge.md" %}
-
 ## 如何配置用户权限？
 
 {% page-ref page="../advanced/roles.md" %}

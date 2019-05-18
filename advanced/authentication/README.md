@@ -22,13 +22,11 @@ description: 理解 Authing 提供的认证方式
 
 标准协议认证指通过 OAuth 2.0、OIDC、SAML、LDAP 等标准协议认证的过程，**若你的应用安全性要求较高建议使用此种认证方式**。
 
-{% page-ref page="../sso/knowledge.md" %}
+{% page-ref page="../oauth2/" %}
 
-{% page-ref page="../sso/oauth2/" %}
+{% page-ref page="../oidc/" %}
 
-{% page-ref page="../sso/oidc/" %}
-
-{% page-ref page="../sso/ldap.md" %}
+{% page-ref page="../ldap.md" %}
 
 ## 你还需要了解
 
