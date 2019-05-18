@@ -32,7 +32,7 @@
   * [使用 API 操作用户权限](advanced/roles/shi-yong-api-cao-zuo-yong-hu-quan-xian.md)
 * [最佳实践](advanced/best-practise.md)
 
-## 开发资源（SDK）
+## 开发资源
 
 * [开发资源](sdk/libraries.md)
 * [Login-Form for Web](sdk/login-form.md)

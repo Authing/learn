@@ -4,6 +4,8 @@
 
 {% page-ref page="login-form.md" %}
 
+{% page-ref page="loginform-vs-custom-ui.md" %}
+
 ## SDK
 
 {% page-ref page="sdk/authing-sdk-for-web.md" %}
