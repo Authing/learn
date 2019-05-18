@@ -8,9 +8,9 @@
 
 ## SDK
 
-{% page-ref page="sdk/authing-sdk-for-web.md" %}
+{% page-ref page="authing-sdk-for-web.md" %}
 
-{% page-ref page="sdk/authing-sdk-for-wxapp.md" %}
+{% page-ref page="authing-sdk-for-wxapp.md" %}
 
 ## Open API
 

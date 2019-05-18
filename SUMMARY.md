@@ -37,9 +37,8 @@
 * [开发资源](sdk/libraries.md)
 * [Login-Form for Web](sdk/login-form.md)
 * [Login-Form VS 自定义 UI](sdk/loginform-vs-custom-ui.md)
-* [SDK](sdk/sdk/README.md)
-  * [SDK for Web](sdk/sdk/authing-sdk-for-web.md)
-  * [SDK for 微信小程序](sdk/sdk/authing-sdk-for-wxapp.md)
+* [SDK for Web](sdk/authing-sdk-for-web.md)
+* [SDK for 微信小程序](sdk/authing-sdk-for-wxapp.md)
 * [Open Graphql](sdk/open-graphql.md)
 * [函数计算（FaaS）](sdk/faas.md)
 
