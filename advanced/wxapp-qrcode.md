@@ -8,7 +8,7 @@ description: 扫描小程序二维码并使用小程序「身份管家」进行�
 
 点击此处[体验小程序扫码登录](https://sample.authing.cn/)。
 
-![&#x626B;&#x7801;&#x793A;&#x4F8B;](../../.gitbook/assets/wxapp-scaning-demo.gif)
+![&#x626B;&#x7801;&#x793A;&#x4F8B;](../.gitbook/assets/wxapp-scaning-demo.gif)
 
 ## 接入流程
 
@@ -16,11 +16,11 @@ description: 扫描小程序二维码并使用小程序「身份管家」进行�
 
 按照下图打开小程序配置界面：
 
-![](../../.gitbook/assets/image%20%2885%29.png)
+![](../.gitbook/assets/image%20%2886%29.png)
 
 打开开关后将看到如下的弹出框：
 
-![](../../.gitbook/assets/image%20%2817%29.png)
+![](../.gitbook/assets/image%20%2817%29.png)
 
 相关参数解释如下：
 
@@ -50,7 +50,7 @@ auth.then(function(authing) {
 
 运行成功后将生成如下图片：
 
-![](../../.gitbook/assets/image%20%2864%29.png)
+![](../.gitbook/assets/image%20%2865%29.png)
 
 当扫码成功后将跳转到回调 URL 中，链接例如：
 
@@ -112,7 +112,7 @@ LoginForm 是 Authing 提供的快速生成登录表单的 SDK，若开发者在
 
 LoginForm 的使用方法请参考：
 
-{% page-ref page="../../sdk/ui-zi-dong-sheng-cheng/login-form.md" %}
+{% page-ref page="../sdk/ui-lib/login-form.md" %}
 
 ## 调用 HTTP API 接入小程序扫码认证
 

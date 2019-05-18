@@ -15,8 +15,8 @@
 * [理解认证和授权](advanced/authentication/README.md)
   * [邮箱 - 密码认证](advanced/authentication/email-password.md)
   * [手机 - 验证码认证](advanced/authentication/phone-code.md)
-  * [使用小程序扫码认证](advanced/authentication/wxapp-qrcode.md)
   * [JWT Token 释义、使用及验证](advanced/authentication/jwt-token.md)
+* [使用小程序扫码认证](advanced/wxapp-qrcode.md)
 * [使用社会化登录](advanced/social-login.md)
 * [接入单点登录](advanced/sso/README.md)
   * [理解单点登录](advanced/sso/knowledge.md)
@@ -35,8 +35,9 @@
 ## 开发资源（SDK）
 
 * [开发资源](sdk/libraries.md)
-* [UI 自动生成](sdk/ui-zi-dong-sheng-cheng/README.md)
-  * [Login-Form for Web](sdk/ui-zi-dong-sheng-cheng/login-form.md)
+* [UI 自动生成](sdk/ui-lib/README.md)
+  * [Login-Form for Web](sdk/ui-lib/login-form.md)
+  * [Login-Form VS 自定义 UI](sdk/ui-lib/loginform-vs-custom-ui.md)
 * [SDK](sdk/sdk/README.md)
   * [SDK for Web](sdk/sdk/authing-sdk-for-web.md)
   * [SDK for 微信小程序](sdk/sdk/authing-sdk-for-wxapp.md)

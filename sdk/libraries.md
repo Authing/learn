@@ -2,7 +2,7 @@
 
 ## UI 自动生成
 
-{% page-ref page="ui-zi-dong-sheng-cheng/login-form.md" %}
+{% page-ref page="ui-lib/login-form.md" %}
 
 ## SDK
 
