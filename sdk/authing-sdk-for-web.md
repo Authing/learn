@@ -262,6 +262,126 @@ main();
      }
     ```
 
+## 使用手机验证码登录
+
+**Authing.loginByPhoneCode\(options\)**
+
+* **参数:**
+  * `{Object} options`
+    * **phone**，必填，手机号
+    * **phoneCode**，必填，使用[发送短信接口](https://github.com/Authing/docs/blob/master/user_service/send_phone_code.md)获取
+* **使用方法:**
+  * ```javascript
+    (async function() {
+      const authing = await new Authing({
+        clientId: 'your_client_id',
+        timestamp: Math.round(new Date() / 1000),
+        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      });
+  
+      const userInfo = await authing.loginByPhoneCode({
+        phone: 'Your Phone',
+        phoneCode: 'Your Phone Code',
+      }).catch((error) => { ... })
+    })();
+    ```
+* **返回数据:**
+  * ```javascript
+    {
+        "_id": "59e5ff4935eebf1913cfe8a1",
+        "email": "用户邮箱",
+        "emailVerified": false,
+        "username": "用户名",
+        "nickname": "",
+        "phone": "用户手机号",
+        "company": "",
+        "photo": "https://usercontents.authing.cn/client/logo@2.png",
+        "browser": "",
+        "token": null,
+        "tokenExpiredAt": null,
+        "loginsCount": 0,
+        "lastLogin": "Tue Oct 17 2017 21:02:01 GMT+0800 (CST)",
+        "lastIP": null,
+        "signedUp": "Tue Oct 17 2017 21:02:01 GMT+0800 (CST)",
+        "blocked": false,
+        "isDeleted": false,
+    }
+    ```
+
+## 使用 LDAP 登录
+
+LDAP 服务的配置流程请参考[配置 LDAP 服务](https://learn.authing.cn/authing/advanced/sso/ldap)。
+
+**Authing.loginByLDAP\(options\)**
+
+* **参数:**
+  * `{Object} options`
+    * `username`，在 LDAP 服务中的登录名，可以是邮箱或用户名
+    * `password`，在 LDAP 服务中的密码
+* **使用方法:**
+  * ```javascript
+    (async function() {
+      const authing = await new Authing({
+        clientId: 'your_client_id',
+        timestamp: Math.round(new Date() / 1000),
+        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      });
+  
+      const userInfo = await authing.loginByLDAP({
+        username: 'Your LDAP username',
+        passowrd: 'Your LDAP password',
+      }).catch((error) => { ... })
+    })();
+    ```
+* **返回数据:**
+  * ```javascript
+    {
+      "_id": "5cbe9a4347618069372e75ff",
+      "username": "Nikola Tesla",
+      "nickname": "Nikola Tesla",
+      "oauth": "{\"dn\":\"uid=tesla,dc=example,dc=com\",\"controls\":[],\"objectClass\":[\"inetOrgPerson\",\"organizationalPerson\",\"person\",\"top\",\"posixAccount\"],\"cn\":\"Nikola Tesla\",\"sn\":\"Tesla\",\"uid\":\"tesla\",\"mail\":\"tesla@ldap.forumsys.com\",\"uidNumber\":\"88888\",\"gidNumber\":\"99999\",\"homeDirectory\":\"home\"}",
+      "unionid": "uid=tesla,dc=example,dc=com",
+      "registerMethod": "ldap:default::from-undefined",
+      "email": "tesla@ldap.forumsys.com",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoidGVzbGFAbGRhcC5mb3J1bXN5cy5jb20iLCJ1bmlvbmlkIjoidWlkPXRlc2xhLGRjPWV4YW1wbGUsZGM9Y29tIiwiaWQiOiI1Y2JlOWE0MzQ3NjE4MDY5MzcyZTc1ZmYiLCJjbGllbnRJZCI6IjVjYTQwMjdjOGEzNjJjODIyZTI2ZDA0ZiJ9LCJpYXQiOjE1NTU5OTY1MjUsImV4cCI6MTU1NzI5MjUyNX0.gcKasWAzO0ZS4ay_KGGp_ihPKG_GaGXk5iQKzP6R4_w",
+      "company": ""
+    }
+    ```
+
+## 退出登录
+
+**Authing.logout\(uid\)**
+
+* **参数:**
+  * `{String} uid`，必填，用户的 \_id
+* **使用方法:**
+  * ```javascript
+    (async function() {
+      const authing = await new Authing({
+        clientId: 'your_client_id',
+        timestamp: Math.round(new Date() / 1000),
+        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      });
+  
+      await authing.logout('59e5ff4935eebf1913cfe8a1')
+        .catch((error) => { ... })
+    })();
+    ```
+* **返回数据:**
+  * ```javascript
+    {
+    	id: "59e5ff4935eebf1913cfe8a1"
+    }
+    ```
+
+### 退出 SSO
+
+如果你使用了 OAuth、OIDC 或 SAML 实现了单点登录，那么使用户退出登录需要跳转到一个 URL：
+
+> https://&lt;你的域名&gt;.authing.cn/login/profile/logout?app\_id=&lt;OAuth 应用 ID&gt;&redirect\_uri=&lt;退出之后的回调地址&gt;
+
+其中 `app_id` 和 `redirect_uri` 都是必填选项，`redirect_uri` 是退出后你想要返回的地址。
+
 ## 验证 JWT Token 的合法性以及是否过期
 
 验证 JWT 的合法性需要使用应用的密钥，密钥在控制台中可以获取到。
