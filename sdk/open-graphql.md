@@ -465,3 +465,68 @@ mutation sendVerifyEmail(
 
 此接口不用发送任何 `Token`。
 
+## loginByPhoneCode
+
+使用手机验证码的方式登录
+
+```text
+mutation login($phone: String, $phoneCode: Int, $registerInClient: String!) {
+          login(phone: $phone, phoneCode: $phoneCode, registerInClient: $registerInClient) {
+            _id
+            email
+            emailVerified
+            username
+            nickname
+            phone
+            company
+            photo
+            browser
+            token
+            tokenExpiredAt
+            loginsCount
+            lastLogin
+            lastIP
+            signedUp
+            blocked
+            isDeleted
+          }
+      }
+```
+
+### **注意事项**
+
+此接口不用发送任何 `Token`。
+
+## loginByLDAP
+
+ 使用 LDAP 登录
+
+```text
+mutation LoginByLDAP($username: String!, $password: String!, $clientId: String!) {
+      LoginByLDAP(username: $username, clientId: $clientId, password: $password) {
+            _id
+            email
+            emailVerified
+            unionid
+            oauth
+            registerMethod
+            username
+            nickname
+            company
+            photo
+            browser
+            token
+            tokenExpiredAt
+            loginsCount
+            lastLogin
+            lastIP
+            signedUp
+            blocked
+          }
+      }
+```
+
+
+
+
+
