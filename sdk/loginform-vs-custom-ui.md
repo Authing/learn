@@ -45,7 +45,7 @@ Login-Form 是一个登录表单，使用户可以使用选定的连接轻松进
 
 虽然你无法完全改变 Login-Form 的行为，但你可以配置几个基本选项以控制 Login-Form 的显示。
 
-![](../.gitbook/assets/image%20%2897%29.png)
+![](../.gitbook/assets/image%20%2898%29.png)
 
 ### 何时使用 Login-Form
 

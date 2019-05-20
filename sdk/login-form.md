@@ -93,6 +93,35 @@ try {
 建议将验证 Token 合法性的代码放在后端，**避免 Client Secret 在前端泄漏**。
 {% endhint %}
 
+## 使用小程序扫码认证
+
+请在 Authing 控制台中配置好小程序扫码登录的信息，LoginForm 就会自动显示扫码登录的界面，配置方式请参考：[配置小程序信息](https://learn.authing.cn/authing/advanced/wxapp-qrcode#pei-zhi-xiao-cheng-xu-xin-xi)。
+
+![&#x7531; LoginForm &#x81EA;&#x52A8;&#x751F;&#x6210;&#x7684;&#x5C0F;&#x7A0B;&#x5E8F;&#x626B;&#x7801;&#x767B;&#x5F55;&#x754C;&#x9762;](../.gitbook/assets/image%20%2894%29.png)
+
+### 处理回调事件
+
+初始化 LoginForm 后可监听 `scanning` 事件取回用户信息，如下所示：
+
+```javascript
+const form = new AuthingForm({
+  // 必填，client ID
+  clientId: 'your_client_id',
+  // 必填，timestamp
+  timestamp: Math.round(new Date() / 1000),
+  // 必填，nonce
+  nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+});
+
+form.on('scanning', (userInfo) => {
+  // 使用 userInfo 以及 userInfo.token 等信息
+});
+```
+
+{% hint style="info" %}
+验证 Token 合法性请参考：[验证 Token 合法性](https://learn.authing.cn/authing/advanced/authentication/jwt-token#yan-zheng-token-he-fa-xing)。
+{% endhint %}
+
 ## 显示和隐藏表单
 
 Login-Form 提供了两个方法用以操作界面的显示和隐藏，方法名见下表：
