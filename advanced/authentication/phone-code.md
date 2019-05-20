@@ -16,5 +16,13 @@ description: 手机 - 验证码认证让用户能够使用以短信形式发送�
 暂时不支持邮件模版的修改。
 {% endhint %}
 
+## 接下来你可能还需要
 
+{% page-ref page="username-password.md" %}
+
+{% page-ref page="email-password.md" %}
+
+{% page-ref page="../wxapp-qrcode.md" %}
+
+{% page-ref page="../../sdk/authing-sdk-for-web/" %}
 

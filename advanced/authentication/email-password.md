@@ -13,7 +13,13 @@ description: 使用邮箱 + 密码的形式完成认证
 1. 用户将收到一封欢迎邮件
 2. 用户还将收到一封确认邮件，用户点击确认邮件中的链接后可完成邮箱验证
 
+## 接下来你可能还需要
 
+{% page-ref page="username-password.md" %}
 
+{% page-ref page="phone-code.md" %}
 
+{% page-ref page="../wxapp-qrcode.md" %}
+
+{% page-ref page="../../sdk/authing-sdk-for-web/" %}
 

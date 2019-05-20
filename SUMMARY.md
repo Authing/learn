@@ -13,6 +13,7 @@
 ## 进阶指南
 
 * [理解认证和授权](advanced/authentication/README.md)
+  * [用户名 - 密码认证](advanced/authentication/username-password.md)
   * [邮箱 - 密码认证](advanced/authentication/email-password.md)
   * [手机 - 验证码认证](advanced/authentication/phone-code.md)
   * [JWT Token 释义、使用及验证](advanced/authentication/jwt-token.md)

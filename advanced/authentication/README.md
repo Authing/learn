@@ -10,6 +10,8 @@ description: 理解 Authing 提供的认证方式
 
 在创建 Authing 用户池后默认支持的认证方式是普通认证，此种认证方式在认证成功后会直接返回由 Authing 签发的 JWT Token 作为认证凭据（[什么是 JWT Token？](https://learn.authing.cn/authing/advanced/authentication/jwt-token)）。
 
+{% page-ref page="username-password.md" %}
+
 {% page-ref page="email-password.md" %}
 
 {% page-ref page="phone-code.md" %}
