@@ -114,13 +114,9 @@ const form = new AuthingForm({
 });
 
 form.on('scanning', (userInfo) => {
-  // 使用 userInfo 以及 userInfo.token 等信息
-});
+  // 使用 userInfo
+})
 ```
-
-{% hint style="info" %}
-验证 Token 合法性请参考：[验证 Token 合法性](https://learn.authing.cn/authing/advanced/authentication/jwt-token#yan-zheng-token-he-fa-xing)。
-{% endhint %}
 
 ## 显示和隐藏表单
 
