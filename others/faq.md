@@ -13,6 +13,10 @@
 
 {% page-ref page="../advanced/authentication/jwt-token.md" %}
 
+## 如何验证 JWT Token 合法性？
+
+请参考：[验证 JWT Token 合法性](https://learn.authing.cn/authing/advanced/authentication/jwt-token#yan-zheng-token-he-fa-xing)。
+
 ## 如何使用小程序扫码认证？
 
 {% page-ref page="../advanced/wxapp-qrcode.md" %}
@@ -21,7 +25,15 @@
 
 {% page-ref page="../advanced/social-login.md" %}
 
-## 什么是单点登录？
+## 如何接入单点登录？
+
+你可以通过选择以下三种方式的任意一个：
+
+{% page-ref page="../advanced/oauth2/" %}
+
+{% page-ref page="../advanced/oidc/" %}
+
+{% page-ref page="../advanced/ldap.md" %}
 
 ## 如何配置用户权限？
 
