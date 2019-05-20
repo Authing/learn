@@ -17,6 +17,25 @@
 
 请参考：[验证 JWT Token 合法性](https://learn.authing.cn/authing/advanced/authentication/jwt-token#yan-zheng-token-he-fa-xing)。
 
+## 如何验证 OIDC 流程中的 id\_token 合法性？
+
+请参考：[验证 access\_token 和 id\_token 合法性](https://learn.authing.cn/authing/advanced/oidc/oidc-authorization#yan-zheng-accesstoken-he-idtoken-de-he-fa-xing)。
+
+## OIDC 流程中的 Token 有何不同？
+
+OIDC 流程包含两个 Token：
+
+1. access\_token 用来获取用户数据；
+2. id\_token 包含用户的基本信息；
+
+两者都可以使用 OIDC 应用的 secret 验证，验证过程请参考：[验证 access\_token 和 id\_token 合法性](https://learn.authing.cn/authing/advanced/oidc/oidc-authorization#yan-zheng-accesstoken-he-idtoken-de-he-fa-xing)。
+
+{% hint style="info" %}
+验证 OIDC 流程中 Token 所使用的 secret 非应用的 secret，是 OIDC 应用的 secret，如下图所示：
+{% endhint %}
+
+![](../.gitbook/assets/image%20%2869%29.png)
+
 ## 如何使用小程序扫码认证？
 
 {% page-ref page="../advanced/wxapp-qrcode.md" %}

@@ -97,7 +97,7 @@ try {
 
 请在 Authing 控制台中配置好小程序扫码登录的信息，LoginForm 就会自动显示扫码登录的界面，配置方式请参考：[配置小程序信息](https://learn.authing.cn/authing/advanced/wxapp-qrcode#pei-zhi-xiao-cheng-xu-xin-xi)。
 
-![&#x7531; LoginForm &#x81EA;&#x52A8;&#x751F;&#x6210;&#x7684;&#x5C0F;&#x7A0B;&#x5E8F;&#x626B;&#x7801;&#x767B;&#x5F55;&#x754C;&#x9762;](../.gitbook/assets/image%20%2894%29.png)
+![&#x7531; LoginForm &#x81EA;&#x52A8;&#x751F;&#x6210;&#x7684;&#x5C0F;&#x7A0B;&#x5E8F;&#x626B;&#x7801;&#x767B;&#x5F55;&#x754C;&#x9762;](../.gitbook/assets/image%20%2895%29.png)
 
 ### 处理回调事件
 
@@ -114,9 +114,13 @@ const form = new AuthingForm({
 });
 
 form.on('scanning', (userInfo) => {
-  // 使用 userInfo
-})
+  // 使用 userInfo 以及 userInfo.token 等信息
+});
 ```
+
+{% hint style="info" %}
+验证 Token 合法性请参考：[验证 Token 合法性](https://learn.authing.cn/authing/advanced/authentication/jwt-token#yan-zheng-token-he-fa-xing)。
+{% endhint %}
 
 ## 显示和隐藏表单
 

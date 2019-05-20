@@ -16,7 +16,7 @@ description: 扫描小程序二维码并使用小程序「身份管家」进行�
 
 按照下图打开小程序配置界面：
 
-![](../.gitbook/assets/image%20%2893%29.png)
+![](../.gitbook/assets/image%20%2894%29.png)
 
 打开开关后将看到如下的弹出框：
 
@@ -62,7 +62,7 @@ auth.then(function(authing) {
 
 运行成功后将生成如下图片：
 
-![](../.gitbook/assets/image%20%2871%29.png)
+![](../.gitbook/assets/image%20%2872%29.png)
 
 {% hint style="info" %}
 在线体验方法：
@@ -125,6 +125,10 @@ authing.startWXAppScaning({
       tips: '搜索小程序 <strong>身份管家</strong> 扫码登录',
 });
 ```
+
+{% hint style="info" %}
+验证 Token 合法性请参考：[验证 Token 合法性](https://learn.authing.cn/authing/advanced/authentication/jwt-token#yan-zheng-token-he-fa-xing)。
+{% endhint %}
 
 ## 使用 LoginForm 初始化小程序扫码登录
 
