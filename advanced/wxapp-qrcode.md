@@ -16,11 +16,20 @@ description: 扫描小程序二维码并使用小程序「身份管家」进行�
 
 按照下图打开小程序配置界面：
 
-![](../.gitbook/assets/image%20%2894%29.png)
+![](../.gitbook/assets/image%20%2895%29.png)
 
 打开开关后将看到如下的弹出框：
 
-![](../.gitbook/assets/image%20%2819%29.png)
+![](../.gitbook/assets/image%20%283%29.png)
+
+小程序扫码登录有两种配置方式：
+
+1. 上传小程序 Logo，上传完毕后 Authing 将生成一张带有该 Logo 的二维码，开发者完成接入后，用户扫描二维码即可登录；
+2. 注册一个小程序，然后将小程序的 appId 和 appSecret 配置到 Authing 平台中，开发者完成接入后，用户扫描二维码即可登录；
+
+第二种方式如下图所示：
+
+![](../.gitbook/assets/image%20%28107%29.png)
 
 相关参数解释如下：
 
@@ -29,6 +38,15 @@ description: 扫描小程序二维码并使用小程序「身份管家」进行�
 | 小程序的 App ID | 小程序的 App Secret | 成功或失败后的回调 URL（你的业务地址） |
 
 在弹出框中依次填入小程序的 AppID、App Secret 和回调地址并点击「确定」即可完成配置。
+
+#### 我该选择哪种配置方式？
+
+1. 如果你懒于注册小程序，可以直接上传 Logo 完成配置
+2. 如果你想二维码生成的速度快些，可以选择上传 Logo 完成配置
+
+#### 这两种配置方式有何不同？
+
+1. 配置自己的小程序信息，二维码生成的速度会稍微慢一些
 
 ### 使用 SDK for Web 初始化扫码界面
 
@@ -62,7 +80,7 @@ auth.then(function(authing) {
 
 运行成功后将生成如下图片：
 
-![](../.gitbook/assets/image%20%2872%29.png)
+![](../.gitbook/assets/image%20%2873%29.png)
 
 {% hint style="info" %}
 在线体验方法：

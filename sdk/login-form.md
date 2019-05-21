@@ -12,7 +12,7 @@ Login-Form 是一种可嵌入的登录表单，可根据你的需求进行配置
 * 响应式特性（兼容移动端和 PC 端）；
 * 使用 LDAP 登录（[什么是 LDAP？](https://learn.authing.cn/authing/advanced/sso/ldap)）。
 
-![](../.gitbook/assets/image%20%2821%29.png)
+![](../.gitbook/assets/image%20%2822%29.png)
 
 {% hint style="info" %}
 访问 [https://sample.authing.cn](https://sample.authing.cn) 可以体验 Login-Form。
@@ -97,7 +97,7 @@ try {
 
 请在 Authing 控制台中配置好小程序扫码登录的信息，LoginForm 就会自动显示扫码登录的界面，配置方式请参考：[配置小程序信息](https://learn.authing.cn/authing/advanced/wxapp-qrcode#pei-zhi-xiao-cheng-xu-xin-xi)。
 
-![&#x7531; LoginForm &#x81EA;&#x52A8;&#x751F;&#x6210;&#x7684;&#x5C0F;&#x7A0B;&#x5E8F;&#x626B;&#x7801;&#x767B;&#x5F55;&#x754C;&#x9762;](../.gitbook/assets/image%20%2895%29.png)
+![&#x7531; LoginForm &#x81EA;&#x52A8;&#x751F;&#x6210;&#x7684;&#x5C0F;&#x7A0B;&#x5E8F;&#x626B;&#x7801;&#x767B;&#x5F55;&#x754C;&#x9762;](../.gitbook/assets/image%20%2896%29.png)
 
 ### 处理回调事件
 
