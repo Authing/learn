@@ -1,4 +1,4 @@
-# JWT Token 释义、使用及验证
+# JWT Token 释义及使用
 
 Authing 默认基于 JWT Token 进行身份认证。
 
@@ -56,35 +56,6 @@ axios.get({
 Bearer Token \([RFC 6750](http://www.rfcreader.com/#rfc6750)\) 用于授权访问资源，任何 Bearer 持有者都可以无差别地用它来访问相关的资源，而无需证明持有加密 key。一个 Bearer 代表授权范围、有效期，以及其他授权事项；一个 Bearer 在存储和传输过程中应当防止泄露，需实现 Transport Layer Security \(TLS\)；一个 Bearer 有效期不能过长，过期后可用 Refresh Token 申请更新。
 
 建议开发者遵循规范，在每次请求的 Token 前附带 Bearer。
-
-## 验证 Token 合法性
-
-你可以在任意客户端将 JWT Token 发送给后端验证该 JWT 的合法性以及是否过期。
-
-验证 JWT 的合法性需要使用**应用的密钥**，密钥在控制台中的设置面板中可以获取到，如下图所示：
-
-![&#x82E5;&#x4F60;&#x7684;&#x5BC6;&#x94A5;&#x53D1;&#x751F;&#x6CC4;&#x6F0F;&#xFF0C;&#x8BF7;&#x70B9;&#x51FB;&#x300C;&#x5237;&#x65B0;&#x300D;&#x91CD;&#x7F6E;&#x5BC6;&#x94A5;](../../.gitbook/assets/image%20%2868%29.png)
-
-以下验证合法性的代码以 Node 为例（需要安装 `jsonwebtoken`）。
-
-```javascript
-const jwt = require('jsonwebtoken');
-
-try {
-  let decoded = jwt.verify('JSON Web Token from client', 'your_secret'),
-    expired = (Date.parse(new Date()) / 1000) > decoded.exp
-  if (expired) {
-    // 过期
-  }else {
-    // 合法也没过期，正常放行
-  }
-} catch (error) {
-  // 不合法
-}
-```
-
-  
-
 
 
 
