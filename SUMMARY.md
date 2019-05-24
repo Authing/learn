@@ -29,7 +29,7 @@
   * [OIDC 常见问题](advanced/oidc/oidc-params.md)
 * [配置 LDAP 服务](advanced/ldap.md)
 * [配置用户权限](advanced/roles.md)
-* [最佳实践](advanced/best-practise.md)
+* [最佳开发实践](advanced/best-practise.md)
 
 ## 开发资源
 
