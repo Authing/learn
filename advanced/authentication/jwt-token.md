@@ -18,7 +18,7 @@ Json web token \(JWT\)，是为了在网络应用环境间传递声明而执行�
 * 服务器验证用户账号是否和数据库匹配
 * 服务器通过验证后发送给客户端一个 JWT Token
 * **客户端存储 Token，并在每次请求时携带该 Token（**[**如何携带？**](https://learn.authing.cn/authing/advanced/authentication/jwt-token#ke-hu-duan-fu-dai-jwt-token-de-fang-shi)**）**
-* **服务端验证 Token 值，并根据 Token 合法性返回对应资源（**[**如何验证？**](https://learn.authing.cn/authing/advanced/authentication/jwt-token#ru-he-yan-zheng-token-he-fa-xing)**）**
+* **服务端验证 Token 值，并根据 Token 合法性返回对应资源（**[**如何验证？**](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token)**）**
 
 加粗部分为开发者需要进行的工作。
 
