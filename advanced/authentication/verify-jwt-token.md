@@ -3,12 +3,12 @@
 JWT Token 是用户登录后的唯一凭证，验证 Token 有两种方法：
 
 1. [发送 Token 给 Authing 服务器验证](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token#fa-song-token-gei-authing-fu-wu-qi-yan-zheng)
-2. [使用 OAuth 或 OIDC 应用的密钥（secret）验证 Token](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token#shi-yong-oauth-huo-oidc-ying-yong-de-mi-yao-yan-zheng-token)
+2. [使用 OIDC 应用的密钥（secret）验证 Token](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token#shi-yong-oauth-huo-oidc-ying-yong-de-mi-yao-yan-zheng-token)
 
 ## 发送 Token 给 Authing 服务器验证
 
 {% hint style="info" %}
-此方式适用于未使用 OAuth 或 OIDC 流程的应用进行验证，若你使用了 OAuth 或 OIDC，请参考：[使用 OAuth 或 OIDC 应用的密钥验证 Token](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token#shi-yong-oauth-huo-oidc-ying-yong-de-mi-yao-yan-zheng-token)。
+此方式适用于未[使用 OIDC](https://learn.authing.cn/authing/advanced/oidc) 流程的应用进行验证，若你使用了 OIDC，请参考：[使用 OIDC 应用的密钥验证 Token](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token#shi-yong-oauth-huo-oidc-ying-yong-de-mi-yao-yan-zheng-token)。
 {% endhint %}
 
 Authing 使用 [GraphQL](http://graphql.cn/) 进行数据交换，以下以 JavaScript 为例，演示如何发送 Token 给 Authing 服务器：
@@ -136,17 +136,17 @@ query checkLoginStatus($token: String) {
   }
 ```
 
-## 使用 OAuth 或 OIDC 应用的密钥验证 Token
+## 使用 OIDC 应用的密钥验证 Token
 
 {% hint style="info" %}
-如果你使用了 OAuth 或 OIDC 流程，请使用此方式验证 Token。
+如果你使用了 OIDC 流程，请使用此方式验证 Token。
 {% endhint %}
 
-密钥在控制台中 OAuth 或 OIDC 应用的的详情中可以获取到，如下图所示（以 OAuth 应用为例）：
+密钥在控制台中 OIDC 应用的详情中可以获取到，如下图所示：
 
-![](../../.gitbook/assets/image%20%2853%29.png)
+![](../../.gitbook/assets/image%20%28106%29.png)
 
-![](../../.gitbook/assets/image%20%286%29.png)
+![](../../.gitbook/assets/image%20%284%29.png)
 
 以下验证合法性的代码以 Node 为例（需要安装 `jsonwebtoken`）。
 
