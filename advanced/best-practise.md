@@ -7,7 +7,7 @@
 ## 使用 LoginForm
 
 {% hint style="info" %}
-若你不想（或不懂）使用 OIDC 协议，同时你在开发 Web 应用，那么建议使用此方式对用户进行认证。
+若你不想（或不懂）使用 OIDC 协议，同时你在开发 Web 应用，那么建议使用 LoginForm 对用户进行认证。
 {% endhint %}
 
 {% page-ref page="../sdk/login-form.md" %}
