@@ -105,7 +105,7 @@ if(code !== 200) {
 ```
 
 {% hint style="info" %}
-取得用户数据后，若你想验证 Token 合法性，请参考：[验证 Token 合法性](https://learn.authing.cn/authing/advanced/authentication/jwt-token#yan-zheng-token-he-fa-xing)。
+取得用户数据后，若你想验证 Token 合法性，请参考：[验证 Token 合法性](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token)。
 {% endhint %}
 
 ### userInfo 示例

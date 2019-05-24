@@ -265,7 +265,7 @@ form.on('authingLoad', async function(authing) {
 ![](../.gitbook/assets/image%20%28117%29.png)
 
 {% hint style="info" %}
-若你需要在后端验证 JWT Token 的合法性请[点击这里查看](https://learn.authing.cn/authing/advanced/authentication/jwt-token#yan-zheng-token-he-fa-xing)。
+若你需要在后端验证 JWT Token 的合法性请[点击这里查看](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token)。
 
 如果你还不理解什么是 JWT Token 请[查看这篇文章](https://learn.authing.cn/authing/advanced/authentication/jwt-token)。
 {% endhint %}

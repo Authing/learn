@@ -114,7 +114,7 @@ authing.startWXAppScaning({
 });
 ```
 
-若你想在后端验证 Token 合法性，请参考：[验证 Token 合法性](https://learn.authing.cn/authing/advanced/authentication/jwt-token#yan-zheng-token-he-fa-xing)。
+若你想在后端验证 Token 合法性，请参考：[验证 Token 合法性](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token)。
 {% endhint %}
 
 #### 完整参数说明
@@ -145,7 +145,7 @@ authing.startWXAppScaning({
 ```
 
 {% hint style="info" %}
-验证 Token 合法性请参考：[验证 Token 合法性](https://learn.authing.cn/authing/advanced/authentication/jwt-token#yan-zheng-token-he-fa-xing)。
+验证 Token 合法性请参考：[验证 Token 合法性](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token)。
 {% endhint %}
 
 ## 使用 LoginForm 初始化小程序扫码登录

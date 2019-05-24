@@ -29,6 +29,10 @@ description: 了解 OIDC 包含的常见问题，在开发时可以查阅此文�
 
 [参考 OIDC 规范](https://openid.net/specs/openid-connect-core-1_0.html#Authentication)
 
+## 如何验证 Token 合法性
+
+请参考：[使用 OIDC 应用的密钥验证 Token 合法性](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token#shi-yong-oauth-huo-oidc-ying-yong-de-mi-yao-yan-zheng-token)。
+
 ## scope 参数对应的用户信息
 
 | scope 名称 | 对应信息 |

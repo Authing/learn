@@ -69,29 +69,7 @@ form.on('login', (userInfo) => {
 
 ### 4. 验证 JWT Token 的合法性以及是否过期
 
-验证 JWT 的合法性需要使用应用的密钥，密钥在控制台中可以获取到。
-
-以下以 Node 为例（需要安装 `jsonwebtoken`）。
-
-```javascript
-const jwt = require('jsonwebtoken');
-
-try {
-  let decoded = jwt.verify('JSON Web Token from client', 'your_secret'),
-    expired = (Date.parse(new Date()) / 1000) > decoded.exp
-  if (expired) {
-    // 过期
-  }else {
-    // 合法也没过期，正常放行，返回不同的资源或执行不同的业务
-  }
-} catch (error) {
-  // 不合法
-}
-```
-
-{% hint style="info" %}
-建议将验证 Token 合法性的代码放在后端，**避免 Client Secret 在前端泄漏**。
-{% endhint %}
+{% page-ref page="../advanced/authentication/verify-jwt-token.md" %}
 
 ## 使用小程序扫码认证
 
@@ -119,7 +97,7 @@ form.on('scanning', (userInfo) => {
 ```
 
 {% hint style="info" %}
-验证 Token 合法性请参考：[验证 Token 合法性](https://learn.authing.cn/authing/advanced/authentication/jwt-token#yan-zheng-token-he-fa-xing)。
+验证 Token 合法性请参考：[验证 Token 合法性](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token)。
 {% endhint %}
 
 ## 显示和隐藏表单
