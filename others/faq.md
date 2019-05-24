@@ -4,10 +4,14 @@
 
 ![](../.gitbook/assets/image%20%2818%29.png)
 
-## Client secret 如何使用？
+## Client Secret 有何作用？
 
 1. [在服务端初始化 Authing SDK for Web](https://learn.authing.cn/authing/sdk/authing-sdk-for-web#fu-wu-duan)
-2. [验证 JWT Token 合法性](https://learn.authing.cn/authing/advanced/authentication/jwt-token#yan-zheng-token-he-fa-xing)
+
+## Client ID/Client Secret 和 OAuth/OIDC 应用的 App ID 和 App Secret 的区别？
+
+1. Client ID 和 Client Secret 是 Authing 开发者创建的用户池的信息，通过 Client ID 和 Client Secret，Authing 的开发者拥有用户池的所有访问权限；
+2. OAuth/OIDC 应用的 App ID 和 App Secret 是 OAuth 或 OIDC 应用的信息，用来授权其他应用访问用户池，还可以用来[验证 JWT token 的合法性](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token)。
 
 ## 什么是 JWT Token？
 
@@ -15,13 +19,13 @@
 
 ## 如何验证 JWT Token 合法性？
 
-请参考：[验证 JWT Token 合法性](https://learn.authing.cn/authing/advanced/authentication/jwt-token#yan-zheng-token-he-fa-xing)。
+{% page-ref page="../advanced/authentication/verify-jwt-token.md" %}
 
 ## 如何验证 OIDC 流程中的 id\_token 合法性？
 
-请参考：[验证 access\_token 和 id\_token 合法性](https://learn.authing.cn/authing/advanced/oidc/oidc-authorization#yan-zheng-accesstoken-he-idtoken-de-he-fa-xing)。
+请参考：[使用 OIDC 应用的密钥验证 oken 合法性](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token#shi-yong-oauth-huo-oidc-ying-yong-de-mi-yao-yan-zheng-token)。
 
-## OIDC 流程中的 Token 有何不同？
+## OIDC 流程中的两个 Token 有何不同？
 
 OIDC 流程包含两个 Token：
 
