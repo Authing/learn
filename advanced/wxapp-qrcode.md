@@ -10,6 +10,10 @@ description: 扫描小程序二维码并使用小程序「身份管家」进行�
 
 ![&#x626B;&#x7801;&#x793A;&#x4F8B;](../.gitbook/assets/wxapp-scaning-demo.gif)
 
+## 扫码登录示例代码
+
+请参考：[https://github.com/Authing/qrcode-sample](https://github.com/Authing/qrcode-sample)。
+
 ## 接入流程
 
 ### 配置小程序信息
@@ -106,7 +110,7 @@ authing.startWXAppScaning({
   
   // 扫码成功
   onSuccess(res) {
-    const userInfo = res.data.data;
+    const userInfo = res.data;
     
     // 存储 token 到 localStorage 中
     localStorage.setItem('token', userInfo.token);
@@ -116,6 +120,8 @@ authing.startWXAppScaning({
 
 若你想在后端验证 Token 合法性，请参考：[验证 Token 合法性](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token)。
 {% endhint %}
+
+示例代码请参考：[https://github.com/Authing/qrcode-sample](https://github.com/Authing/qrcode-sample)。
 
 #### 完整参数说明
 
