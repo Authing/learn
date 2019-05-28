@@ -18,6 +18,8 @@
   * [手机 - 验证码认证](advanced/authentication/phone-code.md)
   * [JWT Token 释义及使用](advanced/authentication/jwt-token.md)
   * [验证 JWT Token](advanced/authentication/verify-jwt-token.md)
+* [配置用户权限](advanced/roles.md)
+* [最佳开发实践](advanced/best-practise.md)
 * [使用小程序扫码认证](advanced/wxapp-qrcode.md)
 * [使用社会化登录](advanced/social-login.md)
 * [使用 OAuth 2.0](advanced/oauth2/README.md)
@@ -28,8 +30,6 @@
   * [使用 OIDC 授权](advanced/oidc/oidc-authorization.md)
   * [OIDC 常见问题](advanced/oidc/oidc-params.md)
 * [配置 LDAP 服务](advanced/ldap.md)
-* [配置用户权限](advanced/roles.md)
-* [最佳开发实践](advanced/best-practise.md)
 
 ## 开发资源
 
