@@ -24,9 +24,21 @@
 
 在 IdP 字段映射方案列表中选择 Authing，点击「确定」
 
+创建完成后，转到使用方法页。记录 AssertionConsumeServiceURL、下载 SP Metadata。
 
+## 编辑刚创建的 IdP 应用
 
-创建完成后，转到使用方法页
+进入应用控制台 -&gt; 第三方登录 -&gt; SAML IdP 选项卡，找到刚刚创建的 IdP，点击右侧的「...」详情按钮，进入编辑。
+
+在基础配置选项卡，填入刚才记录的 AssertionConsumeServiceURL、上传刚才下载的 SP Metadata，点击「确定」
+
+在使用方法选项卡，下载 IdP Metadata。
+
+## 编辑刚创建的 SP 应用
+
+进入应用控制台 -&gt; 第三方登录 -&gt; 社会化登录，在 SAML Service Provider 区域，找到刚才创建的 SP 应用，点击「编辑」
+
+在基础配置选项卡，上传刚才下载的 SP Metadata。点击「确定」
 
 ## 开始使用
 
