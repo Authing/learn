@@ -6,7 +6,29 @@
 
 ## 创建一个 SAML IdP 应用
 
+填写应用信息，为云上的 IdP 指定一个二级域名，点击「确定」
+
+此时我们还没有 SP，所以 AssertionConsumeServiceURL 可以先填一半，省略 appId 以后的部分。
+
+其他配置使用默认即可。
+
+创建完成后，转到使用方法页。记录 IdP 登录 URL、IdP 登出 URL 和 IdP EntityID，后续创建 SP 时会使用。
+
 ## 创建一个 SAML SP 应用
 
+填写应用信息，为云上的 SP 指定一个二级域名，点击「确定」 
+
+在 IdP 登录 URL、IdP 登出 URL、IdP EntityID 输入刚才记录的三项内容。
+
+其他配置使用默认即可。点击「确定」
+
+在 IdP 字段映射方案列表中选择 Authing，点击「确定」
+
+
+
+创建完成后，转到使用方法页
+
 ## 开始使用
+
+
 
