@@ -173,5 +173,7 @@ photo：不填，因为 Assertion 中无此信息
 
 company：不填，因为 Assertion 中无此信息
 
+如果你既没在列表中找到自己的 IdP 提供商，也不知道 IdP 返回的 SAML Response 是什么格式的，你需要去 IdP 提供商查看一下他们提供的 SAML Response 示例，来确定上面需要填写的字段。
+
 完成设置后，点击确定，会展示一些使用提示。到此 SAML Service Provider 创建完成。
 
