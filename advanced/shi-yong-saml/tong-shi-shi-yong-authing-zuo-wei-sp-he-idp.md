@@ -6,6 +6,8 @@
 
 ## 创建一个 SAML IdP 应用
 
+进入应用控制台 -&gt; 第三方登录 -&gt; SAML IdP 选项卡，点击「创建 SAML IdP」
+
 填写应用信息，为云上的 IdP 指定一个二级域名，点击「确定」
 
 此时我们还没有 SP，所以 AssertionConsumeServiceURL 可以先填一半，省略 appId 以后的部分。
@@ -15,6 +17,8 @@
 创建完成后，转到使用方法页。记录 IdP 登录 URL、IdP 登出 URL 和 IdP EntityID，后续创建 SP 时会使用。
 
 ## 创建一个 SAML SP 应用
+
+进入应用控制台 -&gt; 第三方登录 -&gt; 社会化登录，在 SAML Service Provider 区域，点击「+」
 
 填写应用信息，为云上的 SP 指定一个二级域名，点击「确定」 
 
@@ -42,7 +46,7 @@
 
 ## 开始使用
 
-当你的受保护资源被访问时，需要先对用户身份进行认证，可以通过 Authing SDK 检验 JWT Token 的合法性。如果 token 不合法，可以将用户重定向到云上的 SAML SP，完成后续的用户身份认证流程，最终会携带着用户信息跳回在 SP 中设置的回调地址。
+当你的受保护资源被访问时，需要先对用户身份进行认证，可以通过 Authing SDK 检验 JWT Token 的合法性。如果 token 不合法，可以将用户重定向到云上的 SAML SP，完成后续的用户身份认证流程，Authing 云上的 SAML SP 最终会携带着用户信息和 JWT Token 跳回在 SP 中设置的回调地址。
 
 云上的 SAML SP 地址形式如下
 
@@ -58,7 +62,9 @@ GET https://<domain>.authing.cn/oauth/saml/sp/<appId>/spinitsso-redirect
 GET https://<domain>.authing.cn/oauth/saml/sp/<appId>/spinitsso-post
 ```
 
-
+{% hint style="info" %}
+以下是一次完整的 SAML 登录流程
+{% endhint %}
 
 ### 访问云上的 SP
 
