@@ -31,11 +31,15 @@
   * [OIDC 常见问题](advanced/oidc/oidc-params.md)
 * [配置 LDAP 服务](advanced/ldap.md)
 * [使用 SAML](advanced/shi-yong-saml/README.md)
-  * [同时使用 Authing 作为 SP 和 IdP](advanced/shi-yong-saml/tong-shi-shi-yong-authing-zuo-wei-sp-he-idp.md)
   * [创建 SAML Identity Provider 应用](advanced/shi-yong-saml/chuang-jian-saml-identity-provider-ying-yong.md)
   * [创建 SAML Service Provider 应用](advanced/shi-yong-saml/chuang-jian-saml-service-provider-ying-yong.md)
-  * [使用 SAML Identity Provider](advanced/shi-yong-saml/shi-yong-saml-identity-provider.md)
-  * [使用 SAML Service Provider](advanced/shi-yong-saml/shi-yong-saml-service-provider.md)
+  * [同时使用 Authing 作为 SP 和 IdP](advanced/shi-yong-saml/tong-shi-shi-yong-authing-zuo-wei-sp-he-idp.md)
+  * [使用 SAML Identity Provider](advanced/shi-yong-saml/shi-yong-saml-identity-provider/README.md)
+    * [在阿里云访问管理中使用](advanced/shi-yong-saml/shi-yong-saml-identity-provider/zaieli-yun-fang-wen-guan-li-zhong-shi-yong.md)
+    * [在腾讯云访问管理中使用](advanced/shi-yong-saml/shi-yong-saml-identity-provider/zai-teng-xun-yun-fang-wen-guan-li-zhong-shi-yong.md)
+  * [使用 SAML Service Provider](advanced/shi-yong-saml/shi-yong-saml-service-provider/README.md)
+    * [与 Auth0 SAML IdP 对接](advanced/shi-yong-saml/shi-yong-saml-service-provider/yu-auth0-saml-idp-dui-jie.md)
+    * [与 SSOCircle SAML IdP 对接](advanced/shi-yong-saml/shi-yong-saml-service-provider/yu-ssocircle-saml-idp-dui-jie.md)
 
 ## 开发资源
 
