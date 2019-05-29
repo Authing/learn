@@ -42,5 +42,41 @@
 
 ## 开始使用
 
+当你的受保护资源被访问时，需要先对用户身份进行认证，可以通过 Authing SDK 检验 JWT Token 的合法性。如果 token 不合法，可以将用户重定向到云上的 SAML SP，完成后续的用户身份认证流程，最终会携带着用户信息跳回在 SP 中设置的回调地址。
+
+云上的 SAML SP 地址形式如下
+
+让 SP 通过 GET 请求发送 SAML Request
+
+```text
+GET https://<domain>.authing.cn/oauth/saml/sp/<appId>/spinitsso-redirect
+```
+
+让 SP 通过 POST 请求发送 SAML Request
+
+```text
+GET https://<domain>.authing.cn/oauth/saml/sp/<appId>/spinitsso-post
+```
+
+
+
+### 访问云上的 SP
+
+
+
+### 跳转到 IdP 认证页
+
+
+
+### 用户进行登录
+
+
+
+### Authing 将用户信息发到回调地址
+
+
+
+
+
 
 
