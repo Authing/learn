@@ -24,7 +24,7 @@
 
 接下来需要填写一些 SP 的基础配置才能使 SP 正常工作。
 
-![&#x57FA;&#x7840;&#x914D;&#x7F6E;](../../.gitbook/assets/image%20%28133%29.png)
+![&#x57FA;&#x7840;&#x914D;&#x7F6E;](../../.gitbook/assets/image%20%28134%29.png)
 
 **IdP 登录 URL** 由 IdP 提供，如果没有，可以从 IdP 元数据 XML 文档中查找。
 
@@ -175,5 +175,9 @@ company：不填，因为 Assertion 中无此信息
 
 如果你既没在列表中找到自己的 IdP 提供商，也不知道 IdP 返回的 SAML Response 是什么格式的，你需要去 IdP 提供商查看一下他们提供的 SAML Response 示例，来确定上面需要填写的字段。
 
-完成设置后，点击确定，会展示一些使用提示。到此 SAML Service Provider 创建完成。
+完成设置后，点击确定，会展示一些使用提示。
+
+![SAML SP &#x4F7F;&#x7528;&#x65B9;&#x6CD5;](../../.gitbook/assets/image%20%28132%29.png)
+
+到此 SAML Service Provider 创建完成。
 
