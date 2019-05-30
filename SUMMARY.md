@@ -30,6 +30,7 @@
   * [使用 OIDC 授权](advanced/oidc/oidc-authorization.md)
   * [OIDC 常见问题](advanced/oidc/oidc-params.md)
 * [配置 LDAP 服务](advanced/ldap.md)
+* [使用 Authing 的 LDAP 用户目录](advanced/shi-yong-authing-de-ldap-yong-hu-mu-lu.md)
 * [使用 SAML](advanced/shi-yong-saml/README.md)
   * [创建 SAML Identity Provider 应用](advanced/shi-yong-saml/chuang-jian-saml-identity-provider-ying-yong.md)
   * [创建 SAML Service Provider 应用](advanced/shi-yong-saml/chuang-jian-saml-service-provider-ying-yong.md)
