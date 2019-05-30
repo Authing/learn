@@ -68,19 +68,19 @@ GET https://<domain>.authing.cn/oauth/saml/sp/<appId>/spinitsso-post
 
 ### 访问云上的 SP
 
-
+在浏览器直接访问云上 SP 地址或者通过后端重定向到云上 SP 地址。
 
 ### 跳转到 IdP 认证页
 
-
+如果用户没有登录过，会被重定向到 IdP 用户登录认证页。
 
 ### 用户进行登录
 
-
+用户可以选择一种方式进行登录。
 
 ### Authing 将用户信息发到回调地址
 
-
+云上的 IdP 会将 SAML Response 发送到云上的 SP，SP 会处理好 SAML Response XML 信息，以 JSON 的数据格式将用户信息发到在 SP 配置的回调地址。
 
 
 
