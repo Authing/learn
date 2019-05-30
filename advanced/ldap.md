@@ -12,7 +12,7 @@ LDAP 是轻量目录访问协议，英文全称是 Lightweight Directory Access 
 
 创建完成后，LDAP 服务对全部 OAuth 或 OIDC 应用都可用。
 
-我们准备了一个[LDAP 测试应用](https://ldap.authing.cn/login/?app_id=5cbecf24d14c74627b93b9db)可让你体验使用 LDAP 登录的全流程（测试账户：tesla，测试密码：password）。
+我们准备了一个[LDAP 测试应用](https://ldap-test.authing.cn)可让你体验使用 LDAP 登录的全流程（测试账户：tesla，测试密码：password）。
 
 ![](https://usercontents.authing.cn/docs/oauth/ldap/ldap_test.png)
 
@@ -63,7 +63,7 @@ LDAP 是轻量目录访问协议，英文全称是 Lightweight Directory Access 
 配置完成后，访问任意 OAuth 应用或 OIDC 应用即可使用 LDAP 账号登录。
 
 {% hint style="info" %}
-我们准备了一个[LDAP 测试应用](https://ldap.authing.cn/login/?app_id=5cbecf24d14c74627b93b9db)可让你体验使用 LDAP 登录的全流程：
+我们准备了一个[LDAP 测试应用](https://ldap-test.authing.cn)可让你体验使用 LDAP 登录的全流程：
 
 测试账户：tesla
 
