@@ -6,9 +6,15 @@ Authing SAML IdP 为企业用户提供SSO单点登录能力，通过 IdP 身份�
 
 ## 在 Authing 进行配置
 
-在 Authing 新建一个 SAML Identity Provider 应用。
+先在 Authing 新建一个 SAML Identity Provider 应用。
 
+进入应用控制台 -&gt; 第三方登录 -&gt; SAML IdP 选项卡，点击右侧的「创建 SAML IdP」
 
+在弹出的窗口中填入应用信息，填写一个二级域名作为 SAML IdP 的云上地址，点击「确定」
+
+在 AssertionConsumeServiceURL 中输入腾讯云的 SAML 断言消费地址`https://cloud.tencent.com/login/saml`
+
+从腾讯云[下载](https://cloud.tencent.com/saml.xml) SAML SP Metadata
 
 ## 在腾讯云控制台进行配置
 

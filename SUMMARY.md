@@ -37,6 +37,7 @@
   * [使用 SAML Identity Provider](advanced/shi-yong-saml/shi-yong-saml-identity-provider/README.md)
     * [在阿里云访问管理中使用](advanced/shi-yong-saml/shi-yong-saml-identity-provider/zaieli-yun-fang-wen-guan-li-zhong-shi-yong.md)
     * [在腾讯云访问管理中使用](advanced/shi-yong-saml/shi-yong-saml-identity-provider/zai-teng-xun-yun-fang-wen-guan-li-zhong-shi-yong.md)
+    * [在 Auth0 中使用](advanced/shi-yong-saml/shi-yong-saml-identity-provider/zai-auth0-zhong-shi-yong.md)
   * [使用 SAML Service Provider](advanced/shi-yong-saml/shi-yong-saml-service-provider/README.md)
     * [与 Auth0 SAML IdP 对接](advanced/shi-yong-saml/shi-yong-saml-service-provider/yu-auth0-saml-idp-dui-jie.md)
     * [与 SSOCircle SAML IdP 对接](advanced/shi-yong-saml/shi-yong-saml-service-provider/yu-ssocircle-saml-idp-dui-jie.md)
