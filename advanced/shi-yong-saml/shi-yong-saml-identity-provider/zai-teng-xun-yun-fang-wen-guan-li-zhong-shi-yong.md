@@ -20,26 +20,72 @@ Authing SAML IdP 为企业用户提供SSO单点登录能力，通过 IdP 身份�
 
 ```javascript
 {
-    "https://cloud.tencent.com/SAML/Attributes/Role": "qcs::cam::uni/<AccountID>:roleName/<RoleName>,qcs::cam::uni/<AccountID>:saml-provider/<ProviderName>",
+    "https://cloud.tencent.com/SAML/Attributes/Role": "qcs::cam::uin/<AccountID>:roleName/<RoleName>,qcs::cam::uin/<AccountID>:saml-provider/<ProviderName>",
     "https://cloud.tencent.com/SAML/Attributes/RoleSessionName": "Test"
 }
 ```
 
+打开对 SAML Response 签名开关，上传或输入一对秘钥，并正确选择秘钥算法
+
 点击「确定」
+
+在使用方法页面点击「下载」IdP Metadata
 
 ## 在腾讯云控制台进行配置
 
-从腾讯云进入访问管理页面，在左侧导航栏选择身份提供商，点击蓝色按钮「新建身份提供商」
+从腾讯云进入用户昵称触发下拉菜单 -&gt; 访问管理页面 -&gt; 左侧导航栏选择身份提供商，点击蓝色按钮「新建身份提供商」
 
-![&#x65B0;&#x5EFA;&#x8EAB;&#x4EFD;&#x63D0;&#x4F9B;&#x5546;](../../../.gitbook/assets/image%20%2899%29.png)
+此处需要上传刚才下载的 IdP Metadata XML 文件。提供商名称需要填入刚才在 Authing 自定义 Attribute 中填写的的`<ProviderName>`。
 
-此处需要上传 IdP Metadata XML 文件。
-
-![&#x4E0A;&#x4F20;&#x5143;&#x6570;&#x636E;&#x6587;&#x6863;](../../../.gitbook/assets/image%20%2882%29.png)
+![](../../../.gitbook/assets/image%20%28111%29.png)
 
 上传后点击下一步。
 
-点击确认，完成创建
+在审阅页面点击「完成」
 
-![&#x5BA1;&#x9605;](../../../.gitbook/assets/image%20%28121%29.png)
+![&#x786E;&#x8BA4;&#x4FE1;&#x606F;](../../../.gitbook/assets/image%20%2855%29.png)
+
+从腾讯云进入用户昵称触发下拉菜单 -&gt; 访问管理页面 -&gt; 左侧导航栏选择角色，点击蓝色按钮「新建角色」，在弹出的窗口中选择身份提供商。
+
+![&#x65B0;&#x5EFA;&#x89D2;&#x8272;](../../../.gitbook/assets/image%20%289%29.png)
+
+选择刚才创建的身份提供商 Authing
+
+![&#x9009;&#x62E9;&#x8EAB;&#x4EFD;&#x63D0;&#x4F9B;&#x5546;](../../../.gitbook/assets/image%20%2825%29.png)
+
+点击「下一步」
+
+在角色权限配置页面选择授予此身份提供商的权限，这里选择 Administrator 权限，即全权访问。
+
+![&#x89D2;&#x8272;&#x7B56;&#x7565;](../../../.gitbook/assets/image%20%2889%29.png)
+
+点击「下一步」
+
+在审阅页面，输入角色名称，需要和之前在 Authing 填写的 `<RoleName>` 一致。
+
+![](../../../.gitbook/assets/image%20%2884%29.png)
+
+点击下方「完成」
+
+## 使用 IdP 登录腾讯云
+
+从腾讯云进入用户昵称触发下拉菜单 -&gt; 访问管理页面 -&gt; 左侧导航栏选择身份提供商
+
+点击刚刚创建的身份提供商
+
+![&#x67E5;&#x770B;&#x8BE6;&#x60C5;](../../../.gitbook/assets/image%20%2823%29.png)
+
+复制登录链接，到浏览器新标签页进行访问。
+
+![&#x590D;&#x5236;&#x767B;&#x5F55;&#x94FE;&#x63A5;](../../../.gitbook/assets/image%20%2822%29.png)
+
+点击「确定跳转」
+
+![&#x4ECE; IdP &#x767B;&#x5F55;&#x817E;&#x8BAF;&#x4E91;](../../../.gitbook/assets/image%20%2849%29.png)
+
+浏览器被重定向到 Authing IdP 用户登录认证页，选择一种登录方式，输入信息。点击「登录」
+
+在确权页面点击「授权登录」
+
+
 
