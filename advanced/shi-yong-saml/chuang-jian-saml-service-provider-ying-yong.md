@@ -8,7 +8,7 @@
 
 打开应用控制台-&gt;第三方登录-&gt;社会化登录选项卡
 
-![&#x5E94;&#x7528;&#x63A7;&#x5236;&#x53F0;](../../.gitbook/assets/image%20%28102%29.png)
+![&#x5E94;&#x7528;&#x63A7;&#x5236;&#x53F0;](../../.gitbook/assets/image%20%28103%29.png)
 
 滚动到页面下方，在 SAML Service Provider 区域，点击 ➕
 
@@ -24,7 +24,7 @@
 
 接下来需要填写一些 SP 的基础配置才能使 SP 正常工作。
 
-![&#x57FA;&#x7840;&#x914D;&#x7F6E;](../../.gitbook/assets/image%20%28153%29.png)
+![&#x57FA;&#x7840;&#x914D;&#x7F6E;](../../.gitbook/assets/image%20%28154%29.png)
 
 **IdP 登录 URL** 由 IdP 提供，如果没有，可以从 IdP 元数据 XML 文档中查找。
 
@@ -120,7 +120,7 @@ SP 可以对发出的 SAML Request 进行签名，确保此 SAML Request 的发�
 
 当 IdP 和用户完成了身份验证，IdP 会把用户信息放在 SAML Response 的 Assertion 中发给 SP。Authing 需要将其中的数据存入自己的数据库，这就需要字段对齐。Authing 需要知道 SAML Response 中的用户信息字段名称是什么，进行取出。Authing 内置了一些 IdP 的字段对齐配置，你需要从中选择你的 IdP 提供商。
 
-![&#x5185;&#x7F6E; IdP &#x5B57;&#x6BB5;&#x6620;&#x5C04;&#x65B9;&#x6848;](../../.gitbook/assets/image%20%28122%29.png)
+![&#x5185;&#x7F6E; IdP &#x5B57;&#x6BB5;&#x6620;&#x5C04;&#x65B9;&#x6848;](../../.gitbook/assets/image%20%28123%29.png)
 
 如果找不到你的 IdP 提供商或内置的字段对齐方案不能满足需求，你可以使用自定义字段对齐配置
 
@@ -177,7 +177,7 @@ company：不填，因为 Assertion 中无此信息
 
 完成设置后，点击确定，会展示一些使用提示。
 
-![SAML SP &#x4F7F;&#x7528;&#x65B9;&#x6CD5;](../../.gitbook/assets/image%20%28151%29.png)
+![SAML SP &#x4F7F;&#x7528;&#x65B9;&#x6CD5;](../../.gitbook/assets/image%20%28152%29.png)
 
 到此 SAML Service Provider 创建完成。
 

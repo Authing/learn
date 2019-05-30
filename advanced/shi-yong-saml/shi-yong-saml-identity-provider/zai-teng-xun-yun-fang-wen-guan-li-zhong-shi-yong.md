@@ -37,7 +37,7 @@ Authing SAML IdP 为企业用户提供SSO单点登录能力，通过 IdP 身份�
 
 此处需要上传刚才下载的 IdP Metadata XML 文件。提供商名称需要填入刚才在 Authing 自定义 Attribute 中填写的的`<ProviderName>`。
 
-![](../../../.gitbook/assets/image%20%28111%29.png)
+![](../../../.gitbook/assets/image%20%28112%29.png)
 
 上传后点击下一步。
 
@@ -57,13 +57,13 @@ Authing SAML IdP 为企业用户提供SSO单点登录能力，通过 IdP 身份�
 
 在角色权限配置页面选择授予此身份提供商的权限，这里选择 Administrator 权限，即全权访问。
 
-![&#x89D2;&#x8272;&#x7B56;&#x7565;](../../../.gitbook/assets/image%20%2889%29.png)
+![&#x89D2;&#x8272;&#x7B56;&#x7565;](../../../.gitbook/assets/image%20%2890%29.png)
 
 点击「下一步」
 
 在审阅页面，输入角色名称，需要和之前在 Authing 填写的 `<RoleName>` 一致。
 
-![](../../../.gitbook/assets/image%20%2884%29.png)
+![](../../../.gitbook/assets/image%20%2885%29.png)
 
 点击下方「完成」
 
@@ -87,5 +87,7 @@ Authing SAML IdP 为企业用户提供SSO单点登录能力，通过 IdP 身份�
 
 在确权页面点击「授权登录」
 
+浏览器会跳转到腾讯云控制台，单点登录成功
 
+![&#x5355;&#x70B9;&#x767B;&#x5F55;&#x6210;&#x529F;](../../../.gitbook/assets/image%20%2884%29.png)
 

@@ -12,7 +12,7 @@
 
 在弹出的窗口中输入应用信息。点击「创建应用」。
 
-![IdP &#x5E94;&#x7528;&#x4FE1;&#x606F;&#x586B;&#x5199;](../../.gitbook/assets/image%20%28137%29.png)
+![IdP &#x5E94;&#x7528;&#x4FE1;&#x606F;&#x586B;&#x5199;](../../.gitbook/assets/image%20%28138%29.png)
 
 **认证地址**是本 IdP 应用的云上地址，这里可任意填写一个二级域名。
 
@@ -98,7 +98,7 @@ curl 'https://idp1.authing.cn/oauth/saml/idp/5ce2afd11c4f9813a24d214a/SingleSign
 
 IdP 可以对每个 SAML Response 进行签名再返回给 SP，确保断言颁发者的身份合法性。打开对 SAML Response 签名开关，选择签名算法和摘要算法，输入或从文件读入证书内容，注意证书算法必须与选择的签名和摘要算法**一致**。如果你没有证书，可以从[这里](https://www.samltool.com/self_signed_certs.php)生成一个。
 
-![&#x5BF9; SAML Response &#x7B7E;&#x540D;](../../.gitbook/assets/image%20%28121%29.png)
+![&#x5BF9; SAML Response &#x7B7E;&#x540D;](../../.gitbook/assets/image%20%28122%29.png)
 
 #### 要求 SAML Request 签名
 
