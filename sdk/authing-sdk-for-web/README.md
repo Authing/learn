@@ -668,6 +668,7 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](https://learn.authing.cn
     * username: `{String}，选填`
     * nickname: `{String}，选填`
     * company: `{String}，选填`
+    * phone: `{String}，选填`
     * oauth: `{String}，选填，oauth 信息`
     * photo: `{String || file object}，选填，用户头像`
     * browser: `{String}，选填，用户注册时所用的浏览器`
