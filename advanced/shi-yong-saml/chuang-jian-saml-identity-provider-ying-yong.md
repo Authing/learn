@@ -10,7 +10,7 @@
 
 ![Authing &#x63A7;&#x5236;&#x53F0;](../../.gitbook/assets/image%20%2877%29.png)
 
-在弹出的窗口中输入应用信息。点击「创建应用」。
+在弹出的窗口中输入应用信息，认证地址处填写一个二级域名，作为 IdP 的云上地址。点击「创建应用」。
 
 ![IdP &#x5E94;&#x7528;&#x4FE1;&#x606F;&#x586B;&#x5199;](../../.gitbook/assets/image%20%28138%29.png)
 
@@ -20,7 +20,7 @@
 
 ![IdP &#x57FA;&#x7840;&#x914D;&#x7F6E;](../../.gitbook/assets/image%20%2813%29.png)
 
-**AssertionConsumeServiceURL** 由 SP 提供，IdP 会将 SAML Response 发到这个 URL 地址。
+**AssertionConsumeServiceURL** 由 SP 提供，IdP 默认会将 SAML Response POST 发到这个 URL 地址。
 
 **支持的 bindings** 本 IdP 支持接收 SAML Request 的方式，即允许 SP 通过 GET 或 POST 的方式传递 SAML Request 信息。
 
