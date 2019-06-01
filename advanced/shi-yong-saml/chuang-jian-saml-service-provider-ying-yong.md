@@ -6,7 +6,7 @@
 
 ## 创建 SAML SP 应用
 
-打开应用控制台-&gt;第三方登录-&gt;社会化登录选项卡
+打开应用控制台 -&gt; 第三方登录 -&gt; 社会化登录选项卡
 
 ![&#x5E94;&#x7528;&#x63A7;&#x5236;&#x53F0;](../../.gitbook/assets/image%20%28103%29.png)
 
@@ -44,7 +44,7 @@
 <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ssocircle.com:443/sso/IDPSloSoap/metaAlias/publicidp"/>
 ```
 
-如果提供了多个 URL，建议填写 HTTP-Redirect 对应的 URL。登出时只需访问 登出时只需访问 `https://<domain>.authing.cn/profile/logout`
+如果提供了多个 URL，建议填写 HTTP-Redirect 对应的 URL。登出时只需访问 `https://<domain>.authing.cn/profile/logout`完成 token 清除
 
 **IdP EntityID** 由 IdP 提供，如果没有，可以从 IdP 元数据 XML 文档中查找。
 
