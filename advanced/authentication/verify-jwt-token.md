@@ -145,9 +145,9 @@ query checkLoginStatus($token: String) {
 
 密钥在控制台中 OIDC 应用的详情中可以获取到，如下图所示：
 
-![](../../.gitbook/assets/image%20%28164%29.png)
+![](../../.gitbook/assets/image%20%28170%29.png)
 
-![](../../.gitbook/assets/image%20%285%29.png)
+![](../../.gitbook/assets/image%20%286%29.png)
 
 以下验证合法性的代码以 Node 为例（需要安装 `jsonwebtoken`）。
 
