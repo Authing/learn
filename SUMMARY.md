@@ -42,7 +42,7 @@
   * [使用 SAML Service Provider](advanced/shi-yong-saml/shi-yong-saml-service-provider/README.md)
     * [与 Auth0 SAML IdP 对接](advanced/shi-yong-saml/shi-yong-saml-service-provider/yu-auth0-saml-idp-dui-jie.md)
     * [与 SSOCircle SAML IdP 对接](advanced/shi-yong-saml/shi-yong-saml-service-provider/yu-ssocircle-saml-idp-dui-jie.md)
-* [使用 Webhook](advanced/shi-yong-webhook.md)
+* [使用 Webhook](advanced/use-webhook.md)
 
 ## 开发资源
 
