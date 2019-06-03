@@ -623,6 +623,8 @@ query userPatch($ids: String){
 
 ## decodeJwtToken
 
+解析 JWT Token
+
 ```javascript
 query decodeJwtToken($token: String){
     decodeJwtToken(token: $token){
@@ -645,6 +647,8 @@ query decodeJwtToken($token: String){
 
 ## bindOtherOAuth
 
+用户绑定第三方登录方式
+
 ```javascript
 mutation bindOtherOAuth($user: String, $client: String, $type: String!, $unionid: String!, $userInfo: String!){
     bindOtherOAuth(user: $user, client: $client, type: $type, unionid: $unionid, userInfo: $userInfo){
@@ -661,6 +665,8 @@ mutation bindOtherOAuth($user: String, $client: String, $type: String!, $unionid
 
 ## unbindOtherOAuth
 
+用户解绑第三方登录方式
+
 ```javascript
 mutation unbindOtherOAuth($user: String, $client: String, $type: String!){
     unbindOtherOAuth(user: $user, client: $client, type: $type){
@@ -676,6 +682,8 @@ mutation unbindOtherOAuth($user: String, $client: String, $type: String!){
 ```
 
 ## unbindEmail
+
+用户解绑 Email
 
 ```javascript
 mutation unbindEmail($user: String, $client: String){
