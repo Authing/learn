@@ -171,6 +171,21 @@ query user($id: String!, $registerInClient: String!){
         signedUp
         blocked
         isDeleted
+        userLocation {
+          _id
+          when
+          where
+        }
+        userLoginHistory {
+          totalCount
+          list {
+            _id
+            when
+            success
+            ip
+            result
+          }
+        }
     }
 }
 ```
@@ -380,6 +395,7 @@ mutation sendResetPasswordEmail(
     ) {
           message
           code
+          status
     }
 }
 ```
@@ -399,6 +415,7 @@ mutation verifyResetPasswordVerifyCode(
     ) {
           message
           code
+          status
     }
 }
 ```
@@ -526,7 +543,163 @@ mutation LoginByLDAP($username: String!, $password: String!, $clientId: String!)
       }
 ```
 
+## getClientWhenSdkInit
 
+SDK 初始化时获取客户端信息
 
+```javascript
+query getClientWhenSdkInit($secret: String, $clientId: String, $retUserId: Boolean, $timestamp: String, $signature: String, $nonce: Int){
+    getClientWhenSdkInit(secret: $secret, clientId: $clientId, retUserId: $retUserId, timestamp: $timestamp, signature: $signature, nonce: $nonce){
+      accessToken
+      clientInfo {
+        _id
+        name
+        descriptions
+        jwtExpired
+        createdAt
+        isDeleted
+        logo
+        emailVerifiedDefault
+        registerDisabled
+        allowedOrigins
+        clientType {
+          _id
+          name
+          description
+          image
+          example
+        }
+      }
+    }
+}
+```
 
+## userPatch
+
+```javascript
+query userPatch($ids: String){
+    userPatch(ids: $ids){
+      list {
+        _id
+        unionid
+        email
+        emailVerified
+        username
+        nickname
+        company
+        photo
+        browser
+        registerInClient
+        registerMethod
+        oauth
+        token
+        tokenExpiredAt
+        loginsCount
+        lastLogin
+        lastIP
+        signedUp
+        blocked
+        isDeleted
+        userLocation {
+          _id
+          when
+          where
+        }
+        userLoginHistory {
+          totalCount
+          list {
+            _id
+            when
+            success
+            ip
+            result
+          }
+        }
+      }
+      totalCount
+    }
+}
+```
+
+## decodeJwtToken
+
+```javascript
+query decodeJwtToken($token: String){
+    decodeJwtToken(token: $token){
+        data{
+            email
+            id
+            clientId
+            unionid
+        }
+        status{
+            message
+            code
+            status
+        }
+        iat
+        exp
+    }
+}
+```
+
+## bindOtherOAuth
+
+```javascript
+mutation bindOtherOAuth($user: String, $client: String, $type: String!, $unionid: String!, $userInfo: String!){
+    bindOtherOAuth(user: $user, client: $client, type: $type, unionid: $unionid, userInfo: $userInfo){
+        _id
+        user
+        client
+        type
+        unionid
+        userInfo
+        createdAt
+    }
+}
+```
+
+## unbindOtherOAuth
+
+```javascript
+mutation unbindOtherOAuth($user: String, $client: String, $type: String!){
+    unbindOtherOAuth(user: $user, client: $client, type: $type){
+        _id
+        user
+        client
+        type
+        unionid
+        userInfo
+        createdAt
+    }
+}
+```
+
+## unbindEmail
+
+```javascript
+mutation unbindEmail($user: String, $client: String){
+    unbindEmail(user: $user, client: $client){
+      _id
+      email
+      emailVerified
+      username
+      nickname
+      company
+      photo
+      browser
+      registerInClient
+      registerMethod
+      oauth
+      token
+      tokenExpiredAt
+      loginsCount
+      lastLogin
+      lastIP
+      signedUp
+      blocked
+      isDeleted
+    }
+}
+```
 
