@@ -8,11 +8,11 @@
 
 进入刚创建应用的控制台，点击第三方登录选项卡，在下方的的选项卡点击 SAML IdP，点击右侧「创建 SAML IdP」按钮。
 
-![Authing &#x63A7;&#x5236;&#x53F0;](../../.gitbook/assets/image%20%2880%29.png)
+![Authing &#x63A7;&#x5236;&#x53F0;](../../.gitbook/assets/image%20%2882%29.png)
 
 在弹出的窗口中输入应用信息，认证地址处填写一个二级域名，作为 IdP 的云上地址。点击「创建应用」。
 
-![IdP &#x5E94;&#x7528;&#x4FE1;&#x606F;&#x586B;&#x5199;](../../.gitbook/assets/image%20%28144%29.png)
+![IdP &#x5E94;&#x7528;&#x4FE1;&#x606F;&#x586B;&#x5199;](../../.gitbook/assets/image%20%28147%29.png)
 
 **认证地址**是本 IdP 应用的云上地址，这里可任意填写一个二级域名。
 
@@ -92,19 +92,19 @@ curl 'https://idp1.authing.cn/oauth/saml/idp/5ce2afd11c4f9813a24d214a/SingleSign
 
 接下来可以配置一些加密、签名方面的设置
 
-![&#x52A0;&#x5BC6;&#x3001;&#x7B7E;&#x540D;&#x8BBE;&#x7F6E;](../../.gitbook/assets/image%20%2843%29.png)
+![&#x52A0;&#x5BC6;&#x3001;&#x7B7E;&#x540D;&#x8BBE;&#x7F6E;](../../.gitbook/assets/image%20%2844%29.png)
 
 #### 对 SAML Response 签名
 
 IdP 可以对每个 SAML Response 进行签名再返回给 SP，确保断言颁发者的身份合法性。打开对 SAML Response 签名开关，选择签名算法和摘要算法，输入或从文件读入证书内容，注意证书算法必须与选择的签名和摘要算法**一致**。如果你没有证书，可以从[这里](https://www.samltool.com/self_signed_certs.php)生成一个。
 
-![&#x5BF9; SAML Response &#x7B7E;&#x540D;](../../.gitbook/assets/image%20%28126%29.png)
+![&#x5BF9; SAML Response &#x7B7E;&#x540D;](../../.gitbook/assets/image%20%28129%29.png)
 
 #### 要求 SAML Request 签名
 
 IdP 可以要求 SP 对 SAML Request 签名。打开此开关后，IdP 收到 SAML Request 后会先验证签名，如果签名错误，会返回错误信息，而不会执行验证用户身份的流程。
 
-![&#x9A8C;&#x7B7E; SAML Request](../../.gitbook/assets/image%20%2856%29.png)
+![&#x9A8C;&#x7B7E; SAML Request](../../.gitbook/assets/image%20%2857%29.png)
 
 此处需要上传或输入相应 SP 的签名证书。SP 可能会单独提供此证书，如果没有，可以从 SP 的元数据 XML 文档中获取，注意对其进行[格式化](https://www.samltool.com/format_x509cert.php)。
 
@@ -142,7 +142,7 @@ IdP 可以对 SAML Response 进行加密。打开此开关后，IdP 会将 SAML 
 
 点击确定，会显示本 IdP 的一些使用信息。
 
-![&#x4F7F;&#x7528;&#x65B9;&#x6CD5;](../../.gitbook/assets/image%20%2873%29.png)
+![&#x4F7F;&#x7528;&#x65B9;&#x6CD5;](../../.gitbook/assets/image%20%2875%29.png)
 
 到此完成了 SAML Identity Provider 的创建。
 
