@@ -4,8 +4,6 @@
 
 请查看 Auth0 文档 [https://auth0.com/docs/protocols/saml/saml-idp-generic](https://auth0.com/docs/protocols/saml/saml-idp-generic)
 
-
-
 ## 在 Authing 配置 SP
 
 创建一个 Authing SP。
@@ -20,13 +18,13 @@ Auth0 IdP 登出 URL 形如`https://YOUR_DOMAIN/samlp/CLIENT_ID/logout`。
 
 entityID 填入 Auth0 IdP 的 Issuer，形如 `urn:xxx.auth0.com`。
 
+上传 Auth0 的 IdP Metadata。
+
 在下方 SAML Response 验签证书处上传在 Auth0 下载的 IdP 证书。
 
 点击「确定」。
 
 在字段映射设置中选择 Auth0，点击确定。
-
-
 
 ## 在 Auth0 填入 Authing SAML SP ACS 地址
 
