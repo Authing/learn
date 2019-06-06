@@ -137,10 +137,10 @@ Login-Form 的构造函数 `AuthingForm` 提供了一些高级功能。
 | hideOAuth | 否 | false | Boolean | **是否隐藏第三方 OAuth 登录**，在开发者在 Authing 控制台开启 OAuth 登录后，若此项为 true 将隐藏全部 OAuth 登录 | - |
 | hideClose | 否 | false | Boolean | **是否隐藏登录框右上角的关闭按钮**，如果隐藏，用户将不能通过点击按钮或按 ESC 关闭登录框 | - |
 | **placeholder** | 否 | {} | Object | **定制输入框的 paceholder** | - |
-| **placeholder**.username | 否 | 请输入用户名 | String | **定制输入框的 paceholder** | - |
-| **placeholder**.email | 否 | 请输入邮箱 | String | **用户名输入框的 paceholder** | - |
-| **placeholder**.password | 否 | 请输入密码 | String | **邮箱输入框的 paceholder** | - |
-| **placeholder**.confirmPassword | 否 | 请确认密码 | String | **密码输入框的 paceholder** | - |
+| **placeholder**.username | 否 | 请输入用户名 | String | **用户名输入框的 paceholder** |  |
+| **placeholder**.email | 否 | 请输入邮箱 | String | **邮箱输入框的 paceholder** | - |
+| **placeholder**.password | 否 | 请输入密码 | String | **密码输入框的 paceholder** | - |
+| **placeholder**.confirmPassword | 否 | 请确认密码 | String | **确认密码输入框的 paceholder** | - |
 | **placeholder**.verfiyCode | 否 | 请输入验证码 | String | **验证码输入框的 paceholder** | - |
 | **placeholder**.newPassword | 否 | 请输入新密码 | String | **新密码输入框的 paceholder** | - |
 | **qrcodeScanning** | 否 | {} | Object | **小程序扫码登录的配置项** | - |
