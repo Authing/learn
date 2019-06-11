@@ -6,15 +6,40 @@ description: 使用原生 GraphQL 与 Authing 服务器交互。
 
 本文档包含了 Authing 的 GraphQL 请求，可直接复制粘贴使用。
 
-## getAccessTokenByAppSecret
+## getClientWhenSdkInit
 
-此接口用来验证 ClientId 和 Secret 是否正确，如果正确则返回相应的 Token，此 Token 在接下来的某些接口中需要进行发送（以下称 `OwnerToken`）。
+SDK 初始化时获取客户端信息和 accessToken 信息，后续的管理用户的操作请发送此 Token，在下文中，此 Token 命名为「`OwnerToken`」。
 
-```text
-query getAccessTokenByAppSecret($secret: String!, $clientId: String!){
-    getAccessTokenByAppSecret(secret: $secret, clientId: $clientId)
+```javascript
+query getClientWhenSdkInit($secret: String, $clientId: String, $retUserId: Boolean, $timestamp: String, $signature: String, $nonce: Int){
+    getClientWhenSdkInit(secret: $secret, clientId: $clientId, retUserId: $retUserId, timestamp: $timestamp, signature: $signature, nonce: $nonce){
+      accessToken
+      clientInfo {
+        _id
+        name
+        descriptions
+        jwtExpired
+        createdAt
+        isDeleted
+        logo
+        emailVerifiedDefault
+        registerDisabled
+        allowedOrigins
+        clientType {
+          _id
+          name
+          description
+          image
+          example
+        }
+      }
+    }
 }
 ```
+
+### **注意事项**
+
+此接口不需要发送任何 `Token`
 
 ## ReadOAuthList
 
@@ -35,7 +60,7 @@ query ReadOAuthList($clientId: String!) {
 }
 ```
 
-**注意事项**
+### **注意事项**
 
 此接口不需要发送任何 `Token`
 
@@ -81,6 +106,111 @@ MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC4xKeUgQ+Aoz7TLfAfs9+paePb
 GKl64GDcIq3au+aqJQIDAQAB
 -----END PUBLIC KEY-----
 ```
+
+## loginByPhoneCode
+
+使用手机验证码的方式登录，登录后返回的 Token 需要在客户端维护。
+
+```text
+mutation login($phone: String, $phoneCode: Int, $registerInClient: String!) {
+          login(phone: $phone, phoneCode: $phoneCode, registerInClient: $registerInClient) {
+            _id
+            email
+            emailVerified
+            username
+            nickname
+            phone
+            company
+            photo
+            browser
+            token
+            tokenExpiredAt
+            loginsCount
+            lastLogin
+            lastIP
+            signedUp
+            blocked
+            isDeleted
+          }
+      }
+```
+
+### **注意事项**
+
+此接口不用发送任何 `Token`。
+
+### 发送短信验证码
+
+发送短信验证码是一个 rest 接口，接口声明如下：
+
+{% api-method method="get" host="https://users.authing.cn" path="/send\_smscode/:phone/:clientId" %}
+{% api-method-summary %}
+ 发送短信验证码
+{% endapi-method-summary %}
+
+{% api-method-description %}
+ 发送验证码给指定手机号
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-query-parameters %}
+{% api-method-parameter name="clientId" type="string" required=true %}
+ 应用 ID
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="phone" type="string" required=true %}
+  手机号
+{% endapi-method-parameter %}
+{% endapi-method-query-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```javascript
+{"code":200,"message":"发送成功"}
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+## loginByLDAP
+
+ 使用 LDAP 登录，登录后返回的 Token 需要在客户端维护
+
+```text
+mutation LoginByLDAP($username: String!, $password: String!, $clientId: String!) {
+      LoginByLDAP(username: $username, clientId: $clientId, password: $password) {
+            _id
+            email
+            emailVerified
+            unionid
+            oauth
+            registerMethod
+            username
+            nickname
+            company
+            photo
+            browser
+            token
+            tokenExpiredAt
+            loginsCount
+            lastLogin
+            lastIP
+            signedUp
+            blocked
+          }
+      }
+```
+
+### **注意事项**
+
+此接口不用发送任何 `Token`。
 
 ## register
 
@@ -190,9 +320,62 @@ query user($id: String!, $registerInClient: String!){
 }
 ```
 
-**注意事项**
+### **注意事项**
 
 此接口需要发送 Token，建议直接使用 `OwnerToken`。
+
+## userPatch
+
+批量查询用户
+
+```javascript
+query userPatch($ids: String){
+    userPatch(ids: $ids){
+      list {
+        _id
+        unionid
+        email
+        emailVerified
+        username
+        nickname
+        company
+        photo
+        browser
+        registerInClient
+        registerMethod
+        oauth
+        token
+        tokenExpiredAt
+        loginsCount
+        lastLogin
+        lastIP
+        signedUp
+        blocked
+        isDeleted
+        userLocation {
+          _id
+          when
+          where
+        }
+        userLoginHistory {
+          totalCount
+          list {
+            _id
+            when
+            success
+            ip
+            result
+          }
+        }
+      }
+      totalCount
+    }
+}
+```
+
+### **注意事项**
+
+此接口不用发送任何 `Token`。
 
 ## list
 
@@ -482,145 +665,6 @@ mutation sendVerifyEmail(
 
 此接口不用发送任何 `Token`。
 
-## loginByPhoneCode
-
-使用手机验证码的方式登录
-
-```text
-mutation login($phone: String, $phoneCode: Int, $registerInClient: String!) {
-          login(phone: $phone, phoneCode: $phoneCode, registerInClient: $registerInClient) {
-            _id
-            email
-            emailVerified
-            username
-            nickname
-            phone
-            company
-            photo
-            browser
-            token
-            tokenExpiredAt
-            loginsCount
-            lastLogin
-            lastIP
-            signedUp
-            blocked
-            isDeleted
-          }
-      }
-```
-
-### **注意事项**
-
-此接口不用发送任何 `Token`。
-
-## loginByLDAP
-
- 使用 LDAP 登录
-
-```text
-mutation LoginByLDAP($username: String!, $password: String!, $clientId: String!) {
-      LoginByLDAP(username: $username, clientId: $clientId, password: $password) {
-            _id
-            email
-            emailVerified
-            unionid
-            oauth
-            registerMethod
-            username
-            nickname
-            company
-            photo
-            browser
-            token
-            tokenExpiredAt
-            loginsCount
-            lastLogin
-            lastIP
-            signedUp
-            blocked
-          }
-      }
-```
-
-## getClientWhenSdkInit
-
-SDK 初始化时获取客户端信息
-
-```javascript
-query getClientWhenSdkInit($secret: String, $clientId: String, $retUserId: Boolean, $timestamp: String, $signature: String, $nonce: Int){
-    getClientWhenSdkInit(secret: $secret, clientId: $clientId, retUserId: $retUserId, timestamp: $timestamp, signature: $signature, nonce: $nonce){
-      accessToken
-      clientInfo {
-        _id
-        name
-        descriptions
-        jwtExpired
-        createdAt
-        isDeleted
-        logo
-        emailVerifiedDefault
-        registerDisabled
-        allowedOrigins
-        clientType {
-          _id
-          name
-          description
-          image
-          example
-        }
-      }
-    }
-}
-```
-
-## userPatch
-
-```javascript
-query userPatch($ids: String){
-    userPatch(ids: $ids){
-      list {
-        _id
-        unionid
-        email
-        emailVerified
-        username
-        nickname
-        company
-        photo
-        browser
-        registerInClient
-        registerMethod
-        oauth
-        token
-        tokenExpiredAt
-        loginsCount
-        lastLogin
-        lastIP
-        signedUp
-        blocked
-        isDeleted
-        userLocation {
-          _id
-          when
-          where
-        }
-        userLoginHistory {
-          totalCount
-          list {
-            _id
-            when
-            success
-            ip
-            result
-          }
-        }
-      }
-      totalCount
-    }
-}
-```
-
 ## decodeJwtToken
 
 解析 JWT Token
@@ -645,6 +689,10 @@ query decodeJwtToken($token: String){
 }
 ```
 
+### **注意事项**
+
+此接口不用发送任何 `Token`。
+
 ## bindOtherOAuth
 
 用户绑定第三方登录方式
@@ -663,6 +711,10 @@ mutation bindOtherOAuth($user: String, $client: String, $type: String!, $unionid
 }
 ```
 
+### **注意事项**
+
+此接口发送 `UserToken`。
+
 ## unbindOtherOAuth
 
 用户解绑第三方登录方式
@@ -680,6 +732,10 @@ mutation unbindOtherOAuth($user: String, $client: String, $type: String!){
     }
 }
 ```
+
+### **注意事项**
+
+此接口发送 `UserToken`。
 
 ## unbindEmail
 
@@ -710,4 +766,8 @@ mutation unbindEmail($user: String, $client: String){
     }
 }
 ```
+
+### **注意事项**
+
+此接口发送 `UserToken`。
 
