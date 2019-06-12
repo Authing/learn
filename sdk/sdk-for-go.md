@@ -1,4 +1,4 @@
-# SDK for go
+# SDK for Go
 
 Authing Go SDK 目前支持 Golang 1.8+ 版本。
 
