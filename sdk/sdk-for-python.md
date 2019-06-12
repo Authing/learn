@@ -25,10 +25,10 @@ authing = Authing(clientId, secret)
 
 # 如果 authing 验证 clientId 和 secret 失败，将会抛出一个错误。所以在初始化构造函数的时候，可以使用 try...catch 保证程序不会挂掉。
 
-user = authing.login({
-    'email': 'test@testmail.com',
-    'password': 'testpassword'
-})
+user = authing.login(
+    'test@testmail.com',
+    'testpassword'
+)
 
 if user.get('errors'):
     # 出错
@@ -61,5 +61,71 @@ else:
 
 ## 接口文档
 
-[接口相关文档请点击这里](https://docs.authing.cn/#/user_service/add_user)。
+### 登录
+
+```python
+userInfo = authing.login('EMAIL', 'Password')
+```
+
+### 注册
+
+```python
+userInfo = authing.register('EMAIL', 'Password')
+```
+
+### 查询用户数据
+
+```python
+userInfo = authing.user({'id': 'USER_ID'})
+```
+
+### 查询用户列表
+
+```python
+usersList = authing.list()
+```
+
+### 检查登录状态
+
+```python
+# Token 可通过登录之后返回的 userInfo 中的 token 字段获取
+result = authing.checkLoginStatus('TOKEN')
+```
+
+### 修改用户资料
+
+```python
+result = authing.update({
+    'KEY': 'VALUE'
+})
+```
+
+其中可选 Key 如下所示：
+
+* \_id `{String} 必填`
+  * email `{String}，选填`
+  * emailVerified: `{Boolean}，选填，邮箱是否经过验证`
+  * username: `{String}，选填`
+  * nickname: `{String}，选填`
+  * company: `{String}，选填`
+  * phone: `{String}，选填`
+  * oauth: `{String}，选填，oauth 信息`
+  * photo: `{String || file object}，选填，用户头像`
+  * browser: `{String}，选填，用户注册时所用的浏览器`
+  * password: `{String}，选填，用户密码`
+  * oldPassword: `{String}（`当有 password 时，旧密码参数必需填写）
+  * token: `{String}，选填`
+  * tokenExpiredAt: `{String}，选填，token 过期时间`
+  * loginsCount: `{Number}，选填，登录次数`
+  * lastLogin: `{String}，选填，最后登录时间`
+  * lastIP: `{String}，选填，最后登录 IP`
+  * signedUp: `{String}，选填，注册时间`
+  * blocked: `{Boolean}，选填，是否被锁定`
+  * isDeleted: `{Boolean}，选填，是否被删除`
+
+### 删除用户
+
+```python
+result = authing.remove('USER_ID')
+```
 
