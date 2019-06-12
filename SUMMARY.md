@@ -56,6 +56,8 @@
 * [SDK for 微信小程序](sdk/authing-sdk-for-wxapp.md)
 * [SDK for Python](sdk/sdk-for-python.md)
 * [SDK for Go](sdk/sdk-for-go.md)
+* [SDK for PHP](sdk/sdk-for-php.md)
+* [SDK for Java](sdk/sdk-for-java.md)
 * [Open Graphql](sdk/open-graphql.md)
 * [函数计算（FaaS）](sdk/faas.md)
 

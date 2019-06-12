@@ -14,6 +14,12 @@
 
 {% page-ref page="sdk-for-python.md" %}
 
+{% page-ref page="sdk-for-go.md" %}
+
+{% page-ref page="sdk-for-php.md" %}
+
+{% page-ref page="sdk-for-java.md" %}
+
 ## Open API
 
 {% page-ref page="open-graphql.md" %}
