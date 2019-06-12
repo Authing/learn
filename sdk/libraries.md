@@ -12,6 +12,8 @@
 
 {% page-ref page="authing-sdk-for-wxapp.md" %}
 
+{% page-ref page="sdk-for-python.md" %}
+
 ## Open API
 
 {% page-ref page="open-graphql.md" %}
