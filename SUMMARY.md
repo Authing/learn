@@ -43,7 +43,7 @@
     * [与 Auth0 SAML IdP 对接](advanced/use-saml/use-saml-service-provider/use-with-auth0.md)
     * [与 SSOCircle SAML IdP 对接](advanced/use-saml/use-saml-service-provider/use-with-ssocircle.md)
 * [使用 Webhook](advanced/use-webhook.md)
-* [错误代码](advanced/cuo-wu-dai-ma.md)
+* [错误代码](advanced/error-code.md)
 
 ## 开发资源
 
@@ -53,6 +53,7 @@
 * [SDK for Web](sdk/authing-sdk-for-web/README.md)
   * [读取/修改用户权限](sdk/authing-sdk-for-web/web-sdk-for-roles.md)
   * [自定义请求链接](sdk/authing-sdk-for-web/zi-ding-yi-qing-qiu-lian-jie.md)
+* [SDK for Python](sdk/sdk-for-python.md)
 * [SDK for 微信小程序](sdk/authing-sdk-for-wxapp.md)
 * [Open Graphql](sdk/open-graphql.md)
 * [函数计算（FaaS）](sdk/faas.md)
