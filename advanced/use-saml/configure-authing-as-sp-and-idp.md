@@ -18,17 +18,21 @@
 
 ## 创建一个 SAML SP 应用
 
-进入应用控制台 -&gt; 第三方登录 -&gt; 社会化登录，在 SAML Service Provider 区域，点击「+」
+进入应用控制台 -&gt; 第三方登录 -&gt; 社会化登录，在 SAML Service Provider 区域，点击「+」。
 
-填写应用信息，为云上的 SP 指定一个二级域名，点击「确定」 
+![&#x521B;&#x5EFA; SAML SP](../../.gitbook/assets/image%20%28126%29.png)
+
+填写应用信息，为云上的 SP 指定一个二级域名，点击「确定」 。
 
 在 IdP 登录 URL、IdP 登出 URL、IdP EntityID 输入刚才记录的三项内容。
 
-其他配置使用默认即可。点击「确定」
+其他配置使用默认即可。点击「确定」。
 
-在 IdP 字段映射方案列表中选择 Authing，点击「确定」
+在 IdP 字段映射方案列表中选择 Authing，点击「确定」。
 
 创建完成后，转到使用方法页。记录 AssertionConsumeServiceURL、下载 SP Metadata。
+
+![](../../.gitbook/assets/image%20%286%29.png)
 
 ## 编辑刚创建的 IdP 应用
 
