@@ -10,17 +10,29 @@
 
 填写应用信息，为云上的 IdP 指定一个二级域名，点击「确定」
 
-此时我们还没有 SP，所以 AssertionConsumeServiceURL 可以先填一半，省略 appId 以后的部分。
+此时我们还没有 SP，所以 AssertionConsumeServiceURL 可以先不填写真正的 appId。
+
+![](../../.gitbook/assets/image%20%28187%29.png)
 
 其他配置使用默认即可。
 
-创建完成后，转到使用方法页。记录 IdP 登录 URL、IdP 登出 URL 和 IdP EntityID，后续创建 SP 时会使用。
+生成一对秘钥，上传。用来对 SAML Response 签名、验签。
+
+![](../../.gitbook/assets/image%20%28188%29.png)
+
+![](../../.gitbook/assets/image%20%28109%29.png)
+
+创建完成后，转到使用方法页。记录 IdP 登录 URL、IdP 登出 URL 和 IdP EntityID，下载 IdP Metadata、IdP 证书，后续创建 SP 时会使用。
+
+![&#x4E0B;&#x8F7D;&#x3001;&#x8BB0;&#x5F55;&#x4E00;&#x4E9B;&#x4FE1;&#x606F;](../../.gitbook/assets/image%20%2841%29.png)
+
+
 
 ## 创建一个 SAML SP 应用
 
 进入应用控制台 -&gt; 第三方登录 -&gt; 社会化登录，在 SAML Service Provider 区域，点击「+」。
 
-![&#x521B;&#x5EFA; SAML SP](../../.gitbook/assets/image%20%28126%29.png)
+![&#x521B;&#x5EFA; SAML SP](../../.gitbook/assets/image%20%28128%29.png)
 
 填写应用信息，为云上的 SP 指定一个二级域名，点击「确定」 。
 
