@@ -48,7 +48,7 @@ Authing SAML Identity Provider 为企业提供了单点登录能力。在阿里�
 
 ![](../../../.gitbook/assets/image%20%283%29.png)
 
-输入用户名称、显示名称，勾选控制台密码登录并点击「确认」。
+输入用户名称、显示名称，勾选控制台密码登录并点击「确认」。本教程中输入的登录名称是 authing，显示名称也是 authing。
 
 ![](../../../.gitbook/assets/image%20%2867%29.png)
 
