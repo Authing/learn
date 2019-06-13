@@ -64,7 +64,7 @@ GET https://testapp.authing.cn/oauth/oidc/auth?client_id=5c9b079883e333d55a10108
 
 ### 使用 code 换取 token
 
-如果你在控制台配置 OIDC 时，换取 token 方式设置的为 `client_secret_post`，那么按照下面第一种方法换取 token：
+如果你在控制台配置 OIDC 时，换取 token 方式设置的为 `client_secret_post`，那么按照下面这种方法换取 token：
 
 ```text
 POST https://testapp.authing.cn/oauth/oidc/token
@@ -79,6 +79,8 @@ body 参数
 | code | 授权码，从 redirect\_uri 中可直接读取 |
 | redirect\_uri | 在控制台配置的 OIDC 回调 url 其中的一个值 |
 | grant\_type | 授权类型，此处填写为 authorization\_code |
+
+如果你在控制台配置 OIDC 时，换取 token 方式设置的为 `none`，那么换取 token 时无需传递 client\_secret，其他参数和上表一样。
 
 如果你在控制台配置 OIDC 时，换取 token 方式设置的为 `client_secret_basic`，那么按照下面这种方法换取 token
 
