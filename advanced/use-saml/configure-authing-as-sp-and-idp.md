@@ -12,27 +12,23 @@
 
 此时我们还没有 SP，所以 AssertionConsumeServiceURL 可以先不填写真正的 appId。
 
-![](../../.gitbook/assets/image%20%28187%29.png)
+![](../../.gitbook/assets/image%20%28190%29.png)
 
 其他配置使用默认即可。
 
 生成一对秘钥，上传。用来对 SAML Response 签名、验签。
 
-![](../../.gitbook/assets/image%20%28188%29.png)
+![](../../.gitbook/assets/image%20%28191%29.png)
 
-![](../../.gitbook/assets/image%20%28109%29.png)
+![](../../.gitbook/assets/image%20%28110%29.png)
 
-创建完成后，转到使用方法页。记录 IdP 登录 URL、IdP 登出 URL 和 IdP EntityID，下载 IdP Metadata、IdP 证书，后续创建 SP 时会使用。
-
-![&#x4E0B;&#x8F7D;&#x3001;&#x8BB0;&#x5F55;&#x4E00;&#x4E9B;&#x4FE1;&#x606F;](../../.gitbook/assets/image%20%2841%29.png)
-
-
+创建完成后，转到使用方法页。记录 IdP 登录 URL、IdP 登出 URL 和 IdP EntityID，后续创建 SP 时会使用。
 
 ## 创建一个 SAML SP 应用
 
 进入应用控制台 -&gt; 第三方登录 -&gt; 社会化登录，在 SAML Service Provider 区域，点击「+」。
 
-![&#x521B;&#x5EFA; SAML SP](../../.gitbook/assets/image%20%28128%29.png)
+![&#x521B;&#x5EFA; SAML SP](../../.gitbook/assets/image%20%28129%29.png)
 
 填写应用信息，为云上的 SP 指定一个二级域名，点击「确定」 。
 
@@ -50,15 +46,21 @@
 
 进入应用控制台 -&gt; 第三方登录 -&gt; SAML IdP 选项卡，找到刚刚创建的 IdP，点击右侧的「...」详情按钮，进入编辑。
 
-在基础配置选项卡，填入刚才记录的 AssertionConsumeServiceURL、上传刚才下载的 SP Metadata，点击「确定」
+![](../../.gitbook/assets/image%20%28132%29.png)
+
+在基础配置选项卡，填入刚才记录的 AssertionConsumeServiceURL、上传刚才下载的 SP Metadata，点击「确定」。
 
 在使用方法选项卡，下载 IdP Metadata。
 
 ## 编辑刚创建的 SP 应用
 
-进入应用控制台 -&gt; 第三方登录 -&gt; 社会化登录，在 SAML Service Provider 区域，找到刚才创建的 SP 应用，点击「编辑」
+进入应用控制台 -&gt; 第三方登录 -&gt; 社会化登录，在 SAML Service Provider 区域，找到刚才创建的 SP 应用，点击「编辑」。
 
-在基础配置选项卡，上传刚才下载的 IdP Metadata。点击「确定」
+![](../../.gitbook/assets/image%20%28165%29.png)
+
+![](../../.gitbook/assets/image%20%2840%29.png)
+
+在基础配置选项卡，上传刚才下载的 IdP Metadata。点击「确定」。
 
 ## 开始使用
 
