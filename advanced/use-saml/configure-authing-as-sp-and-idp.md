@@ -12,15 +12,15 @@
 
 此时我们还没有 SP，所以 AssertionConsumeServiceURL 可以先不填写真正的 appId。
 
-![](../../.gitbook/assets/image%20%28203%29.png)
+![](../../.gitbook/assets/image%20%28208%29.png)
 
 其他配置使用默认即可。
 
 生成一对秘钥，上传。用来对 SAML Response 签名、验签。
 
-![](../../.gitbook/assets/image%20%28204%29.png)
+![](../../.gitbook/assets/image%20%28209%29.png)
 
-![](../../.gitbook/assets/image%20%28118%29.png)
+![](../../.gitbook/assets/image%20%28121%29.png)
 
 创建完成后，转到使用方法页。记录 IdP 登录 URL、IdP 登出 URL 和 IdP EntityID，后续创建 SP 时会使用。
 
@@ -28,7 +28,7 @@
 
 进入应用控制台 -&gt; 第三方登录 -&gt; 社会化登录，在 SAML Service Provider 区域，点击「+」。
 
-![&#x521B;&#x5EFA; SAML SP](../../.gitbook/assets/image%20%28137%29.png)
+![&#x521B;&#x5EFA; SAML SP](../../.gitbook/assets/image%20%28140%29.png)
 
 填写应用信息，为云上的 SP 指定一个二级域名，点击「确定」 。
 
@@ -46,7 +46,7 @@
 
 进入应用控制台 -&gt; 第三方登录 -&gt; SAML IdP 选项卡，找到刚刚创建的 IdP，点击右侧的「...」详情按钮，进入编辑。
 
-![](../../.gitbook/assets/image%20%28140%29.png)
+![](../../.gitbook/assets/image%20%28143%29.png)
 
 在基础配置选项卡，填入刚才记录的 AssertionConsumeServiceURL、上传刚才下载的 SP Metadata，点击「确定」。
 
@@ -56,7 +56,7 @@
 
 进入应用控制台 -&gt; 第三方登录 -&gt; 社会化登录，在 SAML Service Provider 区域，找到刚才创建的 SP 应用，点击「编辑」。
 
-![](../../.gitbook/assets/image%20%28176%29.png)
+![](../../.gitbook/assets/image%20%28179%29.png)
 
 ![](../../.gitbook/assets/image%20%2843%29.png)
 
@@ -88,21 +88,21 @@ GET https://<domain>.authing.cn/oauth/saml/sp/<appId>/spinitsso-post
 
 在浏览器直接访问云上 SP 地址或者通过后端重定向到云上 SP 地址。
 
-![&#x76F4;&#x63A5;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x8BBF;&#x95EE;&#x4E91;&#x4E0A; SP](../../.gitbook/assets/image%20%28154%29.png)
+![&#x76F4;&#x63A5;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x8BBF;&#x95EE;&#x4E91;&#x4E0A; SP](../../.gitbook/assets/image%20%28157%29.png)
 
 ### 跳转到 IdP 认证页
 
 如果用户没有登录过，会被重定向到 IdP 用户登录认证页。
 
-![IdP &#x5728;&#x8BA4;&#x8BC1;&#x7528;&#x6237;&#x8EAB;&#x4EFD;](../../.gitbook/assets/image%20%28101%29.png)
+![IdP &#x5728;&#x8BA4;&#x8BC1;&#x7528;&#x6237;&#x8EAB;&#x4EFD;](../../.gitbook/assets/image%20%28104%29.png)
 
 ### 用户进行登录
 
 用户可以选择一种方式进行登录。
 
-![&#x7528;&#x6237;&#x8FDB;&#x884C;&#x767B;&#x5F55;](../../.gitbook/assets/image%20%28223%29.png)
+![&#x7528;&#x6237;&#x8FDB;&#x884C;&#x767B;&#x5F55;](../../.gitbook/assets/image%20%28228%29.png)
 
-![&#x7528;&#x6237;&#x786E;&#x6743;](../../.gitbook/assets/image%20%28100%29.png)
+![&#x7528;&#x6237;&#x786E;&#x6743;](../../.gitbook/assets/image%20%28102%29.png)
 
 ### Authing 将用户信息发到回调地址
 
