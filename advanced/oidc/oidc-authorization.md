@@ -30,7 +30,7 @@ P.S. 文档中出现的 `testapp.authing.cn` 和 `example.authing.cn` 两个域�
 4. 如果返回类型是 id\_token token，那么在用户登录成功后的回调 URI 中会直接附带 id\_token 和 access\_token
 5. 使用 access\_token 可以换取用户信息（userInfo）
 
-如果你想直观的体验 OIDC 认证流程，请[点击这里查看我们提供的示例](https://oidc-test.authing.cn/oauth/oidc/auth?client_id=5cded9bf4efab36f02fa666a&redirect_uri=https://authing.cn&scope=openid%20profile&response_type=code&state=jacket)或[点击这里可视化的理解 OIDC](https://openidconnect.net/)。
+如果你想直观的体验 OIDC 认证流程，请[点击这里查看我们提供的示例](https://first-oidc-app.authing.cn/oauth/oidc/auth?client_id=5cded9bf4efab36f02fa666a&redirect_uri=https://authing.cn&scope=openid%20profile&response_type=code&state=jacket)或[点击这里可视化的理解 OIDC](https://openidconnect.net/)。
 
 ## 使用授权码模式（Authorization Code Flow）
 
