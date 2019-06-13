@@ -34,12 +34,6 @@
 
 ![](../../.gitbook/assets/image%20%2843%29.png)
 
-此时访问 [https://first-oidc-app.authing.cn](https://first-oidc-app.authing.cn) 可以看到如下界面：
-
-![](../../.gitbook/assets/image%20%28102%29.png)
-
-用户将通过此界面进入开发者接入的其他应用。
-
 ## 接下来你可能需要
 
 {% page-ref page="oidc-authorization.md" %}
