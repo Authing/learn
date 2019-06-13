@@ -58,7 +58,9 @@
 
 ![SP &#x5BF9; IdP &#x7684;&#x201C;&#x8981;&#x6C42;&#x201D;](../../.gitbook/assets/image%20%28111%29.png)
 
- **要求的用户唯一标识符形式** SP 可以要求 IdP 返回特定格式的用户唯一标识符。例如，选择 persistent 时，IdP 会返回下面格式的用户 Id 类型
+ **要求的用户唯一标识符形式** SP 可以要求 IdP 返回特定格式的用户唯一标识符。默认为 unspecified，会返回 persistent 类型的用户 Id。
+
+例如，选择 persistent 时，IdP 会返回下面格式的用户 Id 类型
 
 ```markup
 <saml:NameID Format="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent">authing|5cc32b28d6ebae2f240a9bfd</saml:NameID>
