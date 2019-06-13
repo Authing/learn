@@ -8,17 +8,17 @@
 
 进入刚创建应用的控制台，点击第三方登录选项卡，在下方的的选项卡点击 SAML IdP，点击右侧「创建 SAML IdP」按钮。
 
-![Authing &#x63A7;&#x5236;&#x53F0;](../../.gitbook/assets/image%20%2882%29.png)
+![Authing &#x63A7;&#x5236;&#x53F0;](../../.gitbook/assets/image%20%28160%29.png)
 
 在弹出的窗口中输入应用信息，认证地址处填写一个二级域名，作为 IdP 的云上地址。点击「创建应用」。
 
-![IdP &#x5E94;&#x7528;&#x4FE1;&#x606F;&#x586B;&#x5199;](../../.gitbook/assets/image%20%28147%29.png)
+![IdP &#x5E94;&#x7528;&#x4FE1;&#x606F;&#x586B;&#x5199;](../../.gitbook/assets/image%20%2894%29.png)
 
 **认证地址**是本 IdP 应用的云上地址，这里可任意填写一个二级域名。
 
 创建成功后，还需要填写一些 IdP 的基础配置才能使其正常工作。
 
-![IdP &#x57FA;&#x7840;&#x914D;&#x7F6E;](../../.gitbook/assets/image%20%2815%29.png)
+![IdP &#x57FA;&#x7840;&#x914D;&#x7F6E;](../../.gitbook/assets/image%20%2867%29.png)
 
 **AssertionConsumeServiceURL** 由 SP 提供，IdP 默认会将 SAML Response POST 发到这个 URL 地址。
 
@@ -90,23 +90,51 @@ curl 'https://idp1.authing.cn/oauth/saml/idp/5ce2afd11c4f9813a24d214a/SingleSign
 
 **SP Metadata** 你的 SP 提供方会提供一份元数据 XML 文档，推荐上传此配置文件，Authing 会优先应用这里面的配置。
 
-接下来可以配置一些加密、签名方面的设置
+接下来配置一些 SAML Assertion 中的 Attributes 的配置。如无特殊要求，保持默认配置即可。
 
-![&#x52A0;&#x5BC6;&#x3001;&#x7B7E;&#x540D;&#x8BBE;&#x7F6E;](../../.gitbook/assets/image%20%2844%29.png)
+![](../../.gitbook/assets/image%20%28154%29.png)
+
+**Assertion attributes 中的 Name 格式**
+
+设置为 Basic 时
+
+```markup
+  <saml:Attribute Name="username" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+    <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">test1
+    </saml:AttributeValue>
+  </saml:Attribute>
+```
+
+设置为 URI 时
+
+```markup
+  <saml:Attribute Name="https://schemas.authing.cn/username" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+    <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">test1
+    </saml:AttributeValue>
+  </saml:Attribute>
+```
+
+**自定义 Attribute** 用来设置 SAML Assertion 额外携带的属性，在编辑器中输入一个合法的 JSON 对象，key 为 Attribute 的 Name，value 为 XML 中对应的值。
+
+**认证上下文**用来描述本 IdP 签发 Assertion 时和用户通信的状态，例如 Password-ProtectedTransport 代表用户是通过 https 和 idp 连接并认证。如果无特殊需求，保留默认即可。
+
+最后配置一些加密、签名方面的设置
 
 #### 对 SAML Response 签名
 
-IdP 可以对每个 SAML Response 进行签名再返回给 SP，确保断言颁发者的身份合法性。打开对 SAML Response 签名开关，选择签名算法和摘要算法，输入或从文件读入证书内容，注意证书算法必须与选择的签名和摘要算法**一致**。如果你没有证书，可以从[这里](https://www.samltool.com/self_signed_certs.php)生成一个。
+IdP 必须对每个 SAML Response 进行签名再返回给 SP，确保断言颁发者的身份合法性。选择签名算法和摘要算法，输入或从文件读入证书内容，注意证书算法必须与选择的签名和摘要算法**一致**。如果你没有证书，可以从[这里](https://www.samltool.com/self_signed_certs.php)生成一个。
 
-![&#x5BF9; SAML Response &#x7B7E;&#x540D;](../../.gitbook/assets/image%20%28129%29.png)
+![&#x7B7E;&#x540D;&#x8BBE;&#x7F6E;](../../.gitbook/assets/image%20%28174%29.png)
 
 #### 要求 SAML Request 签名
 
 IdP 可以要求 SP 对 SAML Request 签名。打开此开关后，IdP 收到 SAML Request 后会先验证签名，如果签名错误，会返回错误信息，而不会执行验证用户身份的流程。
 
-![&#x9A8C;&#x7B7E; SAML Request](../../.gitbook/assets/image%20%2857%29.png)
+![&#x9A8C;&#x7B7E; SAML Request](../../.gitbook/assets/image%20%2829%29.png)
 
-此处需要上传或输入相应 SP 的签名证书。SP 可能会单独提供此证书，如果没有，可以从 SP 的元数据 XML 文档中获取，注意对其进行[格式化](https://www.samltool.com/format_x509cert.php)。
+此处需要上传或输入相应 SP 的签名证书。SP 可能会单独提供此证书，如果没有，可以从 SP 的元数据 XML 文档中获取，注意对其进行[格式化](https://www.samltool.com/format_x509cert.php)，**保留**首尾这些`-----BEGIN CERTIFICATE-----` 字样。
 
 ```markup
 <KeyDescriptor use="signing">
@@ -124,9 +152,9 @@ IdP 可以要求 SP 对 SAML Request 签名。打开此开关后，IdP 收到 SA
 
 IdP 可以对 SAML Response 进行加密。打开此开关后，IdP 会将 SAML Response 进行加密处理，再返回给 SP。
 
-![&#x52A0;&#x5BC6; SAML Response](../../.gitbook/assets/image%20%287%29.png)
+![&#x52A0;&#x5BC6; SAML Response](../../.gitbook/assets/image%20%28149%29.png)
 
-此处需要上传或输入相应 SP 的加密证书。SP 可能会单独提供此证书，如果没有，可以从 SP 的元数据 XML 文档中获取，注意对其进行[格式化](https://www.samltool.com/format_x509cert.php)。
+此处需要上传或输入相应 SP 的加密证书。SP 可能会单独提供此证书，如果没有，可以从 SP 的元数据 XML 文档中获取，注意对其进行[格式化](https://www.samltool.com/format_x509cert.php)。**保留**首尾这些`-----BEGIN CERTIFICATE-----` 字样。
 
 ```markup
 <KeyDescriptor use="encryption">
@@ -142,7 +170,7 @@ IdP 可以对 SAML Response 进行加密。打开此开关后，IdP 会将 SAML 
 
 点击确定，会显示本 IdP 的一些使用信息。
 
-![&#x4F7F;&#x7528;&#x65B9;&#x6CD5;](../../.gitbook/assets/image%20%2875%29.png)
+![&#x4F7F;&#x7528;&#x65B9;&#x6CD5;](../../.gitbook/assets/image%20%2878%29.png)
 
 到此完成了 SAML Identity Provider 的创建。
 
