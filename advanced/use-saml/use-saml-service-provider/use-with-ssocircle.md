@@ -22,7 +22,7 @@
 
 entityID 填入 SSOCircle IdP 的 entityID，`https://idp.ssocircle.com`。
 
-在下方 SAML Response 验签证书处上传在 SSOCircle IdP 签名证书。
+在下方 SAML Response 验签证书处上传 SSOCircle IdP 的签名证书。
 
 ```text
 MIIEYzCCAkugAwIBAgIDIAZmMA0GCSqGSIb3DQEBCwUAMC4xCzAJBgNVBAYTAkRF
