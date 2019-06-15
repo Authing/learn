@@ -10,7 +10,7 @@ description: 使用原生 GraphQL 与 Authing 服务器交互。
 
 SDK 初始化时获取客户端信息和 accessToken 信息，后续的管理用户的操作请发送此 Token，在下文中，此 Token 命名为「`OwnerToken`」。
 
-```javascript
+```graphql
 query getClientWhenSdkInit($secret: String, $clientId: String, $retUserId: Boolean, $timestamp: String, $signature: String, $nonce: Int){
     getClientWhenSdkInit(secret: $secret, clientId: $clientId, retUserId: $retUserId, timestamp: $timestamp, signature: $signature, nonce: $nonce){
       accessToken
@@ -45,7 +45,7 @@ query getClientWhenSdkInit($secret: String, $clientId: String, $retUserId: Boole
 
 此接口用来读取用户在 Authing 控制台中配置的 OAuth 信息，enabled 为是否启用。
 
-```text
+```graphql
 query ReadOAuthList($clientId: String!) {
     ReadOauthList(clientId: $clientId) {
         _id
@@ -68,7 +68,7 @@ query ReadOAuthList($clientId: String!) {
 
 此接口用来执行用户登录的操作，登录成功后会返回 `UserToken`，建议单独维护此 Token。
 
-```text
+```graphql
 mutation login($unionid: String, $email: String, $password: String, $lastIP: String, $registerInClient: String!, $verifyCode: String) {
     login(unionid: $unionid, email: $email, password: $password, lastIP: $lastIP, registerInClient: $registerInClient, verifyCode: $verifyCode) {
         _id
@@ -111,7 +111,7 @@ GKl64GDcIq3au+aqJQIDAQAB
 
 使用手机验证码的方式登录，登录后返回的 Token 需要在客户端维护。
 
-```text
+```graphql
 mutation login($phone: String, $phoneCode: Int, $registerInClient: String!) {
           login(phone: $phone, phoneCode: $phoneCode, registerInClient: $registerInClient) {
             _id
@@ -183,7 +183,7 @@ mutation login($phone: String, $phoneCode: Int, $registerInClient: String!) {
 
  使用 LDAP 登录，登录后返回的 Token 需要在客户端维护
 
-```text
+```graphql
 mutation LoginByLDAP($username: String!, $password: String!, $clientId: String!) {
       LoginByLDAP(username: $username, clientId: $clientId, password: $password) {
             _id
@@ -212,9 +212,33 @@ mutation LoginByLDAP($username: String!, $password: String!, $clientId: String!)
 
 此接口不用发送任何 `Token`。
 
+## refreshToken
+
+刷新用户 Token
+
+```graphql
+mutation RefreshToken(
+  $client: String!
+  $user: String!
+) {
+  refreshToken(
+    client: $client
+    user: $user
+  ) {
+    token
+    iat
+    exp
+  }
+}
+```
+
+### **注意事项**
+
+此接口需发送 `OwnerToken`。
+
 ## register
 
-```text
+```graphql
 mutation register(
     $unionid: String,
     $email: String, 
@@ -279,7 +303,7 @@ GKl64GDcIq3au+aqJQIDAQAB
 
 此接口用来读取用户资料，建议使用 `OwnerToken`
 
-```text
+```graphql
 query user($id: String!, $registerInClient: String!){
     user(id: $id, registerInClient: $registerInClient) {
         _id
@@ -328,7 +352,7 @@ query user($id: String!, $registerInClient: String!){
 
 批量查询用户
 
-```javascript
+```graphql
 query userPatch($ids: String){
     userPatch(ids: $ids){
       list {
@@ -381,7 +405,7 @@ query userPatch($ids: String){
 
 此接口用来读取用户列表，建议使用 `OwnerToken`
 
-```text
+```graphql
 query users($registerInClient: String, $page: Int, $count: Int){
   users(registerInClient: $registerInClient, page: $page, count: $count) {
     totalCount
@@ -451,7 +475,7 @@ query users($registerInClient: String, $page: Int, $count: Int){
 
 此接口检查用户登录状态，请使用 `UserToken`
 
-```text
+```graphql
 query checkLoginStatus {
     checkLoginStatus {
         status
@@ -485,7 +509,7 @@ mutation removeUsers($ids: [String], $registerInClient: String, $operator: Strin
 
 此接口用来更新用户资料，建议使用 `OwnerToken`
 
-```text
+```graphql
 mutation UpdateUser(
     _id: String!,
     email: String,
@@ -567,7 +591,7 @@ mutation UpdateUser(
 
 ### sendResetPasswordEmail
 
-```text
+```graphql
 mutation sendResetPasswordEmail(
     $email: String!,
     $client: String!
@@ -585,7 +609,7 @@ mutation sendResetPasswordEmail(
 
 ### verifyResetPasswordVerifyCode
 
-```text
+```graphql
 mutation verifyResetPasswordVerifyCode(
     $email: String!,
     $client: String!,
@@ -607,7 +631,7 @@ mutation verifyResetPasswordVerifyCode(
 
 此接口用来更改忘记密码后的新密码，需要携带 verifyCode，不用发送 `Token`，正常的密码修正请使用上面的 `update` 接口。
 
-```text
+```graphql
 mutation changePassword(
     $email: String!,
     $client: String!,
@@ -645,7 +669,7 @@ mutation changePassword(
 
 ## sendVerifyEmail
 
-```text
+```graphql
 mutation sendVerifyEmail(
     $email: String!,
     $client: String!
@@ -669,7 +693,7 @@ mutation sendVerifyEmail(
 
 解析 JWT Token
 
-```javascript
+```graphql
 query decodeJwtToken($token: String){
     decodeJwtToken(token: $token){
         data{
@@ -697,7 +721,7 @@ query decodeJwtToken($token: String){
 
 用户绑定第三方登录方式
 
-```javascript
+```graphql
 mutation bindOtherOAuth($user: String, $client: String, $type: String!, $unionid: String!, $userInfo: String!){
     bindOtherOAuth(user: $user, client: $client, type: $type, unionid: $unionid, userInfo: $userInfo){
         _id
@@ -719,7 +743,7 @@ mutation bindOtherOAuth($user: String, $client: String, $type: String!, $unionid
 
 用户解绑第三方登录方式
 
-```javascript
+```graphql
 mutation unbindOtherOAuth($user: String, $client: String, $type: String!){
     unbindOtherOAuth(user: $user, client: $client, type: $type){
         _id
@@ -741,7 +765,7 @@ mutation unbindOtherOAuth($user: String, $client: String, $type: String!){
 
 用户解绑 Email
 
-```javascript
+```graphql
 mutation unbindEmail($user: String, $client: String){
     unbindEmail(user: $user, client: $client){
       _id

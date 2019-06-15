@@ -2,6 +2,8 @@
 
 JavaScript SDK 支持 **Angular.js**, **React.js**, **Vue.js** 以及 **Node.js**.我们提供了完全一致的接口。
 
+>
+
 ## 安装
 
 **NPM**
@@ -388,6 +390,37 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](https://learn.authing.cn
     }
     ```
 
+## 刷新用户 Token
+
+**Authing.user\(options\)**
+
+* **参数:**
+  * `{Object} options`
+    * **user**，必填，用户的 \_id
+* **使用方法:**
+  * ```javascript
+    (async function() {
+      const authing = await new Authing({
+        clientId: 'your_client_id',
+        timestamp: Math.round(new Date() / 1000),
+        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      });
+  
+      const token = await authing.refreshToken({
+        user: '59e5ff4935eebf1913cfe8a1'
+      })
+        .catch((error) => { ... })
+    })();
+    ```
+* **返回数据:**
+  * ```javascript
+    {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoieGlleWFuZ0Bkb2RvcmEuY24iLCJpZCI6IjVkMDQ2M2FjODdkNmU5NTEwM2E3MTBjNSJ9LCJpYXQiOjE1NjA1NzEwNzYsImV4cCI6MTU2MTg2NzA3Nn0.qs-Q7UOC5wFa40uIau-50-VjSAVOVjr5nw2opzQeLYg",
+      "iat": 1560571076,
+      "exp": 1561867076
+    }
+    ```
+
 ## 退出
 
 **Authing.logout\(uid\)**
@@ -444,7 +477,9 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](https://learn.authing.cn
         nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
       });
   
-      const userInfo = await authing.user('59e5ff4935eebf1913cfe8a1')
+      const userInfo = await authing.user({
+        id: '59e5ff4935eebf1913cfe8a1'
+      })
         .catch((error) => { ... })
     })();
     ```
