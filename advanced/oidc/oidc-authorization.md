@@ -32,6 +32,8 @@ P.S. 文档中出现的 `testapp.authing.cn` 和 `example.authing.cn` 两个域�
 
 如果你想直观的体验 OIDC 认证流程，请[点击这里查看我们提供的示例](https://first-oidc-app.authing.cn/oauth/oidc/auth?client_id=5cded9bf4efab36f02fa666a&redirect_uri=https://authing.cn&scope=openid%20profile&response_type=code&state=jacket)或[点击这里可视化的理解 OIDC](https://openidconnect.net/)。
 
+若想了解如何在后端处理 OIDC，请参考 Github 上的示例代码：[oidc-demo](https://github.com/Authing/oidc-demo)。
+
 ## 使用授权码模式（Authorization Code Flow）
 
 这个小节介绍如何使用 code （response\_type 为 code）换取 access\_token（access\_token 可用来换取用户信息）。

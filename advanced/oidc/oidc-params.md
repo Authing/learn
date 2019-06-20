@@ -4,6 +4,10 @@ description: 了解 OIDC 包含的常见问题，在开发时可以查阅此文�
 
 # OIDC 常见问题
 
+## OIDC 在后端如何处理
+
+请参考 Github 上的示例：[oidc-demo](https://github.com/Authing/oidc-demo)
+
 ## OIDC 三种认证流程的特征对比
 
 | 特性 | 授权码流程 | 隐式流程 | 混合流程 |

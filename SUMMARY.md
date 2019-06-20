@@ -3,14 +3,14 @@
 * [欢迎](README.md)
 * [Authing 概述](overviews.md)
 
-## 快速开始
+## 快速开始 <a id="quickstart"></a>
 
 * [第一个应用](quickstart/hello-world.md)
 * [基础概念](quickstart/basic.md)
 * [控制台概览](quickstart/dashboard.md)
 * [部署模型](quickstart/deployment.md)
 
-## 进阶指南
+## 进阶指南 <a id="advanced"></a>
 
 * [理解认证和授权](advanced/authentication/README.md)
   * [用户名 - 密码认证](advanced/authentication/username-password.md)
@@ -45,7 +45,7 @@
 * [使用 Webhook](advanced/use-webhook.md)
 * [错误代码](advanced/error-code.md)
 
-## 开发资源
+## 开发资源 <a id="sdk"></a>
 
 * [开发资源](sdk/libraries.md)
 * [Login-Form for Web](sdk/login-form.md)
@@ -61,12 +61,12 @@
 * [Open Graphql](sdk/open-graphql.md)
 * [函数计算（FaaS）](sdk/faas.md)
 
-## 通信
+## 通信 <a id="messages"></a>
 
 * [邮件](messages/email.md)
 * [SMS](messages/sms.md)
 
-## 其他
+## 其他 <a id="others"></a>
 
 * [常见问题](others/faq.md)
 * [集成案例](others/cases/README.md)
