@@ -171,8 +171,7 @@ try {
 为了避免在客户端暴露 Token，建议将 Token 验证放在服务端执行。
 {% endhint %}
 
-  
-
+如果你对如何在后端处理 OIDC 有困惑，请参考 Github 上的示例代码：[oidc-demo](https://github.com/Authing/oidc-demo)。
 
 
 
