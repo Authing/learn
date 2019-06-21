@@ -390,9 +390,68 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](https://learn.authing.cn
     }
     ```
 
+## 验证用户 Token
+
+**Authing.checkLoginStatus\(options\)**
+
+* **参数:**
+  * `{Object} options`
+    * **user**，必填，用户的 \_id
+* **使用方法:**
+  * ```javascript
+    (async () => {
+        const authing = await new Authing({
+            clientId: 'your_client_id',
+            secret: 'your_client_secret'
+        });
+    
+        const result = await authing.checkLoginStatus('USER_JWT_TOKEN');
+    })()
+    ```
+* **返回数据:**
+
+若 Token 合法，则返回数据为：
+
+```javascript
+{
+  status: false,
+  code: 200,
+  message: '已登录',
+  token: {
+    ... // Token 数据
+  }
+}
+```
+
+当 status 为 false 时，有三种情况，分别返回：
+
+```javascript
+{
+  status: false,
+  code: 2020,
+  message: '未登录'
+}
+```
+
+```javascript
+{
+  status: false,
+  code: 2206,
+  message: '登录信息已过期' 
+}
+```
+
+```javascript
+{
+     status: false,
+     code: 2207,
+     message: '登录信息有误'
+ }
+```
+
 ## 刷新用户 Token
 
-**Authing.user\(options\)**
+**Authing.refreshToken\(options\)**
 
 * **参数:**
   * `{Object} options`
@@ -402,8 +461,7 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](https://learn.authing.cn
     (async function() {
       const authing = await new Authing({
         clientId: 'your_client_id',
-        timestamp: Math.round(new Date() / 1000),
-        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+        secret: 'your_client_secret'
       });
   
       const token = await authing.refreshToken({
@@ -944,28 +1002,6 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](https://learn.authing.cn
 **注意事项**
 
 若未绑定其他登录方式, 则不可解绑邮箱
-
-## 验证 JWT Token 的合法性以及是否过期
-
-验证 JWT 的合法性需要使用应用的密钥，密钥在控制台中可以获取到。
-
-以下以 Node 为例（需要安装 `jsonwebtoken`）。
-
-```javascript
-const jwt = require('jsonwebtoken');
-
-try {
-  let decoded = jwt.verify('JSON Web Token from client', 'your_secret'),
-    expired = (Date.parse(new Date()) / 1000) > decoded.exp
-  if (expired) {
-    // 过期
-  }else {
-    // 合法也没过期，正常放行
-  }
-} catch (error) {
-  // 不合法
-}
-```
 
 ## 小程序扫码登录
 
