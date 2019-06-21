@@ -62,8 +62,7 @@ import Authing from 'authing-js-sdk'
 (async () => {
     const authing = await new Authing({
         clientId: 'your_client_id',
-        timestamp: Math.round(new Date() / 1000),
-        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+        secret: 'your_client_secret'
     });
     
     
