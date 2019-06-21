@@ -2,8 +2,6 @@
 
 JavaScript SDK 支持 **Angular.js**, **React.js**, **Vue.js** 以及 **Node.js**.我们提供了完全一致的接口。
 
->
-
 ## 安装
 
 **NPM**
