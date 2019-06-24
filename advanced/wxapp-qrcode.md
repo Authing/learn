@@ -4,7 +4,7 @@ description: 扫描小程序二维码并使用小程序「身份管家」进行�
 
 # 使用小程序扫码认证
 
-小程序扫码登录指使用 Authing 小程序`身份管家`执行微信登录，目前 SDK 仅支持客户端 JavaScript。其它语言若想使用可参考 [HTTP 接口说明](https://docs.authing.cn/#/quick_start/wxapp_scan_login?id=http%E6%8E%A5%E5%8F%A3%E8%AF%B4%E6%98%8E)。
+小程序扫码登录指使用 Authing 小程序`身份管家`执行微信登录，使用 JavaScript SDK 可以快速接入。除此之外我们还提供了 [HTTP 接口说明](https://docs.authing.cn/authing/advanced/wxapp-qrcode#tiao-yong-http-api-jie-ru-xiao-cheng-xu-sao-ma-ren-zheng)。
 
 点击此处[体验小程序扫码登录](https://sample.authing.cn/)。
 
@@ -80,7 +80,11 @@ const auth = new Authing({
 
 auth.then(function(authing) {
     // 调用小程序扫码登录的方法，此方法将生成一个用于扫码登录的图片和相关提示信息
-    authing.startWXAppScaning();
+    // 用户扫描成功后会回调至开发者在控制台中配置的 Redirect URI
+    authing.startWXAppScaning({
+      // 可选，登录失败后的回调函数，一般为网络问题
+      onError: function(error) {}, 
+    });
 })
 ```
 
@@ -283,6 +287,60 @@ https://oauth.authing.cn/oauth/wxapp/qrcode/5c344f102e450b000170190a?random=UaJe
 
 * `redirect` 为用户在 Authing 控制台中配置的回调地址，开发者若有需要可自行回调到此地址
 * 如果用户已扫码，则 code 为 200，若为非 200，则代表用户未扫码或扫码失败
+
+## 私有部署小程序后的使用方法
+
+本章节针对将小程序部署到自己主体下的用户。
+
+#### 安装 authing-js-sdk
+
+```bash
+$ npm install authing-js-sdk --save
+```
+
+**初始化：**
+
+```javascript
+const Authing = require('authing-js-sdk');
+
+// 初始化 Authing SDK for Web
+const auth = new Authing({
+    clientId: 'your_client_id',
+    timestamp: Math.round(new Date() / 1000),
+    nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+    useSelfWxapp: true,
+});
+
+auth.then(function(authing) {
+    // 调用小程序扫码登录的方法，此方法将生成一个用于扫码登录的图片和相关提示信息
+    // 用户扫描成功后会回调至开发者在控制台中配置的 Redirect URI
+    authing.startWXAppScaning({
+      // 可选，登录失败后的回调函数，一般为网络问题
+      onError: function(error) {}, 
+    });
+});
+```
+
+{% hint style="info" %}
+若不想在扫码登录后发生页面跳转，可以配置 redirect 参数为 false，然后在 onSuccess 函数中获取用户数据后执行相应业务，如：
+
+```javascript
+authing.startWXAppScaning({
+  // 不自动跳转
+  redirect: false,
+  
+  // 扫码成功
+  onSuccess(res) {
+    const userInfo = res.data;
+    
+    // 存储 token 到 localStorage 中
+    localStorage.setItem('token', userInfo.token);
+  }
+});
+```
+
+若你想在后端验证 Token 合法性，请参考：[验证 Token 合法性](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token)。
+{% endhint %}
 
 ## 接下来你可能还需要
 
