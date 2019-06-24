@@ -6,6 +6,13 @@ description: 使用原生 GraphQL 与 Authing 服务器交互。
 
 本文档包含了 Authing 的 GraphQL 请求，可直接复制粘贴使用。
 
+## GraphQL 网关
+
+1. https://users.authing.cn/graphql
+2. https://oauth.authing.cn/graphql
+
+如非特殊说明，以下 GraphQL 都使用 [https://users.authing.cn/graphql](https://users.authing.cn/graphql) 网关。
+
 ## getClientWhenSdkInit
 
 SDK 初始化时获取客户端信息和 accessToken 信息，后续的管理用户的操作请发送此 Token，在下文中，此 Token 命名为「`OwnerToken`」。
@@ -44,6 +51,10 @@ query getClientWhenSdkInit($secret: String, $clientId: String, $retUserId: Boole
 ## ReadOAuthList
 
 此接口用来读取用户在 Authing 控制台中配置的 OAuth 信息，enabled 为是否启用。
+
+{% hint style="info" %}
+`此接口使用的网关为：https://oauth.authing.cn/graphql`
+{% endhint %}
 
 ```graphql
 query ReadOAuthList($clientId: String!) {
