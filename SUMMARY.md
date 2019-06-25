@@ -67,6 +67,10 @@
 * [邮件](messages/email.md)
 * [SMS](messages/sms.md)
 
+## 安全 <a id="security"></a>
+
+* [配置 Web 安全域](security/cors.md)
+
 ## 其他 <a id="others"></a>
 
 * [常见问题](others/faq.md)
