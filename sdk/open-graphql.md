@@ -13,7 +13,7 @@ description: 使用原生 GraphQL 与 Authing 服务器交互。
 
 如非特殊说明，以下 GraphQL 都使用 [https://users.authing.cn/graphql](https://users.authing.cn/graphql) 网关。
 
-## getClientWhenSdkInit
+## 初始化
 
 SDK 初始化时获取客户端信息和 accessToken 信息，后续的管理用户的操作请发送此 Token，在下文中，此 Token 命名为「`OwnerToken`」。
 
@@ -48,7 +48,7 @@ query getClientWhenSdkInit($secret: String, $clientId: String, $retUserId: Boole
 
 此接口不需要发送任何 `Token`
 
-## ReadOAuthList
+## 读取用户配置的社会化登录信息
 
 此接口用来读取用户在 Authing 控制台中配置的 OAuth 信息，enabled 为是否启用。
 
@@ -75,7 +75,7 @@ query ReadOAuthList($clientId: String!) {
 
 此接口不需要发送任何 `Token`
 
-## login
+## 登录
 
 此接口用来执行用户登录的操作，登录成功后会返回 `UserToken`，建议单独维护此 Token。
 
@@ -118,7 +118,7 @@ GKl64GDcIq3au+aqJQIDAQAB
 -----END PUBLIC KEY-----
 ```
 
-## loginByPhoneCode
+## 使用手机验证码登录
 
 使用手机验证码的方式登录，登录后返回的 Token 需要在客户端维护。
 
@@ -190,7 +190,7 @@ mutation login($phone: String, $phoneCode: Int, $registerInClient: String!, $bro
 {% endapi-method-spec %}
 {% endapi-method %}
 
-## loginByLDAP
+## 通过 LDAP 登录
 
  使用 LDAP 登录，登录后返回的 Token 需要在客户端维护
 
@@ -223,7 +223,7 @@ mutation LoginByLDAP($username: String!, $password: String!, $clientId: String!,
 
 此接口不用发送任何 `Token`。
 
-## refreshToken
+## 刷新 Token
 
 刷新用户 Token
 
@@ -247,7 +247,7 @@ mutation RefreshToken(
 
 此接口需发送 `OwnerToken`。
 
-## register
+## 注册
 
 ```graphql
 mutation register(
@@ -315,7 +315,7 @@ GKl64GDcIq3au+aqJQIDAQAB
 -----END PUBLIC KEY-----
 ```
 
-## user
+## 读取用户资料
 
 此接口用来读取用户资料，建议使用 `OwnerToken`
 
@@ -364,7 +364,7 @@ query user($id: String!, $registerInClient: String!){
 
 此接口需要发送 Token，建议直接使用 `OwnerToken`。
 
-## userPatch
+## 批量查询用户信息
 
 批量查询用户
 
@@ -417,7 +417,7 @@ query userPatch($ids: String){
 
 此接口不用发送任何 `Token`。
 
-## list
+## 读取用户列表
 
 此接口用来读取用户列表，建议使用 `OwnerToken`
 
@@ -487,7 +487,7 @@ query users($registerInClient: String, $page: Int, $count: Int){
 
 此接口需要发送 Token，建议直接使用 `OwnerToken`。
 
-## checkLoginStatus
+## 检查用户登录状态
 
 此接口检查用户登录状态，请使用 `UserToken`
 
@@ -505,7 +505,7 @@ query checkLoginStatus {
 
 此接口需要发送 Token，请使用 `UserToken`。
 
-## remove
+## 删除用户数据
 
 此接口用来删除用户数据，建议使用 `OwnerToken`
 
@@ -521,7 +521,7 @@ mutation removeUsers($ids: [String], $registerInClient: String, $operator: Strin
 
 此接口需要发送 Token，建议直接使用 `OwnerToken`。
 
-## update
+## 更新用户资料
 
 此接口用来更新用户资料，建议使用 `OwnerToken`
 
@@ -605,7 +605,7 @@ mutation UpdateUser(
 
 以下三个修改密码的 Token 可以不发送任何`Token`。
 
-### sendResetPasswordEmail
+### 发送重置密码邮件
 
 ```graphql
 mutation sendResetPasswordEmail(
@@ -623,7 +623,7 @@ mutation sendResetPasswordEmail(
 }
 ```
 
-### verifyResetPasswordVerifyCode
+### 验证重置密码验证码
 
 ```graphql
 mutation verifyResetPasswordVerifyCode(
@@ -643,7 +643,7 @@ mutation verifyResetPasswordVerifyCode(
 }
 ```
 
-### changePassword
+### 修改密码
 
 此接口用来更改忘记密码后的新密码，需要携带 verifyCode，不用发送 `Token`，正常的密码修正请使用上面的 `update` 接口。
 
@@ -683,7 +683,7 @@ mutation changePassword(
 }
 ```
 
-## sendVerifyEmail
+## 发送验证邮件
 
 ```graphql
 mutation sendVerifyEmail(
@@ -705,7 +705,7 @@ mutation sendVerifyEmail(
 
 此接口不用发送任何 `Token`。
 
-## decodeJwtToken
+## 解析 JWT Token
 
 解析 JWT Token
 
@@ -733,7 +733,31 @@ query decodeJwtToken($token: String){
 
 此接口不用发送任何 `Token`。
 
-## bindOtherOAuth
+## 读取用户绑定的社会化登录
+
+读取用户绑定的社会化登录
+
+{% hint style="info" %}
+此接口使用的网关为：[https://oauth.authing.cn/graphql](https://oauth.authing.cn/graphql)
+{% endhint %}
+
+```graphql
+query notBindOAuthList($user: String, $client: String) {
+        notBindOAuthList(user: $user, client: $client) {
+          type
+          oAuthUrl
+          image
+          name
+          binded
+        }
+}
+```
+
+### **注意事项**
+
+此接口发送 `OwnerToken`。
+
+## 绑定社会化登录
 
 用户绑定第三方登录方式
 
@@ -755,7 +779,7 @@ mutation bindOtherOAuth($user: String, $client: String, $type: String!, $unionid
 
 此接口发送 `UserToken`。
 
-## unbindOtherOAuth
+## 取消绑定社会化登录
 
 用户解绑第三方登录方式
 
@@ -777,7 +801,7 @@ mutation unbindOtherOAuth($user: String, $client: String, $type: String!){
 
 此接口发送 `UserToken`。
 
-## unbindEmail
+## 解绑邮箱
 
 用户解绑 Email
 
