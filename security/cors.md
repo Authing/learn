@@ -34,3 +34,7 @@ https:
 
 ![](../.gitbook/assets/image%20%2813%29.png)
 
+{% hint style="info" %}
+Web 安全域名的生效仅限操作敏感信息时，比如修改用户资料、删除用户等。公开的接口，比如登录、注册，不受 Web 安全域名影响。
+{% endhint %}
+
