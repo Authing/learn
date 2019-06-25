@@ -80,8 +80,8 @@ query ReadOAuthList($clientId: String!) {
 此接口用来执行用户登录的操作，登录成功后会返回 `UserToken`，建议单独维护此 Token。
 
 ```graphql
-mutation login($unionid: String, $email: String, $password: String, $lastIP: String, $registerInClient: String!, $verifyCode: String) {
-    login(unionid: $unionid, email: $email, password: $password, lastIP: $lastIP, registerInClient: $registerInClient, verifyCode: $verifyCode) {
+mutation login($unionid: String, $email: String, $password: String, $lastIP: String, $registerInClient: String!, $verifyCode: String, $browser: String, $device: String) {
+    login(unionid: $unionid, email: $email, password: $password, lastIP: $lastIP, registerInClient: $registerInClient, verifyCode: $verifyCode, browser: $browser, device: $device) {
         _id
         email
         emailVerified
@@ -123,8 +123,8 @@ GKl64GDcIq3au+aqJQIDAQAB
 使用手机验证码的方式登录，登录后返回的 Token 需要在客户端维护。
 
 ```graphql
-mutation login($phone: String, $phoneCode: Int, $registerInClient: String!) {
-          login(phone: $phone, phoneCode: $phoneCode, registerInClient: $registerInClient) {
+mutation login($phone: String, $phoneCode: Int, $registerInClient: String!, $browser: String, $device: String) {
+          login(phone: $phone, phoneCode: $phoneCode, registerInClient: $registerInClient, browser: $browser, device: $device) {
             _id
             email
             emailVerified
@@ -195,8 +195,8 @@ mutation login($phone: String, $phoneCode: Int, $registerInClient: String!) {
  使用 LDAP 登录，登录后返回的 Token 需要在客户端维护
 
 ```graphql
-mutation LoginByLDAP($username: String!, $password: String!, $clientId: String!) {
-      LoginByLDAP(username: $username, clientId: $clientId, password: $password) {
+mutation LoginByLDAP($username: String!, $password: String!, $clientId: String!, $browser: String, $device: String) {
+      LoginByLDAP(username: $username, clientId: $clientId, password: $password, browser: $browser, device: $device) {
             _id
             email
             emailVerified
@@ -261,7 +261,9 @@ mutation register(
     $username: String,
     $nickname: String,
     $registerMethod: String,
-    $photo: String
+    $photo: String,
+    $browser: String, 
+    $device: String
 ) {
     register(userInfo: {
         unionid: $unionid,
@@ -274,7 +276,9 @@ mutation register(
         registerMethod: $registerMethod,
         photo: $photo,
         username: $username,
-        nickname: $nickname
+        nickname: $nickname,
+        device: $device,
+        browser: $browser
     }) {
         _id,
         email,
@@ -289,7 +293,8 @@ mutation register(
         group {
             name
         },
-        blocked
+        blocked,
+        device
     }
 }
 ```
