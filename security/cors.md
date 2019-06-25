@@ -30,7 +30,7 @@ https:
 
 在 WebView 中使用，建议通过 WebView 去加载一个部署好的、有域名的 Web，然后缓存在本地，这样可以通过 **Web 安全域名** 来做限制。
 
-如果在前端使用 JavaScript SDK，当你打算正式发布出去的时候，请务必配置 **Web 安全域名**，方法是进入 [控制台 &gt; 基础设置 &gt; **Web 安全域名**](https://leancloud.cn/dashboard/app.html?appid={{appid}}#/security)。
+如果在前端使用 JavaScript SDK，当你打算正式发布出去的时候，请务必配置 **Web 安全域名**，方法是进入 _控制台 &gt; 基础设置 &gt; **Web 安全域名**_。
 
 ![](../.gitbook/assets/image%20%2813%29.png)
 
