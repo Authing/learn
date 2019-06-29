@@ -2,6 +2,8 @@
 
 Authing SDK for PHP 支持 PHP 5.6+。
 
+Github 地址：[https://github.com/Authing/authing-php-sdk](https://github.com/Authing/authing-php-sdk)。
+
 ## 安装
 
 ### **composer**

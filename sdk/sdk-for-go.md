@@ -2,6 +2,8 @@
 
 Authing Go SDK 目前支持 Golang 1.8+ 版本。
 
+GitHub 地址：[https://github.com/Authing/authing-go-sdk](https://github.com/Authing/authing-go-sdk)。
+
 ## 安装
 
 ```text

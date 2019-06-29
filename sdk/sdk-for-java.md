@@ -2,7 +2,7 @@
 
 Authing SDK for Java 编写于 JDK 1.8
 
-[官方文档请点击这里](https://docs.authing.cn/)。
+Github 地址：[https://github.com/Authing/authing-java-sdk](https://github.com/Authing/authing-java-sdk)。
 
 ## 安装
 

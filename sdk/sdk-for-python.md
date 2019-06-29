@@ -2,6 +2,8 @@
 
 Authing Python SDK 目前只支持 Python3+。
 
+GitHub 地址：[https://github.com/Authing/authing-py-sdk](https://github.com/Authing/authing-py-sdk)。
+
 ## 安装
 
 **pip**
