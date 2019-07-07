@@ -177,21 +177,19 @@
 * **返回数据:**
   * ```javascript
     {
-      "totalCount": 0,
-      "list": [
+      "totalCount":3,
+      "list":[
         {
-          "group": {
-            "name": "管理员",
-            "permissions": "{\"routes\": \"/api/v1\"}"
-          }
-        },
-        {
-          "group": {
-            "name": "读者",
-            "permissions": ""
-          }
+          "_id":"5d21bb48ec626c076d82c31a",
+          "client":{
+            "_id":null,
+          },
+          "user":{
+            "_id":null,
+          },
+          "createdAt":"Sun Jul 07 2019 17:28:40 GMT+0800 (CST)",
         }
-      ]
+      ],
     }
     ```
 
