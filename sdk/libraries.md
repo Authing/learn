@@ -12,13 +12,15 @@
 
 {% page-ref page="authing-sdk-for-wxapp.md" %}
 
+{% page-ref page="sdk-for-java.md" %}
+
+{% page-ref page="sdk-for-objective-c.md" %}
+
 {% page-ref page="sdk-for-python.md" %}
 
 {% page-ref page="sdk-for-go.md" %}
 
 {% page-ref page="sdk-for-php.md" %}
-
-{% page-ref page="sdk-for-java.md" %}
 
 ## Open API
 
