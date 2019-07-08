@@ -35,6 +35,7 @@
 * [接入 SAML](advanced/use-saml/README.md)
   * [创建 SAML Identity Provider 应用](advanced/use-saml/create-saml-identity-provider.md)
   * [创建 SAML Service Provider 应用](advanced/use-saml/create-saml-service-provider.md)
+  * [理解 SAML 流程](advanced/use-saml/li-jie-saml-liu-cheng.md)
   * [同时使用 Authing 作为 SP 和 IdP](advanced/use-saml/configure-authing-as-sp-and-idp.md)
   * [使用 SAML Identity Provider](advanced/use-saml/use-saml-identity-provider/README.md)
     * [在阿里云访问管理中使用](advanced/use-saml/use-saml-identity-provider/use-in-aliyun.md)
