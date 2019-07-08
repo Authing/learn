@@ -34,7 +34,7 @@ Login-Form 是一个可嵌入任意应用程序的登录部件，它提供一组
 
 Login-Form 是一个登录表单，使用户可以使用选定的连接轻松进行身份验证。 Login-Form 将自动实现用户注册和登录所涉及的大部分细节。 
 
-![](../.gitbook/assets/image%20%28143%29.png)
+![](../.gitbook/assets/image%20%28149%29.png)
 
 使用 Login-Form，你将实现以下 UI：
 
@@ -45,7 +45,7 @@ Login-Form 是一个登录表单，使用户可以使用选定的连接轻松进
 
 虽然你无法完全改变 Login-Form 的行为，但你可以配置几个基本选项以控制 Login-Form 的显示。
 
-![](../.gitbook/assets/image%20%28227%29.png)
+![](../.gitbook/assets/image%20%28233%29.png)
 
 ### 何时使用 Login-Form
 
@@ -66,7 +66,7 @@ Login-Form 是一个登录表单，使用户可以使用选定的连接轻松进
 
 [使用 Authing 的 Web SDK](https://learn.authing.cn/authing/sdk/sdk/authing-sdk-for-web)，你可以自定义用户注册和登录的流程。 如果你愿意，也可以直接使用 [Authentication GraphQL](https://learn.authing.cn/authing/sdk/open-graphql)。
 
-![](../.gitbook/assets/image%20%2886%29.png)
+![](../.gitbook/assets/image%20%2887%29.png)
 
 ### 何时使用自定义 UI
 
