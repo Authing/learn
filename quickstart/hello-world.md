@@ -99,10 +99,10 @@ description: 实现第一个基于 Authing 的应用。
 
 ## 第三步：增加 Authing 身份认证表单
 
-[Login-Form](https://github.com/authing/login-form) 库可以帮助我们快速生成用来验证用户身份的表单，你只需要添加此库的 CDN 就可以使用：
+[Guard](https://github.com/Authing/Guard) 库可以帮助我们快速生成用来验证用户身份的表单，你只需要添加此库的 CDN 就可以使用：
 
 ```markup
-<script src="https://cdn.authing.cn/sdk/javascript/authing-login-form-1.7.1.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@authing/guard/dist/Guard.umd.min.js"></script>
 ```
 
 将脚本文件放到入口脚本之前即可。
@@ -114,26 +114,24 @@ description: 实现第一个基于 Authing 的应用。
 调用方法非常简单，代码如下所示：
 
 ```javascript
-const form = new AuthingForm({
-  // 必填，client ID
-  clientId: 'your_client_id',
-  // 必填，timestamp
+const form = new Guard('AUTHING_CLIENT_ID', {
+  // 时间戳，不填则默认生成当前时间戳
   timestamp: Math.round(new Date() / 1000),
-  // 必填，nonce
+  // 随机数，不填则默认生成随机数
   nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
 });
 ```
 
 所需参数解释如下：
 
-* **clientId**
-  * 应用 ID，可从 [Authing 控制台](https://authing.cn/dashboard) 中[获取](https://docs.authing.cn/#/quick_start/howto)。
+* **AUTHING\_CLIENT\_ID**
+  * 用户池 ID，可从 [Authing 控制台](https://authing.cn/dashboard) 中[获取](https://docs.authing.cn/#/quick_start/howto)。
 * **timestamp**
   * 当前时间戳 `Math.round(new Date() / 1000)`
 * **nonce**
   * 一个随机数字，不要超过十位数
 
-**clientId** 参数获取方式如下：
+**AUTHING\_CLIENT\_ID** 参数获取方式如下：
 
 ![](../.gitbook/assets/image%20%2893%29.png)
 
@@ -141,17 +139,15 @@ const form = new AuthingForm({
 
 ## 第四步：监听登录成功事件并显示用户名
 
-在 Login-Form 中，开发者可以使用 `.on` 方法监听登录成功的事件，[完整的事件列表请参考这里](https://github.com/authing/login-form#%E4%BA%8B%E4%BB%B6%E5%93%8D%E5%BA%94)。
+在 Guard 中，开发者可以使用 `.on` 方法监听登录成功的事件，[完整的事件列表请参考这里](https://github.com/authing/login-form#%E4%BA%8B%E4%BB%B6%E5%93%8D%E5%BA%94)。
 
 登录成功的事件名称为「login」：
 
 ```javascript
-const form = new AuthingForm({
-  // 必填，client ID
-  clientId: 'your_client_id',
-  // 必填，timestamp
+const form = new Guard('AUTHING_CLIENT_ID', {
+  // 时间戳，不填则默认生成当前时间戳
   timestamp: Math.round(new Date() / 1000),
-  // 必填，nonce
+  // 随机数，不填则默认生成随机数
   nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
   
   title: '第一个应用' // 设置登录表单标题
@@ -226,10 +222,10 @@ Hit CTRL-C to stop the server
 
 到上一步，我们完成了登录功能并体验了流程，下面，我们还需要支持退出功能：
 
-退出功能需要用到 authing 对象的 logout 方法，authing 对象需要在 authingLoad 事件中获取，代码如下：
+退出功能需要用到 authing 对象的 logout 方法，authing 对象需要在 authing-load 事件中获取，代码如下：
 
 ```javascript
-form.on('authingLoad', async function(authing) {
+form.on('authing-load', async function(authing) {
     // Authing 实例加载成功后的回调函数，参数 authing 为 authing 对象
 
     // 使用 checkLoginStatus 方法判断当前的登录状态，需要使用 await
@@ -274,11 +270,11 @@ form.on('authingLoad', async function(authing) {
 
 本文的全部代码可以在 [Github](https://github.com/Authing/getting-started) 上找到，你也可以[点击这里查看线上 DEMO](https://sample.authing.cn/)。
 
-若你想要了解更多 Login-Form 的使用方法，下面有几个链接可供参考：
+若你想要了解更多 Guard 的使用方法，下面有几个链接可供参考：
 
-1. [Login-Form Github](https://github.com/authing/login-form)
-2. [Login-Form 完整初始化参数列表](https://github.com/authing/login-form#%E5%AE%8C%E6%95%B4%E5%8F%82%E6%95%B0)
-3. [Login-Form 完整事件列表](https://github.com/authing/login-form#%E4%BA%8B%E4%BB%B6%E5%93%8D%E5%BA%94)
+1. [Guard Github](https://github.com/Authing/Guard)
+2. [Guard 完整初始化参数列表](https://github.com/Authing/Guard#ui-%E5%AE%9A%E5%88%B6)
+3. [Guard 完整事件列表](https://github.com/Authing/Guard#onevent-callback)
 
 ## 接下来你可能还需要
 
