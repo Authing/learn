@@ -210,7 +210,7 @@ form.on('scanned-success', (userInfo) => {
 * **clientId**: 用户池 id
 * **options {Object}**: 允许你自定义表单的 UI，相关参数请参考 [自定义](https://github.com/Authing/Guard#自定义)
 * **options.appId {String}**: Authing SSO 类应用的 _appId_；
-* **options.domain {String}**: Authing 中配置的 _域名_. 通常是 \.authing.cn；
+* **options.domain {String}**: Authing 中配置的 _域名_. 通常是 &lt;appDomain&gt;.authing.cn；
 
 #### authing 对象
 
