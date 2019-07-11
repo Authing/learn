@@ -50,8 +50,8 @@
 ## 开发资源 <a id="sdk"></a>
 
 * [开发资源](sdk/libraries.md)
-* [Login-Form for Web](sdk/login-form.md)
-* [Login-Form VS 自定义 UI](sdk/loginform-vs-custom-ui.md)
+* [Guard for Web](sdk/guard.md)
+* [Guard VS 自定义 UI](sdk/loginform-vs-custom-ui.md)
 * [SDK for Web](sdk/authing-sdk-for-web/README.md)
   * [读取/修改用户权限](sdk/authing-sdk-for-web/web-sdk-for-roles.md)
   * [绑定社会化登录](sdk/authing-sdk-for-web/bind-social-accounts.md)

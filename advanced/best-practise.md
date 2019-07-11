@@ -4,13 +4,13 @@
 
 {% page-ref page="oidc/" %}
 
-## 使用 LoginForm
+## 使用 Guard
 
 {% hint style="info" %}
-若你不想（或不懂）使用 OIDC 协议，同时你在开发 Web 应用，那么建议使用 LoginForm 对用户进行认证。
+若你不想（或不懂）使用 OIDC 协议，同时你在开发 Web 应用，那么建议使用 Guard 对用户进行认证。
 {% endhint %}
 
-{% page-ref page="../sdk/login-form.md" %}
+{% page-ref page="../sdk/guard.md" %}
 
 同时我们建议你配置社会化登录或小程序扫码登录（终端用户拥有更好的登录体验）：
 

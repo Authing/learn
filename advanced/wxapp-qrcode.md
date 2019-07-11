@@ -166,7 +166,7 @@ LoginForm 是 Authing 提供的快速生成登录表单的 SDK，**若开发者�
 
 LoginForm 的使用方法请参考：
 
-{% page-ref page="../sdk/login-form.md" %}
+{% page-ref page="../sdk/guard.md" %}
 
 ## 调用 HTTP API 接入小程序扫码认证
 
