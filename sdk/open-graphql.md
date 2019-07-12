@@ -366,7 +366,7 @@ query user($id: String!, $registerInClient: String!){
 
 ## 批量查询用户信息
 
-批量查询用户
+批量查询用户，ids 是一个字符串，用逗号分隔 id。
 
 ```graphql
 query userPatch($ids: String){
@@ -415,7 +415,7 @@ query userPatch($ids: String){
 
 ### **注意事项**
 
-此接口不用发送任何 `Token`。
+此接口需要`OwnerToken`。
 
 ## 读取用户列表
 
