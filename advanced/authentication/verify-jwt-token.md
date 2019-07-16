@@ -54,6 +54,18 @@ axios({
 });
 ```
 
+{% hint style="info" %}
+字段解释：
+
+1. status：Token 状态，true 为正常，false 为非法；
+2. code：状态代码，200 正常，非 200 不正常；
+3. message：提示信息；
+4. token：
+   1. data：用户信息，email 为用户邮箱，id 为用户的唯一标识，clientId 为用户池 id，unioind 为用户使用三方登录时用户在三方登录平台的 id；
+   2. iat：Token 签发时间；
+   3. exp：Token 过期时间；
+{% endhint %}
+
 若你使用了 Web SDK，使用上可以简单一些，如下所示：
 
 ```javascript
@@ -128,6 +140,7 @@ query checkLoginStatus($token: String) {
           email
           id
           clientId
+          unionid
         }
         iat
         exp
@@ -135,6 +148,16 @@ query checkLoginStatus($token: String) {
     }
   }
 ```
+
+字段解释：
+
+1. status：Token 状态，true 为正常，false 为非法；
+2. code：状态代码，200 正常，非 200 不正常；
+3. message：提示信息；
+4. token：
+   1. data：用户信息，email 为用户邮箱，id 为用户的唯一标识，clientId 为用户池 id，unioind 为用户使用三方登录时用户在三方登录平台的 id；
+   2. iat：Token 签发时间；
+   3. exp：Token 过期时间；
 
 ## 使用 OIDC 应用的密钥验证 Token
 
