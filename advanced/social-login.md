@@ -146,8 +146,11 @@ if(code !== 200) {
 | :--- | :--- | :--- |
 | 微信 PC 网页版 | [https://oauth.authing.cn/oauth/wechat/redirect](https://oauth.authing.cn/oauth/wechat/redirect) | [微信开放平台](https://open.weixin.qq.com/cgi-bin/index?t=home/index&lang=zh_CN) |
 | Github | [https://oauth.authing.cn/oauth/github/redirect](https://oauth.authing.cn/oauth/github/redirect) | [Creating a github APP](https://developer.github.com/apps/building-github-apps/creating-a-github-app/) |
+| QQ | [https://oauth.authing.cn/oauth/qq/redirect](https://oauth.authing.cn/oauth/qq/redirect) | [QQ 互联](https://connect.qq.com/manage.html#/) |
+| 新浪微博 | [https://oauth.authing.cn/oauth/weibo/redirect](https://oauth.authing.cn/oauth/weibo/redirect) | [新浪微博开放平台](https://open.weibo.com/developers) |
+| 钉钉 | [https://oauth.authing.cn/oauth/dingtalk/redirect](https://oauth.authing.cn/oauth/dingtalk/redirect) | [钉钉开发者平台](https://open-dev.dingtalk.com/#/loginMan) |
 
-Callback URL 指在创建微信 OAuth 应用或 Github OAuth 应用时在其平台中填写的 Redirect URL （有的平台可能是 Callback URL）。
+Callback URL 指在创建微信 OAuth 应用、Github OAuth 等应用时在其平台中填写的 Redirect URL （有的平台可能是 Callback URL）。
 
 以 Github 为例，在创建 Github OAuth 应用时，创建表单中的 Callback URL 应该填写为：
 

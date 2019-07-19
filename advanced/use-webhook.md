@@ -61,6 +61,7 @@ description: Webhooks 允许你对用户注册、登录等行为进行监听，�
 | login | 登录事件，当用户进行登录时会触发此事件，无论是否登录成功都会触发。 |
 | register | 注册事件，当用户注册或管理员手动创建用户时会触发此事件，无论是否成功都会触发 |
 | change-password | 修改密码事件，当用户修改密码或管理员手动修改密码时会触发此事件，无论成功与否都会触发 |
+| change-user-info | 修改用户信息时间，当用户修改自己的信息或管理员手动修改用户信息时会触发词时间，无论成功与否都会触发 |
 
 ### 请求类型
 
@@ -90,7 +91,8 @@ description: Webhooks 允许你对用户注册、登录等行为进行监听，�
 | `message` | 本次事件的结果描述 |
 | `executed_at` | 本次事件执行时的时间戳，单位为 `ms` |
 | `params` | 用户进行此次操作时携带的参数 |
-| `emit_by` | `change-password` 和 `register` 事件特有，表示本次事件的发起者，值为用户自己或用户管理员的对象数据 |
+| `emit_by` | `change-password、change-user-info` 和 `register` 事件特有，表示本次事件的发起者，值为用户自己或用户管理员的对象数据 |
+| user\_updated | `change-user-info` 事件特有，内容为用户修改后的用户信息 |
 
 #### Request 示例
 
@@ -203,6 +205,71 @@ description: Webhooks 允许你对用户注册、登录等行为进行监听，�
         "username": "root",
         "email": "xieyang@dodora.cn",
         "phone": ""
+    }
+  }
+  ```
+
+* change-user-info event body
+
+  ```javascript
+  {
+    "success": 1,
+    "message": "用户信息修改成功",
+    "executed_at": 1563370136729,
+    "params": {
+      "_id": "5d2d727b48ceaceff6d792c1",
+      "phone": "13812341235",
+      "registerInClient": "5cbd6716aaaa70cb9a58d86f"
+    },
+    "emit_by": {
+      "_id": "5cbd66dfaaaa7020e758d86a",
+      "username": "",
+      "email": "root@example.com",
+      "phone": ""
+    },
+    "userUpdated": {
+      "_id": "5d2d727b48ceaceff6d792c1",
+      "email": "authing@example.com",
+      "registerInClient": "5cbd6716aaaa70cb9a58d86f",
+      "salt": "g196j8ijf1oi",
+      "__v": 0,
+      "updatedAt": "",
+      "country": "",
+      "postalCode": "",
+      "region": "",
+      "locality": "",
+      "streetAddress": "",
+      "formatted": "",
+      "address": "",
+      "locale": "",
+      "zoneinfo": "",
+      "birthdate": "",
+      "gender": "",
+      "website": "",
+      "preferredUsername": "",
+      "profile": "",
+      "middleName": "",
+      "familyName": "",
+      "givenName": "",
+      "name": "",
+      "phoneCode": "",
+      "oauth": "",
+      "isDeleted": false,
+      "blocked": false,
+      "signedUp": "2019-07-16T06:45:15.935Z",
+      "lastLogin": "2019-07-16T06:45:15.935Z",
+      "registerMethod": "default:username-password",
+      "loginsCount": 0,
+      "password": "3f1c2988c870c7225320a2c8a38ee27d",
+      "device": "",
+      "browser": "",
+      "photo": "https://usercontents.authing.cn/authing-avatar.png",
+      "company": "",
+      "nickname": "",
+      "username": "example",
+      "phoneVerfified": false,
+      "emailVerified": false,
+      "phone": "13812341235"
     }
   }
   ```
