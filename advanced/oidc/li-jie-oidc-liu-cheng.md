@@ -38,7 +38,7 @@ access\_token 用于**授权**，id\_token 用于**认证**。
 
 授权码模式是最常用的 OIDC 流程。 
 
-![](../../.gitbook/assets/image%20%28193%29.png)
+![](../../.gitbook/assets/image%20%28194%29.png)
 
 1. 三方应用发起授权请求（我需要访问这个用户在你的服务器上的数据！）
 2. 你的服务器询问用户是否同意授权，要求用户输入用户名和密码，并弹出对方请求获取的信息条目（好的，我先问问用户是否同意你获取这些信息）
@@ -53,7 +53,7 @@ access\_token 用于**授权**，id\_token 用于**认证**。
 
 scope 不带 openid 的情况
 
-![](../../.gitbook/assets/image%20%28210%29.png)
+![](../../.gitbook/assets/image%20%28211%29.png)
 
 可见最后没有返回 ID Token。
 
@@ -85,7 +85,7 @@ scope 不带 openid 的情况
 | :--- | :--- | :--- | :--- |
 | 授权 | X | 颁发 | 颁发 |
 
-![](../../.gitbook/assets/image%20%28190%29.png)
+![](../../.gitbook/assets/image%20%28191%29.png)
 
 
 
@@ -102,7 +102,7 @@ scope 不带 openid 的情况
 | 授权 | 颁发 | X | 颁发 |
 | Token | X | 颁发 | 颁发 |
 
-![](../../.gitbook/assets/image%20%28183%29.png)
+![](../../.gitbook/assets/image%20%28184%29.png)
 
 
 
@@ -113,7 +113,7 @@ scope 不带 openid 的情况
 | 授权 | 颁发 | 颁发 | X |
 | Token | X | 颁发 | 颁发 |
 
-![](../../.gitbook/assets/image%20%28163%29.png)
+![](../../.gitbook/assets/image%20%28164%29.png)
 
 
 
@@ -124,7 +124,7 @@ scope 不带 openid 的情况
 | 授权 | 颁发 | 颁发 | X |
 | Token | X | 颁发 | 颁发 |
 
-![](../../.gitbook/assets/image%20%28170%29.png)
+![](../../.gitbook/assets/image%20%28171%29.png)
 
 
 
