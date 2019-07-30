@@ -73,7 +73,7 @@
 ## 安全 <a id="security"></a>
 
 * [配置 Web 安全域](security/cors.md)
-* [用户池密码强度配置](security/yong-hu-chi-mi-ma-qiang-du-pei-zhi.md)
+* [用户池密码强度配置](security/config-user-pool-password-level.md)
 
 ## 其他 <a id="others"></a>
 
