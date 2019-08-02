@@ -4,7 +4,7 @@ description: 扫描小程序二维码并使用小程序「身份管家」进行�
 
 # 接入小程序扫码认证
 
-小程序扫码登录指使用 Authing 小程序`身份管家`执行微信登录，使用 JavaScript SDK 可以快速接入。除此之外我们还提供了 [HTTP 接口说明](https://docs.authing.cn/authing/advanced/wxapp-qrcode#tiao-yong-http-api-jie-ru-xiao-cheng-xu-sao-ma-ren-zheng)。
+小程序扫码登录指使用 Authing 官方开发的小程序「小登录」执行扫码登录，使用 JavaScript SDK 可以快速接入，除此之外我们还提供了 [HTTP 接口](https://docs.authing.cn/authing/advanced/wxapp-qrcode#tiao-yong-http-api-jie-ru-xiao-cheng-xu-sao-ma-ren-zheng)。
 
 点击此处[体验小程序扫码登录](https://sample.authing.cn/)。
 
@@ -45,14 +45,9 @@ description: 扫描小程序二维码并使用小程序「身份管家」进行�
 
 #### 我该选择哪种配置方式？
 
-1. 如果你懒于注册小程序或想二维码的生成速度快一些，可以直接上传 Logo 完成配置；
-2. 如果你是在自己的主体下使用小程序扫码（适用于专有云或私有云部署），请配置自己的小程序信息；
-3. 如果你想与自己在微信生态下的 unionid 统一，请配置自己的小程序信息；
-
-#### 这两种配置方式有何不同？
-
-1. 配置自己的小程序信息，二维码生成的速度会稍微慢一些；
-2. 配置自己的小程序可以与你自身在微信生态下的 unionid 统一；
+1. 如果你没有自己的小程序，可以直接上传 Logo 完成配置；
+2. 如果你有自己的小程序，建议点击本页中的「配置自己的小程序信息」接入；
+3. 若同时配置了小程序 Logo 和自己的小程序信息，会优先使用开发者「自己的小程序信息」。**若想取消使用「自己的小程序信息」，请清空相关配置。**
 
 ### 使用 SDK for Web 初始化扫码界面
 
