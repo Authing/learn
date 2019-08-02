@@ -16,7 +16,7 @@
 
 {% page-ref page="social-login.md" %}
 
-{% page-ref page="wxapp-qrcode.md" %}
+{% page-ref page="wxapp-qrcode/" %}
 
 ## 在后端验证 JWT Token 的合法性
 

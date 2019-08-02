@@ -8,7 +8,7 @@ description: 扫描小程序二维码并使用小程序「身份管家」进行�
 
 点击此处[体验小程序扫码登录](https://sample.authing.cn/)。
 
-![&#x626B;&#x7801;&#x793A;&#x4F8B;](../.gitbook/assets/wxapp-scaning-demo.gif)
+![&#x626B;&#x7801;&#x793A;&#x4F8B;](../../.gitbook/assets/wxapp-scaning-demo.gif)
 
 ## 扫码登录示例代码
 
@@ -20,11 +20,11 @@ description: 扫描小程序二维码并使用小程序「身份管家」进行�
 
 按照下图打开小程序配置界面：
 
-![](../.gitbook/assets/image%20%28226%29.png)
+![](../../.gitbook/assets/image%20%28226%29.png)
 
 打开开关后将看到如下的弹出框：
 
-![](../.gitbook/assets/image%20%288%29.png)
+![](../../.gitbook/assets/image%20%288%29.png)
 
 小程序扫码登录有两种配置方式：
 
@@ -33,7 +33,7 @@ description: 扫描小程序二维码并使用小程序「身份管家」进行�
 
 第二种方式如下图所示：
 
-![](../.gitbook/assets/image%20%28247%29.png)
+![](../../.gitbook/assets/image%20%28247%29.png)
 
 相关参数解释如下：
 
@@ -64,7 +64,7 @@ $ npm install authing-js-sdk --save
 
 更多 SDK 的使用方法请参考：
 
-{% page-ref page="../sdk/authing-sdk-for-web/" %}
+{% page-ref page="../../sdk/authing-sdk-for-web/" %}
 
 安装完成后，请新建一个 Web 项目，然后复制以下代码：
 
@@ -90,7 +90,7 @@ auth.then(function(authing) {
 
 运行成功后将生成如下图片：
 
-![](../.gitbook/assets/image%20%28185%29.png)
+![](../../.gitbook/assets/image%20%28185%29.png)
 
 {% hint style="info" %}
 在线体验方法：
@@ -166,7 +166,7 @@ Guard 是 Authing 提供的快速生成登录表单的 SDK，**若开发者在�
 
 Guard 的使用方法请参考：
 
-{% page-ref page="../sdk/guard.md" %}
+{% page-ref page="../../sdk/guard.md" %}
 
 ## 调用 HTTP API 接入小程序扫码认证
 
@@ -344,5 +344,5 @@ authing.startWXAppScaning({
 
 ## 接下来你可能还需要
 
-{% page-ref page="../sdk/authing-sdk-for-web/" %}
+{% page-ref page="../../sdk/authing-sdk-for-web/" %}
 

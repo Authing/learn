@@ -1011,7 +1011,7 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](https://learn.authing.cn
 
 ####  使用方法请参考：
 
-{% page-ref page="../../advanced/wxapp-qrcode.md" %}
+{% page-ref page="../../advanced/wxapp-qrcode/" %}
 
 ## 自定义请求链接
 

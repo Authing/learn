@@ -42,7 +42,7 @@ OIDC 流程包含两个 Token：
 
 ## 如何使用小程序扫码认证？
 
-{% page-ref page="../advanced/wxapp-qrcode.md" %}
+{% page-ref page="../advanced/wxapp-qrcode/" %}
 
 ## 如何接入社会化登录
 

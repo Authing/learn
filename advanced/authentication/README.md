@@ -16,7 +16,7 @@ description: 理解 Authing 提供的认证方式
 
 {% page-ref page="phone-code.md" %}
 
-{% page-ref page="../wxapp-qrcode.md" %}
+{% page-ref page="../wxapp-qrcode/" %}
 
 {% page-ref page="../social-login.md" %}
 

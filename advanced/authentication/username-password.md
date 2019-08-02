@@ -14,7 +14,7 @@ description: 使用用户名 + 密码的形式完成认证
 
 {% page-ref page="phone-code.md" %}
 
-{% page-ref page="../wxapp-qrcode.md" %}
+{% page-ref page="../wxapp-qrcode/" %}
 
 {% page-ref page="../../sdk/authing-sdk-for-web/" %}
 
