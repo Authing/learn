@@ -79,5 +79,10 @@ description: 了解 OIDC 包含的常见问题，在开发时可以查阅此文�
 | country | 国家 |
 | updated\_at | 信息更新时间 |
 
-[参考 OIDC 规范](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims)
+[参考 OIDC 规范](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims)  
+
+
+## id\_token 和 access\_token 之间的区别
+
+id\_token 用于鉴定用户身份，相当于用户的身份证，access\_token 用于向服务器获取更详细的用户信息（比如邮箱，手机，地区等）。
 
