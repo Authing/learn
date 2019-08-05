@@ -291,6 +291,16 @@ https://example.com/#code=pIY83Jl_bcerNN9Wt57Sq0TAjTr&id_token=eyJhbGciOiJSUzI1N
 
 换取用户信息的流程和授权码模式相同。
 
+## 退出 SSO
+
+如果你使用了 OAuth、OIDC 或 SAML 实现了单点登录，那么使用户退出登录需要跳转到一个 URL：
+
+> https://&lt;你的域名&gt;.authing.cn/login/profile/logout?app\_id=&lt;OAuth 应用 ID&gt;&redirect\_uri=&lt;退出之后的回调地址&gt;
+
+其中 `app_id` 和 `redirect_uri` 都是必填选项，`redirect_uri` 是退出后你想要返回的地址。
+
+如果你想要在后端退出 SSO，可以自行维护一个 Cookie - Session 的状态，然后设置 Cookie 过期即可。
+
 ## 接下来你可能需要
 
 {% page-ref page="oidc-params.md" %}
