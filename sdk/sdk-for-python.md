@@ -17,6 +17,19 @@ $ pip install authing
 
 ## 开始使用
 
+首先在目录下新建一个名为 `pub.pem` 的文件，并将以下内容复制到文件中：
+
+```text
+-----BEGIN PUBLIC KEY-----
+MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC4xKeUgQ+Aoz7TLfAfs9+paePb
+5KIofVthEopwrXFkp8OCeocaTHt9ICjTT2QeJh6cZaDaArfZ873GPUn00eOIZ7Ae
++TiA2BKHbCvloW3w5Lnqm70iSsUi5Fmu9/2+68GZRH9L7Mlh8cFksCicW2Y2W2uM
+GKl64GDcIq3au+aqJQIDAQAB
+-----END PUBLIC KEY-----
+```
+
+然后初始化 Authing：
+
 ```python
 from authing import Authing
 
@@ -60,6 +73,22 @@ else:
 ```
 
 如果在运行途中报错，请查看[错误代码列表](https://docs.authing.cn/#/quick_start/error_code)。
+
+## 自定义请求链接
+
+如果你私有部署了 Authing，可以通过以下方式初始化 URL：
+
+```python
+from authing.authing import Authing
+
+clientId = 'your_client_id'
+secret = 'your_app_secret'
+
+authing = Authing(clientId, secret, {
+    "oauth": 'https://oauth.your_url.com/graphql',
+    "users": 'https://users.your_url.com/graphql'
+})
+```
 
 ## 接口文档
 
