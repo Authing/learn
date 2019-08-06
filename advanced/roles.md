@@ -44,5 +44,5 @@ Authing 控制台中支持快速配置用户权限，操作流程如下。
 
 ## 接下来你可能还需要
 
-{% page-ref page="../sdk/authing-sdk-for-web/web-sdk-for-roles.md" %}
+{% page-ref page="../sdk/sdk-for-web/web-sdk-for-roles.md" %}
 

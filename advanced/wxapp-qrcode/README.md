@@ -59,7 +59,7 @@ $ npm install authing-js-sdk --save
 
 更多 SDK 的使用方法请参考：
 
-{% page-ref page="../../sdk/authing-sdk-for-web/" %}
+{% page-ref page="../../sdk/sdk-for-web/" %}
 
 安装完成后，请新建一个 Web 项目，然后复制以下代码：
 
@@ -291,5 +291,5 @@ https://oauth.authing.cn/oauth/wxapp/qrcode/5c344f102e450b000170190a?random=UaJe
 
 ## 接下来你可能还需要
 
-{% page-ref page="../../sdk/authing-sdk-for-web/" %}
+{% page-ref page="../../sdk/sdk-for-web/" %}
 
