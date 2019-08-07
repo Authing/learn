@@ -143,6 +143,12 @@ authing.startWXAppScaning({
       // 可选，轮询时的回调函数，intervalNum 为 setInterval 返回的数值，可使用 clearInterval 停止轮询
       onIntervalStarting: function(intervalNum) {},
       
+      // 可选，当二维码展现时的回调函数
+      onQRCodeShow: function(qrcode) {},
+      
+      // 可选，当二维码加载完成时的回调函数
+      onQRCodeLoad: function(qrcode) {},
+      
       // 可选，每隔多少秒检查一次，默认 1500
       interval: 1500,
       
