@@ -12,13 +12,13 @@
 
 此时我们还没有 SP，所以 AssertionConsumeServiceURL 可以先不填写真正的 appId。
 
-![](../../.gitbook/assets/image%20%28230%29.png)
+![](../../.gitbook/assets/image%20%28232%29.png)
 
 其他配置使用默认即可。
 
 生成一对秘钥，上传。用来对 SAML Response 签名、验签。
 
-![](../../.gitbook/assets/image%20%28231%29.png)
+![](../../.gitbook/assets/image%20%28233%29.png)
 
 ![](../../.gitbook/assets/image%20%28132%29.png)
 
@@ -100,7 +100,7 @@ GET https://<domain>.authing.cn/oauth/saml/sp/<appId>/spinitsso-post
 
 用户可以选择一种方式进行登录。
 
-![&#x7528;&#x6237;&#x8FDB;&#x884C;&#x767B;&#x5F55;](../../.gitbook/assets/image%20%28252%29.png)
+![&#x7528;&#x6237;&#x8FDB;&#x884C;&#x767B;&#x5F55;](../../.gitbook/assets/image%20%28255%29.png)
 
 ![&#x7528;&#x6237;&#x786E;&#x6743;](../../.gitbook/assets/image%20%28109%29.png)
 
