@@ -170,7 +170,7 @@ cwIDAQAB
 
 ### 使用 access\_token 换取用户信息
 
-开发者在自己的服务中可以使用 access\_token 换取用户信息。根据 scope 的不同，这里的返回信息也会有所不同，字段符合 [OIDC 规范](https://openid.net/specs/openid-connect-core-1_0.html#AuthorizationExamples)，字段解释请参考[用户信息字段含义](https://docs.authing.cn/#/OIDCProvider/OIDCFeatures?id=用户信息字段含义)。
+开发者在自己的服务中可以使用 access\_token 换取用户信息。根据 scope 的不同，这里的返回信息也会有所不同，字段符合 [OIDC 规范](https://openid.net/specs/openid-connect-core-1_0.html#AuthorizationExamples)，字段解释请参考[用户信息字段含义](https://docs.authing.cn/authing/advanced/oidc/oidc-params#yong-hu-xin-xi-zi-duan-han-yi)。
 
 **请求链接**：
 
@@ -189,7 +189,7 @@ GET https://users.authing.cn/oauth/oidc/user/userinfo?access_token=<access_token
 }
 ```
 
-更多字段解释请参考[用户信息字段含义](https://docs.authing.cn/#/OIDCProvider/OIDCFeatures?id=用户信息字段含义)。
+更多字段解释请参考[用户信息字段含义](https://docs.authing.cn/authing/advanced/oidc/oidc-params#yong-hu-xin-xi-zi-duan-han-yi)。
 
 ### 刷新 token
 
