@@ -154,7 +154,35 @@ authing.startWXAppScaning({
       
       // 可选，提示信息，可写 HTML
       tips: '搜索小程序 <strong>身份管家</strong> 扫码登录',
+      
+      // 扫码成功的提示信息，默认：扫码成功
+      successTips: '扫码成功',
+      
+      // 扫码成功后跳转前的提示信息，默认：扫码成功，即将跳转
+      successRedirectTips: '扫码成功，即将跳转',
+      
+      // 重试扫码的提示信息，默认：重试
+      retryTips: '重试', 
+      
+      // 扫码失败的提示信息，默认：网络出错，请重试
+      failedTips: '网络出错，请重试',  
 });
+```
+
+若想动态修改提示信息，请使用以下四个方法：
+
+```javascript
+  // 修改重试扫码的提示信息
+  authing.updateRetryTips(tips: string)
+
+  // 修改扫码失败的提示信息
+  authing.updateFailedTips(tips: string)
+
+  // 修改扫码成功的提示信息
+  authing.updateSuccessTips(tips: string)
+
+  // 修改扫码成功后跳转前的提示信息
+  authing.updateSuccessRedirectTips(tips: string)
 ```
 
 {% hint style="info" %}
