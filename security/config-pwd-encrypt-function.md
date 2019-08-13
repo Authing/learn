@@ -75,7 +75,7 @@ module.exports.encrypt = function(request, response, context) {
 若开发者需要引入第三方 NPM 包，请直接使用 NPM 直接安装。
 
 {% hint style="info" %}
-NPM 是 Node.js 生态的包管理工具，node\_modules  是存储 NPM 包的文件夹。
+NPM 是 Node.js 生态的包管理工具。
 {% endhint %}
 
 以下是引入 md5 包的一个代码示例：
@@ -85,6 +85,10 @@ $ npm install blueimp-md5
 ```
 
 安装完成后在文件夹内会多出一个 node\_modules 文件夹，之后编写代码：
+
+{% hint style="info" %}
+node\_modules  是存储 NPM 包的文件夹。
+{% endhint %}
 
 ```javascript
 var getRawBody = require('raw-body')
