@@ -58,6 +58,10 @@ Authing 提供专业的身份认证和授权服务。
 
 {% page-ref page="quickstart/basic.md" %}
 
+使用 Authing 实现单点登录：
+
+{% page-ref page="quickstart/implement-sso-with-authing.md" %}
+
 了解 Authing 的控制台，以帮助你更快速的完成相关配置：
 
 {% page-ref page="quickstart/dashboard.md" %}

@@ -7,7 +7,7 @@
 
 * [第一个应用](quickstart/hello-world.md)
 * [基础概念](quickstart/basic.md)
-* [实现单点登录](quickstart/shi-xian-dan-dian-deng-lu.md)
+* [实现单点登录](quickstart/implement-sso-with-authing.md)
 * [控制台概览](quickstart/dashboard.md)
 * [部署模型](quickstart/deployment.md)
 
