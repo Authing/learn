@@ -12,13 +12,13 @@
 
 此时我们还没有 SP，所以 AssertionConsumeServiceURL 可以先不填写真正的 appId。
 
-![](../../.gitbook/assets/image%20%28242%29.png)
+![](../../.gitbook/assets/image%20%28243%29.png)
 
 其他配置使用默认即可。
 
 生成一对秘钥，上传。用来对 SAML Response 签名、验签。
 
-![](../../.gitbook/assets/image%20%28243%29.png)
+![](../../.gitbook/assets/image%20%28244%29.png)
 
 ![](../../.gitbook/assets/image%20%28137%29.png)
 
@@ -28,7 +28,7 @@
 
 进入应用控制台 -&gt; 第三方登录 -&gt; 社会化登录，在 SAML Service Provider 区域，点击「+」。
 
-![&#x521B;&#x5EFA; SAML SP](../../.gitbook/assets/image%20%28162%29.png)
+![&#x521B;&#x5EFA; SAML SP](../../.gitbook/assets/image%20%28163%29.png)
 
 填写应用信息，为云上的 SP 指定一个二级域名，点击「确定」 。
 
@@ -46,7 +46,7 @@
 
 进入应用控制台 -&gt; 第三方登录 -&gt; SAML IdP 选项卡，找到刚刚创建的 IdP，点击右侧的「...」详情按钮，进入编辑。
 
-![](../../.gitbook/assets/image%20%28165%29.png)
+![](../../.gitbook/assets/image%20%28166%29.png)
 
 在基础配置选项卡，填入刚才记录的 AssertionConsumeServiceURL、上传刚才下载的 SP Metadata，点击「确定」。
 
@@ -56,7 +56,7 @@
 
 进入应用控制台 -&gt; 第三方登录 -&gt; 社会化登录，在 SAML Service Provider 区域，找到刚才创建的 SP 应用，点击「编辑」。
 
-![](../../.gitbook/assets/image%20%28209%29.png)
+![](../../.gitbook/assets/image%20%28210%29.png)
 
 ![](../../.gitbook/assets/image%20%2845%29.png)
 
@@ -88,7 +88,7 @@ GET https://<domain>.authing.cn/oauth/saml/sp/<appId>/spinitsso-post
 
 在浏览器直接访问云上 SP 地址或者通过后端重定向到云上 SP 地址。
 
-![&#x76F4;&#x63A5;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x8BBF;&#x95EE;&#x4E91;&#x4E0A; SP](../../.gitbook/assets/image%20%28182%29.png)
+![&#x76F4;&#x63A5;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x8BBF;&#x95EE;&#x4E91;&#x4E0A; SP](../../.gitbook/assets/image%20%28183%29.png)
 
 ### 跳转到 IdP 认证页
 
@@ -100,7 +100,7 @@ GET https://<domain>.authing.cn/oauth/saml/sp/<appId>/spinitsso-post
 
 用户可以选择一种方式进行登录。
 
-![&#x7528;&#x6237;&#x8FDB;&#x884C;&#x767B;&#x5F55;](../../.gitbook/assets/image%20%28266%29.png)
+![&#x7528;&#x6237;&#x8FDB;&#x884C;&#x767B;&#x5F55;](../../.gitbook/assets/image%20%28267%29.png)
 
 ![&#x7528;&#x6237;&#x786E;&#x6743;](../../.gitbook/assets/image%20%28113%29.png)
 
