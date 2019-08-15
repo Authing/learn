@@ -185,7 +185,7 @@ logout.onclick = async function() {
 向以下地址发送 POST 请求：
 
 ```text
-    POST https://OIDC_APP_DOMAIN.authing.cn/oauth/oidc/token
+POST https://OIDC_APP_DOMAIN.authing.cn/oauth/oidc/token
 ```
 
 body 参数
