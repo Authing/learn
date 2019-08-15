@@ -160,6 +160,8 @@ logout.onclick = async function() {
 
 ### **运行方法**
 
+在终端中运行以下命令
+
 ```bash
 $ git clone https://github.com/Authing/authing-sso-demo
 $ cd authing-sso-demo
