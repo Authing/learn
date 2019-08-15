@@ -167,7 +167,7 @@ query checkLoginStatus($token: String) {
 
 密钥在控制台中 OIDC 应用的详情中可以获取到，如下图所示：
 
-![](../../.gitbook/assets/image%20%28244%29.png)
+![](../../.gitbook/assets/image%20%28252%29.png)
 
 ![](../../.gitbook/assets/image%20%289%29.png)
 
