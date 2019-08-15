@@ -24,17 +24,19 @@ description: >-
 
 如果你还没有账号，请[点击这里注册 Authing 账号](https://authing.cn/login)，注册完成后请[进入控制台](https://authing.cn/dashboard)并创建一个用户池。
 
-![&#x521B;&#x5EFA; ODC &#x5E94;&#x7528;](../.gitbook/assets/image%20%2841%29.png)
+![&#x521B;&#x5EFA;&#x7528;&#x6237;&#x6C60;](../.gitbook/assets/image%20%2863%29.png)
 
 ![&#x9009;&#x62E9;&#x5E94;&#x7528;&#x7C7B;&#x578B;](../.gitbook/assets/image%20%2849%29.png)
 
 ## 创建一个 OIDC 应用
 
-在第三方登录 -&gt; OIDC 应用选项卡下，点击蓝色的「创建 OIDC 应用」按钮。
-
-![&#x521B;&#x5EFA; OIDC &#x5E94;&#x7528;](../.gitbook/assets/image%20%28139%29.png)
+**第三方登录** -&gt; **OIDC 应用**选项卡，点击蓝色的「创建 OIDC 应用」按钮。
 
  填上你的应用名，指定此 OIDC 应用的二级域名（认证地址），回调地址，其他参数保留默认即可。点击「确定」。 
+
+
+
+![&#x521B;&#x5EFA; ODC &#x5E94;&#x7528;](../.gitbook/assets/image%20%2841%29.png)
 
 ![&#x586B;&#x5199; OIDC &#x5E94;&#x7528;&#x4FE1;&#x606F;](../.gitbook/assets/image%20%28187%29.png)
 
