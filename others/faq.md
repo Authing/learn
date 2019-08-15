@@ -2,7 +2,7 @@
 
 ## 如何获取 Client Id 和 Client Secret ？
 
-![](../.gitbook/assets/image%20%2852%29.png)
+![](../.gitbook/assets/image%20%2854%29.png)
 
 ## Client Secret 有何作用？
 
@@ -38,7 +38,7 @@ OIDC 流程包含两个 Token：
 验证 OIDC 流程中 Token 所使用的 secret 的获取方式如下图所示：
 {% endhint %}
 
-![](../.gitbook/assets/image%20%28186%29.png)
+![](../.gitbook/assets/image%20%28188%29.png)
 
 ## 如何使用小程序扫码认证？
 
