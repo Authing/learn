@@ -36,7 +36,7 @@ description: >-
 
 填上你的应用名，指定此 OIDC 应用的二级域名（认证地址），回调地址，其他参数保留默认即可。点击「确定」。 
 
-![&#x914D;&#x7F6E; OIDC &#x5E94;&#x7528;](../.gitbook/assets/image%20%28160%29.png)
+![&#x914D;&#x7F6E; OIDC &#x5E94;&#x7528;](../.gitbook/assets/image%20%28165%29.png)
 
 **参数解释**
 
@@ -177,27 +177,25 @@ $ http-server
 
 最初，我们没有登录，因此，点击 trackSession 按钮获取到的登录状态为空。
 
-![](../.gitbook/assets/image%20%28187%29.png)
+![](../.gitbook/assets/image%20%2890%29.png)
 
 现在我们点击 login 按钮，会跳转到 OIDC 应用的用户认证页面，输入用户名密码进行登录。
 
-![](../.gitbook/assets/image%20%28119%29.png)
+![](../.gitbook/assets/image%20%28100%29.png)
 
 浏览器被重定向到我们之前设置的回调链接，记下 code 参数，用于后面换取用户信息。
 
-![](../.gitbook/assets/image%20%28261%29.png)
+点击 trackSession 按钮，此时能够获取到该用户的登录状态，包括用户 ID，应用 ID，应用类型。
 
-现在我们回到刚刚编写的 html 页面，点击 trackSession 按钮，此时能够获取到该用户的登录状态，包括用户 ID，应用 ID，应用类型。
-
-![](../.gitbook/assets/image%20%28234%29.png)
+![](../.gitbook/assets/image%20%2897%29.png)
 
 点击 logout 按钮，输出单点登出成功。
 
-![](../.gitbook/assets/image%20%2864%29.png)
+![](../.gitbook/assets/image%20%28144%29.png)
 
 此时我们再点击 trackSession 按钮，可见登录状态为空，说明用户已经单点登出了。
 
-![](../.gitbook/assets/image%20%28277%29.png)
+![](../.gitbook/assets/image%20%28118%29.png)
 
 ### 获取用户信息
 
