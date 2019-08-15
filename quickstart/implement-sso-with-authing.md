@@ -126,7 +126,7 @@ logout.onclick = async function() {
     <button id="btn-login">login</button>
     <button id="btn-track-session">trackSession</button>
     <button id="btn-logout">logout</button>
-    <script src="<https://cdn.jsdelivr.net/npm/@authing/sso/dist/SSO.umd.min.js>"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@authing/sso/dist/SSO.umd.min.js"></script>
     <script>
       let auth = new SSO({
         appId: "YOUR_OIDC_APP_ID",
@@ -151,6 +151,23 @@ logout.onclick = async function() {
   </body>
 </html>
 ```
+
+示例代码可从 [Github](https://github.com/Authing/authing-sso-demo) 上找到，建议将 Github 上的代码下载运行。
+
+### **运行方法**
+
+```bash
+$ git clone https://github.com/Authing/authing-sso-demo
+$ cd authing-sso-demo
+$ npm install -g http-server
+$ http-server
+```
+
+之后在浏览器访问 [http://localhost:8080](http://localhost:8080)。
+
+{% hint style="warning" %}
+如果本地 8080 端口已被占用，应用可能会运行在 8081、8082 等后续端口。
+{% endhint %}
 
 ### 运行效果
 
@@ -268,6 +285,10 @@ GET https://users.authing.cn/oauth/oidc/user/userinfo?access_token=<access_token
 更多字段解释请参考[用户信息字段含义](https://docs.authing.cn/authing/advanced/oidc/oidc-params#yong-hu-xin-xi-zi-duan-han-yi)。
 
 ## 接下来你可能还需要
+
+了解 OIDC 协议：
+
+{% page-ref page="../advanced/oidc/li-jie-oidc-liu-cheng.md" %}
 
 控制台是你管理所有 Authing 资源的地方，了解 Authing 控制台各模块包含的内容和你可以在控制台中做的事情：
 
