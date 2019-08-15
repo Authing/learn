@@ -259,3 +259,15 @@ GET https://users.authing.cn/oauth/oidc/user/userinfo?access_token=<access_token
 
 更多字段解释请参考[用户信息字段含义](https://docs.authing.cn/authing/advanced/oidc/oidc-params#yong-hu-xin-xi-zi-duan-han-yi)。
 
+## 接下来你可能还需要
+
+控制台是你管理所有 Authing 资源的地方，了解 Authing 控制台各模块包含的内容和你可以在控制台中做的事情：
+
+{% page-ref page="dashboard.md" %}
+
+了解 Authing 提供的多种部署模型，以帮助你选择该以怎样的形式部署 Authing：
+
+{% page-ref page="deployment.md" %}
+
+
+
