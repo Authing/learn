@@ -80,9 +80,9 @@ description: >-
 从 CDN 加载 [AuthingSSO](https://github.com/Authing/AuthingSSO) 的 SDK。填入你的 OIDC 应用 ID 和 域名，进行初始化。
 
 ```markup
-<script src="https://cdn.jsdelivr.net/npm/@authing/sso/dist/SSO.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@authing/sso/dist/AuthingSSO.umd.min.js"></script>
 <script>
-  let auth = new SSO({
+  let auth = new AuthingSSO({
     appId: "YOUR_OIDC_APP_ID",
     appType: "oidc",
     appDomain: "OIDC_APP_DOMAIN.authing.cn"
@@ -130,9 +130,9 @@ logout.onclick = async function() {
     <button id="btn-login">login</button>
     <button id="btn-track-session">trackSession</button>
     <button id="btn-logout">logout</button>
-    <script src="https://cdn.jsdelivr.net/npm/@authing/sso/dist/SSO.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@authing/sso/dist/AuthingSSO.umd.min.js"></script>
     <script>
-      let auth = new SSO({
+      let auth = new AuthingSSO({
         appId: "YOUR_OIDC_APP_ID",
         appType: "oidc",
         appDomain: "OIDC_APP_DOMAIN.authing.cn"
