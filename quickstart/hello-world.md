@@ -282,6 +282,10 @@ form.on('authing-load', async function(authing) {
 
 {% page-ref page="basic.md" %}
 
+使用 Authing 实现单点登录：
+
+{% page-ref page="implement-sso-with-authing.md" %}
+
 控制台是你管理所有 Authing 资源的地方，了解 Authing 控制台各模块包含的内容和你可以在控制台中做的事情：
 
 {% page-ref page="dashboard.md" %}
