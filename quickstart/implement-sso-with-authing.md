@@ -189,9 +189,9 @@ $ http-server
 
 浏览器被重定向到我们之前设置的回调链接，记下 code 参数，用于后面换取用户信息。
 
-点击 trackSession 按钮，此时能够获取到该用户的登录状态，包括用户 ID，应用 ID，应用类型。
+点击 trackSession 按钮，此时能够获取到该用户的登录状态，包括用户 ID，应用 ID，应用类型，还有此用户的详细信息。
 
-![](../.gitbook/assets/image%20%2897%29.png)
+![](../.gitbook/assets/image%20%28234%29.png)
 
 点击 logout 按钮，输出单点登出成功。
 
