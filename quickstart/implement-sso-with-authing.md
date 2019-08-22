@@ -201,7 +201,9 @@ $ http-server
 
 ![](../.gitbook/assets/image%20%28118%29.png)
 
-### 获取用户信息
+### 获取更多用户信息
+
+如果你还需要获取更详细的用户信息，可以使用返回的 code 进行获取。
 
 #### 使用 OIDC 流程中返回的 code 换取 access\_token
 
