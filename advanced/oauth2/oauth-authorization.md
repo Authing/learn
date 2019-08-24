@@ -201,6 +201,65 @@ curl --request POST \
 
 ## **常见问题**
 
+### **验证 access\_token**
+
+验证 access\_token 请使用以下方法：
+
+{% api-method method="get" host="https://sso.authing.cn/" path="authenticate?access\_token=" %}
+{% api-method-summary %}
+ 验证 access\_token
+{% endapi-method-summary %}
+
+{% api-method-description %}
+
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-path-parameters %}
+{% api-method-parameter name="access\_token" type="string" required=false %}
+access\_token 的值
+{% endapi-method-parameter %}
+{% endapi-method-path-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```
+{
+  "state": 1,
+  "isRevoked": false,
+  "isDeleted": false,
+  "_id": "5d60efdee3faa629cccc0dee",
+  "id": "5d60efdee3faa629cccc0dee",
+  "accessToken": "db8abb9e16de36f52da082a6dc9f20c378301fc8",
+  "accessTokenExpiresAt": "2019-08-24T09:05:50.201Z",
+  "scope": "user",
+  "grantType": "implicit",
+  "appId": "5d60e64f62554964c85b555e",
+  "userOrClientId": "5cbecd1daee8f920472cb40a",
+  "when": "2019-08-24T08:05:50.201Z",
+  "iss": "https://sso.authing.cn",
+  "sub": "5d60efdee3faa629cccc0dee",
+  "aud": "5d60e64f62554964c85b555e",
+  "exp": 1566637550201,
+  "iat": 1566633950201,
+  "user_id": "5d60efdee3faa629cccc0dee",
+  "issued_to": "https://sso.authing.cn",
+  "audience": "5d60e64f62554964c85b555e",
+  "expires_in": 3360,
+  "access_type": "offline"
+}
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
 ### **Token 有效时间**
 
 > 所有模式的 `access_token` 有效时间都是 1 小时，能够使用 `refresh_token` 的模式中的 `refresh_token` 的有效时间为 2 周。
