@@ -87,11 +87,11 @@ curl --request POST \
 
 ![implicit &#x6A21;&#x5F0F;](../../.gitbook/assets/image%20%28133%29.png)
 
-### **1. 获取 `access_token`**
+### **1. 发起授权**
 
 `https://sso.authing.cn/authorize?app_id=5c7253efe21948de32723725&state=123456lkjljkf3&response_type=token&redirect_uri=https%3A%2F%2Fauthing.cn&scope=user`
 
-通过请求以上链接直接获取 `access_token`。
+通过请求以上链接可直接获取 `access_token`。
 
 参数说明
 
@@ -124,7 +124,9 @@ curl --request POST \
 
 ![password &#x6A21;&#x5F0F;](../../.gitbook/assets/image%20%2862%29.png)
 
-### **1. 获取 `access_token`**
+### **1. 发起授权**
+
+向以下这个地址发起 POST 请求：
 
 `https://sso.authing.cn/token`
 
@@ -163,11 +165,11 @@ curl --request POST \
 
 此模式用于获取对应 client 的所有用户信息，请谨慎使用，不支持刷新 token
 
-### **1. 获取 `access_token`**
+### **1. 发起授权**
+
+向以下这个地址发起 POST 请求：
 
 `https://sso.authing.cn/token`
-
-使用 `POST` 请求以上接口
 
 参数说明
 
