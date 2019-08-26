@@ -46,6 +46,7 @@ description: 了解 OIDC 包含的常见问题，在开发时可以查阅此文�
 | phone | phone\_number, phone\_number\_verified |
 | profile | birthdate，family\_name，gender，given\_name，locale，middle\_name，name，nickname，picture，preferred\_username，profile，updated\_at，website，zoneinfo |
 | offline\_access | token 接口返回 refresh\_token 字段 |
+| unionid | unionid |
 
 ## 用户信息字段含义
 
@@ -53,6 +54,7 @@ description: 了解 OIDC 包含的常见问题，在开发时可以查阅此文�
 | :--- | :--- |
 | sub | 唯一标识 |
 | openid | openid |
+| unionid | unionid |
 | name | 姓名 |
 | given\_name | 名字 |
 | family\_name | 姓氏 |

@@ -46,7 +46,7 @@ P.S. 文档中出现的 `testapp.authing.cn` 和 `example.authing.cn` 两个域�
 | :--- | :--- |
 | client\_id | OIDC 应用的 **app\_id** |
 | redirect\_uri | 在控制台配置的 OIDC 回调 url 其中的一个值 |
-| scope | 需要请求的权限，如果需要获取 email 和手机号需要有 phone email，如果需要 refresh\_token 需要包含 offline\_access [参考 scope 表格](http://docs.authing.cn/authing/advanced/oidc/oidc-params#scope-can-shu-dui-ying-de-yong-hu-xin-xi) |
+| scope | 需要请求的权限，如果需要获取 unionid 需要包含 unionid，如果需要获取 email 和手机号需要有 phone email，如果需要 refresh\_token 需要包含 offline\_access [参考 scope 表格](http://docs.authing.cn/authing/advanced/oidc/oidc-params#scope-can-shu-dui-ying-de-yong-hu-xin-xi) |
 | response\_type | OIDC 模式，可以为 code, id\_token, id\_token token, code id\_token, code token, code id\_token token [参考 OIDC 规范](https://openid.net/specs/openid-connect-core-1_0.html#AuthorizationExamples) |
 | prompt | 可以为 none，login，consent 或 select\_account，指定 AP 与 End-User 的交互方式，如需 refresh\_token，必须为 consent [参考 OIDC 规范](https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) |
 | state | 一个随机字符串，用于防范 CSRF 攻击，如果 response 中的 state 值和发送请求之前设置的 state 值不同，说明受到攻击 |
