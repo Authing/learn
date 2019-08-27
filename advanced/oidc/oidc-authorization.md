@@ -161,6 +161,84 @@ cwIDAQAB
 -----END PUBLIC KEY-----
 ```
 
+将 token 或 id\_token 发送到 Authing 提供的 token 验证接口进行验证
+
+{% api-method method="get" host="https://<appDomain>.authing.cn" path="/oauth/oidc/validate\_access\_token" %}
+{% api-method-summary %}
+ 在线验证 access\_token / id\_token 合法性
+{% endapi-method-summary %}
+
+{% api-method-description %}
+Authing 提供了接口用于直接在线验证 access\_token 或 id\_token 的合法性。
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-path-parameters %}
+{% api-method-parameter name="access\_token" type="string" required=true %}
+值为 access\_token 或 id\_token
+{% endapi-method-parameter %}
+{% endapi-method-path-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+ 验证 access\_token 或 id\_token 时会有以下几种返回结果
+{% endapi-method-response-example-description %}
+
+```
+access_token 或 id_token 合法时的返回结果
+{
+    "state": 1,
+    "isRevoked": false,
+    "isDeleted": false,
+    "_id": "L3qRMJSE5F0tWlon1OnFhywimkp",
+    "id": "L3qRMJSE5F0tWlon1OnFhywimkp",
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1Y2MzMmIyOGQ2ZWJhZTJmMjQwYTliZmQiLCJhdF9oYXNoIjoieWxHa2Y3a1pKZEg2VjRYbUNRMHFGQSIsInNpZCI6IjlhNzk1MDQ0LTM5MTUtNGI3ZS1hZThhLTAwZDc2YmVhMGIwZCIsImF1ZCI6IjVkMDIzYzdiNTY0MjQ2MTIzNGI5YzYyZSIsImV4cCI6MTU2Njg2NjE3NiwiaWF0IjoxNTY2ODYyNTc1LCJpc3MiOiJodHRwczovL29hdXRoLmF1dGhpbmcuY24vb2F1dGgvb2lkYyJ9.ZeaM9_iyNwwedNktJFdlFXyIGGE692MVpW4wbe8xR7A",
+    "accessTokenExpiresAt": "2019-08-27T00:36:16.000Z",
+    "appId": "5d023c7b5642461234b9c62e",
+    "userOrClientId": "5cc32b28d6ebae2f240a9bfd",
+    "when": "2019-08-26T23:36:15.000Z",
+    "iss": "https://oauth.authing.cn/oauth/oidc",
+    "sub": "5cc32b28d6ebae2f240a9bfd",
+    "aud": "5d023c7b5642461234b9c62e",
+    "exp": 1566866176000,
+    "iat": 1566862575000,
+    "user_id": "5cc32b28d6ebae2f240a9bfd",
+    "issued_to": "https://sso.authing.cn",
+    "audience": "5d023c7b5642461234b9c62e",
+    "expires_in": 3360,
+    "access_type": "offline"
+}
+
+token 签名错误
+{
+    code: 1922,
+    message: "token 不合法"
+}
+
+token 过期
+{
+    code: 1923,
+    message: "token 过期"
+}
+
+发生其他错误
+{
+    code: 1921,
+    message: "session 不存在"
+}
+{
+    code: 1920,
+    message: "查找 session 发生错误"
+}
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
 ### **参考链接**
 
 1. jwks [参考规范](https://openid.net/specs/openid-connect-registration-1_0.html#ClientMetadata)；
