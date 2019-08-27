@@ -2,7 +2,11 @@
 description: 使用原生 GraphQL 与 Authing 服务器交互。
 ---
 
-# Open Graphql
+# API（GraphQL）
+
+Authing 的 API 未使用 RESTful API，而是四用了 GraphQL。
+
+{% embed url="https://graphql.cn/" %}
 
 本文档包含了 Authing 的 GraphQL 请求，可直接复制粘贴使用。
 
@@ -834,4 +838,96 @@ mutation unbindEmail($user: String, $client: String){
 ### **注意事项**
 
 此接口发送 `UserToken`。
+
+## 开启/关闭手机号注册白名单限制
+
+开启或关闭手机号注册时的白名单限制
+
+```graphql
+mutation setInvitationState($client: String!, $enableQrCode: Boolean){
+  setInvitationState(
+    client: $client,
+    enableQrCode: $enableQrCode,    
+  ) {
+    client,
+    enableQrCode,
+    createdAt,
+    updatedAt
+  }
+}
+```
+
+### **注意事项**
+
+此接口需要发送 Token，建议直接使用 `OwnerToken`。
+
+## 查看用户池的手机号白名单开启状态
+
+```graphql
+query queryInvitationState($client: String!){
+  queryInvitationState(
+    client: $client,
+  ) {
+	client,
+ 	enableQrCode
+  }
+}
+```
+
+### **注意事项**
+
+此接口需要发送 Token，建议直接使用 `OwnerToken`。
+
+## 增加手机号到白名单
+
+```graphql
+mutation addToInvitation($client: String!, $qrCodPhone: String){
+  addToInvitation(
+    client: $client,
+    qrCodePhone: $qrCodPhone,    
+  ) {
+    client,
+    qrCodePhone,
+  }
+}
+```
+
+### **注意事项**
+
+此接口需要发送 Token，建议直接使用 `OwnerToken`。
+
+## 从白名单中删除手机号
+
+```graphql
+mutation removeFromInvitation($client: String!, $qrCodePhone: String){
+  removeFromInvitation(
+    client: $client,
+    qrCodePhone: $qrCodePhone,    
+  ) {
+    client,
+    qrCodePhone,
+  }
+}
+```
+
+### **注意事项**
+
+此接口需要发送 Token，建议直接使用 `OwnerToken`。
+
+## 查看白名单中的手机号
+
+```graphql
+query queryInvitation($client: String!){
+  queryInvitation(
+  client: $client,
+  ) {
+	client,
+ 	qrCodePhone
+  }
+}
+```
+
+### **注意事项**
+
+此接口需要发送 Token，建议直接使用 `OwnerToken`。
 

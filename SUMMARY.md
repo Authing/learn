@@ -52,6 +52,7 @@
 ## 开发资源 <a id="sdk"></a>
 
 * [开发资源](sdk/libraries.md)
+* [API（GraphQL）](sdk/open-graphql.md)
 * [Guard for Web](sdk/guard.md)
 * [Guard VS 自定义 UI](sdk/loginform-vs-custom-ui.md)
 * [SDK for Web](sdk/sdk-for-web/README.md)
@@ -64,7 +65,6 @@
 * [SDK for Python](sdk/sdk-for-python.md)
 * [SDK for Go](sdk/sdk-for-go.md)
 * [SDK for PHP](sdk/sdk-for-php.md)
-* [Open Graphql](sdk/open-graphql.md)
 * [函数计算（FaaS）](sdk/faas.md)
 
 ## 通信 <a id="messages"></a>
