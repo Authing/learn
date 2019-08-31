@@ -4,7 +4,7 @@ description: 使用原生 GraphQL 与 Authing 服务器交互。
 
 # API（GraphQL）
 
-Authing 的 API 未使用 RESTful API，而是四用了 GraphQL。
+Authing 的 API 未使用 RESTful API，而是使用了 GraphQL。
 
 {% embed url="https://graphql.cn/" %}
 
