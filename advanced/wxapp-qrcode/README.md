@@ -2,7 +2,7 @@
 description: 扫描小程序二维码并使用小程序「身份管家」进行认证
 ---
 
-# 接入小程序扫码认证
+# 接入小程序扫码登录
 
 小程序扫码登录指使用 Authing 官方开发的小程序「小登录」执行扫码登录，使用 JavaScript SDK 可以快速接入，除此之外我们还提供了 [HTTP 接口](https://docs.authing.cn/authing/advanced/wxapp-qrcode#tiao-yong-http-api-jie-ru-xiao-cheng-xu-sao-ma-ren-zheng)。
 
@@ -76,7 +76,10 @@ const auth = new Authing({
 auth.then(function(authing) {
     // 调用小程序扫码登录的方法，此方法将生成一个用于扫码登录的图片和相关提示信息
     // 用户扫描成功后会回调至开发者在控制台中配置的 Redirect URI
+    // 若不想跳转，请将 redirect 参数设置为 false，并在 onSuccess 中处理用户信息
     authing.startWXAppScaning({
+      enableFetchPhone: true, // 启用获取手机号
+    
       // 可选，登录失败后的回调函数，一般为网络问题
       onError: function(error) {}, 
     });
@@ -108,6 +111,8 @@ auth.then(function(authing) {
 authing.startWXAppScaning({
   // 不自动跳转
   redirect: false,
+  
+  enableFetchPhone: true // 启用获取手机号
   
   // 扫码成功
   onSuccess(res) {
@@ -166,6 +171,12 @@ authing.startWXAppScaning({
       
       // 扫码失败的提示信息，默认：网络出错，请重试
       failedTips: '网络出错，请重试',  
+      
+      // 是否支持获取手机号（使用小登录扫码）
+      enableFetchPhone: false,
+      
+      // 私有化部署了小程序的用户请将此参数设置为 true
+      useSelfWxapp: false,
 });
 ```
 

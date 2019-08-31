@@ -21,7 +21,7 @@
   * [验证 JWT Token](advanced/authentication/verify-jwt-token.md)
 * [配置用户权限](advanced/roles.md)
 * [最佳开发实践](advanced/best-practise.md)
-* [接入小程序扫码认证](advanced/wxapp-qrcode/README.md)
+* [接入小程序扫码登录](advanced/wxapp-qrcode/README.md)
   * [接入私有化小程序](advanced/wxapp-qrcode/private-wxapp.md)
 * [接入社会化登录](advanced/social-login.md)
 * [接入 OAuth 2.0](advanced/oauth2/README.md)
