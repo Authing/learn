@@ -1015,6 +1015,43 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](https://learn.authing.cn
 
 若未绑定其他登录方式, 则不可解绑邮箱
 
+## 撤回用户对 SSO 应用的授权 <a id="&#x9A8C;&#x8BC1;&#x90AE;&#x7BB1;"></a>
+
+### **Authing.revokeAuthedApp\(options\)**
+
+* **参数:**
+  * `{Object} options`
+    * **userPoolId**: 用户池 id，必传
+    * **userId**：用户 id，必传
+    * **appId**：SSO 应用的 id，必传
+* **使用方法:**
+  * ```javascript
+    (async function() {
+      const authing = await new Authing({
+        clientId: 'your_client_id',
+        timestamp: Math.round(new Date() / 1000),
+        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      });
+  
+      await authing.revokeAuthedApp({
+      	userPoolId: "5d023c7b5642461234b9c62e",
+    	userId: "5d765d4013d73a5e90b7857a",
+    	appId: "5d5e2e8b026f9d145bf89203"
+      });
+    })();
+    ```
+* **返回数据:**
+  * ```javascript
+    {
+      "isRevoked": "true",
+      "_id": "5d7661e17a9f981da5fa8098",
+      "scope": "profile",
+      "appId": "5d5e2e8b026f9d145bf89203",
+      "userId": "5d765d4013d73a5e90b7857a",
+      "type": "oauth"
+    }
+    ```
+
 ## 小程序扫码登录
 
 小程序扫码登录指使用 Authing 小程序 `身份管家` 执行微信登录。 示例：[小程序扫码登录](http://sample.authing.cn/)

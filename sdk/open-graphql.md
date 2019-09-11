@@ -993,3 +993,37 @@ mutation changeMFA($_id: String,$userId: String,$userPoolId: String,$enable: Boo
 
 此接口需要发送 Token，必须使用 `UserToken`。
 
+## 撤回用户对 SSO 应用的授权
+
+此接口用于撤回一个用户池内，某个用户对该用户池下的某个 SSO 应用的授权。撤回授权后，用户在 SSO 登录页面登录时，会再次显示确权页面。
+
+```graphql
+mutation RevokeUserAuthorizedApp($userPoolId: String, $userId: String, $appId: String) {
+  RevokeUserAuthorizedApp(userPoolId: $userPoolId, userId: $userId, appId: $appId) {
+    isRevoked
+    _id
+    scope
+  }
+}
+```
+
+### **参数**
+
+* userPoolId `{String}，必须，用户池 id`
+* userId `{String}，必须，用户 id`
+* appId `{String}，必须，SSO 应用 id`
+
+返回示例
+
+```javascript
+{
+  "isRevoked": "true",
+  "_id": "5d7661e17a9f981da5fa8098",
+  "scope": "profile"
+}
+```
+
+### **注意事项**
+
+此接口需要发送 Token，可以使用 `UserToken` 或 `OwnerToken`。
+
