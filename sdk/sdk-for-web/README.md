@@ -223,6 +223,7 @@ main();
     * **password**
     * **unionid，**若不使用 email 和 password 则 unioinid 必选
     * **verifyCode，**可选，频繁注册时会要求输入验证码，返回数据会包含
+    * **MFACode，**可选，如果用户开启了 MFA 会要求输入 6 位动态口令，返回数据会出现 1635 错误代码
     * **lastIP，**可选，若连续出现验证码验证失败情况，请将客户端 IP 填入
 * **使用方法:**
   * ```javascript

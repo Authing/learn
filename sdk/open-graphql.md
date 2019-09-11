@@ -931,3 +931,65 @@ query queryInvitation($client: String!){
 
 此接口需要发送 Token，建议直接使用 `OwnerToken`。
 
+## 查询 MFA 信息
+
+```graphql
+query queryMFA($_id: String, $userId: String, $userPoolId: String, $page: Int, $count: Int) {
+  queryMFA(_id: $_id, userId: $userId, userPoolId: $userPoolId, page: $page, count: $count) {
+    _id
+    userId
+    userPoolId
+    enable
+    shareKey
+  }
+}
+```
+
+### **参数**
+
+* \_id `{String}，MFA 主体的 id`
+* userPoolId `{String}，用户池 id`
+* userId `{String}，用户 id`
+* page `{Int}，分页页码`
+* count `{Int}，每页数目`
+
+### **传参说明**
+
+1. 通过**用户 id** 和**用户池 id** 参数来查询一个用户的 MFA 信息，此时 **userId** 和 **userPoolId** 两个参数必填。
+2. 也可以通过 **MFA 主体的 id** 来查询 MFA 的信息，此时只需传入 \_id 参数，userId 和 userPoolId 参数可以不传。
+
+### **注意事项**
+
+此接口需要发送 Token，可以使用 `OwnerToken` 或 `UserToken`。
+
+## 修改 MFA 信息
+
+```graphql
+mutation changeMFA($_id: String,$userId: String,$userPoolId: String,$enable: Boolean!, $refreshKey: Boolean) {
+  changeMFA(_id: $_id, userId: $userId, userPoolId: $userPoolId, enable: $enable, refreshKey: $refreshKey) {
+    _id
+    userId
+    userPoolId
+    shareKey
+    enable
+  }
+}
+```
+
+### **参数**
+
+* \_id `{String}，MFA 主体的 id`
+* userPoolId `{String}，用户池 id`
+* userId `{String}，用户 id`
+* enable `{Boolean}，打开或关闭 MFA`
+* refreshKey `{Boolean}，是否刷新 MFA secret`
+
+### **传参说明**
+
+1. 通过**用户 id** 和**用户池 id** 参数来指定一个用户的 MFA 状态，此时 **userId** 和 **userPoolId** 两个参数必填。
+2. 也可以通过 **MFA 主体的 id** 来修改 MFA 的状态，此时只需传入 \_id 参数，userId 和 userPoolId 参数可以不传。
+
+### **注意事项**
+
+此接口需要发送 Token，必须使用 `UserToken`。
+

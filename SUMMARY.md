@@ -58,6 +58,7 @@
 * [SDK for Web](sdk/sdk-for-web/README.md)
   * [读取/修改用户权限](sdk/sdk-for-web/web-sdk-for-roles.md)
   * [绑定社会化登录](sdk/sdk-for-web/bind-social-accounts.md)
+  * [管理 MFA 口令](sdk/sdk-for-web/guan-li-mfa-kou-ling.md)
   * [自定义请求链接](sdk/sdk-for-web/zi-ding-yi-qing-qiu-lian-jie.md)
 * [SDK for 微信小程序](sdk/authing-sdk-for-wxapp.md)
 * [SDK for Java](sdk/sdk-for-java.md)
@@ -77,6 +78,7 @@
 * [配置 Web 安全域](security/cors.md)
 * [配置用户池密码强度](security/config-user-pool-password-level.md)
 * [配置密码加密函数](security/config-pwd-encrypt-function.md)
+* [配置 MFA 安全口令](security/pei-zhi-mfa-an-quan-kou-ling.md)
 
 ## 其他 <a id="others"></a>
 
