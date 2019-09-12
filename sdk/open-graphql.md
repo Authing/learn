@@ -993,6 +993,132 @@ mutation changeMFA($_id: String,$userId: String,$userPoolId: String,$enable: Boo
 
 此接口需要发送 Token，必须使用 `UserToken`。
 
+## 查询用户授权过的 SSO 应用列表
+
+此接口用于查询一个用户池内，用户授权过的 SSO 应用列表。
+
+```graphql
+query GetUserAuthorizedApps($clientId: String, $userId: String, $page: Int, $count: Int) {
+    GetUserAuthorizedApps(clientId: $clientId, userId: $userId, page: $page, count: $count) {
+        OAuthApps {
+            _id
+            name
+            domain
+            clientId
+            description
+            isDeleted
+            grants
+            redirectUris
+            when
+        }
+        OIDCApps {
+            _id
+            name
+            client_id
+            domain
+            description
+            authorization_code_expire
+            when
+            isDeleted
+            id_token_signed_response_alg
+            response_types
+            grant_types
+            token_endpoint_auth_method
+            redirect_uris
+            image
+            access_token_expire
+            id_token_expire
+            cas_expire
+
+        }
+        totalCount
+    }
+}
+```
+
+### **参数**
+
+* clientId `{String}，必须，用户池 id`
+* userId `{String}，必须，用户 id`
+* page `{Number}，可选，页数，默认 1`
+* count `{Number}，可选，每页数目，默认 10`
+
+返回示例
+
+```javascript
+{
+    "OAuthApps": [
+        {
+            "_id": "5d5a8a7bbc7275af2cb71920",
+            "name": "test1",
+            "domain": "test123",
+            "clientId": "5d5921ffaa016518f658498d",
+            "description": "",
+            "isDeleted": false,
+            "grants": [
+                "authorization_code",
+                "implicit",
+                "refresh_token"
+            ],
+            "redirectUris": [
+                "http://qq.com"
+            ],
+            "when": "Mon Aug 19 2019 19:39:39 GMT+0800 (CST)"
+        },
+        {
+            "_id": "5d5e2e8b026f9d145bf89203",
+            "name": "oauth1",
+            "domain": "oauth1",
+            "clientId": "5d5921ffaa016518f658498d",
+            "description": "",
+            "isDeleted": false,
+            "grants": [
+                "authorization_code",
+                "implicit",
+                "refresh_token"
+            ],
+            "redirectUris": [
+                "http://qq.com"
+            ],
+            "when": "Thu Aug 22 2019 13:56:27 GMT+0800 (CST)"
+        }
+    ],
+    "OIDCApps": [
+        {
+            "_id": "5d5a85e258375a32d1133d45",
+            "name": "test1",
+            "client_id": "5d5a85e258375a32d1133d45",
+            "domain": "test1",
+            "description": "test1",
+            "authorization_code_expire": "600",
+            "when": "Mon Aug 19 2019 19:20:02 GMT+0800 (CST)",
+            "isDeleted": false,
+            "id_token_signed_response_alg": "HS256",
+            "response_types": [
+                "code"
+            ],
+            "grant_types": [
+                "authorization_code",
+                "refresh_token"
+            ],
+            "token_endpoint_auth_method": "client_secret_post",
+            "redirect_uris": [
+                "http://qq.com"
+            ],
+            "image": "https://usercontents.authing.cn/client/logo@2.png",
+            "access_token_expire": "3600",
+            "id_token_expire": "3600",
+            "cas_expire": "3600"
+        }
+    ],
+    "totalCount": 3
+}
+```
+
+### **注意事项**
+
+此接口需要发送 Token，可以使用 `UserToken` 或 `OwnerToken`。
+
 ## 撤回用户对 SSO 应用的授权
 
 此接口用于撤回一个用户池内，某个用户对该用户池下的某个 SSO 应用的授权。撤回授权后，用户在 SSO 登录页面登录时，会再次显示确权页面。

@@ -1015,6 +1015,106 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](https://learn.authing.cn
 
 若未绑定其他登录方式, 则不可解绑邮箱
 
+## 查询用户授权的 SSO 应用列表 <a id="&#x9A8C;&#x8BC1;&#x90AE;&#x7BB1;"></a>
+
+该接口返回用户在一个用户池下授权过的 OAuth 和 OIDC 应用列表。
+
+### **Authing.**getAuthedAppList**\(options\)**
+
+* **参数:**
+  * `{Object} options`
+    * **clientId**: 用户池 id，必传
+    * **userId**：用户 id，必传
+    * **page**：页数，可选，默认 1
+    * **count**：每页数目，可选，默认 10
+* **使用方法:**
+  * ```javascript
+    (async function() {
+      const authing = await new Authing({
+        clientId: 'your_client_id',
+        timestamp: Math.round(new Date() / 1000),
+        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      });
+  
+      await authing.getAuthedAppList({
+      	clientId: "5d023c7b5642461234b9c62e",
+    	userId: "5d765d4013d73a5e90b7857a",
+    	page: 1,
+    	count: 10
+      });
+    })();
+    ```
+* **返回数据:**
+  * ```javascript
+    {
+      "OAuthApps": [
+        {
+          "_id": "5d5a8a7bbc7275af2cb71920",
+          "name": "test1",
+          "domain": "test123",
+          "clientId": "5d5921ffaa016518f658498d",
+          "description": "",
+          "isDeleted": false,
+          "grants": [
+            "authorization_code",
+            "implicit",
+            "refresh_token"
+          ],
+          "redirectUris": [
+            "http://qq.com"
+          ],
+          "when": "Mon Aug 19 2019 19:39:39 GMT+0800 (CST)"
+        },
+        {
+          "_id": "5d5e2e8b026f9d145bf89203",
+          "name": "oauth1",
+          "domain": "oauth1",
+          "clientId": "5d5921ffaa016518f658498d",
+          "description": "",
+          "isDeleted": false,
+          "grants": [
+            "authorization_code",
+            "implicit",
+            "refresh_token"
+          ],
+          "redirectUris": [
+            "http://qq.com"
+          ],
+          "when": "Thu Aug 22 2019 13:56:27 GMT+0800 (CST)"
+        }
+      ],
+      "OIDCApps": [
+        {
+          "_id": "5d5a85e258375a32d1133d45",
+          "name": "test1",
+          "client_id": "5d5a85e258375a32d1133d45",
+          "domain": "test1",
+          "description": "test1",
+          "authorization_code_expire": "600",
+          "when": "Mon Aug 19 2019 19:20:02 GMT+0800 (CST)",
+          "isDeleted": false,
+          "id_token_signed_response_alg": "HS256",
+          "response_types": [
+            "code"
+          ],
+          "grant_types": [
+            "authorization_code",
+            "refresh_token"
+          ],
+          "token_endpoint_auth_method": "client_secret_post",
+          "redirect_uris": [
+            "http://qq.com"
+          ],
+          "image": "https://usercontents.authing.cn/client/logo@2.png",
+          "access_token_expire": "3600",
+          "id_token_expire": "3600",
+          "cas_expire": "3600"
+        }
+      ],
+      "totalCount": 3
+    }
+    ```
+
 ## 撤回用户对 SSO 应用的授权 <a id="&#x9A8C;&#x8BC1;&#x90AE;&#x7BB1;"></a>
 
 ### **Authing.revokeAuthedApp\(options\)**
