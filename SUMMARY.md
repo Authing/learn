@@ -78,6 +78,7 @@
 * [配置 Web 安全域](security/cors.md)
 * [配置用户池密码强度](security/config-user-pool-password-level.md)
 * [配置密码加密函数](security/config-pwd-encrypt-function.md)
+* [配置 MFA 安全口令](security/untitled.md)
 
 ## 其他 <a id="others"></a>
 
