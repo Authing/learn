@@ -31,7 +31,7 @@ GKl64GDcIq3au+aqJQIDAQAB
 然后初始化 Authing：
 
 ```python
-from authing import Authing
+from authing.authing import Authing
 
 clientId = 'your_client_id'
 secret = 'your_app_secret'
@@ -113,7 +113,7 @@ userInfo = authing.user({'id': 'USER_ID'})
 ### 查询用户列表
 
 ```python
-usersList = authing.list()
+usersList = authing.list(page=1, count=10)
 ```
 
 ### 检查登录状态
