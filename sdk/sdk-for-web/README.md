@@ -234,7 +234,7 @@ main();
         nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
       });
   
-      const userInfo = await authing.register({
+      const userInfo = await authing.login({
         email: email,
         password: password
       }).catch((error) => {
