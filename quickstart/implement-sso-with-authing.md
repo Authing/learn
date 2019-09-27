@@ -217,6 +217,10 @@ https://<appDomain>.authing.cn/login/profile
 
 ![&#x4E2A;&#x4EBA;&#x4E2D;&#x5FC3;](../.gitbook/assets/image%20%2899%29.png)
 
+## 检验 token 合法性
+
+{% page-ref page="../advanced/authentication/verify-jwt-token.md" %}
+
 ## 接下来你可能还需要
 
 控制台是你管理所有 Authing 资源的地方，了解 Authing 控制台各模块包含的内容和你可以在控制台中做的事情：

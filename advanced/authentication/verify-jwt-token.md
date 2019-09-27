@@ -4,6 +4,7 @@ JWT Token 是用户登录后的唯一凭证，验证 Token 有两种方法：
 
 1. [发送 Token 给 Authing 服务器验证](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token#fa-song-token-gei-authing-fu-wu-qi-yan-zheng)
 2. [使用 OIDC 应用的密钥（secret）验证 Token](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token#shi-yong-oauth-huo-oidc-ying-yong-de-mi-yao-yan-zheng-token)
+3. [通过 OIDC 应用或 OAuth 应用的在线验证接口验证](verify-jwt-token.md#zai-xian-yan-zheng)
 
 ## 发送 Token 给 Authing 服务器验证
 
@@ -197,13 +198,13 @@ try {
 
 ## 在线验证
 
-{% api-method method="get" host="https://oauth.authing.cn" path="/validate\_access\_token" %}
+{% api-method method="get" host="https://oauth.authing.cn" path="/oauth/oidc/validate\_access\_token" %}
 {% api-method-summary %}
-验证 OIDC access\_token 或 id\_token
+验证 OIDC access\_token 或 id\_token 的合法性
 {% endapi-method-summary %}
 
 {% api-method-description %}
-验证 OIDC 相关 token 的在线接口。
+验证 OIDC 相关 token 合法性的线上接口。
 {% endapi-method-description %}
 
 {% api-method-spec %}
@@ -264,6 +265,76 @@ try {
 {
     "code": 1924,
     "message": "app 不存在"
+}
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+{% api-method method="get" host="https://oauth.authing.cn" path="/authenticate" %}
+{% api-method-summary %}
+验证 OAuth access\_token 合法性
+{% endapi-method-summary %}
+
+{% api-method-description %}
+验证 OAuth token 合法性的线上接口
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-path-parameters %}
+{% api-method-parameter name="access\_token" type="string" required=true %}
+OAuth 签发的 access\_token
+{% endapi-method-parameter %}
+{% endapi-method-path-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```
+{
+    "state": 1,
+    "token": {
+        "isRevoked": false,
+        "isDeleted": false,
+        "_id": "5d8df3d12914983cab6430b1",
+        "accessToken": "b4177a2e01060169fc724112b10703fda49e7d69",
+        "accessTokenExpiresAt": "2019-09-27T12:34:41.480Z",
+        "refreshToken": "fd56d928ed3f00b18db14550d63d9f3a051812fc",
+        "refreshTokenExpiresAt": "2019-10-11T11:34:41.480Z",
+        "scope": "profile",
+        "grantType": "authorization_code",
+        "appId": "5ce52da3b0148671e7f5bfd7",
+        "userOrClientId": "5ce53aea9f85257dd132d749",
+        "when": "2019-09-27T11:34:41.481Z",
+        "__v": 0
+    },
+    "isRevoked": false,
+    "isDeleted": false,
+    "_id": "5d8df3d12914983cab6430b1",
+    "id": "5ce53aea9f85257dd132d749",
+    "accessToken": "b4177a2e01060169fc724112b10703fda49e7d69",
+    "accessTokenExpiresAt": "2019-09-27T12:34:41.480Z",
+    "scope": "profile",
+    "grantType": "authorization_code",
+    "appId": "5ce52da3b0148671e7f5bfd7",
+    "userOrClientId": "5ce53aea9f85257dd132d749",
+    "when": "2019-09-27T11:34:41.481Z",
+    "iss": "https://sso.authing.cn",
+    "sub": "5ce53aea9f85257dd132d749",
+    "aud": "5ce52da3b0148671e7f5bfd7",
+    "exp": 1569587681480,
+    "iat": 1569584081481,
+    "user_id": "5ce53aea9f85257dd132d749",
+    "issued_to": "https://sso.authing.cn",
+    "audience": "5ce52da3b0148671e7f5bfd7",
+    "expires_in": 3360,
+    "access_type": "offline"
 }
 ```
 {% endapi-method-response-example %}
