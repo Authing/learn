@@ -35,7 +35,7 @@ description: 了解 OIDC 包含的常见问题，在开发时可以查阅此文�
 
 ## 如何验证 Token 合法性
 
-请参考：[使用 OIDC 应用的密钥验证 Token 合法性](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token#shi-yong-oauth-huo-oidc-ying-yong-de-mi-yao-yan-zheng-token)。
+请参考：[使用 OIDC 应用的密钥验证 Token 合法性](../authentication/verify-jwt-token.md#shi-yong-oidc-ying-yong-de-mi-yao-yan-zheng-token)。
 
 ## scope 参数对应的用户信息
 
@@ -84,7 +84,11 @@ description: 了解 OIDC 包含的常见问题，在开发时可以查阅此文�
 [参考 OIDC 规范](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims)  
 
 
-## id\_token 和 access\_token 之间的区别
+## id\_token、access\_token 和 token 之间的区别
 
-id\_token 用于鉴定用户身份，相当于用户的身份证，access\_token 用于向服务器获取更详细的用户信息（比如邮箱，手机，地区等）。
+当你需要向你**自己的服务器**请求资源时，应该携带 **id\_token**，同时你的服务器应该[检验此 token 的合法性](../authentication/verify-jwt-token.md#shi-yong-oidc-ying-yong-de-mi-yao-yan-zheng-token)，然后再返回相应资源。**id\_token** 相当于终端用户的身份证，用于认证用户身份。
+
+当你需要向 **Authing 服务器**请求属于该用户的资源时，需要携带 **access\_token**，拥有 **access\_token**，你就能够以终端用户的身份，访问位于 Authing 服务器上属于他的资源。
+
+当你需要向 **Authing 服务器**请求属于该用户的资源时，也可以携带 **token**。终端用户完成登录后，你的应用前端通过 [AuthingSSO SDK](https://github.com/Authing/AuthingSSO) 中的 trackSession 函数能够直接获取到用户信息，其中的 **token** 字段，相当于 Authing 与该终端用户维持内部会话状态的 Cookie。
 
