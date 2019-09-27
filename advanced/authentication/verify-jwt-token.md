@@ -195,5 +195,79 @@ try {
 
 如果你对如何在后端处理 OIDC 有困惑，请参考 Github 上的示例代码：[oidc-demo](https://github.com/Authing/oidc-demo)。
 
+## 在线验证
 
+{% api-method method="get" host="https://oauth.authing.cn" path="/validate\_access\_token" %}
+{% api-method-summary %}
+验证 OIDC access\_token 或 id\_token
+{% endapi-method-summary %}
+
+{% api-method-description %}
+验证 OIDC 相关 token 的在线接口。
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-path-parameters %}
+{% api-method-parameter name="access\_token" type="string" required=true %}
+值为 access\_token 或 id\_token
+{% endapi-method-parameter %}
+{% endapi-method-path-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```
+{
+    "state": 1,
+    "isRevoked": false,
+    "isDeleted": false,
+    "_id": "yokj1gN8kCBixIhc6KEj7SNsMcJ",
+    "id": "yokj1gN8kCBixIhc6KEj7SNsMcJ",
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJkVlJmenZEbHZQRG50dG9LWnJ1WkciLCJzdWIiOiI1Y2U1M2FlYTlmODUyNTdkZDEzMmQ3NDkiLCJpc3MiOiJodHRwczovL29hdXRoLmF1dGhpbmcuY24vb2F1dGgvb2lkYyIsImlhdCI6MTU2OTU4MDMwOCwiZXhwIjoxNTY5NTgzOTA1LCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIiwiYXVkIjoiNWQwMWUzODk5ODVmODFjNmMxZGQzMWRlIn0.RZ1NWMajncZggkpBt7iWxhHG3QhP8nIqWKaGysyujYo",
+    "accessTokenExpiresAt": "2019-09-27T11:31:45.000Z",
+    "scope": "openid profile",
+    "appId": "5d01e389985f81c6c1dd31de",
+    "userOrClientId": "5ce53aea9f85257dd132d749",
+    "when": "2019-09-27T10:31:48.000Z",
+    "iss": "https://oauth.authing.cn/oauth/oidc",
+    "sub": "5ce53aea9f85257dd132d749",
+    "aud": "5d01e389985f81c6c1dd31de",
+    "exp": 1569583905000,
+    "iat": 1569580308000,
+    "user_id": "5ce53aea9f85257dd132d749",
+    "issued_to": "https://sso.authing.cn",
+    "audience": "5d01e389985f81c6c1dd31de",
+    "expires_in": 3360,
+    "access_type": "offline"
+}
+{
+    "code": 1920,
+    "message": "查找 session 发生错误"
+}
+{
+    "code": 1921,
+    "message": "session 不存在"
+}
+{
+    "code": 1922,
+    message: "token 不合法"
+}
+{
+    "code": 1923,
+    "message": "token 过期"
+}
+{
+    "code": 1924,
+    "message": "app 不存在"
+}
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
 
