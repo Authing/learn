@@ -17,6 +17,8 @@ Authing 的 API 未使用 RESTful API，而是使用了 GraphQL。
 
 如非特殊说明，以下 GraphQL 都使用 [https://users.authing.cn/graphql](https://users.authing.cn/graphql) 网关。
 
+推荐使用 [insomnia](https://www.insomnia.rest/) 调试 GraphQL 请求。
+
 ## 初始化
 
 SDK 初始化时获取客户端信息和 accessToken 信息，后续的管理用户的操作请发送此 Token，在下文中，此 Token 命名为「`OwnerToken`」。
