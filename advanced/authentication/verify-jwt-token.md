@@ -3,7 +3,7 @@
 JWT Token 是用户登录后的唯一凭证，验证 Token 有三种方法：
 
 1. [发送 Token 给 Authing 服务器验证](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token#fa-song-token-gei-authing-fu-wu-qi-yan-zheng)
-2. [使用 OIDC 应用的密钥（secret）验证 Token](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token#shi-yong-oauth-huo-oidc-ying-yong-de-mi-yao-yan-zheng-token)
+2. [使用 OIDC 应用的密钥（secret）验证 Token](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token#shi-yong-oidc-ying-yong-de-mi-yue-yan-zheng-token)
 3. [通过 OIDC 应用或 OAuth 应用的在线验证接口验证](verify-jwt-token.md#zai-xian-yan-zheng)
 
 ## 发送 Token 给 Authing 服务器验证
@@ -160,7 +160,7 @@ query checkLoginStatus($token: String) {
    2. iat：Token 签发时间；
    3. exp：Token 过期时间；
 
-## 使用 OIDC 应用的密钥验证 Token
+## 使用 OIDC 应用的密钥验证 Token <a id="oidc-secret-token"></a>
 
 {% hint style="info" %}
 如果你使用了 OIDC 流程，请使用此方式验证 Token。
