@@ -30,7 +30,7 @@
 * [接入 OpenID Connect](advanced/oidc/README.md)
   * [创建 OIDC 应用](advanced/oidc/create-oidc.md)
   * [使用 OIDC 授权](advanced/oidc/oidc-authorization.md)
-  * [理解 OIDC 流程](advanced/oidc/li-jie-oidc-liu-cheng.md)
+  * [理解 OIDC 流程](advanced/oidc/understand-oidc.md)
   * [OIDC 常见问题](advanced/oidc/oidc-params.md)
 * [配置 LDAP 服务](advanced/ldap.md)
 * [使用 Authing 的 LDAP 用户目录](advanced/ldap-idp.md)
