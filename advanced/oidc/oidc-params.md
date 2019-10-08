@@ -24,12 +24,12 @@ description: 了解 OIDC 包含的常见问题，在开发时可以查阅此文�
 
 | "response\_type" value | Flow |
 | :--- | :--- |
-| code | Authorization Code Flow |
-| id\_token | Implicit Flow |
-| id\_token token | Implicit Flow |
-| code id\_token | Hybrid Flow |
-| code token | Hybrid Flow |
-| code id\_token token | Hybrid Flow |
+| code | Authorization Code Flow（授权码流程） |
+| id\_token | Implicit Flow（隐式流程） |
+| id\_token token | Implicit Flow（隐式流程） |
+| code id\_token | Hybrid Flow（混合流程） |
+| code token | Hybrid Flow（混合流程） |
+| code id\_token token | Hybrid Flow（混合流程） |
 
 [参考 OIDC 规范](https://openid.net/specs/openid-connect-core-1_0.html#Authentication)
 
@@ -86,7 +86,7 @@ description: 了解 OIDC 包含的常见问题，在开发时可以查阅此文�
 
 ## id\_token、access\_token 和 token 之间的区别
 
-当你需要向你**自己的服务器**请求资源时，应该携带 **id\_token**，同时你的服务器应该[检验此 token 的合法性](../authentication/verify-jwt-token.md#shi-yong-oidc-ying-yong-de-mi-yao-yan-zheng-token)，然后再返回相应资源。**id\_token** 相当于终端用户的身份证，用于认证用户身份。
+当你需要向你**自己的服务器**请求资源时，应该携带 **id\_token**，同时你的服务器应该[检验此 token 的合法性](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token#oidc-secret-token)，然后再返回相应资源。**id\_token** 相当于终端用户的身份证，用于认证用户身份。
 
 当你需要向 **Authing 服务器**请求属于该用户的资源时，需要携带 **access\_token**，拥有 **access\_token**，你就能够以终端用户的身份，访问位于 Authing 服务器上属于他的资源。
 
