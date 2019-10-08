@@ -3,13 +3,13 @@
 JWT Token 是用户登录后的唯一凭证，验证 Token 有三种方法：
 
 1. [发送 Token 给 Authing 服务器验证](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token#fa-song-token-gei-authing-fu-wu-qi-yan-zheng)
-2. [使用 OIDC 应用的密钥（secret）验证 Token](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token#shi-yong-oidc-ying-yong-de-mi-yue-yan-zheng-token)
+2. [使用 OIDC 应用的密钥（secret）验证 Token](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token#oidc-secret-token)
 3. [通过 OIDC 应用或 OAuth 应用的在线验证接口验证](verify-jwt-token.md#zai-xian-yan-zheng)
 
 ## 发送 Token 给 Authing 服务器验证
 
 {% hint style="info" %}
-此方式适用于未[使用 OIDC](https://learn.authing.cn/authing/advanced/oidc) 流程的应用进行验证，若你使用了 OIDC，请参考：[使用 OIDC 应用的密钥验证 Token](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token#shi-yong-oauth-huo-oidc-ying-yong-de-mi-yao-yan-zheng-token)。
+此方式适用于未[使用 OIDC](https://learn.authing.cn/authing/advanced/oidc) 流程的应用进行验证，若你使用了 OIDC，请参考：[使用 OIDC 应用的密钥验证 Token](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token#oidc-secret-token)。
 {% endhint %}
 
 Authing 使用 [GraphQL](http://graphql.cn/) 进行数据交换，以下以 JavaScript 为例，演示如何发送 Token 给 Authing 服务器：
