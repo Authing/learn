@@ -1,6 +1,6 @@
 # 验证 JWT Token
 
-JWT Token 是用户登录后的唯一凭证，验证 Token 有两种方法：
+JWT Token 是用户登录后的唯一凭证，验证 Token 有三种方法：
 
 1. [发送 Token 给 Authing 服务器验证](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token#fa-song-token-gei-authing-fu-wu-qi-yan-zheng)
 2. [使用 OIDC 应用的密钥（secret）验证 Token](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token#shi-yong-oauth-huo-oidc-ying-yong-de-mi-yao-yan-zheng-token)
