@@ -139,7 +139,7 @@ const form = new Guard('AUTHING_CLIENT_ID', {
 
 ## 第四步：监听登录成功事件并显示用户名
 
-在 Guard 中，开发者可以使用 `.on` 方法监听登录成功的事件，[完整的事件列表请参考这里](https://github.com/authing/login-form#%E4%BA%8B%E4%BB%B6%E5%93%8D%E5%BA%94)。
+在 Guard 中，开发者可以使用 `.on` 方法监听登录成功的事件，[完整的事件列表请参考这里](https://github.com/authing/guard#onevent-callback)。
 
 登录成功的事件名称为「login」：
 
