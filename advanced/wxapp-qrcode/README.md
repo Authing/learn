@@ -59,31 +59,27 @@ $ npm install authing-js-sdk --save
 
 更多 SDK 的使用方法请参考：
 
-{% page-ref page="../../sdk/sdk-for-web/" %}
+{% page-ref page="../../sdk/sdk-for-javascript/" %}
 
 安装完成后，请新建一个 Web 项目，然后复制以下代码：
 
 ```javascript
 const Authing = require('authing-js-sdk');
 
-// 初始化 Authing SDK for Web
-const auth = new Authing({
-    clientId: 'your_client_id',
-    timestamp: Math.round(new Date() / 1000),
-    nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+// 初始化 Authing SDK for JavaScript
+const authing = new Authing({
+    userPoolId: 'your_userpool_id',
 });
 
-auth.then(function(authing) {
-    // 调用小程序扫码登录的方法，此方法将生成一个用于扫码登录的图片和相关提示信息
-    // 用户扫描成功后会回调至开发者在控制台中配置的 Redirect URI
-    // 若不想跳转，请将 redirect 参数设置为 false，并在 onSuccess 中处理用户信息
-    authing.startWXAppScaning({
-      enableFetchPhone: true, // 启用获取手机号
-    
-      // 可选，登录失败后的回调函数，一般为网络问题
-      onError: function(error) {}, 
-    });
-})
+// 调用小程序扫码登录的方法，此方法将生成一个用于扫码登录的图片和相关提示信息
+// 用户扫描成功后会回调至开发者在控制台中配置的 Redirect URI
+// 若不想跳转，请将 redirect 参数设置为 false，并在 onSuccess 中处理用户信息
+authing.startWXAppScaning({
+  enableFetchPhone: true, // 启用获取手机号
+  
+  // 可选，登录失败后的回调函数，一般为网络问题
+  onError: function(error) {}, 
+});
 ```
 
 运行成功后将生成如下图片：
@@ -336,5 +332,5 @@ https://oauth.authing.cn/oauth/wxapp/qrcode/5c344f102e450b000170190a?random=UaJe
 
 ## 接下来你可能还需要
 
-{% page-ref page="../../sdk/sdk-for-web/" %}
+{% page-ref page="../../sdk/sdk-for-javascript/" %}
 

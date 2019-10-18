@@ -14,11 +14,13 @@
 * **使用方法:**
   * ```javascript
     (async function() {
-      const authing = await new Authing({
-        clientId: 'your_client_id',
-        timestamp: Math.round(new Date() / 1000),
-        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      const authing = new Authing({
+        userPoolId: 'your_userpool_id'
       });
+      const login = await authing.login({
+        email: 'test@test.com',
+        password: '123456'
+      })
       const bindResult = await authing.bindOAuth({
         type: 'github',
         unionid: '12345678',
@@ -50,11 +52,13 @@
 * **使用方法:**
   * ```javascript
     (async function() {
-      const authing = await new Authing({
-        clientId: 'your_client_id',
-        timestamp: Math.round(new Date() / 1000),
-        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      const authing = new Authing({
+        userPoolId: 'your_userpool_id'
       });
+      const login = await authing.login({
+        email: 'test@test.com',
+        password: '123456'
+      })
       const userBindedOAuthList = await authing.readUserOAuthList();
     })();
     ```
@@ -93,11 +97,13 @@
 * **使用方法:**
   * ```javascript
     (async function() {
-      const authing = await new Authing({
-        clientId: 'your_client_id',
-        timestamp: Math.round(new Date() / 1000),
-        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      const authing = new Authing({
+        userPoolId: 'your_userpool_id'
       });
+      const login = await authing.login({
+        email: 'test@test.com',
+        password: '123456'
+      })
       const unbindedResult = await authing.unbindOAuth({
         type: 'github'
       });

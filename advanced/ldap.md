@@ -8,7 +8,7 @@ description: LDAP 是一个树型的用来存储用户和组织信息的数据�
 
 LDAP 是轻量目录访问协议，英文全称是 Lightweight Directory Access Protocol，一般都简称为 LDAP。你可以把它理解为一个树型的用来存储用户和组织信息的数据库，常被用来做单点登录（ SSO ），更多介绍请[点击这里](https://baike.baidu.com/item/LDAP/2875565)。
 
-使用 LDAP 服务请先[创建一个 OAuth 应用](https://docs.authing.cn/#/oauthProvider/new)或[创建一个 OIDC 应用](https://docs.authing.cn/#/OIDCProvider/authorize?id=%E5%9C%A8-a-%E5%BA%94%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%BD%95%E9%80%89%E9%A1%B9%E5%8D%A1%E4%B8%8B%E5%88%9B%E5%BB%BA-oidc-%E5%BA%94%E7%94%A8)。
+使用 LDAP 服务请先[创建一个 OAuth 应用](oauth2/create-oauth2.md)或[创建一个 OIDC 应用](oidc/create-oidc.md#chuang-jian-oidc-ying-yong)。
 
 创建完成后，LDAP 服务对全部 OAuth 或 OIDC 应用都可用。
 

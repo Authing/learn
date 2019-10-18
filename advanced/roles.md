@@ -2,7 +2,7 @@
 
 Authing 控制台中支持快速配置用户权限，操作流程如下。
 
-若想使用 API 操作用户权限，请点击[这里](/user_service/get_user_role)查看。
+若想使用 API 操作用户权限，请点击[这里](../sdk/sdk-for-node/update-user-permissions.md#huo-qu-yong-hu-quan-xian-he-jiao-se)查看。
 
 ## 创建角色
 
@@ -26,7 +26,7 @@ Authing 控制台中支持快速配置用户权限，操作流程如下。
 
 ![](../.gitbook/assets/image%20%28147%29.png)
 
-权限这里可以任意字符串或 JSON，这块由开发者定义，之后可以使用 [API](/user_service/get_user_role.md) 在程序中根据用户 ID 读取此处权限，并完成业务逻辑。
+权限这里可以任意字符串或 JSON，这块由开发者定义，之后可以使用 [API](../sdk/sdk-for-node/update-user-permissions.md#huo-qu-yong-hu-quan-xian-he-jiao-se) 在程序中根据用户 ID 读取此处权限，并完成业务逻辑。
 
 ## 指派成员
 
@@ -44,5 +44,5 @@ Authing 控制台中支持快速配置用户权限，操作流程如下。
 
 ## 接下来你可能还需要
 
-{% page-ref page="../sdk/sdk-for-web/web-sdk-for-roles.md" %}
+{% page-ref page="../sdk/sdk-for-node/update-user-permissions.md" %}
 

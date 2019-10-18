@@ -51,7 +51,7 @@ else:
     # 未出错
 ```
 
-[如何获取 Client ID 和 Client Secret ？](https://docs.authing.cn/#/quick_start/howto)
+[如何获取 Client ID 和 Client Secret ？](../others/faq.md#ru-he-huo-qu-client-id-he-client-secret)
 
 ## 错误处理
 

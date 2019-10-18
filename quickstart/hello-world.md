@@ -125,7 +125,7 @@ const form = new Guard('AUTHING_CLIENT_ID', {
 所需参数解释如下：
 
 * **AUTHING\_CLIENT\_ID**
-  * 用户池 ID，可从 [Authing 控制台](https://authing.cn/dashboard) 中[获取](https://docs.authing.cn/#/quick_start/howto)。
+  * 用户池 ID，可从 [Authing 控制台](https://authing.cn/dashboard) 中[获取](https://learn.authing.cn/authing/others/faq#ru-he-huo-qu-client-id-he-client-secret)。
 * **timestamp**
   * 当前时间戳 `Math.round(new Date() / 1000)`
 * **nonce**

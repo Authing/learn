@@ -14,7 +14,7 @@ P.S. 文档中出现的 `testapp.authing.cn` 和 `example.authing.cn` 两个域�
 
 ## 在 Authing 中创建一个应用
 
-使用 OIDC 需要先[注册一个 Authing 账号](https://authing.cn/login)并[新建一个应用](http://docs.authing.cn/#/quick_start/howto?id=新建一个应用)。
+使用 OIDC 需要先[注册一个 Authing 账号](https://authing.cn/login)并[新建一个应用](create-oidc.md#chuang-jian-oidc-ying-yong)。
 
 ## 创建 OIDC 应用
 
@@ -30,7 +30,7 @@ P.S. 文档中出现的 `testapp.authing.cn` 和 `example.authing.cn` 两个域�
 4. 如果返回类型是 id\_token token，那么在用户登录成功后的回调 URI 中会直接附带 id\_token 和 access\_token
 5. 使用 access\_token 可以换取用户信息（userInfo）
 
-如果你想直观的体验 OIDC 认证流程，请[点击这里查看我们提供的示例](https://first-oidc-app.authing.cn/oauth/oidc/auth?client_id=5cded9bf4efab36f02fa666a&redirect_uri=https://authing.cn&scope=openid%20profile&response_type=code&state=jacket)或[点击这里可视化的理解 OIDC](https://openidconnect.net/)。
+如果你想直观的体验 OIDC 认证流程，请[点击这里查看我们提供的示例](https://first-oidc-app.authing.cn)或[点击这里可视化的理解 OIDC](https://openidconnect.net/)。
 
 如果你对如何在后端处理 OIDC 有困惑，请参考 Github 上的示例代码：[oidc-demo](https://github.com/Authing/oidc-demo)。
 

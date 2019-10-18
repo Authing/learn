@@ -1,6 +1,6 @@
-# SDK for Web
+# SDK for Node.js
 
-JavaScript SDK 支持 **Angular.js**, **React.js**, **Vue.js** 以及 **Node.js**.我们提供了完全一致的接口。
+Node SDK 用于 Node 环境下，可以用于管理用户池中所有用户，拥有全部操作权限。
 
 Github：[https://github.com/Authing/authing.js](https://github.com/Authing/authing.js)。
 
@@ -8,7 +8,7 @@ Github：[https://github.com/Authing/authing.js](https://github.com/Authing/auth
 
 **NPM**
 
-当构建大规模应用时，我们推荐使用 `npm` 进行安装， 它可以与一些模块打包工具很好地配合使用，如 `Webpack`， `Browserify。`
+当构建大规模应用时，我们推荐使用 `npm` 进行安装。
 
 ```bash
 # latest stable
@@ -17,63 +17,34 @@ $ npm install authing-js-sdk --save
 
 ## 初始化
 
-先从 [Authing 控制台](https://authing.cn/dashboard) 中 [获取 Client ID](https://docs.authing.cn/#/quick_start/howto)。
+先从 [Authing 控制台](https://authing.cn/dashboard) 中 [获取用户池 ID 和 Secret](../../quickstart/dashboard.md#she-zhi)。
 
-为保证 secret 安全，在服务端的初始化和客户端的初始化有所不同。
-
-#### 服务端
-
-服务端可直接传入 `clientId` 和 `secret`。
+初始化代码：
 
 ```javascript
 const auth = new Authing({
-	clientId: 'your_client_id',
-	secret: 'your_client_secret'
+	userPoolId: 'your_userpool_id',
+	secret: 'your_userpool_secret'
 });
+// 初始化之后可以直接使用相关代码
+auth.register({...}).then((info) => {
 
-auth.then((authing) => {
-	// authing.login
-	// authing.register
-	// ...
 });
-```
+auth.login({...}).then((info) => {
 
-#### 客户端
-
-**客户端需传入三个参数**
-
-* **clientId**
-  * 应用 ID，可从 [Authing 控制台](https://authing.cn/dashboard)中[获取](https://docs.authing.cn/#/quick_start/howto)。
-* **timestamp**
-  * 当前时间戳 `Math.round(new Date() / 1000)`
-* **nonce**
-  * 一个随机数字，不要超过十位数
-
-**示例**
-
-```javascript
-const auth = new Authing({
-	clientId: 'your_client_id',
-	timestamp: Math.round(new Date() / 1000),
-	nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
-});
-auth.then((authing) => {
-	// authing.login
-	// authing.register
-	// ...
 });
 ```
 
 #### 其他参数
 
-* **noSecurityChecking**
-  * 关闭网络安全预检，默认为 false。开启此参数后，构造函数不返回 `Promise`，捕获构造函数的错误必须使用 `try...catch...`；关闭此参数后，构造函数返回 `Promise`，开发者可在 `Promise` 的 `catch` 或 `try...catch...` 中捕获错误。
 * **preflight**
-  * 是否开启网络状况预检，默认为 false。此参数适用于检查用户的网络是否屏蔽了 authing.cn 这个域名（某些企业的内网会屏蔽这个域名），检查成功不进行任何通知，检查失败后会抛出错误，开发者可在 `Promise` 的 `catch`或 `try...catch...` 中捕获错误。**执行预检之后会导致 SDK 初始化速度变慢，请谨慎使用。**
+  * 是否开启网络状况预检，默认为 false。此参数适用于检查用户的网络是否屏蔽了 authing.cn 这个域名（某些企业的内网会屏蔽这个域名），检查成功不进行任何通知，检查失败后会调用传入的错误处理函数。**执行预检之后会导致 SDK 初始化速度变慢，请谨慎使用。**
 * **cdnPreflight**
-  * 是否开启 CDN 网络状况预检，默认为 false。此参数适用于检查用户的网络是否可以访问七牛云 CDN（某些开了代理的场景下无法访问），检查成功不进行任何通知，检查失败后会抛出错误，开发者可在 `Promise` 的 `catch`或 `try...catch...` 中捕获错误。**执行 CDN 预检之后会导致 SDK 初始化速度变慢，请谨慎使用。**
+  * 是否开启 CDN 网络状况预检，默认为 false。此参数适用于检查用户的网络是否可以访问七牛云 CDN（某些开了代理的场景下无法访问），检查成功不进行任何通知，检查失败后会调用传入的错误处理函数。**执行 CDN 预检之后会导致 SDK 初始化速度变慢，请谨慎使用。**
 * **timeout**
-  * 超时时间，默认为 10000（10 秒）。
+  * 超时时间，默认为 10000 毫秒（10 秒）。
+* **onInitError，**`function(err) {}`
+  * 错误处理函数，用于处理初始化失败错误、预检错误。
 
 ## 使用
 
@@ -82,72 +53,49 @@ Authing SDK 的所有 API 都支持 **Promise**。
 ```javascript
 const Authing = require('authing-js-sdk');
 
-// 对 Client ID 和 Client Secret 进行验证，获取 Access Token
-const auth = new Authing({
-	// 若在浏览器端请使用 timestamp + nonce + clientId 的形式	
-	clientId: 'your_client_id',
-	secret: 'your_app_secret' 
+const authing = new Authing({
+	userPoolId: 'your_userpool_id',
+	secret: 'your_userpool_secret'
 });
 
-auth.then(function(authing) {
-
-	//验证成功后返回新的 authing-js-sdk 实例(authing)，可以将此实例挂在全局
-
-	authing.login({
-		email: 'test@testmail.com',
-		password: 'testpassword'
-	}).then(function(user) {
-		console.log(user);	
-	}).catch(function(error) {
-		console.log(error);	
-	});
-	
+authing.login({
+	email: 'test@testmail.com',
+	password: 'testpassword'
+}).then(function(user) {
+	console.log(user);	
 }).catch(function(error) {
-	//验证失败
-	console.log(error);
+	console.log(error);	
 });
 ```
 
 如果你使用 `ES6+` 推荐用 `await` 处理异步，示例如下：
 
 ```javascript
-import Authing from 'authing-js-sdk';
+const Authing = require('authing-js-sdk');
 
 const main = async () => {
 
+	let auth = new Authing({
+		userPoolId: 'your_client_id',
+		secret: 'your_userpool_secret'
+	});
+
+	let user;
+
 	//使用async时需要使用 try...catch... 捕捉错误
-
-	let auth;
-
-	try{
-		auth = await new Authing({
-			// 若在浏览器端请使用 timestamp + nonce + clientId 的形式			
-			clientId: 'your_client_id',
-			secret: 'your_app_secret'
+	try {
+		user = await auth.login({
+			email: 'test@testmail.com',
+			password: 'testpassword'
 		});
 	}catch(error) {
-		console.log('Authing 验证失败:', error);
+		console.log('登录失败:', error);
 	}
 
-	if(auth) {
-
-		let user;
-
-		try {
-			user = await auth.login({
-				email: 'test@testmail.com',
-				password: 'testpassword'
-			});
-		}catch(error) {
-			console.log('登录失败:', error);
-		}
-
-		if(user) {
-			console.log('login success');
-		}else {
-			console.log('login failed');
-		}
-
+	if(user) {
+		console.log('login success');
+	}else {
+		console.log('login failed');
 	}
 
 }
@@ -173,10 +121,9 @@ main();
 * **使用方法:**
   * ```javascript
     (async function() {
-      const authing = await new Authing({
-        clientId: 'your_client_id',
-        timestamp: Math.round(new Date() / 1000),
-        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      const authing = new Authing({
+        userPoolId: 'your_userpool_id',
+        secret: 'your_userpool_secret'
       });
   
       const userInfo = await authing.register({
@@ -228,10 +175,9 @@ main();
 * **使用方法:**
   * ```javascript
     (async function() {
-      const authing = await new Authing({
-        clientId: 'your_client_id',
-        timestamp: Math.round(new Date() / 1000),
-        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      const authing = new Authing({
+        userPoolId: 'your_userpool_id',
+      	secret: 'your_userpool_secret'
       });
   
       const userInfo = await authing.login({
@@ -242,8 +188,8 @@ main();
           { 
             email: email, 
             password: password, 
-             verifyCode: verifyCode 
-           } 
+            verifyCode: verifyCode 
+          } 
          /* 
       });
     })();
@@ -278,7 +224,7 @@ main();
 
 ## 发送手机验证码
 
-此接口可结合[使用手机验证码登录](https://github.com/Authing/docs/blob/master/user_serivce/login_by_phone_code)使用。
+此接口可结合[使用手机验证码登录](./#shi-yong-shou-ji-yan-zheng-ma-deng-lu)使用。
 
 **Authing.getVerificationCode\(phone\)**
 
@@ -288,10 +234,9 @@ main();
 * **使用方法:**
   * ```javascript
     (async function() {
-      const authing = await new Authing({
-        clientId: 'your_client_id',
-        timestamp: Math.round(new Date() / 1000),
-        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      const authing = new Authing({
+        userPoolId: 'your_userpool_id',
+      	secret: 'your_userpool_secret'
       });
   
       const userInfo = await authing.getVerificationCode('phone number')
@@ -314,7 +259,7 @@ main();
 当前不支持修改短信模版。
 {% endhint %}
 
-验证码接口可结合[使用手机验证码登录](https://learn.authing.cn/authing/sdk/authing-sdk-for-web#shi-yong-shou-ji-yan-zheng-ma-deng-lu)使用。
+验证码接口可结合[使用手机验证码登录](./#shi-yong-shou-ji-yan-zheng-ma-deng-lu)使用。
 
 ## 使用手机验证码登录
 
@@ -327,10 +272,9 @@ main();
 * **使用方法:**
   * ```javascript
     (async function() {
-      const authing = await new Authing({
-        clientId: 'your_client_id',
-        timestamp: Math.round(new Date() / 1000),
-        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      const authing = new Authing({
+        userPoolId: 'your_userpool_id',
+      	secret: 'your_userpool_secret'
       });
   
       const userInfo = await authing.loginByPhoneCode({
@@ -364,7 +308,7 @@ main();
 
 ## 使用 LDAP 登录
 
-LDAP 服务的配置流程请参考[配置 LDAP 服务](https://learn.authing.cn/authing/advanced/sso/ldap)。
+LDAP 服务的配置流程请参考[配置 LDAP 服务](../../advanced/ldap.md)。
 
 **Authing.loginByLDAP\(options\)**
 
@@ -375,10 +319,9 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](https://learn.authing.cn
 * **使用方法:**
   * ```javascript
     (async function() {
-      const authing = await new Authing({
-        clientId: 'your_client_id',
-        timestamp: Math.round(new Date() / 1000),
-        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      const authing = new Authing({
+        userPoolId: 'your_userpool_id',
+      	secret: 'your_userpool_secret'
       });
   
       const userInfo = await authing.loginByLDAP({
@@ -412,12 +355,12 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](https://learn.authing.cn
 * **使用方法:**
   * ```javascript
     (async () => {
-        const authing = await new Authing({
-            clientId: 'your_client_id',
-            secret: 'your_client_secret'
-        });
+      const authing = new Authing({
+        userPoolId: 'your_userpool_id',
+      	secret: 'your_userpool_secret'
+      });
     
-        const result = await authing.checkLoginStatus('USER_JWT_TOKEN');
+      const result = await authing.checkLoginStatus('USER_JWT_TOKEN');
     })()
     ```
 * **返回数据:**
@@ -455,10 +398,10 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](https://learn.authing.cn
 
 ```javascript
 {
-     status: false,
-     code: 2207,
-     message: '登录信息有误'
- }
+  status: false,
+  code: 2207,
+  message: '登录信息有误'
+}
 ```
 
 ## 刷新用户 Token
@@ -471,9 +414,9 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](https://learn.authing.cn
 * **使用方法:**
   * ```javascript
     (async function() {
-      const authing = await new Authing({
-        clientId: 'your_client_id',
-        secret: 'your_client_secret'
+      const authing = new Authing({
+        userPoolId: 'your_userpool_id',
+        secret: 'your_userpool_secret'
       });
   
       const token = await authing.refreshToken({
@@ -500,10 +443,9 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](https://learn.authing.cn
 * **使用方法:**
   * ```javascript
     (async function() {
-      const authing = await new Authing({
-        clientId: 'your_client_id',
-        timestamp: Math.round(new Date() / 1000),
-        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      const authing = new Authing({
+        userPoolId: 'your_userpool_id',
+      	secret: 'your_userpool_secret'
       });
   
       await authing.logout('59e5ff4935eebf1913cfe8a1')
@@ -529,7 +471,7 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](https://learn.authing.cn
 
 {% page-ref page="../../advanced/roles.md" %}
 
-{% page-ref page="web-sdk-for-roles.md" %}
+{% page-ref page="update-user-permissions.md" %}
 
 ## 获取单个用户资料
 
@@ -541,10 +483,9 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](https://learn.authing.cn
 * **使用方法:**
   * ```javascript
     (async function() {
-      const authing = await new Authing({
-        clientId: 'your_client_id',
-        timestamp: Math.round(new Date() / 1000),
-        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      const authing = new Authing({
+        userPoolId: 'your_userpool_id',
+      	secret: 'your_userpool_secret'
       });
   
       const userInfo = await authing.user({
@@ -555,7 +496,7 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](https://learn.authing.cn
     ```
 * **返回数据:**
   * ```javascript
-      {
+    {
         "_id": "5a584dcd32e6510001a8f144", 
         "email": "1968198962@qq.com", 
         "emailVerified": false, 
@@ -590,10 +531,9 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](https://learn.authing.cn
 * **使用方法:**
   * ```javascript
     (async function() {
-      const authing = await new Authing({
-        clientId: 'your_client_id',
-        timestamp: Math.round(new Date() / 1000),
-        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      const authing = new Authing({
+        userPoolId: 'your_userpool_id',
+      	secret: 'your_userpool_secret'
       });
   
       const userInfo = await authing.userPatch({
@@ -664,10 +604,9 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](https://learn.authing.cn
 * **使用方法:**
   * ```javascript
     (async function() {
-      const authing = await new Authing({
-        clientId: 'your_client_id',
-        timestamp: Math.round(new Date() / 1000),
-        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      const authing = new Authing({
+        userPoolId: 'your_userpool_id',
+      	secret: 'your_userpool_secret'
       });
   
       const userInfo = await authing.list()
@@ -716,10 +655,9 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](https://learn.authing.cn
 * **使用方法:**
   * ```javascript
     (async function() {
-      const authing = await new Authing({
-        clientId: 'your_client_id',
-        timestamp: Math.round(new Date() / 1000),
-        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      const authing = new Authing({
+        userPoolId: 'your_userpool_id',
+      	secret: 'your_userpool_secret'
       });
   
       const uid = '59e5ff4935eebf1913cfe8a1';
@@ -733,29 +671,6 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](https://learn.authing.cn
         _id: '59e5ff4935eebf1913cfe8a1'
     }
     ```
-
-## 上传头像 <a id="&#x4E0A;&#x4F20;&#x5934;&#x50CF;"></a>
-
-**Authing.selectAvatarFile\(cb\)**
-
-* **参数:**
-  * `{function} cb`
-* **使用方法:**
-  * ```javascript
-    (async function() {
-      const authing = await new Authing({
-        clientId: 'your_client_id',
-        timestamp: Math.round(new Date() / 1000),
-        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
-      });
-  
-      authing.selectAvatarFile((avatarURL) => {
-        // avatarURL 即为头像地址（公网 URL）
-      })
-    })();
-    ```
-* **结果:**
-  * 此 API 会打开文件选择窗口供用户选择文件，用户选取文件后，系统会自动上传，上传成功后会调用 cb，并把头像 URL 作为参数传入 cb 函数，开发者可将回调函数中的 avatarURL 作为 photo 参数传入 [update](https://docs.authing.cn/#/user_service/update_user) 方法中修改用户头像。
 
 ## 修改用户资料 <a id="&#x4FEE;&#x6539;&#x7528;&#x6237;&#x8BBE;&#x7F6E;"></a>
 
@@ -790,10 +705,9 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](https://learn.authing.cn
 * **使用方法:**
   * ```javascript
     (async function() {
-      const authing = await new Authing({
-        clientId: 'your_client_id',
-        timestamp: Math.round(new Date() / 1000),
-        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      const authing = new Authing({
+        userPoolId: 'your_userpool_id',
+      	secret: 'your_userpool_secret'
       });
   
       // 修改邮箱
@@ -805,7 +719,6 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](https://learn.authing.cn
     ```
 * **返回数据:**
   * ```javascript
-
     {
         "_id": "59e5ff4935eebf1913cfe8a1",
         "email": "xxx@xxx.com",
@@ -842,10 +755,9 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](https://learn.authing.cn
 * **使用方法:**
   * ```javascript
     (async function() {
-      const authing = await new Authing({
-        clientId: 'your_client_id',
-        timestamp: Math.round(new Date() / 1000),
-        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      const authing = new Authing({
+        userPoolId: 'your_userpool_id',
+      	secret: 'your_userpool_secret'
       });
   
       // 发送验证码到指定邮箱
@@ -872,10 +784,9 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](https://learn.authing.cn
 * **使用方法:**
   * ```javascript
     (async function() {
-      const authing = await new Authing({
-        clientId: 'your_client_id',
-        timestamp: Math.round(new Date() / 1000),
-        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      const authing = new Authing({
+        userPoolId: 'your_userpool_id',
+      	secret: 'your_userpool_secret'
       });
   
       // 验证验证码
@@ -904,10 +815,9 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](https://learn.authing.cn
 * **使用方法:**
   * ```javascript
     (async function() {
-      const authing = await new Authing({
-        clientId: 'your_client_id',
-        timestamp: Math.round(new Date() / 1000),
-        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      const authing = new Authing({
+        userPoolId: 'your_userpool_id',
+      	secret: 'your_userpool_secret'
       });
   
       await authing.changePassword({
@@ -944,10 +854,9 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](https://learn.authing.cn
 * **使用方法:**
   * ```javascript
     (async function() {
-      const authing = await new Authing({
-        clientId: 'your_client_id',
-        timestamp: Math.round(new Date() / 1000),
-        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      const authing = new Authing({
+        userPoolId: 'your_userpool_id',
+      	secret: 'your_userpool_secret'
       });
   
       await authing.sendVerifyEmail({
@@ -976,13 +885,12 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](https://learn.authing.cn
     * user `{String} 用户 ID，可选，默认为当前登录用户的 ID`
     * client `{String} 应用 ID，可选，默认为当前登录应用的 ID`
 * **使用方法:**
-  * ```text
+  * ```javascript
     Authing.unbindEmail();
     (async function() {
-      const authing = await new Authing({
-        clientId: 'your_client_id',
-        timestamp: Math.round(new Date() / 1000),
-        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      const authing = new Authing({
+        userPoolId: 'your_userpool_id',
+      	secret: 'your_userpool_secret'
       });
   
       await authing.unbindEmail();
@@ -1030,10 +938,9 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](https://learn.authing.cn
 * **使用方法:**
   * ```javascript
     (async function() {
-      const authing = await new Authing({
-        clientId: 'your_client_id',
-        timestamp: Math.round(new Date() / 1000),
-        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      const authing = new Authing({
+        userPoolId: 'your_userpool_id',
+      	secret: 'your_userpool_secret'
       });
   
       await authing.getAuthedAppList({
@@ -1127,10 +1034,9 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](https://learn.authing.cn
 * **使用方法:**
   * ```javascript
     (async function() {
-      const authing = await new Authing({
-        clientId: 'your_client_id',
-        timestamp: Math.round(new Date() / 1000),
-        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      const authing = new Authing({
+        userPoolId: 'your_userpool_id',
+      	secret: 'your_userpool_secret'
       });
   
       await authing.revokeAuthedApp({
@@ -1152,24 +1058,14 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](https://learn.authing.cn
     }
     ```
 
-## 小程序扫码登录
-
-小程序扫码登录指使用 Authing 小程序 `身份管家` 执行微信登录。 示例：[小程序扫码登录](http://sample.authing.cn/)
-
-[![&#x626B;&#x7801; demo](https://camo.githubusercontent.com/1cc34581f6a1b0749f820282d685734f55a57993/68747470733a2f2f75736572636f6e74656e74732e61757468696e672e636e2f77786170702d7363616e696e672d64656d6f2e676966)](https://camo.githubusercontent.com/1cc34581f6a1b0749f820282d685734f55a57993/68747470733a2f2f75736572636f6e74656e74732e61757468696e672e636e2f77786170702d7363616e696e672d64656d6f2e676966)
-
-####  使用方法请参考：
-
-{% page-ref page="../../advanced/wxapp-qrcode/" %}
-
 ## 自定义请求链接
 
 `Authing` 构造函数包含一个名为 `host` 对象，可接收自定义的请求链接（适合私有部署 Authing 的用户使用），使用方法如下：
 
 ```javascript
 const auth = new Authing({
-	clientId: 'xxxx',
-	secret: 'xxxxxx',
+	userPoolId: 'xxxx',
+	secret: 'xxx',
 	host: {
 		user: 'https://users.authing.cn/graphql',
 		oauth: 'https://oauth.authing.cn/graphql'

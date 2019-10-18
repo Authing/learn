@@ -1,12 +1,12 @@
 # 常见问题
 
-## 如何获取 Client Id 和 Client Secret ？
+## 如何获取 Client Id（UserPool Id） 和 Client Secret （UserPool Secret）？ <a id="ru-he-huo-qu-client-id-he-client-secret"></a>
 
 ![](../.gitbook/assets/image%20%2860%29.png)
 
 ## Client Secret 有何作用？
 
-1. [在服务端初始化 Authing SDK for Web](https://learn.authing.cn/authing/sdk/authing-sdk-for-web#fu-wu-duan)
+1. [在服务端初始化 Authing SDK for Node.js](../sdk/sdk-for-node/)
 
 ## Client ID/Client Secret 和 OAuth/OIDC 应用的 App ID 和 App Secret 的区别？
 
@@ -50,13 +50,7 @@ OIDC 流程包含两个 Token：
 
 ## 如何接入单点登录？
 
-你可以通过选择以下三种方式的任意一个：
-
-{% page-ref page="../advanced/oauth2/" %}
-
-{% page-ref page="../advanced/oidc/" %}
-
-{% page-ref page="../advanced/ldap.md" %}
+{% page-ref page="../quickstart/implement-sso-with-authing.md" %}
 
 ## 如何配置用户权限？
 

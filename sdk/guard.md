@@ -10,7 +10,7 @@ Guard 是一种可嵌入的登录表单，可根据你的需求进行配置，�
 * 社会化登录，如 Github 登录、微信登录（[需先在后台配置](https://learn.authing.cn/authing/advanced/social-login)）；
 * 小程序扫码登录（[需先在后台配置](https://learn.authing.cn/authing/advanced/authentication/wxapp-qrcode)）；
 * 响应式特性（兼容移动端和 PC 端）；
-* 使用 LDAP 登录（[什么是 LDAP？](https://learn.authing.cn/authing/advanced/sso/ldap)）。
+* 使用 LDAP 登录（[什么是 LDAP？](../advanced/ldap.md#ldap-是什么？)）。
 
 ![](../.gitbook/assets/image%20%2872%29.png)
 
@@ -24,7 +24,7 @@ Guard 是一种可嵌入的登录表单，可根据你的需求进行配置，�
 
 #### 通过 CDN 安装
 
-通过 script 标签使用本功能的开发者可以不必再安装 [**authing-js-sdk**](https://learn.authing.cn/authing/sdk/sdk/authing-sdk-for-web)，因为通过 script 标签引入的代码中包含了 [**authing-js-sdk**](https://learn.authing.cn/authing/sdk/sdk/authing-sdk-for-web)。
+通过 script 标签使用本功能的开发者可以不必再安装 [**authing-js-sdk**](sdk-for-javascript/)，因为通过 script 标签引入的代码中包含了 [**authing-js-sdk**](sdk-for-javascript/)。
 
 ```markup
 <script src="https://cdn.jsdelivr.net/npm/@authing/guard/dist/Guard.umd.min.js"></script>
@@ -66,7 +66,7 @@ form.on('login', (userInfo) => {
 });
 ```
 
-如果你想监听其他事件（如：登录失败、注册失败、注册成功等），请参考[完整事件列表](https://docs.authing.cn/#/quick_start/login-form?id=%E4%BA%8B%E4%BB%B6%E5%93%8D%E5%BA%94)。
+如果你想监听其他事件（如：登录失败、注册失败、注册成功等），请参考[完整事件列表](guard.md#hui-tiao-shi-jian-onevent-callback)。
 
 ### 4. 验证 JWT Token 的合法性以及是否过期
 

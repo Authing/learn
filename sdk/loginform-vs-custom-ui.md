@@ -64,7 +64,7 @@ Guard 是一个登录表单，使用户可以使用选定的连接轻松进行�
 
 如果 Guard 的标准化行为无法满足你应用程序的要求，或者你有复杂的自定义身份认证过程，则需要自定义用户界面。 
 
-[使用 Authing 的 Web SDK](https://learn.authing.cn/authing/sdk/sdk/authing-sdk-for-web)，你可以自定义用户注册和登录的流程。 如果你愿意，也可以直接使用 [Authentication GraphQL](https://learn.authing.cn/authing/sdk/open-graphql)。
+[使用 Authing 的 Web SDK](sdk-for-javascript/)，你可以自定义用户注册和登录的流程。 如果你愿意，也可以直接使用 [Authentication GraphQL](open-graphql.md)。
 
 ![](../.gitbook/assets/image%20%28102%29.png)
 

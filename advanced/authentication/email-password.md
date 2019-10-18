@@ -21,5 +21,5 @@ description: 使用邮箱 + 密码的形式完成认证
 
 {% page-ref page="../wxapp-qrcode/" %}
 
-{% page-ref page="../../sdk/sdk-for-web/" %}
+{% page-ref page="../../sdk/sdk-for-javascript/" %}
 

@@ -72,7 +72,7 @@ description: 使用微信、Github 等社会化登录。
 | code | 错误或成功代码，200 为成功，非 200 为失败 |
 | message | 成功或错误信息 |
 | data | userInfo，若 code 为非 200 不返回此参数 |
-| bindOAuth | 是否是登录操作， 无此参数或此参数为`0`则为登录, 此参数为`1`则为绑定账号操作, 此时可使用`data`参数中的数据[绑定OAuth](https://docs.authing.cn/#/oauth/bind_oauth) |
+| bindOAuth | 是否是登录操作， 无此参数或此参数为`0`则为登录, 此参数为`1`则为绑定账号操作, 此时可使用`data`参数中的数据[绑定OAuth](../sdk/sdk-for-node/bind-social-login.md#bang-ding-she-hui-hua-zhang-hao) |
 
 以下是使用 JavaScript 从 URL 参数中获取用户数据的代码：
 

@@ -20,7 +20,7 @@ Authing 支持使用 LDAP 协议查看、修改、增加和删除用户信息，
 
 ## 认证方式
 
-访问 Authing LDAP 服务器需要使用 Authing 的应用[密钥 \(Secret\)](http://localhost:8081/dashboard/clients/5cc2a350e056c76eea71db8a/settings)，认证命令如下所示：
+访问 Authing LDAP 服务器需要使用 Authing 的应用[密钥 \(Secret\)](../others/faq.md#ru-he-huo-qu-client-id-he-client-secret)，认证命令如下所示：
 
 ```text
 $ ldapsearch -H ldap://ldap.authing.cn:1389 -x -D "ou=users,o=AUTHING_CLIENT_ID,dc=authing,dc=cn" -w "AUTHING_CLIEENT_SECRET"  -LLL -b "ou=users,o=AUTHING_CLIENT_ID,dc=authing,dc=cn"

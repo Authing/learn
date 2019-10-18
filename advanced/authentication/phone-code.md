@@ -24,5 +24,5 @@ description: 手机 - 验证码认证让用户能够使用以短信形式发送�
 
 {% page-ref page="../wxapp-qrcode/" %}
 
-{% page-ref page="../../sdk/sdk-for-web/" %}
+{% page-ref page="../../sdk/sdk-for-javascript/" %}
 

@@ -8,7 +8,7 @@
 
 ## SDK
 
-{% page-ref page="sdk-for-web/" %}
+{% page-ref page="sdk-for-javascript/" %}
 
 {% page-ref page="authing-sdk-for-wxapp.md" %}
 

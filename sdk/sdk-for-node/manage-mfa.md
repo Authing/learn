@@ -14,20 +14,17 @@
 * **参数:**
   * `{Object} options`
     * \_id `{String}，MFA 主体的 id`
-    * userPoolId `{String}，用户池 id`
     * userId `{String}，用户 id`
 * **使用方法:**
   * ```javascript
     (async function() {
-      const authing = await new Authing({
-        clientId: 'your_client_id',
-        timestamp: Math.round(new Date() / 1000),
-        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      const authing = new Authing({
+        userPoolId: 'your_userpool_id',
+        secret: 'your_userpool_secret'
       });
       try {
         await authing.queryMFA({
-          userId: '用户 id',
-          userPoolId: '用户所属用户池 id'
+          userId: '用户 id'
         })
       } catch (err) {
        console.log(err)
@@ -59,7 +56,6 @@
 * **参数:**
   * `{Object} options`
     * \_id `{String}，MFA 主体的 id`
-    * userPoolId `{String}，用户池 id`
     * userId `{String}，用户 id`
     * enable `{Boolean}，MFA 开启或关闭`
     * refreshKey `{Boolean}，是否刷新 MFA secret`
@@ -69,10 +65,9 @@
 * **使用方法:**
   * ```javascript
     (async function() {
-      const authing = await new Authing({
-        clientId: 'your_client_id',
-        timestamp: Math.round(new Date() / 1000),
-        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      const authing = new Authing({
+        userPoolId: 'your_userpool_id',
+        secret: 'your_userpool_secret'
       });
       try {
         // 需要先以用户的身份登录
@@ -84,7 +79,6 @@
         // authing.initUserClient('用户的 JWT token');
         await authing.changeMFA({
           userId: '用户 id',
-          userPoolId: '用户所属用户池 id',
           enable: true,
         })
       } catch (err) {
@@ -108,10 +102,9 @@
 * **使用方法:**
   * ```javascript
     (async function() {
-      const authing = await new Authing({
-        clientId: 'your_client_id',
-        timestamp: Math.round(new Date() / 1000),
-        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      const authing = new Authing({
+        userPoolId: 'your_userpool_id',
+        secret: 'your_userpool_secret'
       });
       try {
         // 需要先以用户的身份登录
@@ -123,7 +116,6 @@
         // authing.initUserClient('用户的 JWT token');
         await authing.changeMFA({
           userId: '用户 id',
-          userPoolId: '用户所属用户池 id',
           enable: true,
           refeshKey: true
         })

@@ -74,28 +74,20 @@ description: >-
 
 ## 初始化 SDK
 
-**浏览器端初始化时需传入三个参数**
+**浏览器端初始化时需传入用户池 ID**
 
-* **clientId**
-  * 应用 ID，可从 [Authing 控制台](https://authing.cn/dashboard)中[获取](https://docs.authing.cn/#/quick_start/howto)。
-* **timestamp**
-  * 当前时间戳 `Math.round(new Date() / 1000)`
-* **nonce**
-  * 一个随机数字，不要超过十位数
+* **userPoolId**
+  * 用户池 ID，可从 [Authing 控制台](https://authing.cn/dashboard)中[获取](../others/faq.md#ru-he-huo-qu-client-id-he-client-secret)。
 
 ```markup
 <script>
 const auth = new Authing({
-	clientId: 'your_client_id',
-	timestamp: Math.round(new Date() / 1000),
-	nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+	userPoolId: 'your_userpool_id',
 });
-auth.then((authing) => {
-	// authing.login
-	// authing.register
-	// ...
-	window.validAuth = authing;
-});
+
+authing.login({...}).then(info => {})
+authing.register({...}).then(info => {})
+
 </script>
 ```
 

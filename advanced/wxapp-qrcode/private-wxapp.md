@@ -19,21 +19,17 @@ $ npm install authing-js-sdk --save
 ```javascript
 const Authing = require('authing-js-sdk');
 
-// 初始化 Authing SDK for Web
+// 初始化 Authing SDK for JavaScript
 const auth = new Authing({
-    clientId: 'your_client_id',
-    timestamp: Math.round(new Date() / 1000),
-    nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+    clientId: 'your_userpool_id',
     useSelfWxapp: true,
 });
 
-auth.then(function(authing) {
-    // 调用小程序扫码登录的方法，此方法将生成一个用于扫码登录的图片和相关提示信息
-    // 用户扫描成功后会回调至开发者在控制台中配置的 Redirect URI
-    authing.startWXAppScaning({
-      // 可选，登录失败后的回调函数，一般为网络问题
-      onError: function(error) {}, 
-    });
+// 调用小程序扫码登录的方法，此方法将生成一个用于扫码登录的图片和相关提示信息
+// 用户扫描成功后会回调至开发者在控制台中配置的 Redirect URI
+authing.startWXAppScaning({
+  // 可选，登录失败后的回调函数，一般为网络问题
+  onError: function(error) {}, 
 });
 ```
 

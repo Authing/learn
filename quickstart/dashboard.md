@@ -73,7 +73,7 @@ description: 控制台是你管理和配置所有 Authing 资源的地方，这�
         <p>3. OIDC &#x5E94;&#x7528;&#xFF1B;</p>
         <p>4. &#x914D;&#x7F6E; LDAP &#x670D;&#x52A1;&#x3002;&#x76F8;&#x5173;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#x8BF7;&#x53C2;&#x8003;&#xFF1A;
           <a
-          href="https://learn.authing.cn/authing/advanced/connections">&#x7B2C;&#x4E09;&#x65B9;&#x767B;&#x5F55;&#x7EFC;&#x8FF0;</a>&#x3002;</p>
+          href="../advanced/ldap.md">&#x914D;&#x7F6E; LDAP &#x670D;&#x52A1;</a>&#x3002;</p>
       </td>
     </tr>
     <tr>

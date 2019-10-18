@@ -1,4 +1,4 @@
-# 读取/修改用户权限
+# 读取修改用户权限
 
 你可以在控制台中创建角色、为角色配置权限和为角色指派用户（配置方式请参考：[配置用户角色和权限](https://learn.authing.cn/authing/advanced/roles)），然后使用本页的 API 根据用户 ID  在程序中读取或修改用户角色和权限。
 
@@ -12,10 +12,9 @@
   * ```javascript
     Authing.queryPermissions('USER_ID');
     (async function() {
-      const authing = await new Authing({
-        clientId: 'your_client_id',
-        timestamp: Math.round(new Date() / 1000),
-        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      const authing = new Authing({
+        userPoolId: 'your_userpool_id',
+        secret: 'your_userpool_secret'
       });
   
       const groupList = await authing.queryPermissions('USER_ID')
@@ -54,10 +53,9 @@
 * **使用方法:**
   * ```javascript
     (async function() {
-      const authing = await new Authing({
-        clientId: 'your_client_id',
-        timestamp: Math.round(new Date() / 1000),
-        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      const authing = new Authing({
+        userPoolId: 'your_userpool_id',
+        secret: 'your_userpool_secret'
       });
   
       const rolesList = await authing.queryPermissions({
@@ -95,10 +93,9 @@
 * **使用方法:**
   * ```javascript
     (async function() {
-      const authing = await new Authing({
-        clientId: 'your_client_id',
-        timestamp: Math.round(new Date() / 1000),
-        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      const authing = new Authing({
+        userPoolId: 'your_userpool_id',
+        secret: 'your_userpool_secret'
       });
   
       const rolesList = await authing.createRole({
@@ -130,10 +127,9 @@
 * **使用方法:**
   * ```javascript
     (async function() {
-      const authing = await new Authing({
-        clientId: 'your_client_id',
-        timestamp: Math.round(new Date() / 1000),
-        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      const authing = new Authing({
+        userPoolId: 'your_userpool_id',
+        secret: 'your_userpool_secret'
       });
   
       const rolesList = await authing.updateRolePermissions({
@@ -164,10 +160,9 @@
 * **使用方法:**
   * ```javascript
     (async function() {
-      const authing = await new Authing({
-        clientId: 'your_client_id',
-        timestamp: Math.round(new Date() / 1000),
-        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      const authing = new Authing({
+        userPoolId: 'your_userpool_id',
+        secret: 'your_userpool_secret'
       });
   
       const rolesList = await authing.assignUserToRole('USER_ID')
@@ -204,10 +199,9 @@
 * **使用方法:**
   * ```javascript
     (async function() {
-      const authing = await new Authing({
-        clientId: 'your_client_id',
-        timestamp: Math.round(new Date() / 1000),
-        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+      const authing = new Authing({
+        userPoolId: 'your_userpool_id',
+        secret: 'your_userpool_secret'
       });
   
       const rolesList = await authing.removeUserFromRole({

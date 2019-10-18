@@ -2,7 +2,7 @@
 
 相关接口和 SDK for Web 版本相同：
 
-{% page-ref page="sdk-for-web/" %}
+{% page-ref page="sdk-for-javascript/" %}
 
 Github 地址：
 
