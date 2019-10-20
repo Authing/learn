@@ -17,7 +17,7 @@ $ npm install authing-js-sdk --save
 
 ## 初始化
 
-先从 [Authing 控制台](https://authing.cn/dashboard) 中 [获取用户池 ID 和 Secret](../../quickstart/dashboard.md#she-zhi)。
+先从 [Authing 控制台](https://authing.cn/dashboard) 中 [获取用户池 ID 和 Secret](https://learn.authing.cn/authing/others/faq#ru-he-huo-qu-client-id-he-client-secret)。
 
 初始化代码：
 
