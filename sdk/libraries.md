@@ -1,5 +1,9 @@
 # 开发资源
 
+## API 调试器
+
+{% embed url="https://authing.cn/graphiql" %}
+
 ## UI 自动生成
 
 {% page-ref page="guard.md" %}
