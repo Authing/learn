@@ -10,6 +10,14 @@ Authing 的 API 未使用 RESTful API，而是使用了 GraphQL。
 
 本文档包含了 Authing 的 GraphQL 请求，可直接复制粘贴使用。
 
+## 推荐使用：GraphQL 调试器
+
+{% embed url="https://authing.cn/graphiql" caption="用来调试 Authing 所有 API 的浏览器" %}
+
+{% hint style="info" %}
+此调试器允许开发者直接在线上调试 Authing 的 API。
+{% endhint %}
+
 ## GraphQL 网关
 
 1. https://users.authing.cn/graphql
