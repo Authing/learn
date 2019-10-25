@@ -94,8 +94,37 @@ authing = Authing(clientId, secret, {
 
 ### 登录
 
+#### 使用邮箱密码登录
+
 ```python
-userInfo = authing.login('EMAIL', 'Password')
+userInfo = authing.login(email='EMAIL', password='Password')
+```
+
+#### 使用用户名密码登录
+
+```python
+userInfo = authing.login(username='USERNAME', password='Password')
+```
+
+#### 使用短信验证码登陆
+
+```python
+userInfo = authing.loginByPhoneCode(
+    phone="PHONE",
+    phoneCode=PHONE_CODE
+)
+```
+
+### 发送短信验证码
+
+```python
+success, msg = authing.getVerificationCode(phone)
+if success:
+    # 发送成功
+    pass
+else:
+    # 发送失败
+    print(msg)
 ```
 
 ### 注册
