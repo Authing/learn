@@ -201,9 +201,7 @@ curl --request POST \
 
 ## **常见问题**
 
-### **验证 access\_token**
-
-验证 access\_token 请使用以下方法：
+### **验证 access\_token 的 URL 地址**
 
 {% api-method method="get" host="https://sso.authing.cn/" path="authenticate?access\_token=" %}
 {% api-method-summary %}
