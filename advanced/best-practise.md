@@ -10,7 +10,7 @@
 若你不想（或不懂）使用 OIDC 协议，同时你在开发 Web 应用，那么建议使用 Guard 对用户进行认证。
 {% endhint %}
 
-{% page-ref page="../sdk/guard.md" %}
+{% page-ref page="../sdk/guard/" %}
 
 同时我们建议你配置社会化登录或小程序扫码登录（终端用户拥有更好的登录体验）：
 

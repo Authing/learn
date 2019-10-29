@@ -6,7 +6,7 @@
 
 ## UI 自动生成
 
-{% page-ref page="guard.md" %}
+{% page-ref page="guard/" %}
 
 {% page-ref page="loginform-vs-custom-ui.md" %}
 

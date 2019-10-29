@@ -6,7 +6,7 @@ Guard 帮助开发者屏蔽了很多底层认证的实现细节，同时也包�
 
 以下是 Guard 支持的平台：
 
-{% page-ref page="guard.md" %}
+{% page-ref page="guard/" %}
 
 ## Guard 与自定义 UI 对比
 
@@ -34,7 +34,7 @@ Guard 是一个可嵌入任意应用程序的登录部件，它提供一组标�
 
 Guard 是一个登录表单，使用户可以使用选定的连接轻松进行身份验证。 Guard 将自动实现用户注册和登录所涉及的大部分细节。 
 
-![](../.gitbook/assets/image%20%28172%29.png)
+![](../.gitbook/assets/image%20%28175%29.png)
 
 使用 Guard，你将实现以下 UI：
 
@@ -45,7 +45,7 @@ Guard 是一个登录表单，使用户可以使用选定的连接轻松进行�
 
 虽然你无法完全改变 Guard 的行为，但你可以配置几个基本选项以控制 Guard 的显示。
 
-![](../.gitbook/assets/image%20%28271%29.png)
+![](../.gitbook/assets/image%20%28276%29.png)
 
 ### 何时使用 Guard
 
@@ -73,7 +73,7 @@ Guard 是一个登录表单，使用户可以使用选定的连接轻松进行�
 在以下情况下，请考虑为你的应用自定义 UI：
 
 1. 你对用户界面的外观有严格的要求；
-2. 你对文件大小有严格的要求（Authing SDK 小于 Guard）；
+2. 你对文件大小有严格的要求（Authing SDK 的体积小于 Guard）；
 3. 你熟悉 HTML，CSS 和 JavaScript - 你可以很熟练的实现自己的 UI；
 4. 你只需要处理邮箱 - 密码和社会登录；
 5. 你有多个数据库或 Active Directory 连接。
