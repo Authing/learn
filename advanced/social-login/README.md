@@ -27,18 +27,18 @@ description: 使用微信、Github 等社会化登录。
 
 如下图所示：
 
-![](../.gitbook/assets/image%20%28173%29.png)
+![](../../.gitbook/assets/image%20%28174%29.png)
 {% endhint %}
 
 ## 在 Authing 控制台配置 Github OAuth 信息
 
 在 Github 创建完 OAuth 应用后请按照下图所示在 Authing 控制台中配置 Github OAuth 信息：
 
-![](../.gitbook/assets/image%20%2888%29.png)
+![](../../.gitbook/assets/image%20%2889%29.png)
 
 打开开关后将弹出如下信息框：
 
-![](../.gitbook/assets/image%20%2875%29.png)
+![](../../.gitbook/assets/image%20%2876%29.png)
 
 相关参数解释如下：
 
@@ -46,7 +46,7 @@ description: 使用微信、Github 等社会化登录。
 | :--- | :--- | :--- |
 | 在 OAuth 平台上申请的 APP ID 或 Client ID | OAuth 平台提供的 Client Secret 或 App Secret | 成功或失败后的回调 URL（你的业务地址） |
 
-![](../.gitbook/assets/image%20%28218%29.png)
+![](../../.gitbook/assets/image%20%28221%29.png)
 
 配置完成后请点击「确定」保存信息。
 
@@ -72,7 +72,7 @@ description: 使用微信、Github 等社会化登录。
 | code | 错误或成功代码，200 为成功，非 200 为失败 |
 | message | 成功或错误信息 |
 | data | userInfo，若 code 为非 200 不返回此参数 |
-| bindOAuth | 是否是登录操作， 无此参数或此参数为`0`则为登录, 此参数为`1`则为绑定账号操作, 此时可使用`data`参数中的数据[绑定OAuth](../sdk/sdk-for-node/bind-social-login.md#bang-ding-she-hui-hua-zhang-hao) |
+| bindOAuth | 是否是登录操作， 无此参数或此参数为`0`则为登录, 此参数为`1`则为绑定账号操作, 此时可使用`data`参数中的数据[绑定OAuth](../../sdk/sdk-for-node/bind-social-login.md#bang-ding-she-hui-hua-zhang-hao) |
 
 以下是使用 JavaScript 从 URL 参数中获取用户数据的代码：
 
@@ -158,9 +158,9 @@ Callback URL 指在创建微信 OAuth 应用、Github OAuth 等应用时在其�
 | :--- |
 
 
-![](../.gitbook/assets/image%20%28173%29.png)
+![](../../.gitbook/assets/image%20%28174%29.png)
 
 而在 Authing 控制台中配置的 Redirect URL 配置为你自己的业务地址：
 
-![](../.gitbook/assets/image%20%28146%29.png)
+![](../../.gitbook/assets/image%20%28147%29.png)
 

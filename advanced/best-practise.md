@@ -14,7 +14,7 @@
 
 同时我们建议你配置社会化登录或小程序扫码登录（终端用户拥有更好的登录体验）：
 
-{% page-ref page="social-login.md" %}
+{% page-ref page="social-login/" %}
 
 {% page-ref page="wxapp-qrcode/" %}
 

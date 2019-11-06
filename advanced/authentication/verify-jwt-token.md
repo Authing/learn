@@ -18,27 +18,30 @@ Authing 使用 [GraphQL](http://graphql.cn/) 进行数据交换，以下以 Java
 import axios from 'axios'
 
 axios({
+  url: "https://users.authing.cn/graphql",
   method: 'POST',
-  operationName: 'checkLoginStatus',
-  query: `query checkLoginStatus($token: String) {
-    checkLoginStatus(token: $token) {
-      status
-      code
-      message
-      token {
-        data {
-          email
-          id
-          clientId
-          unionid
-        }
-        iat
-        exp
-      }
+  data: {
+    operationName: 'checkLoginStatus',
+    query: `query checkLoginStatus($token: String) {
+          checkLoginStatus(token: $token) {
+            status
+            code
+            message
+            token {
+              data {
+                email
+                id
+                clientId
+                unionid
+              }
+              iat
+              exp
+            }
+          }
+        }`,
+    variables: {
+      token: 'USER_JWT_TOKEN'
     }
-  }`,
-  variables: {
-    token: 'USER_JWT_TOKEN'
   },
 }).then((res) => {
   const d = res.data;
@@ -87,7 +90,7 @@ import Authing from 'authing-js-sdk'
 
 ```javascript
 {
-  status: false,
+  status: true,
   code: 200,
   message: '已登录',
   token: {
@@ -168,7 +171,7 @@ query checkLoginStatus($token: String) {
 
 密钥在控制台中 OIDC 应用的详情中可以获取到，如下图所示：
 
-![](../../.gitbook/assets/image%20%28279%29.png)
+![](../../.gitbook/assets/image%20%28283%29.png)
 
 ![](../../.gitbook/assets/image%20%2811%29.png)
 

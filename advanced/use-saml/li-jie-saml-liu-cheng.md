@@ -16,7 +16,7 @@ IdP：身份认证提供方
 
 ## 发起 SAML 登录到登录成功的整个过程
 
-![SAML &#x6D41;&#x7A0B;](../../.gitbook/assets/image%20%28284%29.png)
+![SAML &#x6D41;&#x7A0B;](../../.gitbook/assets/image%20%28288%29.png)
 
 1. 用户试图登录 SP 提供的应用。
 2. SP 生成 SAML Request，通过浏览器重定向，向 IdP 发送 SAML Request。
@@ -34,17 +34,17 @@ SP 与 IdP 之间的通信方式分为 HTTP Redirect Binding、HTTP POST Binding
 
 SP 通过重定向 GET 请求把 SAML Request 发送到 IdP，IdP 通过立即提交的 Form 表单以 POST 请求的方式将 SAML Response 发到 SP。
 
-![](../../.gitbook/assets/image%20%28167%29.png)
+![](../../.gitbook/assets/image%20%28168%29.png)
 
 ### HTTP POST Binding
 
 IdP 通过立即提交的 Form 表单以 POST 请求的方式将 SAML Request 发到 SP。IdP 通过立即提交的 Form 表单以 POST 请求的方式将 SAML Response 发到 SP。
 
-![](../../.gitbook/assets/image%20%28270%29.png)
+![](../../.gitbook/assets/image%20%28274%29.png)
 
 ### HTTP Artifact Binding
 
 SP、IdP 双方只通过浏览器交换 SAML Request、SAML Response 的索引编号，收到编号后，在后端请求对方的 Artifact Resolution Service 接口来获取真正的请求实体内容。从而避免 SAML Request、SAML Response 暴露在前端。
 
-![](../../.gitbook/assets/image%20%2871%29.png)
+![](../../.gitbook/assets/image%20%2872%29.png)
 
