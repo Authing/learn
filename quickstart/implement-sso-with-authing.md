@@ -55,16 +55,7 @@ description: >-
 本教程只是为了演示，因此我们没选择高级框架，这可以让我们专注于 Authing 本身。
 
 ```markup
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Authing SSO Example</title>
-  </head>
-  <body></body>
-</html>
+<!DOCTYPE html><html lang="en">  <head>    <meta charset="UTF-8" />    <meta name="viewport" content="width=device-width, initial-scale=1.0" />    <meta http-equiv="X-UA-Compatible" content="ie=edge" />    <title>Authing SSO Example</title>  </head>  <body></body></html>
 ```
 
 ### 添加三个按钮
@@ -72,9 +63,7 @@ description: >-
 增加三个按钮控件到 body 中，目的是为了演示如何使用 SDK 管理单点登录状态。
 
 ```markup
-<button id="btn-login">login</button>
-<button id="btn-track-session">trackSession</button>
-<button id="btn-logout">logout</button>
+<button id="btn-login">login</button><button id="btn-track-session">trackSession</button><button id="btn-logout">logout</button>
 ```
 
 ### 引入 AuthingSSO 并初始化
@@ -82,14 +71,7 @@ description: >-
 从 CDN 加载 [AuthingSSO](https://github.com/Authing/AuthingSSO) 的 SDK。填入你的 OIDC 应用 ID 和 域名，进行初始化。
 
 ```markup
-<script src="https://cdn.jsdelivr.net/npm/@authing/sso/dist/AuthingSSO.umd.min.js"></script>
-<script>
-  let auth = new AuthingSSO({
-    appId: "YOUR_OIDC_APP_ID",
-    appType: "oidc",
-    appDomain: "OIDC_APP_DOMAIN.authing.cn"
-  });
-</script>
+<script src="https://cdn.jsdelivr.net/npm/@authing/sso/dist/AuthingSSO.umd.min.js"></script><script>  let auth = new AuthingSSO({    appId: "YOUR_OIDC_APP_ID",    appType: "oidc",    appDomain: "OIDC_APP_DOMAIN.authing.cn"  });</script>
 ```
 
 ### 监听按钮的点击事件
@@ -101,61 +83,13 @@ description: >-
 * 点击 logout 按钮，进行单点登出。
 
 ```javascript
-let login = document.getElementById("btn-login");
-let trackSession = document.getElementById("btn-track-session");
-let logout = document.getElementById("btn-logout");
-login.onclick = function() {
-  auth.login();
-};
-trackSession.onclick = async function() {
-  let res = await auth.trackSession();
-  alert(JSON.stringify(res));
-};
-logout.onclick = async function() {
-  let res = await auth.logout();
-  alert(JSON.stringify(res));
-};
+let login = document.getElementById("btn-login");let trackSession = document.getElementById("btn-track-session");let logout = document.getElementById("btn-logout");login.onclick = function() {  auth.login();};trackSession.onclick = async function() {  let res = await auth.trackSession();  alert(JSON.stringify(res));};logout.onclick = async function() {  let res = await auth.logout();  alert(JSON.stringify(res));};
 ```
 
 ### 完整代码
 
 ```markup
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Authing SSO Example</title>
-  </head>
-  <body>
-    <button id="btn-login">login</button>
-    <button id="btn-track-session">trackSession</button>
-    <button id="btn-logout">logout</button>
-    <script src="https://cdn.jsdelivr.net/npm/@authing/sso/dist/AuthingSSO.umd.min.js"></script>
-    <script>
-      let auth = new AuthingSSO({
-        appId: "YOUR_OIDC_APP_ID",
-        appType: "oidc",
-        appDomain: "OIDC_APP_DOMAIN.authing.cn"
-      });
-      let login = document.getElementById("btn-login");
-      let trackSession = document.getElementById("btn-track-session");
-      let logout = document.getElementById("btn-logout");
-      login.onclick = function() {
-        auth.login();
-      };
-      trackSession.onclick = async function() {
-        let res = await auth.trackSession();
-        alert(JSON.stringify(res));
-      };
-      logout.onclick = async function() {
-        let res = await auth.logout();
-        alert(JSON.stringify(res));
-      };
-    </script>
-  </body>
-</html>
+<!DOCTYPE html><html lang="en">  <head>    <meta charset="UTF-8" />    <meta name="viewport" content="width=device-width, initial-scale=1.0" />    <meta http-equiv="X-UA-Compatible" content="ie=edge" />    <title>Authing SSO Example</title>  </head>  <body>    <button id="btn-login">login</button>    <button id="btn-track-session">trackSession</button>    <button id="btn-logout">logout</button>    <script src="https://cdn.jsdelivr.net/npm/@authing/sso/dist/AuthingSSO.umd.min.js"></script>    <script>      let auth = new AuthingSSO({        appId: "YOUR_OIDC_APP_ID",        appType: "oidc",        appDomain: "OIDC_APP_DOMAIN.authing.cn"      });      let login = document.getElementById("btn-login");      let trackSession = document.getElementById("btn-track-session");      let logout = document.getElementById("btn-logout");      login.onclick = function() {        auth.login();      };      trackSession.onclick = async function() {        let res = await auth.trackSession();        alert(JSON.stringify(res));      };      logout.onclick = async function() {        let res = await auth.logout();        alert(JSON.stringify(res));      };    </script>  </body></html>
 ```
 
 示例代码可从 [Github](https://github.com/Authing/authing-sso-demo) 上找到，建议将 Github 上的代码下载运行。
@@ -165,10 +99,7 @@ logout.onclick = async function() {
 在终端中运行以下命令
 
 ```bash
-$ git clone https://github.com/Authing/authing-sso-demo
-$ cd authing-sso-demo
-$ npm install -g http-server
-$ http-server
+$ git clone https://github.com/Authing/authing-sso-demo$ cd authing-sso-demo$ npm install -g http-server$ http-server
 ```
 
 之后在浏览器访问 [http://localhost:8080](http://localhost:8080)。

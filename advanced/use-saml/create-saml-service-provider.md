@@ -29,9 +29,7 @@
 **IdP 登录 URL** 由 IdP 提供，如果没有，可以从 IdP 元数据 XML 文档中查找。
 
 ```markup
-<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ssocircle.com:443/sso/SSORedirect/metaAlias/publicidp"/>
-<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ssocircle.com:443/sso/SSOPOST/metaAlias/publicidp"/>
-<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ssocircle.com:443/sso/SSOSoap/metaAlias/publicidp"/>
+<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ssocircle.com:443/sso/SSORedirect/metaAlias/publicidp"/><SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ssocircle.com:443/sso/SSOPOST/metaAlias/publicidp"/><SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ssocircle.com:443/sso/SSOSoap/metaAlias/publicidp"/>
 ```
 
 如果提供了多个 URL，建议填写 HTTP-Redirect 对应的 URL。并在后续使用 `https://<domain>.authing.cn/oauth/saml/sp/<appId>/spinitsso-redirect` 地址发起 SAML 登录。
@@ -39,9 +37,7 @@
 **IdP 登出 URL** 由 IdP 提供，如果没有，可以从 IdP 元数据 XML 文档中查找。
 
 ```markup
-<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ssocircle.com:443/sso/IDPSloRedirect/metaAlias/publicidp" ResponseLocation="https://idp.ssocircle.com:443/sso/IDPSloRedirect/metaAlias/publicidp"/>
-<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ssocircle.com:443/sso/IDPSloPost/metaAlias/publicidp" ResponseLocation="https://idp.ssocircle.com:443/sso/IDPSloPost/metaAlias/publicidp"/>
-<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ssocircle.com:443/sso/IDPSloSoap/metaAlias/publicidp"/>
+<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ssocircle.com:443/sso/IDPSloRedirect/metaAlias/publicidp" ResponseLocation="https://idp.ssocircle.com:443/sso/IDPSloRedirect/metaAlias/publicidp"/><SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ssocircle.com:443/sso/IDPSloPost/metaAlias/publicidp" ResponseLocation="https://idp.ssocircle.com:443/sso/IDPSloPost/metaAlias/publicidp"/><SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ssocircle.com:443/sso/IDPSloSoap/metaAlias/publicidp"/>
 ```
 
 如果提供了多个 URL，建议填写 HTTP-Redirect 对应的 URL。登出时只需访问 `https://<domain>.authing.cn/profile/logout`完成 token 清除
@@ -89,15 +85,7 @@
 此处需要上传或输入相应 IdP 的签名证书。IdP 可能会单独提供此证书，如果没有，可以从 IdP 的元数据 XML 文档中获取，注意对其进行[格式化](https://www.samltool.com/format_x509cert.php)。
 
 ```markup
-<KeyDescriptor use="signing">
-  <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-    <ds:X509Data>
-      <ds:X509Certificate>
-        ... 输入这里的内容，先进行格式化 ...
-      </ds:X509Certificate>
-    </ds:X509Data>
-  </ds:KeyInfo>
-</KeyDescriptor>
+<KeyDescriptor use="signing">  <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">    <ds:X509Data>      <ds:X509Certificate>        ... 输入这里的内容，先进行格式化 ...      </ds:X509Certificate>    </ds:X509Data>  </ds:KeyInfo></KeyDescriptor>
 ```
 
 #### 解密 SAML Response
@@ -133,32 +121,7 @@ SP 可以对发出的 SAML Request 进行签名，确保此 SAML Request 的发�
 例如，对于以下 SSOCircle 返回的用户信息的 Assertion
 
 ```markup
-<saml:AttributeStatement>
-	<saml:Attribute Name="EmailAddress">
-		<saml:AttributeValue
-			xmlns:xs="http://www.w3.org/2001/XMLSchema"
-			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">example@authing.cn
-		</saml:AttributeValue>
-	</saml:Attribute>
-	<saml:Attribute Name="UserID">
-		<saml:AttributeValue
-			xmlns:xs="http://www.w3.org/2001/XMLSchema"
-			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">example
-		</saml:AttributeValue>
-	</saml:Attribute>
-	<saml:Attribute Name="FirstName">
-		<saml:AttributeValue
-			xmlns:xs="http://www.w3.org/2001/XMLSchema"
-			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">vincent
-		</saml:AttributeValue>
-	</saml:Attribute>
-	<saml:Attribute Name="LastName">
-		<saml:AttributeValue
-			xmlns:xs="http://www.w3.org/2001/XMLSchema"
-			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">smith
-		</saml:AttributeValue>
-	</saml:Attribute>
-</saml:AttributeStatement>
+<saml:AttributeStatement>	<saml:Attribute Name="EmailAddress">		<saml:AttributeValue			xmlns:xs="http://www.w3.org/2001/XMLSchema"			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">example@authing.cn		</saml:AttributeValue>	</saml:Attribute>	<saml:Attribute Name="UserID">		<saml:AttributeValue			xmlns:xs="http://www.w3.org/2001/XMLSchema"			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">example		</saml:AttributeValue>	</saml:Attribute>	<saml:Attribute Name="FirstName">		<saml:AttributeValue			xmlns:xs="http://www.w3.org/2001/XMLSchema"			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">vincent		</saml:AttributeValue>	</saml:Attribute>	<saml:Attribute Name="LastName">		<saml:AttributeValue			xmlns:xs="http://www.w3.org/2001/XMLSchema"			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">smith		</saml:AttributeValue>	</saml:Attribute></saml:AttributeStatement>
 ```
 
 需要填的字段对齐内容为

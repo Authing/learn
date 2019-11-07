@@ -18,31 +18,11 @@
     * userId `{String}，用户 id`
 * **使用方法:**
   * ```javascript
-    (async function() {
-      const authing = await new Authing({
-        clientId: 'your_client_id',
-        timestamp: Math.round(new Date() / 1000),
-        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
-      });
-      try {
-        await authing.queryMFA({
-          userId: '用户 id',
-          userPoolId: '用户所属用户池 id'
-        })
-      } catch (err) {
-       console.log(err)
-      }
-    })();
+    (async function() {  const authing = await new Authing({    clientId: 'your_client_id',    timestamp: Math.round(new Date() / 1000),    nonce: Math.ceil(Math.random() * Math.pow(10, 6)),  });  try {    await authing.queryMFA({      userId: '用户 id',      userPoolId: '用户所属用户池 id'    })  } catch (err) {   console.log(err)  }})();
     ```
 * **返回数据:**
   * ```javascript
-    {
-        "_id": "5d6789aea9ee8e9a77b73521",
-        "userId": "5d678970a9ee8e8f75b7350f",
-        "userPoolId": "5cbd6716aaaa70cb9a58d86f",
-        "shareKey": "NRMFAWTPMZ5FOQZWKNJFS5BXOZXGOV3Z",
-        "enable": true
-    }
+    {    "_id": "5d6789aea9ee8e9a77b73521",    "userId": "5d678970a9ee8e8f75b7350f",    "userPoolId": "5cbd6716aaaa70cb9a58d86f",    "shareKey": "NRMFAWTPMZ5FOQZWKNJFS5BXOZXGOV3Z",    "enable": true}
     ```
 
 ## 更改 MFA 状态
@@ -68,79 +48,22 @@
 
 * **使用方法:**
   * ```javascript
-    (async function() {
-      const authing = await new Authing({
-        clientId: 'your_client_id',
-        timestamp: Math.round(new Date() / 1000),
-        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
-      });
-      try {
-        // 需要先以用户的身份登录
-        await authing.login({
-          email: 'test@authing.cn',
-          password: 'password'
-        });
-        // 或者使用用户的 token 初始化
-        // authing.initUserClient('用户的 JWT token');
-        await authing.changeMFA({
-          userId: '用户 id',
-          userPoolId: '用户所属用户池 id',
-          enable: true,
-        })
-      } catch (err) {
-       console.log(err)
-      }
-    })();
+    (async function() {  const authing = await new Authing({    clientId: 'your_client_id',    timestamp: Math.round(new Date() / 1000),    nonce: Math.ceil(Math.random() * Math.pow(10, 6)),  });  try {    // 需要先以用户的身份登录    await authing.login({      email: 'test@authing.cn',      password: 'password'    });    // 或者使用用户的 token 初始化    // authing.initUserClient('用户的 JWT token');    await authing.changeMFA({      userId: '用户 id',      userPoolId: '用户所属用户池 id',      enable: true,    })  } catch (err) {   console.log(err)  }})();
     ```
 * **返回数据:**
   * ```javascript
-    {
-        "_id": "5d6789aea9ee8e9a77b73521",
-        "userId": "5d678970a9ee8e8f75b7350f",
-        "userPoolId": "5cbd6716aaaa70cb9a58d86f",
-        "shareKey": "NRMFAWTPMZ5FOQZWKNJFS5BXOZXGOV3Z",
-        "enable": true
-    }
+    {    "_id": "5d6789aea9ee8e9a77b73521",    "userId": "5d678970a9ee8e8f75b7350f",    "userPoolId": "5cbd6716aaaa70cb9a58d86f",    "shareKey": "NRMFAWTPMZ5FOQZWKNJFS5BXOZXGOV3Z",    "enable": true}
     ```
 
 **刷新用户的 MFA secret**
 
 * **使用方法:**
   * ```javascript
-    (async function() {
-      const authing = await new Authing({
-        clientId: 'your_client_id',
-        timestamp: Math.round(new Date() / 1000),
-        nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
-      });
-      try {
-        // 需要先以用户的身份登录
-        await authing.login({
-          email: 'test@authing.cn',
-          password: 'password'
-        });
-        // 或者使用用户的 token 初始化
-        // authing.initUserClient('用户的 JWT token');
-        await authing.changeMFA({
-          userId: '用户 id',
-          userPoolId: '用户所属用户池 id',
-          enable: true,
-          refeshKey: true
-        })
-      } catch (err) {
-       console.log(err)
-      }
-    })();
+    (async function() {  const authing = await new Authing({    clientId: 'your_client_id',    timestamp: Math.round(new Date() / 1000),    nonce: Math.ceil(Math.random() * Math.pow(10, 6)),  });  try {    // 需要先以用户的身份登录    await authing.login({      email: 'test@authing.cn',      password: 'password'    });    // 或者使用用户的 token 初始化    // authing.initUserClient('用户的 JWT token');    await authing.changeMFA({      userId: '用户 id',      userPoolId: '用户所属用户池 id',      enable: true,      refeshKey: true    })  } catch (err) {   console.log(err)  }})();
     ```
 * **返回数据:**
   * ```javascript
-    {
-        "_id": "5d6789aea9ee8e9a77b73521", // MFA 主体的 id
-        "userId": "5d678970a9ee8e8f75b7350f",
-        "userPoolId": "5cbd6716aaaa70cb9a58d86f",
-        "shareKey": "JVRWQOLHOJJVOZSOGN4G4OKWNVHXQMSQ", // 新的密钥
-        "enable": true
-    }
+    {    "_id": "5d6789aea9ee8e9a77b73521", // MFA 主体的 id    "userId": "5d678970a9ee8e8f75b7350f",    "userPoolId": "5cbd6716aaaa70cb9a58d86f",    "shareKey": "JVRWQOLHOJJVOZSOGN4G4OKWNVHXQMSQ", // 新的密钥    "enable": true}
     ```
 
 
