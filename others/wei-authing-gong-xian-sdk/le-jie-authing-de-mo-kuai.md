@@ -28,15 +28,7 @@ Authing 对外开放的有两大模块：
 以 JavaScript 为例
 
 ```javascript
-...
-
-const httpLink = 'https://users.authing.cn/graphql';
-this.UserService = new ApolloClient({
-      link: concat(authMiddleware, httpLink),
-      cache: new InMemoryCache()
-});
-
-...
+...const httpLink = 'https://users.authing.cn/graphql';this.UserService = new ApolloClient({      link: concat(authMiddleware, httpLink),      cache: new InMemoryCache()});...
 ```
 
 ### OAuth模块
@@ -52,15 +44,7 @@ OAuth 模块负责 OAuth 登录／注册等操作。
 以JavaScript为例
 
 ```javascript
-...
-
-const httpLink = 'https://oauth.authing.cn/graphql';
-this.OAuthService = new ApolloClient({
-      link: concat(authMiddleware, httpLink),
-      cache: new InMemoryCache()
-});
-
-...
+...const httpLink = 'https://oauth.authing.cn/graphql';this.OAuthService = new ApolloClient({      link: concat(authMiddleware, httpLink),      cache: new InMemoryCache()});...
 ```
 
 ### 程序流程

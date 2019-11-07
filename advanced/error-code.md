@@ -3,11 +3,7 @@
 错误代码消息格式如下：
 
 ```javascript
-    {
-        message: '系统繁忙，请稍后再试',
-        code: 1000,
-        data: null
-    }
+    {        message: '系统繁忙，请稍后再试',        code: 1000,        data: null    }
 ```
 
 | 代码 | 描述 |

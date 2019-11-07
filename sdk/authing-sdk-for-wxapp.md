@@ -31,26 +31,6 @@ var Authing = require('path/to/authing/authing.js')
 注意，在使用小程序 SDK 时，可以不传入 email 和 password 参数，取而代之的是 unionid，就是从小程序获取的 openid 或 unionid。
 
 ```javascript
-var auth = new Authing({
-	clientId: 'your_client_id',
-	secret: 'your_app_secret'
-});
-
-auth.then(function(validAuth) {
-
-	//验证成功后返回新的 authing-js-sdk 实例(validAuth)，可以将此实例挂在全局
-
-	validAuth.login({
-		unionid: 'test@testmail.com',
-	}).then(function(user) {
-		console.log(user);	
-	}).catch(function(error) {
-		console.log(error);	
-	});
-	
-}).catch(function(error) {
-	//验证失败
-	console.log(error);
-});
+var auth = new Authing({	clientId: 'your_client_id',	secret: 'your_app_secret'});auth.then(function(validAuth) {	//验证成功后返回新的 authing-js-sdk 实例(validAuth)，可以将此实例挂在全局	validAuth.login({		unionid: 'test@testmail.com',	}).then(function(user) {		console.log(user);		}).catch(function(error) {		console.log(error);		});	}).catch(function(error) {	//验证失败	console.log(error);});
 ```
 

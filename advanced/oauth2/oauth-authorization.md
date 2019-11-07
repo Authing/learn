@@ -41,21 +41,13 @@
 例如：
 
 ```text
-curl --request POST \
-  --url https://sso.authing.cn/token \
-  --header 'content-type: application/x-www-form-urlencoded' \
-  --data 'app_id=<APP_ID>&app_secret=<APP_SECRET>&grant_type=authorization_code&code=<CODE>&redirect_uri=<REDIRECT_URI>'    
+curl --request POST \  --url https://sso.authing.cn/token \  --header 'content-type: application/x-www-form-urlencoded' \  --data 'app_id=<APP_ID>&app_secret=<APP_SECRET>&grant_type=authorization_code&code=<CODE>&redirect_uri=<REDIRECT_URI>'    
 ```
 
 返回：
 
 ```text
-{
-  "access_token":"4331396b953d3de3bcf74c564455323d0989a9a0",
-  "token_type":"Bearer",
-  "expires_in":3599, // token 有效时间
-  "refresh_token":"017888c6722e3433f3840a6708d9b79c23b310b8" // 可用此 token 来重新获取新的 token 而无需重新授权
-}
+{  "access_token":"4331396b953d3de3bcf74c564455323d0989a9a0",  "token_type":"Bearer",  "expires_in":3599, // token 有效时间  "refresh_token":"017888c6722e3433f3840a6708d9b79c23b310b8" // 可用此 token 来重新获取新的 token 而无需重新授权}
 ```
 
 ### **3. 使用 `access_token` 请求 `userInfo`**
@@ -143,12 +135,7 @@ curl --request POST \
 返回
 
 ```text
-{
-  "access_token":"4331396b953d3de3bcf74c564455323d0989a9a0",
-  "token_type":"Bearer",
-  "expires_in":3599, // token 有效时间
-  "refresh_token":"017888c6722e3433f3840a6708d9b79c23b310b8" // 可用此 token 来重新获取新的 token 而无需重新授权
-}
+{  "access_token":"4331396b953d3de3bcf74c564455323d0989a9a0",  "token_type":"Bearer",  "expires_in":3599, // token 有效时间  "refresh_token":"017888c6722e3433f3840a6708d9b79c23b310b8" // 可用此 token 来重新获取新的 token 而无需重新授权}
 ```
 
 ### **2. 使用 `access_token` 请求 userInfo**
@@ -182,11 +169,7 @@ curl --request POST \
 返回
 
 ```text
-{
-  "access_token":"4331396b953d3de3bcf74c564455323d0989a9a0",
-  "token_type":"Bearer",
-  "expires_in":3599, // token 有效时间
-}
+{  "access_token":"4331396b953d3de3bcf74c564455323d0989a9a0",  "token_type":"Bearer",  "expires_in":3599, // token 有效时间}
 ```
 
 ### **2. 使用 `access_token` 请求 userInfo**
@@ -228,30 +211,7 @@ access\_token 的值
 {% endapi-method-response-example-description %}
 
 ```
-{
-  "state": 1,
-  "isRevoked": false,
-  "isDeleted": false,
-  "_id": "5d60efdee3faa629cccc0dee",
-  "id": "5d60efdee3faa629cccc0dee",
-  "accessToken": "db8abb9e16de36f52da082a6dc9f20c378301fc8",
-  "accessTokenExpiresAt": "2019-08-24T09:05:50.201Z",
-  "scope": "user",
-  "grantType": "implicit",
-  "appId": "5d60e64f62554964c85b555e",
-  "userOrClientId": "5cbecd1daee8f920472cb40a",
-  "when": "2019-08-24T08:05:50.201Z",
-  "iss": "https://sso.authing.cn",
-  "sub": "5d60efdee3faa629cccc0dee",
-  "aud": "5d60e64f62554964c85b555e",
-  "exp": 1566637550201,
-  "iat": 1566633950201,
-  "user_id": "5d60efdee3faa629cccc0dee",
-  "issued_to": "https://sso.authing.cn",
-  "audience": "5d60e64f62554964c85b555e",
-  "expires_in": 3360,
-  "access_type": "offline"
-}
+{  "state": 1,  "isRevoked": false,  "isDeleted": false,  "_id": "5d60efdee3faa629cccc0dee",  "id": "5d60efdee3faa629cccc0dee",  "accessToken": "db8abb9e16de36f52da082a6dc9f20c378301fc8",  "accessTokenExpiresAt": "2019-08-24T09:05:50.201Z",  "scope": "user",  "grantType": "implicit",  "appId": "5d60e64f62554964c85b555e",  "userOrClientId": "5cbecd1daee8f920472cb40a",  "when": "2019-08-24T08:05:50.201Z",  "iss": "https://sso.authing.cn",  "sub": "5d60efdee3faa629cccc0dee",  "aud": "5d60e64f62554964c85b555e",  "exp": 1566637550201,  "iat": 1566633950201,  "user_id": "5d60efdee3faa629cccc0dee",  "issued_to": "https://sso.authing.cn",  "audience": "5d60e64f62554964c85b555e",  "expires_in": 3360,  "access_type": "offline"}
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}

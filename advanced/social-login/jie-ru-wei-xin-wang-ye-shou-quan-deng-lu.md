@@ -4,7 +4,7 @@ description: >-
   提供的服务，省去中间繁琐的认证细节，快速接入微信网页授权机制。
 ---
 
-# 接入微信手机网页授权登陆
+# 接入微信手机网页授权登录
 
 #### 🏠 [Authing 官方网站](https://authing.cn/)
 
@@ -85,28 +85,13 @@ import AuthingWxmp from "@authing/wxmp"
 > 先从 [Authing 控制台](https://authing.cn/dashboard) 中[获取用户池 ID](https://learn.authing.cn/authing/others/faq#ru-he-huo-qu-client-id-he-client-secret)（userPoolId）
 
 ```javascript
-const authingWx = new AuthingWxmp({
-  userPoolId: "YOUR_USERPOOLID"
-})
-
-// 跳转到微信授权页面
-window.location = authingWx.getAuthorizationUrl()
+const authingWx = new AuthingWxmp({  userPoolId: "YOUR_USERPOOLID"})// 跳转到微信授权页面window.location = authingWx.getAuthorizationUrl()
 ```
 
 ### 获取用户信息
 
 ```javascript
-// 跳回业务回调链接之后获取用户信息
-// 若在回调页面 authingWx 未初始化，需要先初始化，具体初始化方式参考上文
-
-const { ok, userinfo, message } = authingWx.getUserInfo()
-if (ok) {
-    // do with userinfo
-    console.log(userinfo)
-} else if (message) {
-    // message 中包含了错误提示
-    alert(message)
-}
+// 跳回业务回调链接之后获取用户信息// 若在回调页面 authingWx 未初始化，需要先初始化，具体初始化方式参考上文const { ok, userinfo, message } = authingWx.getUserInfo()if (ok) {    // do with userinfo    console.log(userinfo)} else if (message) {    // message 中包含了错误提示    alert(message)}
 ```
 
 > 完整的 DEMO 可从 [examples](./examples/) 目录下获取。
@@ -124,9 +109,7 @@ if (ok) {
 示例：
 
 ```javascript
-if (!authingWx.checkWechatUA()) {
-  alert("请在微信客户端中打开！")
-}
+if (!authingWx.checkWechatUA()) {  alert("请在微信客户端中打开！")}
 ```
 
 #### getAuthorizationUrl
@@ -136,10 +119,7 @@ if (!authingWx.checkWechatUA()) {
 示例：
 
 ```javascript
-// 点击登录按钮之后跳转到微信网页授权页面
-loginBtn.onclick = function () {
-  window.location = authingWx.getAuthorizationUrl()
-}
+// 点击登录按钮之后跳转到微信网页授权页面loginBtn.onclick = function () {  window.location = authingWx.getAuthorizationUrl()}
 ```
 
 #### getUserInfo
@@ -153,14 +133,7 @@ loginBtn.onclick = function () {
 示例：
 
 ```javascript
-const { ok, userinfo, message } = authingWx.getUserInfo()
-if (ok) {
-    // do with userinfo
-    console.log(userinfo)
-} else if (message) {
-    // message 中包含了错误提示
-    alert(message)
-}
+const { ok, userinfo, message } = authingWx.getUserInfo()if (ok) {    // do with userinfo    console.log(userinfo)} else if (message) {    // message 中包含了错误提示    alert(message)}
 ```
 
 
@@ -188,27 +161,7 @@ if (ok) {
 `data` 示例：
 
 ```text
-{
-    "_id": "5dc10bcb6f94c178c6ffffb9",
-    "email": null,
-    "emailVerified": false,
-    "unionid": "oiPbDuG4S7msrKHPKDc8MECSe8jM",
-    "openid": "oiPbDuG4S7msrKHPKDc8MECSe8jM",
-    "oauth": "{\"openid\":\"oiPbDuG4S7msrKHPKDc8MECSe8jM\",\"nickname\":\"廖长江\",\"sex\":1,\"language\":\"zh_CN\",\"city\":\"海淀\",\"province\":\"北京\",\"country\":\"中国\",\"headimgurl\":\"http://thirdwx.qlogo.cn/mmopen/vi_32/GkxYERPDdTMk7bOk3BgBmEEYul8oMcOoLgNHLoibZn5ibe4EulWBp1xo6uN4az59eoSBYBW0QmXB9TrsJEM0EoPw/132\",\"privilege\":[]}",
-    "registerMethod": "oauth:wxmp",
-    "username": "廖长江",
-    "nickname": "廖长江",
-    "company": "",
-    "photo": "https://usercontents.authing.cn/avatar-5dc10bcb6f94c178c6ffffb9-1572932555337",
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVuaW9uaWQiOiJvaVBiRHVHNFM3bXNyS0hQS0RjOE1FQ1NlOGpNIiwiaWQiOiI1ZGMxMGJjYjZmOTRjMTc4YzZmZmZmYjkiLCJjbGllbnRJZCI6IjVkYTdlZGFiNTAzOTZjMWFkOTYyMzc4YSJ9LCJpYXQiOjE1NzI5NTY0MjUsImV4cCI6MTU3NDI1MjQyNX0.OTgl72WZS8So3R5DbWCJ7I_Bd0LaZa4S0TAVMg9qaYQ",
-    "tokenExpiredAt": "11/20/2019, 8:20:25 PM",
-    "loginsCount": 43,
-    "lastLogin": "11/5/2019, 8:20:25 PM",
-    "lastIP": "127.0.0.1",
-    "signedUp": "11/5/2019, 1:42:35 PM",
-    "blocked": false,
-    "isDeleted": false
-}
+{    "_id": "5dc10bcb6f94c178c6ffffb9",    "email": null,    "emailVerified": false,    "unionid": "oiPbDuG4S7msrKHPKDc8MECSe8jM",    "openid": "oiPbDuG4S7msrKHPKDc8MECSe8jM",    "oauth": "{\"openid\":\"oiPbDuG4S7msrKHPKDc8MECSe8jM\",\"nickname\":\"廖长江\",\"sex\":1,\"language\":\"zh_CN\",\"city\":\"海淀\",\"province\":\"北京\",\"country\":\"中国\",\"headimgurl\":\"http://thirdwx.qlogo.cn/mmopen/vi_32/GkxYERPDdTMk7bOk3BgBmEEYul8oMcOoLgNHLoibZn5ibe4EulWBp1xo6uN4az59eoSBYBW0QmXB9TrsJEM0EoPw/132\",\"privilege\":[]}",    "registerMethod": "oauth:wxmp",    "username": "廖长江",    "nickname": "廖长江",    "company": "",    "photo": "https://usercontents.authing.cn/avatar-5dc10bcb6f94c178c6ffffb9-1572932555337",    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVuaW9uaWQiOiJvaVBiRHVHNFM3bXNyS0hQS0RjOE1FQ1NlOGpNIiwiaWQiOiI1ZGMxMGJjYjZmOTRjMTc4YzZmZmZmYjkiLCJjbGllbnRJZCI6IjVkYTdlZGFiNTAzOTZjMWFkOTYyMzc4YSJ9LCJpYXQiOjE1NzI5NTY0MjUsImV4cCI6MTU3NDI1MjQyNX0.OTgl72WZS8So3R5DbWCJ7I_Bd0LaZa4S0TAVMg9qaYQ",    "tokenExpiredAt": "11/20/2019, 8:20:25 PM",    "loginsCount": 43,    "lastLogin": "11/5/2019, 8:20:25 PM",    "lastIP": "127.0.0.1",    "signedUp": "11/5/2019, 1:42:35 PM",    "blocked": false,    "isDeleted": false}
 ```
 
 4. 开发者使用 token 维持登录状态
@@ -224,11 +177,7 @@ Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVuaW9u
 如果你使用的是 NodeJS 的 [axios](https://github.com/axios/axios)，可以这样写：
 
 ```javascript
-axios.get(SOME_SERVICE_URL, {
-  headers: {
-    Authorization: `Bearer ${userinfo.token}`
-  }
-})
+axios.get(SOME_SERVICE_URL, {  headers: {    Authorization: `Bearer ${userinfo.token}`  }})
 ```
 
 当终端用户携带此 Toekn 访问开发者的接口时，**开发者需要判断这个 Token 是否合法且处于登录状态**，Authing 为此提供了几个方法：[验证 JWT Token](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token)。Authing 返回的数据中包含了用户是否登录、登录情况下的用户 ID 等信息，之后开发者可以根据具体业务的需要对请求进行处理。

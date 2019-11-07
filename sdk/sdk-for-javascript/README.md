@@ -11,8 +11,7 @@ Github：[https://github.com/Authing/authing.js](https://github.com/Authing/auth
 当构建大规模应用时，我们推荐使用 `npm` 进行安装， 它可以与一些模块打包工具很好地配合使用，如 `Webpack`， `Browserify。`
 
 ```bash
-# latest stable
-$ npm install authing-js-sdk --save
+# latest stable$ npm install authing-js-sdk --save
 ```
 
 ## 初始化
@@ -25,11 +24,7 @@ $ npm install authing-js-sdk --save
 **示例**
 
 ```javascript
-const auth = new Authing({
-	userPoolId: 'your_userpool_id',
-});
-// authing.register({...}).then(info => {})
-// authing.login({...}).then(info => {})
+const auth = new Authing({	userPoolId: 'your_userpool_id',});// authing.register({...}).then(info => {})// authing.login({...}).then(info => {})
 ```
 
 #### 其他参数
@@ -48,55 +43,13 @@ const auth = new Authing({
 Authing SDK 的所有 API 都支持 **Promise**。
 
 ```javascript
-const Authing = require('authing-js-sdk');
-
-const authing = new Authing({
-	userPoolId: 'your_userpool_id'
-});
-
-authing.login({
-	email: 'test@testmail.com',
-	password: 'testpassword'
-}).then(function(user) {
-	console.log(user);	
-}).catch(function(error) {
-	console.log(error);	
-});
+const Authing = require('authing-js-sdk');const authing = new Authing({	userPoolId: 'your_userpool_id'});authing.login({	email: 'test@testmail.com',	password: 'testpassword'}).then(function(user) {	console.log(user);	}).catch(function(error) {	console.log(error);	});
 ```
 
 如果你使用 `ES6+` 推荐用 `await` 处理异步，示例如下：
 
 ```javascript
-import Authing from 'authing-js-sdk';
-
-const main = async () => {
-
-	let auth = new Authing({
-		userPoolId: 'your_client_id',
-		secret: 'your_app_secret'
-	});
-
-	let user;
-	
-	//使用async时需要使用 try...catch... 捕捉错误
-	try {
-		user = await auth.login({
-			email: 'test@testmail.com',
-			password: 'testpassword'
-		});
-	}catch(error) {
-		console.log('登录失败:', error);
-	}
-
-	if(user) {
-		console.log('login success');
-	}else {
-		console.log('login failed');
-	}
-
-}
-
-main();
+import Authing from 'authing-js-sdk';const main = async () => {	let auth = new Authing({		userPoolId: 'your_client_id',		secret: 'your_app_secret'	});	let user;		//使用async时需要使用 try...catch... 捕捉错误	try {		user = await auth.login({			email: 'test@testmail.com',			password: 'testpassword'		});	}catch(error) {		console.log('登录失败:', error);	}	if(user) {		console.log('login success');	}else {		console.log('login failed');	}}main();
 ```
 
 ## 注册
@@ -116,43 +69,11 @@ main();
     * **lastIP**，可选，用户登录的 IP 地址
 * **使用方法:**
   * ```javascript
-    (async function() {
-      const authing = new Authing({
-        userPoolId: 'your_userpool_id'
-      });
-  
-      const userInfo = await authing.register({
-        email: email,
-        password: password
-      }).catch((error) => { ... });;
-    })();
+    (async function() {  const authing = new Authing({    userPoolId: 'your_userpool_id'  });    const userInfo = await authing.register({    email: email,    password: password  }).catch((error) => { ... });;})();
     ```
 * **返回数据:**
   * ```javascript
-    {
-        "_id": "59e5ff4935eebf1913cfe8a1",
-        "email": "test@test.com",
-        "emailVerified": false,
-        "username": "test@test.com",
-        "nickname": "",
-        "company": "",
-        "photo": "http://www.xiaohehe.net/uploads/allimg/150305/304-1503051H136.png",
-        "browser": "",
-        "token": null,
-        "tokenExpiredAt": null,
-        "loginsCount": 0,
-        "lastLogin": "Tue Oct 17 2017 21:02:01 GMT+0800 (CST)",
-        "lastIP": null,
-        "signedUp": "Tue Oct 17 2017 21:02:01 GMT+0800 (CST)",
-        "blocked": false,
-        "isDeleted": false,
-        "group": {
-          "_id": "59e374332023830871913ebd",
-          "name": "default",
-          "descriptions": "default",
-          "createdAt": "Sun Oct 15 2017 22:44:03 GMT+0800 (CST)"
-        }
-    }
+    {    "_id": "59e5ff4935eebf1913cfe8a1",    "email": "test@test.com",    "emailVerified": false,    "username": "test@test.com",    "nickname": "",    "company": "",    "photo": "http://www.xiaohehe.net/uploads/allimg/150305/304-1503051H136.png",    "browser": "",    "token": null,    "tokenExpiredAt": null,    "loginsCount": 0,    "lastLogin": "Tue Oct 17 2017 21:02:01 GMT+0800 (CST)",    "lastIP": null,    "signedUp": "Tue Oct 17 2017 21:02:01 GMT+0800 (CST)",    "blocked": false,    "isDeleted": false,    "group": {      "_id": "59e374332023830871913ebd",      "name": "default",      "descriptions": "default",      "createdAt": "Sun Oct 15 2017 22:44:03 GMT+0800 (CST)"    }}
     ```
 
 ## 登录
@@ -169,51 +90,11 @@ main();
     * **lastIP，**可选，若连续出现验证码验证失败情况，请将客户端 IP 填入
 * **使用方法:**
   * ```javascript
-    (async function() {
-      const authing = new Authing({
-        userPoolId: 'your_userpool_id'
-      });
-  
-      const userInfo = await authing.login({
-        email: email,
-        password: password
-      }).catch((error) => {
-        /* 如果错误信息提示需要输入验证码，则登录参数应为
-          { 
-            email: email, 
-            password: password, 
-            verifyCode: verifyCode 
-          } 
-         /* 
-      });
-    })();
+    (async function() {  const authing = new Authing({    userPoolId: 'your_userpool_id'  });    const userInfo = await authing.login({    email: email,    password: password  }).catch((error) => {    /* 如果错误信息提示需要输入验证码，则登录参数应为      {         email: email,         password: password,         verifyCode: verifyCode       }      /*   });})();
     ```
 * **返回数据:**
   * ```javascript
-    {
-        "_id": "59e5ff4935eebf1913cfe8a1",
-        "email": "86700229ww6ss@163.com",
-        "emailVerified": false,
-        "username": "86700229ww6ss@163.com",
-        "nickname": "",
-        "company": "",
-        "photo": "http://www.xiaohehe.net/uploads/allimg/150305/304-1503051H136.png",
-        "browser": "",
-        "token": null,
-        "tokenExpiredAt": null,
-        "loginsCount": 0,
-        "lastLogin": "Tue Oct 17 2017 21:02:01 GMT+0800 (CST)",
-        "lastIP": null,
-        "signedUp": "Tue Oct 17 2017 21:02:01 GMT+0800 (CST)",
-        "blocked": false,
-        "isDeleted": false,
-        "group": {
-          "_id": "59e374332023830871913ebd",
-          "name": "default",
-          "descriptions": "default",
-          "createdAt": "Sun Oct 15 2017 22:44:03 GMT+0800 (CST)"
-        }
-     }
+    {    "_id": "59e5ff4935eebf1913cfe8a1",    "email": "86700229ww6ss@163.com",    "emailVerified": false,    "username": "86700229ww6ss@163.com",    "nickname": "",    "company": "",    "photo": "http://www.xiaohehe.net/uploads/allimg/150305/304-1503051H136.png",    "browser": "",    "token": null,    "tokenExpiredAt": null,    "loginsCount": 0,    "lastLogin": "Tue Oct 17 2017 21:02:01 GMT+0800 (CST)",    "lastIP": null,    "signedUp": "Tue Oct 17 2017 21:02:01 GMT+0800 (CST)",    "blocked": false,    "isDeleted": false,    "group": {      "_id": "59e374332023830871913ebd",      "name": "default",      "descriptions": "default",      "createdAt": "Sun Oct 15 2017 22:44:03 GMT+0800 (CST)"    } }
     ```
 
 ## 发送手机验证码
@@ -227,21 +108,11 @@ main();
   * 手机号
 * **使用方法:**
   * ```javascript
-    (async function() {
-      const authing = new Authing({
-        userPoolId: 'your_userpool_id'
-      });
-  
-      const userInfo = await authing.getVerificationCode('phone number')
-        .catch((error) => { ... })
-    })();
+    (async function() {  const authing = new Authing({    userPoolId: 'your_userpool_id'  });    const userInfo = await authing.getVerificationCode('phone number')    .catch((error) => { ... })})();
     ```
 * **返回数据:**
   * ```javascript
-    {
-      code: 200, // 500 为失败
-      message: '发送成功'
-    }
+    {  code: 200, // 500 为失败  message: '发送成功'}
     ```
 
 **短信模版**
@@ -264,38 +135,11 @@ main();
     * **phoneCode**，必填，使用发送短信接口获取
 * **使用方法:**
   * ```javascript
-    (async function() {
-      const authing = new Authing({
-        userPoolId: 'your_userpool_id'
-      });
-  
-      const userInfo = await authing.loginByPhoneCode({
-        phone: 'Your Phone',
-        phoneCode: 'Your Phone Code',
-      }).catch((error) => { ... })
-    })();
+    (async function() {  const authing = new Authing({    userPoolId: 'your_userpool_id'  });    const userInfo = await authing.loginByPhoneCode({    phone: 'Your Phone',    phoneCode: 'Your Phone Code',  }).catch((error) => { ... })})();
     ```
 * **返回数据:**
   * ```javascript
-    {
-        "_id": "59e5ff4935eebf1913cfe8a1",
-        "email": "用户邮箱",
-        "emailVerified": false,
-        "username": "用户名",
-        "nickname": "",
-        "phone": "用户手机号",
-        "company": "",
-        "photo": "https://usercontents.authing.cn/client/logo@2.png",
-        "browser": "",
-        "token": null,
-        "tokenExpiredAt": null,
-        "loginsCount": 0,
-        "lastLogin": "Tue Oct 17 2017 21:02:01 GMT+0800 (CST)",
-        "lastIP": null,
-        "signedUp": "Tue Oct 17 2017 21:02:01 GMT+0800 (CST)",
-        "blocked": false,
-        "isDeleted": false,
-    }
+    {    "_id": "59e5ff4935eebf1913cfe8a1",    "email": "用户邮箱",    "emailVerified": false,    "username": "用户名",    "nickname": "",    "phone": "用户手机号",    "company": "",    "photo": "https://usercontents.authing.cn/client/logo@2.png",    "browser": "",    "token": null,    "tokenExpiredAt": null,    "loginsCount": 0,    "lastLogin": "Tue Oct 17 2017 21:02:01 GMT+0800 (CST)",    "lastIP": null,    "signedUp": "Tue Oct 17 2017 21:02:01 GMT+0800 (CST)",    "blocked": false,    "isDeleted": false,}
     ```
 
 ## 使用 LDAP 登录
@@ -310,30 +154,11 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](../../advanced/ldap.md)�
     * `password`，在 LDAP 服务中的密码
 * **使用方法:**
   * ```javascript
-    (async function() {
-      const authing = new Authing({
-        userPoolId: 'your_userpool_id'
-      });
-  
-      const userInfo = await authing.loginByLDAP({
-        username: 'Your LDAP username',
-        passowrd: 'Your LDAP password',
-      }).catch((error) => { ... })
-    })();
+    (async function() {  const authing = new Authing({    userPoolId: 'your_userpool_id'  });    const userInfo = await authing.loginByLDAP({    username: 'Your LDAP username',    passowrd: 'Your LDAP password',  }).catch((error) => { ... })})();
     ```
 * **返回数据:**
   * ```javascript
-    {
-      "_id": "5cbe9a4347618069372e75ff",
-      "username": "Nikola Tesla",
-      "nickname": "Nikola Tesla",
-      "oauth": "{\"dn\":\"uid=tesla,dc=example,dc=com\",\"controls\":[],\"objectClass\":[\"inetOrgPerson\",\"organizationalPerson\",\"person\",\"top\",\"posixAccount\"],\"cn\":\"Nikola Tesla\",\"sn\":\"Tesla\",\"uid\":\"tesla\",\"mail\":\"tesla@ldap.forumsys.com\",\"uidNumber\":\"88888\",\"gidNumber\":\"99999\",\"homeDirectory\":\"home\"}",
-      "unionid": "uid=tesla,dc=example,dc=com",
-      "registerMethod": "ldap:default::from-undefined",
-      "email": "tesla@ldap.forumsys.com",
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoidGVzbGFAbGRhcC5mb3J1bXN5cy5jb20iLCJ1bmlvbmlkIjoidWlkPXRlc2xhLGRjPWV4YW1wbGUsZGM9Y29tIiwiaWQiOiI1Y2JlOWE0MzQ3NjE4MDY5MzcyZTc1ZmYiLCJjbGllbnRJZCI6IjVjYTQwMjdjOGEzNjJjODIyZTI2ZDA0ZiJ9LCJpYXQiOjE1NTU5OTY1MjUsImV4cCI6MTU1NzI5MjUyNX0.gcKasWAzO0ZS4ay_KGGp_ihPKG_GaGXk5iQKzP6R4_w",
-      "company": ""
-    }
+    {  "_id": "5cbe9a4347618069372e75ff",  "username": "Nikola Tesla",  "nickname": "Nikola Tesla",  "oauth": "{\"dn\":\"uid=tesla,dc=example,dc=com\",\"controls\":[],\"objectClass\":[\"inetOrgPerson\",\"organizationalPerson\",\"person\",\"top\",\"posixAccount\"],\"cn\":\"Nikola Tesla\",\"sn\":\"Tesla\",\"uid\":\"tesla\",\"mail\":\"tesla@ldap.forumsys.com\",\"uidNumber\":\"88888\",\"gidNumber\":\"99999\",\"homeDirectory\":\"home\"}",  "unionid": "uid=tesla,dc=example,dc=com",  "registerMethod": "ldap:default::from-undefined",  "email": "tesla@ldap.forumsys.com",  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoidGVzbGFAbGRhcC5mb3J1bXN5cy5jb20iLCJ1bmlvbmlkIjoidWlkPXRlc2xhLGRjPWV4YW1wbGUsZGM9Y29tIiwiaWQiOiI1Y2JlOWE0MzQ3NjE4MDY5MzcyZTc1ZmYiLCJjbGllbnRJZCI6IjVjYTQwMjdjOGEzNjJjODIyZTI2ZDA0ZiJ9LCJpYXQiOjE1NTU5OTY1MjUsImV4cCI6MTU1NzI5MjUyNX0.gcKasWAzO0ZS4ay_KGGp_ihPKG_GaGXk5iQKzP6R4_w",  "company": ""}
     ```
 
 ## 验证用户 Token
@@ -345,53 +170,28 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](../../advanced/ldap.md)�
     * **user**，必填，用户的 \_id
 * **使用方法:**
   * ```javascript
-    (async () => {
-        const authing = new Authing({
-            userPoolId: 'your_userpool_id'
-        });
-    
-        const result = await authing.checkLoginStatus('USER_JWT_TOKEN');
-    })()
+    (async () => {    const authing = new Authing({        userPoolId: 'your_userpool_id'    });        const result = await authing.checkLoginStatus('USER_JWT_TOKEN');})()
     ```
 * **返回数据:**
 
 若 Token 合法，则返回数据为：
 
 ```javascript
-{
-  status: false,
-  code: 200,
-  message: '已登录',
-  token: {
-    ... // Token 数据
-  }
-}
+{  status: false,  code: 200,  message: '已登录',  token: {    ... // Token 数据  }}
 ```
 
 当 status 为 false 时，有三种情况，分别返回：
 
 ```javascript
-{
-  status: false,
-  code: 2020,
-  message: '未登录'
-}
+{  status: false,  code: 2020,  message: '未登录'}
 ```
 
 ```javascript
-{
-  status: false,
-  code: 2206,
-  message: '登录信息已过期' 
-}
+{  status: false,  code: 2206,  message: '登录信息已过期' }
 ```
 
 ```javascript
-{
-  status: false,
-  code: 2207,
-  message: '登录信息有误'
-}
+{  status: false,  code: 2207,  message: '登录信息有误'}
 ```
 
 ## 退出
@@ -402,20 +202,11 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](../../advanced/ldap.md)�
   * `{String} uid`，必填，用户的 \_id
 * **使用方法:**
   * ```javascript
-    (async function() {
-      const authing = new Authing({
-        userPoolId: 'your_client_id'
-      });
-  
-      await authing.logout('59e5ff4935eebf1913cfe8a1')
-        .catch((error) => { ... })
-    })();
+    (async function() {  const authing = new Authing({    userPoolId: 'your_client_id'  });    await authing.logout('59e5ff4935eebf1913cfe8a1')    .catch((error) => { ... })})();
     ```
 * **返回数据:**
   * ```javascript
-    {
-    	id: "59e5ff4935eebf1913cfe8a1"
-    }
+    {	id: "59e5ff4935eebf1913cfe8a1"}
     ```
 
 ### 退出 SSO
@@ -437,46 +228,11 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](../../advanced/ldap.md)�
     * **id**，必填，用户的 \_id
 * **使用方法:**
   * ```javascript
-    (async function() {
-      const authing = new Authing({
-        userPoolId: 'your_userpool_id'
-      });
-      // 先以用户身份登录，login 变量中保存的也是用户信息
-      const login = await authing.login({
-        email: 'test@test.com',
-        password: '123456'
-      })
-      // 以后可以通过登录用户的 id 获取他的信息
-      const userInfo = await authing.user({
-        id: login._id
-      })
-        .catch((error) => { ... })
-    })();
+    (async function() {  const authing = new Authing({    userPoolId: 'your_userpool_id'  });  // 先以用户身份登录，login 变量中保存的也是用户信息  const login = await authing.login({    email: 'test@test.com',    password: '123456'  })  // 以后可以通过登录用户的 id 获取他的信息  const userInfo = await authing.user({    id: login._id  })    .catch((error) => { ... })})();
     ```
 * **返回数据:**
   * ```javascript
-    {
-        "_id": "5a584dcd32e6510001a8f144", 
-        "email": "1968198962@qq.com", 
-        "emailVerified": false, 
-        "username": "1968198962@qq.com", 
-        "nickname": "", 
-        "company": "", 
-        "photo": "http://oxacbp94f.bkt.clouddn.com/user-avatars/Fqy_de1Jj5TmngEFiiY1-RsCCDcO", 
-        "browser": "", 
-        "registerInClient": "59f86b4832eb28071bdd9214", 
-        "registerMethod": "default:username-password", 
-        "oauth": "", 
-        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiMTk2ODE5ODk2MkBxcS5jb20iLCJpZCI6IjVhNTg0ZGNkMzJlNjUxMDAwMWE4ZjE0NCJ9LCJpYXQiOjE1MTcwMzI1MjV9.Ah0Oii741L_wJHhiE5KtWDgRU1Q3x_fNZBNNM5MhqDc", 
-        "tokenExpiredAt": "Sat Jan 27 2018 13:55:25 GMT+0800 (CST)", 
-        "loginsCount": 0, 
-        "lastLogin": "Fri Jan 12 2018 13:55:25 GMT+0800 (CST)", 
-        "lastIP": null, 
-        "signedUp": "Fri Jan 12 2018 13:55:25 GMT+0800 (CST)", 
-        "blocked": false, 
-        "isDeleted": false, 
-        "__typename": "ExtendUser"
-    }
+    {    "_id": "5a584dcd32e6510001a8f144",     "email": "1968198962@qq.com",     "emailVerified": false,     "username": "1968198962@qq.com",     "nickname": "",     "company": "",     "photo": "http://oxacbp94f.bkt.clouddn.com/user-avatars/Fqy_de1Jj5TmngEFiiY1-RsCCDcO",     "browser": "",     "registerInClient": "59f86b4832eb28071bdd9214",     "registerMethod": "default:username-password",     "oauth": "",     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiMTk2ODE5ODk2MkBxcS5jb20iLCJpZCI6IjVhNTg0ZGNkMzJlNjUxMDAwMWE4ZjE0NCJ9LCJpYXQiOjE1MTcwMzI1MjV9.Ah0Oii741L_wJHhiE5KtWDgRU1Q3x_fNZBNNM5MhqDc",     "tokenExpiredAt": "Sat Jan 27 2018 13:55:25 GMT+0800 (CST)",     "loginsCount": 0,     "lastLogin": "Fri Jan 12 2018 13:55:25 GMT+0800 (CST)",     "lastIP": null,     "signedUp": "Fri Jan 12 2018 13:55:25 GMT+0800 (CST)",     "blocked": false,     "isDeleted": false,     "__typename": "ExtendUser"}
     ```
 
 ## 上传头像 <a id="&#x4E0A;&#x4F20;&#x5934;&#x50CF;"></a>
@@ -487,15 +243,7 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](../../advanced/ldap.md)�
   * `{function} cb`
 * **使用方法:**
   * ```javascript
-    (async function() {
-      const authing = new Authing({
-        userPoolId: 'your_userpool_id'
-      });
-  
-      authing.selectAvatarFile((avatarURL) => {
-        // avatarURL 即为头像地址（公网 URL）
-      })
-    })();
+    (async function() {  const authing = new Authing({    userPoolId: 'your_userpool_id'  });    authing.selectAvatarFile((avatarURL) => {    // avatarURL 即为头像地址（公网 URL）  })})();
     ```
 * **结果:**
   * 此 API 会打开文件选择窗口供用户选择文件，用户选取文件后，系统会自动上传，上传成功后会调用 cb，并把头像 URL 作为参数传入 cb 函数，开发者可将回调函数中的 avatarURL 作为 photo 参数传入 [update](./#修改用户设置) 方法中修改用户头像。
@@ -530,49 +278,11 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](../../advanced/ldap.md)�
     * isDeleted: `{Boolean}，选填，是否被删除`
 * **使用方法:**
   * ```javascript
-    (async function() {
-      const authing = new Authing({
-        userPoolId: 'your_userpool_id'
-      });
-      // 以用户身份登录
-      const login = await authing.login({
-        email: 'test@test.com',
-        password: '123456'
-      })
-      // 修改邮箱
-      await authing.update({
-        _id: login._id,
-        email: 'xxx@xxx.com',
-      });
-    })();
+    (async function() {  const authing = new Authing({    userPoolId: 'your_userpool_id'  });  // 以用户身份登录  const login = await authing.login({    email: 'test@test.com',    password: '123456'  })  // 修改邮箱  await authing.update({    _id: login._id,    email: 'xxx@xxx.com',  });})();
     ```
 * **返回数据:**
   * ```javascript
-
-    {
-        "_id": "59e5ff4935eebf1913cfe8a1",
-        "email": "xxx@xxx.com",
-        "emailVerified": false,
-        "username": "premail@premail.com",
-        "nickname": "",
-        "company": "",
-        "photo": "http://www.xiaohehe.net/uploads/allimg/150305/304-1503051H136.png",
-        "browser": "",
-        "token": null,
-        "tokenExpiredAt": null,
-        "loginsCount": 0,
-        "lastLogin": "Tue Oct 17 2017 21:02:01 GMT+0800 (CST)",
-        "lastIP": null,
-        "signedUp": "Tue Oct 17 2017 21:02:01 GMT+0800 (CST)",
-        "blocked": false,
-        "isDeleted": false,
-        "group": {
-          "_id": "59e374332023830871913ebd",
-          "name": "default",
-          "descriptions": "default",
-          "createdAt": "Sun Oct 15 2017 22:44:03 GMT+0800 (CST)"
-        }
-     }
+    {    "_id": "59e5ff4935eebf1913cfe8a1",    "email": "xxx@xxx.com",    "emailVerified": false,    "username": "premail@premail.com",    "nickname": "",    "company": "",    "photo": "http://www.xiaohehe.net/uploads/allimg/150305/304-1503051H136.png",    "browser": "",    "token": null,    "tokenExpiredAt": null,    "loginsCount": 0,    "lastLogin": "Tue Oct 17 2017 21:02:01 GMT+0800 (CST)",    "lastIP": null,    "signedUp": "Tue Oct 17 2017 21:02:01 GMT+0800 (CST)",    "blocked": false,    "isDeleted": false,    "group": {      "_id": "59e374332023830871913ebd",      "name": "default",      "descriptions": "default",      "createdAt": "Sun Oct 15 2017 22:44:03 GMT+0800 (CST)"    } }
     ```
 
 ## 重置密码 <a id="&#x91CD;&#x7F6E;&#x5BC6;&#x7801;"></a>
@@ -584,24 +294,11 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](../../advanced/ldap.md)�
     * email
 * **使用方法:**
   * ```javascript
-    (async function() {
-      const authing = new Authing({
-        userPoolId: 'your_userpool_id'
-      });
-  
-      // 发送验证码到指定邮箱
-      await authing.sendResetPasswordEmail({
-        email: 'xxx@xxx.com',
-      });
-    })();
+    (async function() {  const authing = new Authing({    userPoolId: 'your_userpool_id'  });    // 发送验证码到指定邮箱  await authing.sendResetPasswordEmail({    email: 'xxx@xxx.com',  });})();
     ```
 * **返回数据:**
   * ```javascript
-    {
-      "message":"成功",
-      "code":null,
-      "__typename": "CommonMessage"
-    }
+    {  "message":"成功",  "code":null,  "__typename": "CommonMessage"}
     ```
 
 ### **2. 验证验证码 Authing.verifyResetPasswordVerifyCode\(options\)**
@@ -612,25 +309,11 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](../../advanced/ldap.md)�
     * verifyCode
 * **使用方法:**
   * ```javascript
-    (async function() {
-      const authing = new Authing({
-        userPoolId: 'your_userpool_id'
-      });
-  
-      // 验证验证码
-      await authing.verifyResetPasswordVerifyCode({
-        email: 'xxx@xxx.com',
-        verifyCode: 'verifyCode',
-      });
-    })();
+    (async function() {  const authing = new Authing({    userPoolId: 'your_userpool_id'  });    // 验证验证码  await authing.verifyResetPasswordVerifyCode({    email: 'xxx@xxx.com',    verifyCode: 'verifyCode',  });})();
     ```
 * **返回数据:**
   * ```javascript
-    {
-      "message": "验证成功，请输入新密码",
-      "code": null,
-      "__typename": "CommonMessage"
-    }
+    {  "message": "验证成功，请输入新密码",  "code": null,  "__typename": "CommonMessage"}
     ```
 
 ### **3. 发送新密码 Authing.changePassword\(options\)**
@@ -642,33 +325,11 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](../../advanced/ldap.md)�
     * verifyCode
 * **使用方法:**
   * ```javascript
-    (async function() {
-      const authing = new Authing({
-        userPoolId: 'your_userpool_id'
-      });
-  
-      await authing.changePassword({
-        email: 'xxx@xxx.com',
-        password: 'new_password',
-        verifyCode: 'verifyCode',
-      });
-    })();
+    (async function() {  const authing = new Authing({    userPoolId: 'your_userpool_id'  });    await authing.changePassword({    email: 'xxx@xxx.com',    password: 'new_password',    verifyCode: 'verifyCode',  });})();
     ```
 * **返回数据:**
   * ```javascript
-      {
-        "_id":"5a2a723d598e37000106786a",
-        "email":"1968108962@qq.com",
-        "emailVerified":true,
-        "username":"1968108962@qq.com",
-        "nickname":"",
-        "company":"","photo":"http://oxacbp94f.bkt.clouddn.com/authing-avatar.png","browser":"",
-        "registerInClient":"59f86b4832eb28071bdd9214","registerMethod":"default:username-password",
-        "oauth":"","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiMTk2ODEwODk2MkBxcS5jb20iLCJpZCI6IjVhMmE3MjNkNTk4ZTM3MDAwMTA2Nzg2YSJ9LCJpYXQiOjE1MTQwMjcyNDd9.vWrlzKY-Qr0SXwx8k__BF0ADCBjqGgMWP-wVOWgbH7A","tokenExpiredAt":"Sat Dec 23 2017 19:07:27 GMT+0800 (CST)","loginsCount":1,"lastLogin":"Fri Dec 08 2017 19:07:27 GMT+0800 (CST)","lastIP":"172.20.0.1",
-        "signedUp":"Fri Dec 08 2017 19:06:37 GMT+0800 (CST)",
-        "blocked":false,"isDeleted":false,
-        "__typename":"ExtendUser"
-      }
+      {    "_id":"5a2a723d598e37000106786a",    "email":"1968108962@qq.com",    "emailVerified":true,    "username":"1968108962@qq.com",    "nickname":"",    "company":"","photo":"http://oxacbp94f.bkt.clouddn.com/authing-avatar.png","browser":"",    "registerInClient":"59f86b4832eb28071bdd9214","registerMethod":"default:username-password",    "oauth":"","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiMTk2ODEwODk2MkBxcS5jb20iLCJpZCI6IjVhMmE3MjNkNTk4ZTM3MDAwMTA2Nzg2YSJ9LCJpYXQiOjE1MTQwMjcyNDd9.vWrlzKY-Qr0SXwx8k__BF0ADCBjqGgMWP-wVOWgbH7A","tokenExpiredAt":"Sat Dec 23 2017 19:07:27 GMT+0800 (CST)","loginsCount":1,"lastLogin":"Fri Dec 08 2017 19:07:27 GMT+0800 (CST)","lastIP":"172.20.0.1",    "signedUp":"Fri Dec 08 2017 19:06:37 GMT+0800 (CST)",    "blocked":false,"isDeleted":false,    "__typename":"ExtendUser"  }
     ```
 
 ## 验证用户邮箱 <a id="&#x9A8C;&#x8BC1;&#x90AE;&#x7BB1;"></a>
@@ -680,22 +341,11 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](../../advanced/ldap.md)�
     * email: 需要验证的邮箱
 * **使用方法:**
   * ```javascript
-    (async function() {
-      const authing = new Authing({
-        userPoolId: 'your_userpool_id'
-      });
-  
-      await authing.sendVerifyEmail({
-        email: 'xxx@xxx.com',
-      });
-    })();
+    (async function() {  const authing = new Authing({    userPoolId: 'your_userpool_id'  });    await authing.sendVerifyEmail({    email: 'xxx@xxx.com',  });})();
     ```
 * **返回数据:**
   * ```javascript
-    {
-         message: "发送验证邮件成功", 
-         __typename: "CommonMessage"
-    }
+    {     message: "发送验证邮件成功",      __typename: "CommonMessage"}
     ```
 
 发送之后，用户将会收到一个包含验证链接的邮件，当用户打开此链接，我们将进行验证。
@@ -710,40 +360,11 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](../../advanced/ldap.md)�
     * client `{String} 应用 ID，可选，默认为当前登录应用的 ID`
 * **使用方法:**
   * ```javascript
-    Authing.unbindEmail();
-    (async function() {
-      const authing = new Authing({
-        userPoolId: 'your_userpool_id'
-      });
-      // 以用户身份登录
-      const login = await authing.login({
-        email: 'test@test.com',
-        password: '123456'
-      })
-      await authing.unbindEmail();
-    })();
+    Authing.unbindEmail();(async function() {  const authing = new Authing({    userPoolId: 'your_userpool_id'  });  // 以用户身份登录  const login = await authing.login({    email: 'test@test.com',    password: '123456'  })  await authing.unbindEmail();})();
     ```
 * **返回数据:**
   * ```javascript
-
-    {
-        "_id": "59e5ff4935eebf1913cfe8a1",
-        "email": "86700229ww6ss@163.com",
-        "emailVerified": false,
-        "username": "86700229ww6ss@163.com",
-        "nickname": "",
-        "company": "",
-        "photo": "http://www.xiaohehe.net/uploads/allimg/150305/304-1503051H136.png",
-        "browser": "",
-        "token": null,
-        "tokenExpiredAt": null,
-        "loginsCount": 0,
-        "lastLogin": "Tue Oct 17 2017 21:02:01 GMT+0800 (CST)",
-        "lastIP": null,
-        "signedUp": "Tue Oct 17 2017 21:02:01 GMT+0800 (CST)",
-        "blocked": false,
-        "isDeleted": false
-     }
+    {    "_id": "59e5ff4935eebf1913cfe8a1",    "email": "86700229ww6ss@163.com",    "emailVerified": false,    "username": "86700229ww6ss@163.com",    "nickname": "",    "company": "",    "photo": "http://www.xiaohehe.net/uploads/allimg/150305/304-1503051H136.png",    "browser": "",    "token": null,    "tokenExpiredAt": null,    "loginsCount": 0,    "lastLogin": "Tue Oct 17 2017 21:02:01 GMT+0800 (CST)",    "lastIP": null,    "signedUp": "Tue Oct 17 2017 21:02:01 GMT+0800 (CST)",    "blocked": false,    "isDeleted": false }
     ```
 
 **注意事项**
@@ -764,92 +385,11 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](../../advanced/ldap.md)�
     * **count**：每页数目，可选，默认 10
 * **使用方法:**
   * ```javascript
-    (async function() {
-      const authing = new Authing({
-        userPoolId: 'your_userpool_id'
-      });
-      // 以用户身份登录
-      const login = await authing.login({
-        email: 'test@test.com',
-        password: '123456'
-      })
-      await authing.getAuthedAppList({
-      	clientId: "5d023c7b5642461234b9c62e",
-    	userId: login._id,
-    	page: 1,
-    	count: 10
-      });
-    })();
+    (async function() {  const authing = new Authing({    userPoolId: 'your_userpool_id'  });  // 以用户身份登录  const login = await authing.login({    email: 'test@test.com',    password: '123456'  })  await authing.getAuthedAppList({  	clientId: "5d023c7b5642461234b9c62e",	userId: login._id,	page: 1,	count: 10  });})();
     ```
 * **返回数据:**
   * ```javascript
-    {
-      "OAuthApps": [
-        {
-          "_id": "5d5a8a7bbc7275af2cb71920",
-          "name": "test1",
-          "domain": "test123",
-          "clientId": "5d5921ffaa016518f658498d",
-          "description": "",
-          "isDeleted": false,
-          "grants": [
-            "authorization_code",
-            "implicit",
-            "refresh_token"
-          ],
-          "redirectUris": [
-            "http://qq.com"
-          ],
-          "when": "Mon Aug 19 2019 19:39:39 GMT+0800 (CST)"
-        },
-        {
-          "_id": "5d5e2e8b026f9d145bf89203",
-          "name": "oauth1",
-          "domain": "oauth1",
-          "clientId": "5d5921ffaa016518f658498d",
-          "description": "",
-          "isDeleted": false,
-          "grants": [
-            "authorization_code",
-            "implicit",
-            "refresh_token"
-          ],
-          "redirectUris": [
-            "http://qq.com"
-          ],
-          "when": "Thu Aug 22 2019 13:56:27 GMT+0800 (CST)"
-        }
-      ],
-      "OIDCApps": [
-        {
-          "_id": "5d5a85e258375a32d1133d45",
-          "name": "test1",
-          "client_id": "5d5a85e258375a32d1133d45",
-          "domain": "test1",
-          "description": "test1",
-          "authorization_code_expire": "600",
-          "when": "Mon Aug 19 2019 19:20:02 GMT+0800 (CST)",
-          "isDeleted": false,
-          "id_token_signed_response_alg": "HS256",
-          "response_types": [
-            "code"
-          ],
-          "grant_types": [
-            "authorization_code",
-            "refresh_token"
-          ],
-          "token_endpoint_auth_method": "client_secret_post",
-          "redirect_uris": [
-            "http://qq.com"
-          ],
-          "image": "https://usercontents.authing.cn/client/logo@2.png",
-          "access_token_expire": "3600",
-          "id_token_expire": "3600",
-          "cas_expire": "3600"
-        }
-      ],
-      "totalCount": 3
-    }
+    {  "OAuthApps": [    {      "_id": "5d5a8a7bbc7275af2cb71920",      "name": "test1",      "domain": "test123",      "clientId": "5d5921ffaa016518f658498d",      "description": "",      "isDeleted": false,      "grants": [        "authorization_code",        "implicit",        "refresh_token"      ],      "redirectUris": [        "http://qq.com"      ],      "when": "Mon Aug 19 2019 19:39:39 GMT+0800 (CST)"    },    {      "_id": "5d5e2e8b026f9d145bf89203",      "name": "oauth1",      "domain": "oauth1",      "clientId": "5d5921ffaa016518f658498d",      "description": "",      "isDeleted": false,      "grants": [        "authorization_code",        "implicit",        "refresh_token"      ],      "redirectUris": [        "http://qq.com"      ],      "when": "Thu Aug 22 2019 13:56:27 GMT+0800 (CST)"    }  ],  "OIDCApps": [    {      "_id": "5d5a85e258375a32d1133d45",      "name": "test1",      "client_id": "5d5a85e258375a32d1133d45",      "domain": "test1",      "description": "test1",      "authorization_code_expire": "600",      "when": "Mon Aug 19 2019 19:20:02 GMT+0800 (CST)",      "isDeleted": false,      "id_token_signed_response_alg": "HS256",      "response_types": [        "code"      ],      "grant_types": [        "authorization_code",        "refresh_token"      ],      "token_endpoint_auth_method": "client_secret_post",      "redirect_uris": [        "http://qq.com"      ],      "image": "https://usercontents.authing.cn/client/logo@2.png",      "access_token_expire": "3600",      "id_token_expire": "3600",      "cas_expire": "3600"    }  ],  "totalCount": 3}
     ```
 
 ## 撤回用户对 SSO 应用的授权 <a id="&#x9A8C;&#x8BC1;&#x90AE;&#x7BB1;"></a>
@@ -863,32 +403,11 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](../../advanced/ldap.md)�
     * **appId**：SSO 应用的 id，必传
 * **使用方法:**
   * ```javascript
-    (async function() {
-      const authing = new Authing({
-        userPoolId: 'your_userpool_id'
-      });
-      // 以用户身份登录
-      const login = await authing.login({
-        email: 'test@test.com',
-        password: '123456'
-      })
-      await authing.revokeAuthedApp({
-      	userPoolId: "5d023c7b5642461234b9c62e",
-    	userId: login._id,
-    	appId: "5d5e2e8b026f9d145bf89203"
-      });
-    })();
+    (async function() {  const authing = new Authing({    userPoolId: 'your_userpool_id'  });  // 以用户身份登录  const login = await authing.login({    email: 'test@test.com',    password: '123456'  })  await authing.revokeAuthedApp({  	userPoolId: "5d023c7b5642461234b9c62e",	userId: login._id,	appId: "5d5e2e8b026f9d145bf89203"  });})();
     ```
 * **返回数据:**
   * ```javascript
-    {
-      "isRevoked": "true",
-      "_id": "5d7661e17a9f981da5fa8098",
-      "scope": "profile",
-      "appId": "5d5e2e8b026f9d145bf89203",
-      "userId": "5d765d4013d73a5e90b7857a",
-      "type": "oauth"
-    }
+    {  "isRevoked": "true",  "_id": "5d7661e17a9f981da5fa8098",  "scope": "profile",  "appId": "5d5e2e8b026f9d145bf89203",  "userId": "5d765d4013d73a5e90b7857a",  "type": "oauth"}
     ```
 
 ## 小程序扫码登录
@@ -906,13 +425,7 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](../../advanced/ldap.md)�
 `Authing` 构造函数包含一个名为 `host` 对象，可接收自定义的请求链接（适合私有部署 Authing 的用户使用），使用方法如下：
 
 ```javascript
-const auth = new Authing({
-	userPoolId: 'xxxx',
-	host: {
-		user: 'https://users.authing.cn/graphql',
-		oauth: 'https://oauth.authing.cn/graphql'
-	}
-});
+const auth = new Authing({	userPoolId: 'xxxx',	host: {		user: 'https://users.authing.cn/graphql',		oauth: 'https://oauth.authing.cn/graphql'	}});
 ```
 
 `host` 对象中 `user` 和 `oauth` 的默认值是 Authing 官方的请求链接：

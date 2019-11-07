@@ -62,11 +62,7 @@ const form = new Guard('AUTHING_CLIENT_ID');
 你可以使用 `.on` 方法监听 Guard 的事件，如：
 
 ```javascript
-// 使用 `.on` 方法，并监听 `login` 事件即可在用户登录成功后获得用户信息
-form.on('login', (userInfo) => {
-  localStorage.setItem('userInfo', JSON.stringify(userInfo));
-  localStorage.setItem('token', JSON.stringify(userInfo.token));
-});
+// 使用 `.on` 方法，并监听 `login` 事件即可在用户登录成功后获得用户信息form.on('login', (userInfo) => {  localStorage.setItem('userInfo', JSON.stringify(userInfo));  localStorage.setItem('token', JSON.stringify(userInfo.token));});
 ```
 
 如果你想监听其他事件（如：登录失败、注册失败、注册成功等），请参考[完整事件列表](./#hui-tiao-shi-jian-onevent-callback)。
@@ -86,11 +82,7 @@ form.on('login', (userInfo) => {
 初始化 Guard 后可监听 `scanned-success` 事件取回用户信息，如下所示：
 
 ```javascript
-const form = new Guard('AUTHING_CLIENT_ID');
-
-form.on('scanned-success', (userInfo) => {
-  // 使用 userInfo 以及 userInfo.token 等信息
-});
+const form = new Guard('AUTHING_CLIENT_ID');form.on('scanned-success', (userInfo) => {  // 使用 userInfo 以及 userInfo.token 等信息});
 ```
 
 {% hint style="info" %}
@@ -102,42 +94,7 @@ form.on('scanned-success', (userInfo) => {
 开发者直接从 Authing 的用户池中获取用户数据，**不走** OAuth、OIDC 等**协议流程**。如果用户登录成功，你将在前端**直接获取**到他的数据。Guard 此场景下用于为开发者快速生成登录表单 UI，快速接入用户系统。上一节内容讲述的使用方法就是非 SSO 场景，以下是完整示例：
 
 ```markup
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Guard Example</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://cdn.jsdelivr.net/npm/@authing/guard/dist/Guard.umd.min.js"></script>
-</head>
-<body>
-
-    <div id="my-form"></div>
-
-    <script>
-        const clientId = "YOUR_AUTHING_USERPOOL_ID";
-        const guard = new Guard(clientId, {
-            logo: "https://usercontents.authing.cn/client/logo@2.png",
-            title: "Authing",
-            // 把表单插入到 id 为 my-form 的标签
-            mountId: "my-form",
-        });
-        guard.on("authenticated", userInfo => {
-            // 用户登录成功后，你可以直接在这里获取他的用户信息
-            console.log(userInfo);
-        });
-        guard.on("register", userInfo => {
-            // 用户注册成功后，你可以直接在这里获取他的用户信息
-            console.log(userInfo);
-        });
-        guard.on("scanned-success", userInfo => {
-            // 用户扫码登录成功后，你可以直接在这里获取他的用户信息
-            console.log(userInfo);
-        });
-    </script>
-</body>
-</html>
+<!DOCTYPE html><html><head>    <meta charset="utf-8">    <meta http-equiv="X-UA-Compatible" content="IE=edge">    <title>Guard Example</title>    <meta name="viewport" content="width=device-width, initial-scale=1">    <script src="https://cdn.jsdelivr.net/npm/@authing/guard/dist/Guard.umd.min.js"></script></head><body>    <div id="my-form"></div>    <script>        const clientId = "YOUR_AUTHING_USERPOOL_ID";        const guard = new Guard(clientId, {            logo: "https://usercontents.authing.cn/client/logo@2.png",            title: "Authing",            // 把表单插入到 id 为 my-form 的标签            mountId: "my-form",        });        guard.on("authenticated", userInfo => {            // 用户登录成功后，你可以直接在这里获取他的用户信息            console.log(userInfo);        });        guard.on("register", userInfo => {            // 用户注册成功后，你可以直接在这里获取他的用户信息            console.log(userInfo);        });        guard.on("scanned-success", userInfo => {            // 用户扫码登录成功后，你可以直接在这里获取他的用户信息            console.log(userInfo);        });    </script></body></html>
 ```
 
 [点击查看用户信息示例](https://docs.authing.cn/authing/sdk/authing-sdk-for-web#deng-lu)
@@ -153,42 +110,7 @@ form.on('scanned-success', (userInfo) => {
 部署示例：
 
 ```markup
-<!DOCTYPE html>
-<html lang="zh-cn">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <link rel="icon" href="https://fe-static.authing.cn/dist/favicon.png" />
-    <title>Authing SSO</title>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but sso doesn't work properly without JavaScript enabled.
-        Please enable it to continue.</strong>
-    </noscript>
-    <script src="https://cdn.jsdelivr.net/npm/@authing/guard/dist/Guard.umd.min.js"></script>
-    <script>
-      var appId = "YOUR_AUTHING_SSO_APPID";
-      var clientId = "YOUR_AUTHING_USERPOOL_ID";
-      var domain = "example.authing.cn";
-      const guard = new Guard(clientId, {
-        appId,
-        domain,
-        hideClose: true,
-        isSSO: true,
-        SSOHost: location.origin,
-        qrcodeScanning: {
-          redirect: false
-        },
-        host: {
-          user: "私有部署的内部地址",
-          oauth: "私有部署的内部地址"
-        }
-      });
-    </script>
-  </body>
-</html>
+<!DOCTYPE html><html lang="zh-cn">  <head>    <meta charset="utf-8" />    <meta http-equiv="X-UA-Compatible" content="IE=edge" />    <meta name="viewport" content="width=device-width,initial-scale=1.0" />    <link rel="icon" href="https://fe-static.authing.cn/dist/favicon.png" />    <title>Authing SSO</title>  </head>  <body>    <noscript>      <strong>We're sorry but sso doesn't work properly without JavaScript enabled.        Please enable it to continue.</strong>    </noscript>    <script src="https://cdn.jsdelivr.net/npm/@authing/guard/dist/Guard.umd.min.js"></script>    <script>      var appId = "YOUR_AUTHING_SSO_APPID";      var clientId = "YOUR_AUTHING_USERPOOL_ID";      var domain = "example.authing.cn";      const guard = new Guard(clientId, {        appId,        domain,        hideClose: true,        isSSO: true,        SSOHost: location.origin,        qrcodeScanning: {          redirect: false        },        host: {          user: "私有部署的内部地址",          oauth: "私有部署的内部地址"        }      });    </script>  </body></html>
 ```
 
 ## 用户自行修改资料
@@ -238,16 +160,7 @@ https://<appDomain>.authing.cn/login/profile
 `authing-load` 事件是 `Authing` 对象初始化后的回调事件。
 
 ```javascript
-guard.on('authing-load', (authing) => {
-  console.log('Authing 实例初始化成功', authing);
-
-  // authing.login
-  // authing.register
-  // authing.logout
-  // authing.checkLoginStatus
-  // ...
-  // 更多请参考：https://docs.authing.cn/authing/sdk/authing-sdk-for-web
-});
+guard.on('authing-load', (authing) => {  console.log('Authing 实例初始化成功', authing);  // authing.login  // authing.register  // authing.logout  // authing.checkLoginStatus  // ...  // 更多请参考：https://docs.authing.cn/authing/sdk/authing-sdk-for-web});
 ```
 
 ## 显示和隐藏表单
@@ -262,8 +175,7 @@ Guard 提供了两个方法用以操作界面的显示和隐藏，方法名见�
 在初始化完构造函数后会自动执行 `show` 方法，如：
 
 ```javascript
-const form = new Guard('AUTHING_CLIENT_ID', { ... });
-form.hide();
+const form = new Guard('AUTHING_CLIENT_ID', { ... });form.hide();
 ```
 
 ## 自定义选项
@@ -319,10 +231,7 @@ Guard 的构造函数 `Guard` 的第二个参数提供了一些高级功能。
 在初始化 `Guard` 后，可使用 `on`方法，如：
 
 ```javascript
-const form = new Guard('AUTHING_CLIENT_ID');
-form.on('login', function(user) {
-    // 成功登录后的回调事件，参数 user 为用户数据
-});
+const form = new Guard('AUTHING_CLIENT_ID');form.on('login', function(user) {    // 成功登录后的回调事件，参数 user 为用户数据});
 ```
 
 Guard 会在以下生命周期中触发相应事件，完整的事件列表如下：
