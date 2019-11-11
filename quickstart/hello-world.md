@@ -50,7 +50,32 @@ description: 实现第一个基于 Authing 的应用。
 创建一个空白的 HTML 文档用来编写 Authing 程序：
 
 ```markup
-<!doctype html><html><head>  <meta charset="utf-8">  <title>Authing Hello World</title>  <style>    .btn {        background-color: #45bbee;        border: none;        border-radius: 4px;        padding: 5px 10px;        color: #fff;    }    .btn:hover {        background-color: #45aaff;        cursor: pointer;    }  </style>  </head><body>  <script src="https://cdn.jsdelivr.net/npm/jquery"></script>  <script>      // Custom Codes  </script></body></html>
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Authing Hello World</title>
+  <style>
+    .btn {
+        background-color: #45bbee;
+        border: none;
+        border-radius: 4px;
+        padding: 5px 10px;
+        color: #fff;
+    }
+    .btn:hover {
+        background-color: #45aaff;
+        cursor: pointer;
+    }
+  </style>  
+</head>
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/jquery"></script>
+  <script>
+      // Custom Codes
+  </script>
+</body>
+</html>
 ```
 
 示例中使用了 jQuery。
@@ -62,7 +87,14 @@ description: 实现第一个基于 Authing 的应用。
 增加一段 HTML 到 HTML 页面中，用处是显示已经登录用户的用户名和完整用户信息（一段 JSON 字符串），并且又一个「退出」按钮可以用来退出。
 
 ```markup
-<div id="logout" style="display: none">    你已登录，用户名为：<span id="user"></span>。    <div>        完整用户信息：        <code id="userInfo"></code>    </div>    <button class="btn" id="logout-btn" style="margin-top:11px">退出</button></div>
+<div id="logout" style="display: none">
+    你已登录，用户名为：<span id="user"></span>。
+    <div>
+        完整用户信息：
+        <code id="userInfo"></code>
+    </div>
+    <button class="btn" id="logout-btn" style="margin-top:11px">退出</button>
+</div>
 ```
 
 ## 第三步：增加 Authing 身份认证表单
@@ -82,7 +114,12 @@ description: 实现第一个基于 Authing 的应用。
 调用方法非常简单，代码如下所示：
 
 ```javascript
-const form = new Guard('AUTHING_CLIENT_ID', {  // 时间戳，不填则默认生成当前时间戳  timestamp: Math.round(new Date() / 1000),  // 随机数，不填则默认生成随机数  nonce: Math.ceil(Math.random() * Math.pow(10, 6)),});
+const form = new Guard('AUTHING_CLIENT_ID', {
+  // 时间戳，不填则默认生成当前时间戳
+  timestamp: Math.round(new Date() / 1000),
+  // 随机数，不填则默认生成随机数
+  nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+});
 ```
 
 所需参数解释如下：
@@ -107,7 +144,34 @@ const form = new Guard('AUTHING_CLIENT_ID', {  // 时间戳，不填则默认生
 登录成功的事件名称为「login」：
 
 ```javascript
-const form = new Guard('AUTHING_CLIENT_ID', {  // 时间戳，不填则默认生成当前时间戳  timestamp: Math.round(new Date() / 1000),  // 随机数，不填则默认生成随机数  nonce: Math.ceil(Math.random() * Math.pow(10, 6)),    title: '第一个应用' // 设置登录表单标题});form.on('login', function(user) {    // 成功登录后的回调事件，参数 user 为用户数据    localStorage.setItem('userInfo', JSON.stringify(user)); // 存储用户 id 到 localStorage 中    localStorage.setItem('userId', user._id); // 存储用户 id 到 localStorage 中    localStorage.setItem('username', user.username); // 存储用户 username 到 localStorage 中    localStorage.setItem('token', user.token); // 存储用户的 JWT Token 到 localStorage 中    form.hide(); // 为了简单起见，这里在登录成功后直接隐藏表单，在 React 或 Vue 应用中，你可以执行路由跳转或其他业务    showLoginStatus(); // 改变 UI 状态，显示用户名和完整的用户 JSON 信息});const showLoginStatus = () => {    $('#logout').show(); // 显示退出按钮    $('#user').html(localStorage.getItem('username')); // 显示用户名    $('#userInfo').html(localStorage.getItem('userInfo')); // 显示完整的用户信息}
+const form = new Guard('AUTHING_CLIENT_ID', {
+  // 时间戳，不填则默认生成当前时间戳
+  timestamp: Math.round(new Date() / 1000),
+  // 随机数，不填则默认生成随机数
+  nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+  
+  title: '第一个应用' // 设置登录表单标题
+});
+
+form.on('login', function(user) {
+    // 成功登录后的回调事件，参数 user 为用户数据
+
+    localStorage.setItem('userInfo', JSON.stringify(user)); // 存储用户 id 到 localStorage 中
+    localStorage.setItem('userId', user._id); // 存储用户 id 到 localStorage 中
+    localStorage.setItem('username', user.username); // 存储用户 username 到 localStorage 中
+    localStorage.setItem('token', user.token); // 存储用户的 JWT Token 到 localStorage 中
+
+    form.hide(); // 为了简单起见，这里在登录成功后直接隐藏表单，在 React 或 Vue 应用中，你可以执行路由跳转或其他业务
+
+    showLoginStatus(); // 改变 UI 状态，显示用户名和完整的用户 JSON 信息
+});
+
+const showLoginStatus = () => {
+    $('#logout').show(); // 显示退出按钮
+    $('#user').html(localStorage.getItem('username')); // 显示用户名
+    $('#userInfo').html(localStorage.getItem('userInfo')); // 显示完整的用户信息
+}
+
 ```
 
 登录成功的回调事件中会返回登录用户的 userInfo，其中有 JWT Token，点击此处[查看 JWT Token 的释义、使用及验证](https://learn.authing.cn/authing/advanced/authentication/jwt-token)。
@@ -131,7 +195,11 @@ $ http-server
 如果你看到下列输出（端口可能不同），那么代表已经启动成功：
 
 ```bash
-Starting up http-server, serving ./Available on:  http://127.0.0.1:8080  http://192.168.0.103:8080Hit CTRL-C to stop the server
+Starting up http-server, serving ./
+Available on:
+  http://127.0.0.1:8080
+  http://192.168.0.103:8080
+Hit CTRL-C to stop the server
 ```
 
 现在让我们用浏览器打开 http://127.0.0.1:8080，应该可以看到如下界面：
@@ -157,7 +225,29 @@ Starting up http-server, serving ./Available on:  http://127.0.0.1:8080  http://
 退出功能需要用到 authing 对象的 logout 方法，authing 对象需要在 authing-load 事件中获取，代码如下：
 
 ```javascript
-form.on('authing-load', async function(authing) {    // Authing 实例加载成功后的回调函数，参数 authing 为 authing 对象    // 使用 checkLoginStatus 方法判断当前的登录状态，需要使用 await    // 如已经登录则隐藏登录框并显示当前的用户信息    // 这段代码的作用是用户如果已经登录，那么刷新后还可以看到自己的用户信息    const result = await authing.checkLoginStatus();    if (result.status) {        // 隐藏登录框        form.hide();        // 显示用户基础信息        showLoginStatus();    }        // 使用 jQuery 监听退出按钮的点击事件    $('#logout-btn').click(async function() {        // 使用 logout 方法，并传入用户的 userId 进行退出        await authing.logout(localStorage.getItem('userId'));        alert('退出成功');        // 刷新页面，此时可以重新看到登录框        location.reload();    });})
+form.on('authing-load', async function(authing) {
+    // Authing 实例加载成功后的回调函数，参数 authing 为 authing 对象
+
+    // 使用 checkLoginStatus 方法判断当前的登录状态，需要使用 await
+    // 如已经登录则隐藏登录框并显示当前的用户信息
+    // 这段代码的作用是用户如果已经登录，那么刷新后还可以看到自己的用户信息
+    const result = await authing.checkLoginStatus();
+    if (result.status) {
+        // 隐藏登录框
+        form.hide();
+        // 显示用户基础信息
+        showLoginStatus();
+    }
+    
+    // 使用 jQuery 监听退出按钮的点击事件
+    $('#logout-btn').click(async function() {
+        // 使用 logout 方法，并传入用户的 userId 进行退出
+        await authing.logout(localStorage.getItem('userId'));
+        alert('退出成功');
+        // 刷新页面，此时可以重新看到登录框
+        location.reload();
+    });
+})
 ```
 
 最后，我们来测试下退出功能。

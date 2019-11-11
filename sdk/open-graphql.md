@@ -24,7 +24,30 @@ Authing 的 API 未使用 RESTful API，而是使用了 GraphQL。
 SDK 初始化时获取客户端信息和 accessToken 信息，后续的管理用户的操作请发送此 Token，在下文中，此 Token 命名为「`OwnerToken`」。
 
 ```graphql
-query getClientWhenSdkInit($secret: String, $clientId: String, $retUserId: Boolean, $timestamp: String, $signature: String, $nonce: Int){    getClientWhenSdkInit(secret: $secret, clientId: $clientId, retUserId: $retUserId, timestamp: $timestamp, signature: $signature, nonce: $nonce){      accessToken      clientInfo {        _id        name        descriptions        jwtExpired        createdAt        isDeleted        logo        emailVerifiedDefault        registerDisabled        allowedOrigins        clientType {          _id          name          description          image          example        }      }    }}
+query getClientWhenSdkInit($secret: String, $clientId: String, $retUserId: Boolean, $timestamp: String, $signature: String, $nonce: Int){
+    getClientWhenSdkInit(secret: $secret, clientId: $clientId, retUserId: $retUserId, timestamp: $timestamp, signature: $signature, nonce: $nonce){
+      accessToken
+      clientInfo {
+        _id
+        name
+        descriptions
+        jwtExpired
+        createdAt
+        isDeleted
+        logo
+        emailVerifiedDefault
+        registerDisabled
+        allowedOrigins
+        clientType {
+          _id
+          name
+          description
+          image
+          example
+        }
+      }
+    }
+}
 ```
 
 ### **注意事项**
@@ -40,7 +63,18 @@ query getClientWhenSdkInit($secret: String, $clientId: String, $retUserId: Boole
 {% endhint %}
 
 ```graphql
-query ReadOAuthList($clientId: String!) {    ReadOauthList(clientId: $clientId) {        _id        name        image        description        enabled        client        user        url    }}
+query ReadOAuthList($clientId: String!) {
+    ReadOauthList(clientId: $clientId) {
+        _id
+        name
+        image
+        description
+        enabled
+        client
+        user
+        url
+    }
+}
 ```
 
 ### **注意事项**
@@ -52,7 +86,26 @@ query ReadOAuthList($clientId: String!) {    ReadOauthList(clientId: $clientId) 
 此接口用来执行用户登录的操作，登录成功后会返回 `UserToken`，建议单独维护此 Token。
 
 ```graphql
-mutation login($unionid: String, $email: String, $password: String, $lastIP: String, $registerInClient: String!, $verifyCode: String, $browser: String, $device: String) {    login(unionid: $unionid, email: $email, password: $password, lastIP: $lastIP, registerInClient: $registerInClient, verifyCode: $verifyCode, browser: $browser, device: $device) {        _id        email        emailVerified        username        nickname        company        photo        browser        token        tokenExpiredAt        loginsCount        lastLogin        lastIP        signedUp        blocked        isDeleted    }}
+mutation login($unionid: String, $email: String, $password: String, $lastIP: String, $registerInClient: String!, $verifyCode: String, $browser: String, $device: String) {
+    login(unionid: $unionid, email: $email, password: $password, lastIP: $lastIP, registerInClient: $registerInClient, verifyCode: $verifyCode, browser: $browser, device: $device) {
+        _id
+        email
+        emailVerified
+        username
+        nickname
+        company
+        photo
+        browser
+        token
+        tokenExpiredAt
+        loginsCount
+        lastLogin
+        lastIP
+        signedUp
+        blocked
+        isDeleted
+    }
+}
 ```
 
 ### **注意事项**
@@ -63,7 +116,12 @@ mutation login($unionid: String, $email: String, $password: String, $lastIP: Str
 ### **Public Key**
 
 ```text
------BEGIN PUBLIC KEY-----MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC4xKeUgQ+Aoz7TLfAfs9+paePb5KIofVthEopwrXFkp8OCeocaTHt9ICjTT2QeJh6cZaDaArfZ873GPUn00eOIZ7Ae+TiA2BKHbCvloW3w5Lnqm70iSsUi5Fmu9/2+68GZRH9L7Mlh8cFksCicW2Y2W2uMGKl64GDcIq3au+aqJQIDAQAB-----END PUBLIC KEY-----
+-----BEGIN PUBLIC KEY-----
+MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC4xKeUgQ+Aoz7TLfAfs9+paePb
+5KIofVthEopwrXFkp8OCeocaTHt9ICjTT2QeJh6cZaDaArfZ873GPUn00eOIZ7Ae
++TiA2BKHbCvloW3w5Lnqm70iSsUi5Fmu9/2+68GZRH9L7Mlh8cFksCicW2Y2W2uM
+GKl64GDcIq3au+aqJQIDAQAB
+-----END PUBLIC KEY-----
 ```
 
 ## 使用手机验证码登录
@@ -71,7 +129,27 @@ mutation login($unionid: String, $email: String, $password: String, $lastIP: Str
 使用手机验证码的方式登录，登录后返回的 Token 需要在客户端维护。
 
 ```graphql
-mutation login($phone: String, $phoneCode: Int, $registerInClient: String!, $browser: String, $device: String) {          login(phone: $phone, phoneCode: $phoneCode, registerInClient: $registerInClient, browser: $browser, device: $device) {            _id            email            emailVerified            username            nickname            phone            company            photo            browser            token            tokenExpiredAt            loginsCount            lastLogin            lastIP            signedUp            blocked            isDeleted          }      }
+mutation login($phone: String, $phoneCode: Int, $registerInClient: String!, $browser: String, $device: String) {
+          login(phone: $phone, phoneCode: $phoneCode, registerInClient: $registerInClient, browser: $browser, device: $device) {
+            _id
+            email
+            emailVerified
+            username
+            nickname
+            phone
+            company
+            photo
+            browser
+            token
+            tokenExpiredAt
+            loginsCount
+            lastLogin
+            lastIP
+            signedUp
+            blocked
+            isDeleted
+          }
+      }
 ```
 
 ### **注意事项**
@@ -123,7 +201,28 @@ mutation login($phone: String, $phoneCode: Int, $registerInClient: String!, $bro
  使用 LDAP 登录，登录后返回的 Token 需要在客户端维护
 
 ```graphql
-mutation LoginByLDAP($username: String!, $password: String!, $clientId: String!, $browser: String, $device: String) {      LoginByLDAP(username: $username, clientId: $clientId, password: $password, browser: $browser, device: $device) {            _id            email            emailVerified            unionid            oauth            registerMethod            username            nickname            company            photo            browser            token            tokenExpiredAt            loginsCount            lastLogin            lastIP            signedUp            blocked          }      }
+mutation LoginByLDAP($username: String!, $password: String!, $clientId: String!, $browser: String, $device: String) {
+      LoginByLDAP(username: $username, clientId: $clientId, password: $password, browser: $browser, device: $device) {
+            _id
+            email
+            emailVerified
+            unionid
+            oauth
+            registerMethod
+            username
+            nickname
+            company
+            photo
+            browser
+            token
+            tokenExpiredAt
+            loginsCount
+            lastLogin
+            lastIP
+            signedUp
+            blocked
+          }
+      }
 ```
 
 ### **注意事项**
@@ -135,7 +234,19 @@ mutation LoginByLDAP($username: String!, $password: String!, $clientId: String!,
 刷新用户 Token
 
 ```graphql
-mutation RefreshToken(  $client: String!  $user: String!) {  refreshToken(    client: $client    user: $user  ) {    token    iat    exp  }}
+mutation RefreshToken(
+  $client: String!
+  $user: String!
+) {
+  refreshToken(
+    client: $client
+    user: $user
+  ) {
+    token
+    iat
+    exp
+  }
+}
 ```
 
 ### **注意事项**
@@ -145,7 +256,53 @@ mutation RefreshToken(  $client: String!  $user: String!) {  refreshToken(    cl
 ## 注册
 
 ```graphql
-mutation register(    $unionid: String,    $email: String,     $password: String,     $lastIP: String,     $forceLogin: Boolean,    $registerInClient: String!,    $oauth: String,    $username: String,    $nickname: String,    $registerMethod: String,    $photo: String,    $browser: String,     $device: String) {    register(userInfo: {        unionid: $unionid,        email: $email,        password: $password,        lastIP: $lastIP,        forceLogin: $forceLogin,        registerInClient: $registerInClient,        oauth: $oauth,        registerMethod: $registerMethod,        photo: $photo,        username: $username,        nickname: $nickname,        device: $device,        browser: $browser    }) {        _id,        email,        emailVerified,        username,        nickname,        company,        photo,        browser,        password,        token,        group {            name        },        blocked,        device    }}
+mutation register(
+    $unionid: String,
+    $email: String, 
+    $password: String, 
+    $lastIP: String, 
+    $forceLogin: Boolean,
+    $registerInClient: String!,
+    $oauth: String,
+    $username: String,
+    $nickname: String,
+    $registerMethod: String,
+    $photo: String,
+    $browser: String, 
+    $device: String
+) {
+    register(userInfo: {
+        unionid: $unionid,
+        email: $email,
+        password: $password,
+        lastIP: $lastIP,
+        forceLogin: $forceLogin,
+        registerInClient: $registerInClient,
+        oauth: $oauth,
+        registerMethod: $registerMethod,
+        photo: $photo,
+        username: $username,
+        nickname: $nickname,
+        device: $device,
+        browser: $browser
+    }) {
+        _id,
+        email,
+        emailVerified,
+        username,
+        nickname,
+        company,
+        photo,
+        browser,
+        password,
+        token,
+        group {
+            name
+        },
+        blocked,
+        device
+    }
+}
 ```
 
 ### **注意事项**
@@ -156,7 +313,12 @@ mutation register(    $unionid: String,    $email: String,     $password: String
 ### **Public Key**
 
 ```text
------BEGIN PUBLIC KEY-----MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC4xKeUgQ+Aoz7TLfAfs9+paePb5KIofVthEopwrXFkp8OCeocaTHt9ICjTT2QeJh6cZaDaArfZ873GPUn00eOIZ7Ae+TiA2BKHbCvloW3w5Lnqm70iSsUi5Fmu9/2+68GZRH9L7Mlh8cFksCicW2Y2W2uMGKl64GDcIq3au+aqJQIDAQAB-----END PUBLIC KEY-----
+-----BEGIN PUBLIC KEY-----
+MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC4xKeUgQ+Aoz7TLfAfs9+paePb
+5KIofVthEopwrXFkp8OCeocaTHt9ICjTT2QeJh6cZaDaArfZ873GPUn00eOIZ7Ae
++TiA2BKHbCvloW3w5Lnqm70iSsUi5Fmu9/2+68GZRH9L7Mlh8cFksCicW2Y2W2uM
+GKl64GDcIq3au+aqJQIDAQAB
+-----END PUBLIC KEY-----
 ```
 
 ## 读取用户资料
@@ -164,7 +326,44 @@ mutation register(    $unionid: String,    $email: String,     $password: String
 此接口用来读取用户资料，建议使用 `OwnerToken`
 
 ```graphql
-query user($id: String!, $registerInClient: String!){    user(id: $id, registerInClient: $registerInClient) {        _id        email        emailVerified        username        nickname        company        photo        browser        registerInClient        registerMethod        oauth        token        tokenExpiredAt        loginsCount        lastLogin        lastIP        signedUp        blocked        isDeleted        userLocation {          _id          when          where        }        userLoginHistory {          totalCount          list {            _id            when            success            ip            result          }        }    }}
+query user($id: String!, $registerInClient: String!){
+    user(id: $id, registerInClient: $registerInClient) {
+        _id
+        email
+        emailVerified
+        username
+        nickname
+        company
+        photo
+        browser
+        registerInClient
+        registerMethod
+        oauth
+        token
+        tokenExpiredAt
+        loginsCount
+        lastLogin
+        lastIP
+        signedUp
+        blocked
+        isDeleted
+        userLocation {
+          _id
+          when
+          where
+        }
+        userLoginHistory {
+          totalCount
+          list {
+            _id
+            when
+            success
+            ip
+            result
+          }
+        }
+    }
+}
 ```
 
 ### **注意事项**
@@ -176,7 +375,48 @@ query user($id: String!, $registerInClient: String!){    user(id: $id, registerI
 批量查询用户，ids 是一个字符串，用逗号分隔 id。
 
 ```graphql
-query userPatch($ids: String){    userPatch(ids: $ids){      list {        _id        unionid        email        emailVerified        username        nickname        company        photo        browser        registerInClient        registerMethod        oauth        token        tokenExpiredAt        loginsCount        lastLogin        lastIP        signedUp        blocked        isDeleted        userLocation {          _id          when          where        }        userLoginHistory {          totalCount          list {            _id            when            success            ip            result          }        }      }      totalCount    }}
+query userPatch($ids: String){
+    userPatch(ids: $ids){
+      list {
+        _id
+        unionid
+        email
+        emailVerified
+        username
+        nickname
+        company
+        photo
+        browser
+        registerInClient
+        registerMethod
+        oauth
+        token
+        tokenExpiredAt
+        loginsCount
+        lastLogin
+        lastIP
+        signedUp
+        blocked
+        isDeleted
+        userLocation {
+          _id
+          when
+          where
+        }
+        userLoginHistory {
+          totalCount
+          list {
+            _id
+            when
+            success
+            ip
+            result
+          }
+        }
+      }
+      totalCount
+    }
+}
 ```
 
 ### **注意事项**
@@ -188,7 +428,65 @@ query userPatch($ids: String){    userPatch(ids: $ids){      list {        _id  
 此接口用来读取用户列表，建议使用 `OwnerToken`
 
 ```graphql
-query users($registerInClient: String, $page: Int, $count: Int){  users(registerInClient: $registerInClient, page: $page, count: $count) {    totalCount    list {      _id      email      emailVerified      username      nickname      company      photo      browser      password      registerInClient      token      tokenExpiredAt      loginsCount      lastLogin      lastIP      signedUp      blocked      isDeleted      group {        _id        name        descriptions        createdAt      }      clientType {        _id        name        description        image        example      }      userLocation {        _id        when        where      }      userLoginHistory {        totalCount        list{          _id          when          success          ip          result        }      }      systemApplicationType {        _id        name        descriptions        price      }    }  }}
+query users($registerInClient: String, $page: Int, $count: Int){
+  users(registerInClient: $registerInClient, page: $page, count: $count) {
+    totalCount
+    list {
+      _id
+      email
+      emailVerified
+      username
+      nickname
+      company
+      photo
+      browser
+      password
+      registerInClient
+      token
+      tokenExpiredAt
+      loginsCount
+      lastLogin
+      lastIP
+      signedUp
+      blocked
+      isDeleted
+      group {
+        _id
+        name
+        descriptions
+        createdAt
+      }
+      clientType {
+        _id
+        name
+        description
+        image
+        example
+      }
+      userLocation {
+        _id
+        when
+        where
+      }
+      userLoginHistory {
+        totalCount
+        list{
+          _id
+          when
+          success
+          ip
+          result
+        }
+      }
+      systemApplicationType {
+        _id
+        name
+        descriptions
+        price
+      }
+    }
+  }
+}
 ```
 
 ### **注意事项**
@@ -200,7 +498,13 @@ query users($registerInClient: String, $page: Int, $count: Int){  users(register
 此接口检查用户登录状态，请使用 `UserToken`
 
 ```graphql
-query checkLoginStatus {    checkLoginStatus {        status        code        message    }}
+query checkLoginStatus {
+    checkLoginStatus {
+        status
+        code
+        message
+    }
+}
 ```
 
 ### **注意事项**
@@ -212,7 +516,11 @@ query checkLoginStatus {    checkLoginStatus {        status        code        
 此接口用来删除用户数据，建议使用 `OwnerToken`
 
 ```text
-mutation removeUsers($ids: [String], $registerInClient: String, $operator: String){  removeUsers(ids: $ids, registerInClient: $registerInClient, operator: $operator) {    _id  }}
+mutation removeUsers($ids: [String], $registerInClient: String, $operator: String){
+  removeUsers(ids: $ids, registerInClient: $registerInClient, operator: $operator) {
+    _id
+  }
+}
 ```
 
 ### **注意事项**
@@ -224,7 +532,69 @@ mutation removeUsers($ids: [String], $registerInClient: String, $operator: Strin
 此接口用来更新用户资料，建议使用 `OwnerToken`
 
 ```graphql
-mutation UpdateUser(    $_id: String!,    $email: String,    $emailVerified: Boolean,    $username: String,    $nickname: String,    $company: String,    $photo: String,    $browser: String,    $password: String,    $oldPassword: String,    $registerInClient: String!,    $token: String,    $tokenExpiredAt: String,    $loginsCount: Int,    $lastLogin: String,    $lastIP: String,    $signedUp: String,    $blocked: Boolean,    $isDeleted: Boolean){  updateUser(options: {    _id: $_id,    email: $email,    emailVerified: $emailVerified,    username: $username,    nickname: $nickname,    company: $company,    photo: $photo,    browser: $browser,    password: $password,    oldPassword: $oldPassword,    registerInClient: $registerInClient,    token: $token,    tokenExpiredAt: $tokenExpiredAt,    loginsCount: $loginsCount,    lastLogin: $lastLogin,    lastIP: $lastIP,    signedUp: $signedUp,    blocked: $blocked,    isDeleted: $isDeleted  }) {    _id    email    emailVerified    username    nickname    company    photo    browser    registerInClient    registerMethod    oauth    token    tokenExpiredAt    loginsCount    lastLogin    lastIP    signedUp    blocked    isDeleted  }}
+mutation UpdateUser(
+    $_id: String!,
+    $email: String,
+    $emailVerified: Boolean,
+    $username: String,
+    $nickname: String,
+    $company: String,
+    $photo: String,
+    $browser: String,
+    $password: String,
+    $oldPassword: String,
+    $registerInClient: String!,
+    $token: String,
+    $tokenExpiredAt: String,
+    $loginsCount: Int,
+    $lastLogin: String,
+    $lastIP: String,
+    $signedUp: String,
+    $blocked: Boolean,
+    $isDeleted: Boolean
+){
+  updateUser(options: {
+    _id: $_id,
+    email: $email,
+    emailVerified: $emailVerified,
+    username: $username,
+    nickname: $nickname,
+    company: $company,
+    photo: $photo,
+    browser: $browser,
+    password: $password,
+    oldPassword: $oldPassword,
+    registerInClient: $registerInClient,
+    token: $token,
+    tokenExpiredAt: $tokenExpiredAt,
+    loginsCount: $loginsCount,
+    lastLogin: $lastLogin,
+    lastIP: $lastIP,
+    signedUp: $signedUp,
+    blocked: $blocked,
+    isDeleted: $isDeleted
+  }) {
+    _id
+    email
+    emailVerified
+    username
+    nickname
+    company
+    photo
+    browser
+    registerInClient
+    registerMethod
+    oauth
+    token
+    tokenExpiredAt
+    loginsCount
+    lastLogin
+    lastIP
+    signedUp
+    blocked
+    isDeleted
+  }
+}
 ```
 
 ### **注意事项**
@@ -244,13 +614,39 @@ mutation UpdateUser(    $_id: String!,    $email: String,    $emailVerified: Boo
 ### 发送重置密码邮件
 
 ```graphql
-mutation sendResetPasswordEmail(    $email: String!,    $client: String!){    sendResetPasswordEmail(        email: $email,        client: $client    ) {          message          code          status    }}
+mutation sendResetPasswordEmail(
+    $email: String!,
+    $client: String!
+){
+    sendResetPasswordEmail(
+        email: $email,
+        client: $client
+    ) {
+          message
+          code
+          status
+    }
+}
 ```
 
 ### 验证重置密码验证码
 
 ```graphql
-mutation verifyResetPasswordVerifyCode(    $email: String!,    $client: String!,    $verifyCode: String!) {    verifyResetPasswordVerifyCode(        email: $email,        client: $client,        verifyCode: $verifyCode    ) {          message          code          status    }}
+mutation verifyResetPasswordVerifyCode(
+    $email: String!,
+    $client: String!,
+    $verifyCode: String!
+) {
+    verifyResetPasswordVerifyCode(
+        email: $email,
+        client: $client,
+        verifyCode: $verifyCode
+    ) {
+          message
+          code
+          status
+    }
+}
 ```
 
 ### 修改密码
@@ -258,13 +654,57 @@ mutation verifyResetPasswordVerifyCode(    $email: String!,    $client: String!,
 此接口用来更改忘记密码后的新密码，需要携带 verifyCode，不用发送 `Token`，正常的密码修正请使用上面的 `update` 接口。
 
 ```graphql
-mutation changePassword(    $email: String!,    $client: String!,    $password: String!,    $verifyCode: String!){    changePassword(        email: $email,        client: $client,        password: $password,        verifyCode: $verifyCode    ) {        _id        email        emailVerified        username        nickname        company        photo        browser        registerInClient        registerMethod        oauth        token        tokenExpiredAt        loginsCount        lastLogin        lastIP        signedUp        blocked        isDeleted    }}
+mutation changePassword(
+    $email: String!,
+    $client: String!,
+    $password: String!,
+    $verifyCode: String!
+){
+    changePassword(
+        email: $email,
+        client: $client,
+        password: $password,
+        verifyCode: $verifyCode
+    ) {
+        _id
+        email
+        emailVerified
+        username
+        nickname
+        company
+        photo
+        browser
+        registerInClient
+        registerMethod
+        oauth
+        token
+        tokenExpiredAt
+        loginsCount
+        lastLogin
+        lastIP
+        signedUp
+        blocked
+        isDeleted
+    }
+}
 ```
 
 ## 发送验证邮件
 
 ```graphql
-mutation sendVerifyEmail(    $email: String!,    $client: String!){    sendVerifyEmail(        email: $email,        client: $client    ) {        message,        code,        status    }}
+mutation sendVerifyEmail(
+    $email: String!,
+    $client: String!
+){
+    sendVerifyEmail(
+        email: $email,
+        client: $client
+    ) {
+        message,
+        code,
+        status
+    }
+}
 ```
 
 ### **注意事项**
@@ -276,7 +716,23 @@ mutation sendVerifyEmail(    $email: String!,    $client: String!){    sendVerif
 解析 JWT Token
 
 ```graphql
-query decodeJwtToken($token: String){    decodeJwtToken(token: $token){        data{            email            id            clientId            unionid        }        status{            message            code            status        }        iat        exp    }}
+query decodeJwtToken($token: String){
+    decodeJwtToken(token: $token){
+        data{
+            email
+            id
+            clientId
+            unionid
+        }
+        status{
+            message
+            code
+            status
+        }
+        iat
+        exp
+    }
+}
 ```
 
 ### **注意事项**
@@ -292,7 +748,15 @@ query decodeJwtToken($token: String){    decodeJwtToken(token: $token){        d
 {% endhint %}
 
 ```graphql
-query notBindOAuthList($user: String, $client: String) {        notBindOAuthList(user: $user, client: $client) {          type          oAuthUrl          image          name          binded        }}
+query notBindOAuthList($user: String, $client: String) {
+        notBindOAuthList(user: $user, client: $client) {
+          type
+          oAuthUrl
+          image
+          name
+          binded
+        }
+}
 ```
 
 ### **注意事项**
@@ -304,7 +768,17 @@ query notBindOAuthList($user: String, $client: String) {        notBindOAuthList
 用户绑定第三方登录方式
 
 ```graphql
-mutation bindOtherOAuth($user: String, $client: String, $type: String!, $unionid: String!, $userInfo: String!){    bindOtherOAuth(user: $user, client: $client, type: $type, unionid: $unionid, userInfo: $userInfo){        _id        user        client        type        unionid        userInfo        createdAt    }}
+mutation bindOtherOAuth($user: String, $client: String, $type: String!, $unionid: String!, $userInfo: String!){
+    bindOtherOAuth(user: $user, client: $client, type: $type, unionid: $unionid, userInfo: $userInfo){
+        _id
+        user
+        client
+        type
+        unionid
+        userInfo
+        createdAt
+    }
+}
 ```
 
 ### **注意事项**
@@ -316,7 +790,17 @@ mutation bindOtherOAuth($user: String, $client: String, $type: String!, $unionid
 用户解绑第三方登录方式
 
 ```graphql
-mutation unbindOtherOAuth($user: String, $client: String, $type: String!){    unbindOtherOAuth(user: $user, client: $client, type: $type){        _id        user        client        type        unionid        userInfo        createdAt    }}
+mutation unbindOtherOAuth($user: String, $client: String, $type: String!){
+    unbindOtherOAuth(user: $user, client: $client, type: $type){
+        _id
+        user
+        client
+        type
+        unionid
+        userInfo
+        createdAt
+    }
+}
 ```
 
 ### **注意事项**
@@ -328,7 +812,29 @@ mutation unbindOtherOAuth($user: String, $client: String, $type: String!){    un
 用户解绑 Email
 
 ```graphql
-mutation unbindEmail($user: String, $client: String){    unbindEmail(user: $user, client: $client){      _id      email      emailVerified      username      nickname      company      photo      browser      registerInClient      registerMethod      oauth      token      tokenExpiredAt      loginsCount      lastLogin      lastIP      signedUp      blocked      isDeleted    }}
+mutation unbindEmail($user: String, $client: String){
+    unbindEmail(user: $user, client: $client){
+      _id
+      email
+      emailVerified
+      username
+      nickname
+      company
+      photo
+      browser
+      registerInClient
+      registerMethod
+      oauth
+      token
+      tokenExpiredAt
+      loginsCount
+      lastLogin
+      lastIP
+      signedUp
+      blocked
+      isDeleted
+    }
+}
 ```
 
 ### **注意事项**
@@ -340,7 +846,17 @@ mutation unbindEmail($user: String, $client: String){    unbindEmail(user: $user
 开启或关闭手机号注册时的白名单限制
 
 ```graphql
-mutation setInvitationState($client: String!, $enableQrCode: Boolean){  setInvitationState(    client: $client,    enableQrCode: $enableQrCode,      ) {    client,    enableQrCode,    createdAt,    updatedAt  }}
+mutation setInvitationState($client: String!, $enableQrCode: Boolean){
+  setInvitationState(
+    client: $client,
+    enableQrCode: $enableQrCode,    
+  ) {
+    client,
+    enableQrCode,
+    createdAt,
+    updatedAt
+  }
+}
 ```
 
 ### **注意事项**
@@ -350,7 +866,14 @@ mutation setInvitationState($client: String!, $enableQrCode: Boolean){  setInvit
 ## 查看用户池的手机号白名单开启状态
 
 ```graphql
-query queryInvitationState($client: String!){  queryInvitationState(    client: $client,  ) {	client, 	enableQrCode  }}
+query queryInvitationState($client: String!){
+  queryInvitationState(
+    client: $client,
+  ) {
+	client,
+ 	enableQrCode
+  }
+}
 ```
 
 ### **注意事项**
@@ -360,7 +883,15 @@ query queryInvitationState($client: String!){  queryInvitationState(    client: 
 ## 增加手机号到白名单
 
 ```graphql
-mutation addToInvitation($client: String!, $qrCodPhone: String){  addToInvitation(    client: $client,    qrCodePhone: $qrCodPhone,      ) {    client,    qrCodePhone,  }}
+mutation addToInvitation($client: String!, $qrCodPhone: String){
+  addToInvitation(
+    client: $client,
+    qrCodePhone: $qrCodPhone,    
+  ) {
+    client,
+    qrCodePhone,
+  }
+}
 ```
 
 ### **注意事项**
@@ -370,7 +901,15 @@ mutation addToInvitation($client: String!, $qrCodPhone: String){  addToInvitatio
 ## 从白名单中删除手机号
 
 ```graphql
-mutation removeFromInvitation($client: String!, $qrCodePhone: String){  removeFromInvitation(    client: $client,    qrCodePhone: $qrCodePhone,      ) {    client,    qrCodePhone,  }}
+mutation removeFromInvitation($client: String!, $qrCodePhone: String){
+  removeFromInvitation(
+    client: $client,
+    qrCodePhone: $qrCodePhone,    
+  ) {
+    client,
+    qrCodePhone,
+  }
+}
 ```
 
 ### **注意事项**
@@ -380,7 +919,14 @@ mutation removeFromInvitation($client: String!, $qrCodePhone: String){  removeFr
 ## 查看白名单中的手机号
 
 ```graphql
-query queryInvitation($client: String!){  queryInvitation(  client: $client,  ) {	client, 	qrCodePhone  }}
+query queryInvitation($client: String!){
+  queryInvitation(
+  client: $client,
+  ) {
+	client,
+ 	qrCodePhone
+  }
+}
 ```
 
 ### **注意事项**
@@ -390,7 +936,15 @@ query queryInvitation($client: String!){  queryInvitation(  client: $client,  ) 
 ## 查询 MFA 信息
 
 ```graphql
-query queryMFA($_id: String, $userId: String, $userPoolId: String, $page: Int, $count: Int) {  queryMFA(_id: $_id, userId: $userId, userPoolId: $userPoolId, page: $page, count: $count) {    _id    userId    userPoolId    enable    shareKey  }}
+query queryMFA($_id: String, $userId: String, $userPoolId: String, $page: Int, $count: Int) {
+  queryMFA(_id: $_id, userId: $userId, userPoolId: $userPoolId, page: $page, count: $count) {
+    _id
+    userId
+    userPoolId
+    enable
+    shareKey
+  }
+}
 ```
 
 ### **参数**
@@ -413,7 +967,15 @@ query queryMFA($_id: String, $userId: String, $userPoolId: String, $page: Int, $
 ## 修改 MFA 信息
 
 ```graphql
-mutation changeMFA($_id: String,$userId: String,$userPoolId: String,$enable: Boolean!, $refreshKey: Boolean) {  changeMFA(_id: $_id, userId: $userId, userPoolId: $userPoolId, enable: $enable, refreshKey: $refreshKey) {    _id    userId    userPoolId    shareKey    enable  }}
+mutation changeMFA($_id: String,$userId: String,$userPoolId: String,$enable: Boolean!, $refreshKey: Boolean) {
+  changeMFA(_id: $_id, userId: $userId, userPoolId: $userPoolId, enable: $enable, refreshKey: $refreshKey) {
+    _id
+    userId
+    userPoolId
+    shareKey
+    enable
+  }
+}
 ```
 
 ### **参数**
@@ -438,7 +1000,42 @@ mutation changeMFA($_id: String,$userId: String,$userPoolId: String,$enable: Boo
 此接口用于查询一个用户池内，用户授权过的 SSO 应用列表。
 
 ```graphql
-query GetUserAuthorizedApps($clientId: String, $userId: String, $page: Int, $count: Int) {    GetUserAuthorizedApps(clientId: $clientId, userId: $userId, page: $page, count: $count) {        OAuthApps {            _id            name            domain            clientId            description            isDeleted            grants            redirectUris            when        }        OIDCApps {            _id            name            client_id            domain            description            authorization_code_expire            when            isDeleted            id_token_signed_response_alg            response_types            grant_types            token_endpoint_auth_method            redirect_uris            image            access_token_expire            id_token_expire            cas_expire        }        totalCount    }}
+query GetUserAuthorizedApps($clientId: String, $userId: String, $page: Int, $count: Int) {
+    GetUserAuthorizedApps(clientId: $clientId, userId: $userId, page: $page, count: $count) {
+        OAuthApps {
+            _id
+            name
+            domain
+            clientId
+            description
+            isDeleted
+            grants
+            redirectUris
+            when
+        }
+        OIDCApps {
+            _id
+            name
+            client_id
+            domain
+            description
+            authorization_code_expire
+            when
+            isDeleted
+            id_token_signed_response_alg
+            response_types
+            grant_types
+            token_endpoint_auth_method
+            redirect_uris
+            image
+            access_token_expire
+            id_token_expire
+            cas_expire
+
+        }
+        totalCount
+    }
+}
 ```
 
 ### **参数**
@@ -451,7 +1048,73 @@ query GetUserAuthorizedApps($clientId: String, $userId: String, $page: Int, $cou
 返回示例
 
 ```javascript
-{    "OAuthApps": [        {            "_id": "5d5a8a7bbc7275af2cb71920",            "name": "test1",            "domain": "test123",            "clientId": "5d5921ffaa016518f658498d",            "description": "",            "isDeleted": false,            "grants": [                "authorization_code",                "implicit",                "refresh_token"            ],            "redirectUris": [                "http://qq.com"            ],            "when": "Mon Aug 19 2019 19:39:39 GMT+0800 (CST)"        },        {            "_id": "5d5e2e8b026f9d145bf89203",            "name": "oauth1",            "domain": "oauth1",            "clientId": "5d5921ffaa016518f658498d",            "description": "",            "isDeleted": false,            "grants": [                "authorization_code",                "implicit",                "refresh_token"            ],            "redirectUris": [                "http://qq.com"            ],            "when": "Thu Aug 22 2019 13:56:27 GMT+0800 (CST)"        }    ],    "OIDCApps": [        {            "_id": "5d5a85e258375a32d1133d45",            "name": "test1",            "client_id": "5d5a85e258375a32d1133d45",            "domain": "test1",            "description": "test1",            "authorization_code_expire": "600",            "when": "Mon Aug 19 2019 19:20:02 GMT+0800 (CST)",            "isDeleted": false,            "id_token_signed_response_alg": "HS256",            "response_types": [                "code"            ],            "grant_types": [                "authorization_code",                "refresh_token"            ],            "token_endpoint_auth_method": "client_secret_post",            "redirect_uris": [                "http://qq.com"            ],            "image": "https://usercontents.authing.cn/client/logo@2.png",            "access_token_expire": "3600",            "id_token_expire": "3600",            "cas_expire": "3600"        }    ],    "totalCount": 3}
+{
+    "OAuthApps": [
+        {
+            "_id": "5d5a8a7bbc7275af2cb71920",
+            "name": "test1",
+            "domain": "test123",
+            "clientId": "5d5921ffaa016518f658498d",
+            "description": "",
+            "isDeleted": false,
+            "grants": [
+                "authorization_code",
+                "implicit",
+                "refresh_token"
+            ],
+            "redirectUris": [
+                "http://qq.com"
+            ],
+            "when": "Mon Aug 19 2019 19:39:39 GMT+0800 (CST)"
+        },
+        {
+            "_id": "5d5e2e8b026f9d145bf89203",
+            "name": "oauth1",
+            "domain": "oauth1",
+            "clientId": "5d5921ffaa016518f658498d",
+            "description": "",
+            "isDeleted": false,
+            "grants": [
+                "authorization_code",
+                "implicit",
+                "refresh_token"
+            ],
+            "redirectUris": [
+                "http://qq.com"
+            ],
+            "when": "Thu Aug 22 2019 13:56:27 GMT+0800 (CST)"
+        }
+    ],
+    "OIDCApps": [
+        {
+            "_id": "5d5a85e258375a32d1133d45",
+            "name": "test1",
+            "client_id": "5d5a85e258375a32d1133d45",
+            "domain": "test1",
+            "description": "test1",
+            "authorization_code_expire": "600",
+            "when": "Mon Aug 19 2019 19:20:02 GMT+0800 (CST)",
+            "isDeleted": false,
+            "id_token_signed_response_alg": "HS256",
+            "response_types": [
+                "code"
+            ],
+            "grant_types": [
+                "authorization_code",
+                "refresh_token"
+            ],
+            "token_endpoint_auth_method": "client_secret_post",
+            "redirect_uris": [
+                "http://qq.com"
+            ],
+            "image": "https://usercontents.authing.cn/client/logo@2.png",
+            "access_token_expire": "3600",
+            "id_token_expire": "3600",
+            "cas_expire": "3600"
+        }
+    ],
+    "totalCount": 3
+}
 ```
 
 ### **注意事项**
@@ -463,7 +1126,13 @@ query GetUserAuthorizedApps($clientId: String, $userId: String, $page: Int, $cou
 此接口用于撤回一个用户池内，某个用户对该用户池下的某个 SSO 应用的授权。撤回授权后，用户在 SSO 登录页面登录时，会再次显示确权页面。
 
 ```graphql
-mutation RevokeUserAuthorizedApp($userPoolId: String, $userId: String, $appId: String) {  RevokeUserAuthorizedApp(userPoolId: $userPoolId, userId: $userId, appId: $appId) {    isRevoked    _id    scope  }}
+mutation RevokeUserAuthorizedApp($userPoolId: String, $userId: String, $appId: String) {
+  RevokeUserAuthorizedApp(userPoolId: $userPoolId, userId: $userId, appId: $appId) {
+    isRevoked
+    _id
+    scope
+  }
+}
 ```
 
 ### **参数**
@@ -475,7 +1144,11 @@ mutation RevokeUserAuthorizedApp($userPoolId: String, $userId: String, $appId: S
 返回示例
 
 ```javascript
-{  "isRevoked": "true",  "_id": "5d7661e17a9f981da5fa8098",  "scope": "profile"}
+{
+  "isRevoked": "true",
+  "_id": "5d7661e17a9f981da5fa8098",
+  "scope": "profile"
+}
 ```
 
 ### **注意事项**

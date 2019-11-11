@@ -15,7 +15,44 @@ JWT Token 是用户登录后的唯一凭证，验证 Token 有三种方法：
 Authing 使用 [GraphQL](http://graphql.cn/) 进行数据交换，以下以 JavaScript 为例，演示如何发送 Token 给 Authing 服务器：
 
 ```javascript
-import axios from 'axios'axios({  method: 'POST',  operationName: 'checkLoginStatus',  query: `query checkLoginStatus($token: String) {    checkLoginStatus(token: $token) {      status      code      message      token {        data {          email          id          clientId          unionid        }        iat        exp      }    }  }`,  variables: {    token: 'USER_JWT_TOKEN'  },}).then((res) => {  const d = res.data;  if (d.errors) {    throw d.errors[0];  }  return d.data.checkLoginStatus;});.then((loginStatus) => {  // handle login status}).catch((error) => {  // handle error});
+import axios from 'axios'
+
+axios({
+  method: 'POST',
+  operationName: 'checkLoginStatus',
+  query: `query checkLoginStatus($token: String) {
+    checkLoginStatus(token: $token) {
+      status
+      code
+      message
+      token {
+        data {
+          email
+          id
+          clientId
+          unionid
+        }
+        iat
+        exp
+      }
+    }
+  }`,
+  variables: {
+    token: 'USER_JWT_TOKEN'
+  },
+}).then((res) => {
+  const d = res.data;
+  if (d.errors) {
+    throw d.errors[0];
+  }
+  return d.data.checkLoginStatus;
+});
+.then((loginStatus) => {
+  // handle login status
+})
+.catch((error) => {
+  // handle error
+});
 ```
 
 {% hint style="info" %}
@@ -33,27 +70,56 @@ import axios from 'axios'axios({  method: 'POST',  operationName: 'checkLoginSta
 若你使用了 Web SDK，使用上可以简单一些，如下所示：
 
 ```javascript
-import Authing from 'authing-js-sdk'(async () => {    const authing = await new Authing({        clientId: 'your_client_id',        secret: 'your_client_secret'    });            const result = await authing.checkLoginStatus('USER_JWT_TOKEN');})()
+import Authing from 'authing-js-sdk'
+
+(async () => {
+    const authing = await new Authing({
+        clientId: 'your_client_id',
+        secret: 'your_client_secret'
+    });
+    
+    
+    const result = await authing.checkLoginStatus('USER_JWT_TOKEN');
+})()
 ```
 
 若 Token 合法，则返回数据为：
 
 ```javascript
-{  status: false,  code: 200,  message: '已登录',  token: {    ... // Token 数据  }}
+{
+  status: false,
+  code: 200,
+  message: '已登录',
+  token: {
+    ... // Token 数据
+  }
+}
 ```
 
 当 status 为 false 时，有三种情况，分别返回：
 
 ```javascript
-{  status: false,  code: 2020,  message: '未登录'}
+{
+  status: false,
+  code: 2020,
+  message: '未登录'
+}
 ```
 
 ```javascript
-{  status: false,  code: 2206,  message: '登录信息已过期' }
+{
+  status: false,
+  code: 2206,
+  message: '登录信息已过期' 
+}
 ```
 
 ```javascript
-{     status: false,     code: 2207,     message: '登录信息有误' }
+{
+     status: false,
+     code: 2207,
+     message: '登录信息有误'
+ }
 ```
 
 若你使用的为非 JavaScript 语言，请参考以下链接查看如何发送 GraphQL 请求：
@@ -65,7 +131,23 @@ import Authing from 'authing-js-sdk'(async () => {    const authing = await new 
 ### 验证 JWT Token 合法性的 GraphQL
 
 ```graphql
-query checkLoginStatus($token: String) {    checkLoginStatus(token: $token) {      status      code      message      token {        data {          email          id          clientId          unionid        }        iat        exp      }    }  }
+query checkLoginStatus($token: String) {
+    checkLoginStatus(token: $token) {
+      status
+      code
+      message
+      token {
+        data {
+          email
+          id
+          clientId
+          unionid
+        }
+        iat
+        exp
+      }
+    }
+  }
 ```
 
 字段解释：
@@ -93,7 +175,19 @@ query checkLoginStatus($token: String) {    checkLoginStatus(token: $token) {   
 以下验证合法性的代码以 Node 为例（需要安装 `jsonwebtoken`）。
 
 ```javascript
-const jwt = require('jsonwebtoken');try {  let decoded = jwt.verify('JSON Web Token from client', 'your_secret'),    expired = (Date.parse(new Date()) / 1000) > decoded.exp  if (expired) {    // 过期  }else {    // 合法也没过期，正常放行  }} catch (error) {  // 不合法}
+const jwt = require('jsonwebtoken');
+
+try {
+  let decoded = jwt.verify('JSON Web Token from client', 'your_secret'),
+    expired = (Date.parse(new Date()) / 1000) > decoded.exp
+  if (expired) {
+    // 过期
+  }else {
+    // 合法也没过期，正常放行
+  }
+} catch (error) {
+  // 不合法
+}
 ```
 
 {% hint style="info" %}
@@ -129,7 +223,49 @@ const jwt = require('jsonwebtoken');try {  let decoded = jwt.verify('JSON Web To
 {% endapi-method-response-example-description %}
 
 ```
-{    "state": 1,    "isRevoked": false,    "isDeleted": false,    "_id": "yokj1gN8kCBixIhc6KEj7SNsMcJ",    "id": "yokj1gN8kCBixIhc6KEj7SNsMcJ",    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJkVlJmenZEbHZQRG50dG9LWnJ1WkciLCJzdWIiOiI1Y2U1M2FlYTlmODUyNTdkZDEzMmQ3NDkiLCJpc3MiOiJodHRwczovL29hdXRoLmF1dGhpbmcuY24vb2F1dGgvb2lkYyIsImlhdCI6MTU2OTU4MDMwOCwiZXhwIjoxNTY5NTgzOTA1LCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIiwiYXVkIjoiNWQwMWUzODk5ODVmODFjNmMxZGQzMWRlIn0.RZ1NWMajncZggkpBt7iWxhHG3QhP8nIqWKaGysyujYo",    "accessTokenExpiresAt": "2019-09-27T11:31:45.000Z",    "scope": "openid profile",    "appId": "5d01e389985f81c6c1dd31de",    "userOrClientId": "5ce53aea9f85257dd132d749",    "when": "2019-09-27T10:31:48.000Z",    "iss": "https://oauth.authing.cn/oauth/oidc",    "sub": "5ce53aea9f85257dd132d749",    "aud": "5d01e389985f81c6c1dd31de",    "exp": 1569583905000,    "iat": 1569580308000,    "user_id": "5ce53aea9f85257dd132d749",    "issued_to": "https://sso.authing.cn",    "audience": "5d01e389985f81c6c1dd31de",    "expires_in": 3360,    "access_type": "offline"}{    "code": 1920,    "message": "查找 session 发生错误"}{    "code": 1921,    "message": "session 不存在"}{    "code": 1922,    message: "token 不合法"}{    "code": 1923,    "message": "token 过期"}{    "code": 1924,    "message": "app 不存在"}
+{
+    "state": 1,
+    "isRevoked": false,
+    "isDeleted": false,
+    "_id": "yokj1gN8kCBixIhc6KEj7SNsMcJ",
+    "id": "yokj1gN8kCBixIhc6KEj7SNsMcJ",
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJkVlJmenZEbHZQRG50dG9LWnJ1WkciLCJzdWIiOiI1Y2U1M2FlYTlmODUyNTdkZDEzMmQ3NDkiLCJpc3MiOiJodHRwczovL29hdXRoLmF1dGhpbmcuY24vb2F1dGgvb2lkYyIsImlhdCI6MTU2OTU4MDMwOCwiZXhwIjoxNTY5NTgzOTA1LCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIiwiYXVkIjoiNWQwMWUzODk5ODVmODFjNmMxZGQzMWRlIn0.RZ1NWMajncZggkpBt7iWxhHG3QhP8nIqWKaGysyujYo",
+    "accessTokenExpiresAt": "2019-09-27T11:31:45.000Z",
+    "scope": "openid profile",
+    "appId": "5d01e389985f81c6c1dd31de",
+    "userOrClientId": "5ce53aea9f85257dd132d749",
+    "when": "2019-09-27T10:31:48.000Z",
+    "iss": "https://oauth.authing.cn/oauth/oidc",
+    "sub": "5ce53aea9f85257dd132d749",
+    "aud": "5d01e389985f81c6c1dd31de",
+    "exp": 1569583905000,
+    "iat": 1569580308000,
+    "user_id": "5ce53aea9f85257dd132d749",
+    "issued_to": "https://sso.authing.cn",
+    "audience": "5d01e389985f81c6c1dd31de",
+    "expires_in": 3360,
+    "access_type": "offline"
+}
+{
+    "code": 1920,
+    "message": "查找 session 发生错误"
+}
+{
+    "code": 1921,
+    "message": "session 不存在"
+}
+{
+    "code": 1922,
+    message: "token 不合法"
+}
+{
+    "code": 1923,
+    "message": "token 过期"
+}
+{
+    "code": 1924,
+    "message": "app 不存在"
+}
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
@@ -161,7 +297,45 @@ OAuth 签发的 access\_token
 {% endapi-method-response-example-description %}
 
 ```
-{    "state": 1,    "token": {        "isRevoked": false,        "isDeleted": false,        "_id": "5d8df3d12914983cab6430b1",        "accessToken": "b4177a2e01060169fc724112b10703fda49e7d69",        "accessTokenExpiresAt": "2019-09-27T12:34:41.480Z",        "refreshToken": "fd56d928ed3f00b18db14550d63d9f3a051812fc",        "refreshTokenExpiresAt": "2019-10-11T11:34:41.480Z",        "scope": "profile",        "grantType": "authorization_code",        "appId": "5ce52da3b0148671e7f5bfd7",        "userOrClientId": "5ce53aea9f85257dd132d749",        "when": "2019-09-27T11:34:41.481Z",        "__v": 0    },    "isRevoked": false,    "isDeleted": false,    "_id": "5d8df3d12914983cab6430b1",    "id": "5ce53aea9f85257dd132d749",    "accessToken": "b4177a2e01060169fc724112b10703fda49e7d69",    "accessTokenExpiresAt": "2019-09-27T12:34:41.480Z",    "scope": "profile",    "grantType": "authorization_code",    "appId": "5ce52da3b0148671e7f5bfd7",    "userOrClientId": "5ce53aea9f85257dd132d749",    "when": "2019-09-27T11:34:41.481Z",    "iss": "https://sso.authing.cn",    "sub": "5ce53aea9f85257dd132d749",    "aud": "5ce52da3b0148671e7f5bfd7",    "exp": 1569587681480,    "iat": 1569584081481,    "user_id": "5ce53aea9f85257dd132d749",    "issued_to": "https://sso.authing.cn",    "audience": "5ce52da3b0148671e7f5bfd7",    "expires_in": 3360,    "access_type": "offline"}
+{
+    "state": 1,
+    "token": {
+        "isRevoked": false,
+        "isDeleted": false,
+        "_id": "5d8df3d12914983cab6430b1",
+        "accessToken": "b4177a2e01060169fc724112b10703fda49e7d69",
+        "accessTokenExpiresAt": "2019-09-27T12:34:41.480Z",
+        "refreshToken": "fd56d928ed3f00b18db14550d63d9f3a051812fc",
+        "refreshTokenExpiresAt": "2019-10-11T11:34:41.480Z",
+        "scope": "profile",
+        "grantType": "authorization_code",
+        "appId": "5ce52da3b0148671e7f5bfd7",
+        "userOrClientId": "5ce53aea9f85257dd132d749",
+        "when": "2019-09-27T11:34:41.481Z",
+        "__v": 0
+    },
+    "isRevoked": false,
+    "isDeleted": false,
+    "_id": "5d8df3d12914983cab6430b1",
+    "id": "5ce53aea9f85257dd132d749",
+    "accessToken": "b4177a2e01060169fc724112b10703fda49e7d69",
+    "accessTokenExpiresAt": "2019-09-27T12:34:41.480Z",
+    "scope": "profile",
+    "grantType": "authorization_code",
+    "appId": "5ce52da3b0148671e7f5bfd7",
+    "userOrClientId": "5ce53aea9f85257dd132d749",
+    "when": "2019-09-27T11:34:41.481Z",
+    "iss": "https://sso.authing.cn",
+    "sub": "5ce53aea9f85257dd132d749",
+    "aud": "5ce52da3b0148671e7f5bfd7",
+    "exp": 1569587681480,
+    "iat": 1569584081481,
+    "user_id": "5ce53aea9f85257dd132d749",
+    "issued_to": "https://sso.authing.cn",
+    "audience": "5ce52da3b0148671e7f5bfd7",
+    "expires_in": 3360,
+    "access_type": "offline"
+}
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}

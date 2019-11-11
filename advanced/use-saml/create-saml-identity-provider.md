@@ -55,7 +55,37 @@ curl 'https://idp1.authing.cn/oauth/saml/idp/5ce2afd11c4f9813a24d214a/SingleSign
 用户信息返回示例
 
 ```markup
-<saml:AttributeStatement>  <saml:Attribute Name="email" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">    <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema"       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">services@authing.cn    </saml:AttributeValue>  </saml:Attribute>  <saml:Attribute Name="photo" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">    <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema"       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">https://usercontents.authing.cn/authing-avatar.png    </saml:AttributeValue>  </saml:Attribute>  <saml:Attribute Name="username" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">    <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema"       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">test1    </saml:AttributeValue>  </saml:Attribute>  <saml:Attribute Name="nickname" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">    <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema"       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string"/>  </saml:Attribute>  <saml:Attribute Name="identifier" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">    <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema"       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">authing|5cc32b28d6ebae2f240a9bfd    </saml:AttributeValue>  </saml:Attribute>  <saml:Attribute Name="provider" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">    <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema"       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">authing    </saml:AttributeValue>  </saml:Attribute></saml:AttributeStatement>
+<saml:AttributeStatement>
+  <saml:Attribute Name="email" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+    <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">services@authing.cn
+    </saml:AttributeValue>
+  </saml:Attribute>
+  <saml:Attribute Name="photo" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+    <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">https://usercontents.authing.cn/authing-avatar.png
+    </saml:AttributeValue>
+  </saml:Attribute>
+  <saml:Attribute Name="username" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+    <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">test1
+    </saml:AttributeValue>
+  </saml:Attribute>
+  <saml:Attribute Name="nickname" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+    <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string"/>
+  </saml:Attribute>
+  <saml:Attribute Name="identifier" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+    <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">authing|5cc32b28d6ebae2f240a9bfd
+    </saml:AttributeValue>
+  </saml:Attribute>
+  <saml:Attribute Name="provider" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+    <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">authing
+    </saml:AttributeValue>
+  </saml:Attribute>
+</saml:AttributeStatement>
 ```
 
 **SP Metadata** 你的 SP 提供方会提供一份元数据 XML 文档，推荐上传此配置文件，Authing 会优先应用这里面的配置。
@@ -69,13 +99,21 @@ curl 'https://idp1.authing.cn/oauth/saml/idp/5ce2afd11c4f9813a24d214a/SingleSign
 设置为 Basic 时
 
 ```markup
-  <saml:Attribute Name="username" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">    <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema"       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">test1    </saml:AttributeValue>  </saml:Attribute>
+  <saml:Attribute Name="username" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+    <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">test1
+    </saml:AttributeValue>
+  </saml:Attribute>
 ```
 
 设置为 URI 时
 
 ```markup
-  <saml:Attribute Name="https://schemas.authing.cn/username" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">    <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema"       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">test1    </saml:AttributeValue>  </saml:Attribute>
+  <saml:Attribute Name="https://schemas.authing.cn/username" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+    <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">test1
+    </saml:AttributeValue>
+  </saml:Attribute>
 ```
 
 **自定义 Attribute** 用来设置 SAML Assertion 额外携带的属性，在编辑器中输入一个合法的 JSON 对象，key 为 Attribute 的 Name，value 为 XML 中对应的值。
@@ -99,7 +137,15 @@ IdP 可以要求 SP 对 SAML Request 签名。打开此开关后，IdP 收到 SA
 此处需要上传或输入相应 SP 的签名证书。SP 可能会单独提供此证书，如果没有，可以从 SP 的元数据 XML 文档中获取，注意对其进行[格式化](https://www.samltool.com/format_x509cert.php)，**保留**首尾这些`-----BEGIN CERTIFICATE-----` 字样。
 
 ```markup
-<KeyDescriptor use="signing">  <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">    <ds:X509Data>      <ds:X509Certificate>        ... 输入这里的内容，先进行格式化 ...      </ds:X509Certificate>    </ds:X509Data>  </ds:KeyInfo></KeyDescriptor>
+<KeyDescriptor use="signing">
+  <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+    <ds:X509Data>
+      <ds:X509Certificate>
+        ... 输入这里的内容，先进行格式化 ...
+      </ds:X509Certificate>
+    </ds:X509Data>
+  </ds:KeyInfo>
+</KeyDescriptor>
 ```
 
 #### 加密 SAML Response
@@ -111,7 +157,15 @@ IdP 可以对 SAML Response 进行加密。打开此开关后，IdP 会将 SAML 
 此处需要上传或输入相应 SP 的加密证书。SP 可能会单独提供此证书，如果没有，可以从 SP 的元数据 XML 文档中获取，注意对其进行[格式化](https://www.samltool.com/format_x509cert.php)。**保留**首尾这些`-----BEGIN CERTIFICATE-----` 字样。
 
 ```markup
-<KeyDescriptor use="encryption">  <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">    <ds:X509Data>      <ds:X509Certificate>        ... 输入这里的内容，先进行格式化 ...      </ds:X509Certificate>    </ds:X509Data>  </ds:KeyInfo></KeyDescriptor>
+<KeyDescriptor use="encryption">
+  <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+    <ds:X509Data>
+      <ds:X509Certificate>
+        ... 输入这里的内容，先进行格式化 ...
+      </ds:X509Certificate>
+    </ds:X509Data>
+  </ds:KeyInfo>
+</KeyDescriptor>
 ```
 
 点击确定，会显示本 IdP 的一些使用信息。

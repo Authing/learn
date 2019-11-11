@@ -19,7 +19,10 @@ Authing SAML IdP 为企业用户提供SSO单点登录能力，通过 IdP 身份�
 在自定义 Attribute 输入以下内容，其中 `<AccountID>` 是你的腾讯云账号 ID，`<RoleName>` 是你在腾讯云创建的角色名称，`<ProviderName>` 是你在腾讯云创建的身份提供商名称。
 
 ```javascript
-{    "https://cloud.tencent.com/SAML/Attributes/Role": "qcs::cam::uin/<AccountID>:roleName/<RoleName>,qcs::cam::uin/<AccountID>:saml-provider/<ProviderName>",    "https://cloud.tencent.com/SAML/Attributes/RoleSessionName": "Test"}
+{
+    "https://cloud.tencent.com/SAML/Attributes/Role": "qcs::cam::uin/<AccountID>:roleName/<RoleName>,qcs::cam::uin/<AccountID>:saml-provider/<ProviderName>",
+    "https://cloud.tencent.com/SAML/Attributes/RoleSessionName": "Test"
+}
 ```
 
 打开对 SAML Response 签名开关，上传或输入一对秘钥，并正确选择秘钥算法。

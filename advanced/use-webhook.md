@@ -47,7 +47,9 @@ description: Webhooks 允许你对用户注册、登录等行为进行监听，�
 请求数据为：
 
 ```javascript
-{    "description": "A test from Authing Webhook"}
+{
+    "description": "A test from Authing Webhook"
+}
 ```
 
 ## 支持的事件
@@ -97,30 +99,178 @@ description: Webhooks 允许你对用户注册、登录等行为进行监听，�
 * headers
 
   ```javascript
-  {  "Accept": "application/json, text/plain, */*",  "Content-Type": "application/json; charset=UTF-8",  "User-Agent": "authing-hook",  "X-Authing-Token": "",  "X-Authing-Event": "login",  "Content-Length": 337}
+  {
+    "Accept": "application/json, text/plain, */*",
+    "Content-Type": "application/json; charset=UTF-8",
+    "User-Agent": "authing-hook",
+    "X-Authing-Token": "",
+    "X-Authing-Event": "login",
+    "Content-Length": 337
+  }
   ```
 
 * login event body
 
   ```javascript
-  {  "success": 1,  "message": "密码修改成功",  "executed_at": 1559453952531,  "params": {      "_id": "5cf3608753c403913e81f74b",      "password": "ATtLOFJ6mGWCju1GFsv6b0jhlFTlp7qumPYSEze197R7G0hUEg3gDVBwRf2n0O6FJFeF9bsVryzkZDElILVSRAbjYU3GPYNDzUMAfo3pQ7QNKu5JuZOdwgn8+5NllFUKNK/AgyJPd7QNfO7kH1x8J9L7S65NQh/n5TzgcwaveLg=",      "registerInClient": "59f86b4832eb28071bdd9214"  },  "emit_by": {      "_id": "5c00a5fbec1083000f5b27d4",      "username": "",      "email": "xieyang@dodora.cn",      "phone": ""  }}
+  {
+    "success": 1,
+    "message": "密码修改成功",
+    "executed_at": 1559453952531,
+    "params": {
+        "_id": "5cf3608753c403913e81f74b",
+        "password": "ATtLOFJ6mGWCju1GFsv6b0jhlFTlp7qumPYSEze197R7G0hUEg3gDVBwRf2n0O6FJFeF9bsVryzkZDElILVSRAbjYU3GPYNDzUMAfo3pQ7QNKu5JuZOdwgn8+5NllFUKNK/AgyJPd7QNfO7kH1x8J9L7S65NQh/n5TzgcwaveLg=",
+        "registerInClient": "59f86b4832eb28071bdd9214"
+    },
+    "emit_by": {
+        "_id": "5c00a5fbec1083000f5b27d4",
+        "username": "",
+        "email": "xieyang@dodora.cn",
+        "phone": ""
+    }
+  }
   ```
 
 * register event body
 
   ```javascript
-  {  "success": 1,  "message": "注册成功",  "executedAt": 1559453155297,  "params": {      "_id": "590cd6b4832eb28071bdd9251"      "email": "example@example.com",      "password": "30f049f7ae9386d2ac2c203f5c4319a5",      "registerInClient": "59f86b4832eb28071bdd9214",      "username": "username",      "registerMethod": "default:username-password",      "nickname": "",      "emailVerified": true  }}
+  {
+    "success": 1,
+    "message": "注册成功",
+    "executedAt": 1559453155297,
+    "params": {
+        "_id": "590cd6b4832eb28071bdd9251"
+        "email": "example@example.com",
+        "password": "30f049f7ae9386d2ac2c203f5c4319a5",
+        "registerInClient": "59f86b4832eb28071bdd9214",
+        "username": "username",
+        "registerMethod": "default:username-password",
+        "nickname": "",
+        "emailVerified": true
+    }
+  }
   ```
 
 * change-password event body
 
   ```javascript
-  {  "success": 1,  "message": "注册成功",  "executedAt": 1559453831284,  "params": {      "__v": 0,      "email": "example@example2.com",      "registerInClient": "59f86b4832eb28071bdd9214",      "salt": "fhnli5d0ahoi",      "_id": "5cf3608753c403913e81f74b",      "updatedAt": "",      "country": "",      "postalCode": "",      "region": "",      "locality": "",      "streetAddress": "",      "formatted": "",      "address": "",      "locale": "",      "zoneinfo": "",      "birthdate": "",      "gender": "",      "website": "",      "preferredUsername": "",      "profile": "",      "middleName": "",      "familyName": "",      "givenName": "",      "name": "",      "phoneCode": "",      "oauth": "",      "isDeleted": false,      "blocked": false,      "signedUp": "2019-06-02T05:37:11.257Z",      "lastLogin": "2019-06-02T05:37:11.257Z",      "registerMethod": "default:username-password",      "loginsCount": 0,      "password": "bdcff42caccb7e2a889bfb490d91e67c",      "browser": "",      "photo": "https://usercontents.authing.cn/authing-avatar.png",      "company": "",      "nickname": "",      "username": "example2",      "phoneVerfified": false,      "emailVerified": true,      "phone": ""  },  "emit_by": {      "_id": "5c00a5fbec1083000f5b27d4",      "username": "root",      "email": "xieyang@dodora.cn",      "phone": ""  }}
+  {
+    "success": 1,
+    "message": "注册成功",
+    "executedAt": 1559453831284,
+    "params": {
+        "__v": 0,
+        "email": "example@example2.com",
+        "registerInClient": "59f86b4832eb28071bdd9214",
+        "salt": "fhnli5d0ahoi",
+        "_id": "5cf3608753c403913e81f74b",
+        "updatedAt": "",
+        "country": "",
+        "postalCode": "",
+        "region": "",
+        "locality": "",
+        "streetAddress": "",
+        "formatted": "",
+        "address": "",
+        "locale": "",
+        "zoneinfo": "",
+        "birthdate": "",
+        "gender": "",
+        "website": "",
+        "preferredUsername": "",
+        "profile": "",
+        "middleName": "",
+        "familyName": "",
+        "givenName": "",
+        "name": "",
+        "phoneCode": "",
+        "oauth": "",
+        "isDeleted": false,
+        "blocked": false,
+        "signedUp": "2019-06-02T05:37:11.257Z",
+        "lastLogin": "2019-06-02T05:37:11.257Z",
+        "registerMethod": "default:username-password",
+        "loginsCount": 0,
+        "password": "bdcff42caccb7e2a889bfb490d91e67c",
+        "browser": "",
+        "photo": "https://usercontents.authing.cn/authing-avatar.png",
+        "company": "",
+        "nickname": "",
+        "username": "example2",
+        "phoneVerfified": false,
+        "emailVerified": true,
+        "phone": ""
+    },
+    "emit_by": {
+        "_id": "5c00a5fbec1083000f5b27d4",
+        "username": "root",
+        "email": "xieyang@dodora.cn",
+        "phone": ""
+    }
+  }
   ```
 
 * change-user-info event body
 
   ```javascript
-  {  "success": 1,  "message": "用户信息修改成功",  "executed_at": 1563370136729,  "params": {    "_id": "5d2d727b48ceaceff6d792c1",    "phone": "13812341235",    "registerInClient": "5cbd6716aaaa70cb9a58d86f"  },  "emit_by": {    "_id": "5cbd66dfaaaa7020e758d86a",    "username": "",    "email": "root@example.com",    "phone": ""  },  "userUpdated": {    "_id": "5d2d727b48ceaceff6d792c1",    "email": "authing@example.com",    "registerInClient": "5cbd6716aaaa70cb9a58d86f",    "salt": "g196j8ijf1oi",    "__v": 0,    "updatedAt": "",    "country": "",    "postalCode": "",    "region": "",    "locality": "",    "streetAddress": "",    "formatted": "",    "address": "",    "locale": "",    "zoneinfo": "",    "birthdate": "",    "gender": "",    "website": "",    "preferredUsername": "",    "profile": "",    "middleName": "",    "familyName": "",    "givenName": "",    "name": "",    "phoneCode": "",    "oauth": "",    "isDeleted": false,    "blocked": false,    "signedUp": "2019-07-16T06:45:15.935Z",    "lastLogin": "2019-07-16T06:45:15.935Z",    "registerMethod": "default:username-password",    "loginsCount": 0,    "password": "3f1c2988c870c7225320a2c8a38ee27d",    "device": "",    "browser": "",    "photo": "https://usercontents.authing.cn/authing-avatar.png",    "company": "",    "nickname": "",    "username": "example",    "phoneVerfified": false,    "emailVerified": false,    "phone": "13812341235"  }}
+  {
+    "success": 1,
+    "message": "用户信息修改成功",
+    "executed_at": 1563370136729,
+    "params": {
+      "_id": "5d2d727b48ceaceff6d792c1",
+      "phone": "13812341235",
+      "registerInClient": "5cbd6716aaaa70cb9a58d86f"
+    },
+    "emit_by": {
+      "_id": "5cbd66dfaaaa7020e758d86a",
+      "username": "",
+      "email": "root@example.com",
+      "phone": ""
+    },
+    "userUpdated": {
+      "_id": "5d2d727b48ceaceff6d792c1",
+      "email": "authing@example.com",
+      "registerInClient": "5cbd6716aaaa70cb9a58d86f",
+      "salt": "g196j8ijf1oi",
+      "__v": 0,
+      "updatedAt": "",
+      "country": "",
+      "postalCode": "",
+      "region": "",
+      "locality": "",
+      "streetAddress": "",
+      "formatted": "",
+      "address": "",
+      "locale": "",
+      "zoneinfo": "",
+      "birthdate": "",
+      "gender": "",
+      "website": "",
+      "preferredUsername": "",
+      "profile": "",
+      "middleName": "",
+      "familyName": "",
+      "givenName": "",
+      "name": "",
+      "phoneCode": "",
+      "oauth": "",
+      "isDeleted": false,
+      "blocked": false,
+      "signedUp": "2019-07-16T06:45:15.935Z",
+      "lastLogin": "2019-07-16T06:45:15.935Z",
+      "registerMethod": "default:username-password",
+      "loginsCount": 0,
+      "password": "3f1c2988c870c7225320a2c8a38ee27d",
+      "device": "",
+      "browser": "",
+      "photo": "https://usercontents.authing.cn/authing-avatar.png",
+      "company": "",
+      "nickname": "",
+      "username": "example",
+      "phoneVerfified": false,
+      "emailVerified": false,
+      "phone": "13812341235"
+    }
+  }
   ```
 

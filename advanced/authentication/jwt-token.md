@@ -38,7 +38,15 @@ Json web token \(JWT\)，是为了在网络应用环境间传递声明而执行�
 建议使用 **HTTP Header Authorization** 的形式携带 Token，以下以 JavaScript 的 axios 库为例示范如何携带：
 
 ```javascript
-const axios = require('axios');axios.get({  url: 'https://yourdomain.com/api/v1/your/resources',  headers: {    'Authorization': 'Bearer YOUR_JWT_TOKN'  }}).then((res) => { // custom codes})
+const axios = require('axios');
+axios.get({
+  url: 'https://yourdomain.com/api/v1/your/resources',
+  headers: {
+    'Authorization': 'Bearer YOUR_JWT_TOKN'
+  }
+}).then((res) => {
+ // custom codes
+})
 ```
 
 注意第五行前面有 **Bearer 类型。**
