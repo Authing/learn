@@ -58,7 +58,7 @@
         secret: 'your_userpool_secret'
       });
   
-      const rolesList = await authing.queryPermissions({
+      const rolesList = await authing.queryRoles({
         page: 1,
         count: 10
       })
