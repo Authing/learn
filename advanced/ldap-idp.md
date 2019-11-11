@@ -29,7 +29,9 @@ $ ldapsearch -H ldap://ldap.authing.cn:1389 -x -D "ou=users,o=AUTHING_CLIENT_ID,
 若密钥 \(Secret\) 不正确会返回如下信息：
 
 ```text
-ldap_bind: Invalid credentials (49)	matched DN: ou=users, o=AUTHING_CLIENT_ID, dc=authing, dc=cn	additional info: InvalidCredentialsError
+ldap_bind: Invalid credentials (49)
+	matched DN: ou=users, o=AUTHING_CLIENT_ID, dc=authing, dc=cn
+	additional info: InvalidCredentialsError
 ```
 
 ## Search
@@ -43,7 +45,9 @@ $ ldapsearch -H ldap://ldap.authing.cn:1389 -x -D "ou=users,o=AUTHING_CLIENT_ID,
 创建一个名为 user.ldif 的文件然后复制以下内容进去：
 
 ```text
-dn: cn=authingUserName, ou=users, o=AUTHING_CLIENT_ID, dc=authing, dc=cnobjectClass: userscn: authingUserName
+dn: cn=authingUserName, ou=users, o=AUTHING_CLIENT_ID, dc=authing, dc=cn
+objectClass: users
+cn: authingUserName
 ```
 
 然后执行以下命令：
@@ -57,7 +61,10 @@ $ ldapadd -H ldap://ldap.authing.cn:1389 -x -D "ou=users,o=AUTHING_CLIENT_ID,dc=
 创建一个名为 modify.ldif 的文件然后复制以下内容进去：
 
 ```text
-dn: cn=secret, ou=users, o=AUTHING_CLIENT_ID, dc=authing, dc=cnchangetype: modifyreplace: mailmail: test@authing.cn
+dn: cn=secret, ou=users, o=AUTHING_CLIENT_ID, dc=authing, dc=cn
+changetype: modify
+replace: mail
+mail: test@authing.cn
 ```
 
 然后执行以下命令：

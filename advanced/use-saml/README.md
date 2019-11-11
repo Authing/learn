@@ -32,7 +32,12 @@ pVLBjtMwED2DxD9EvieOkzgkVlupbIWotLDVpnDggiaOs7Xk2CHjAPv3uGlX2j2wFy4+zMx7894brxAG
  base64 decode + inflate 解码后
 
 ```markup
-<samlp:AuthnRequest	xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"	xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" ID="_166f23bb-522f-47b2-8cad-3a3a9190ca52" Version="2.0" IssueInstant="2019-05-04T10:53:43.188Z" Destination="https://idp1.authing.cn/oauth/saml/idp/5cc6842c68d55954b3b4521f/SingleSignOnService" ProtocolBinding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" AssertionConsumerServiceURL="https://sp1.authing.cn/oauth/saml/sp/5cc688c851bc1a45b1b69aed/acs">	<saml:Issuer>https://sp1.authing.cn/oauth/saml/sp/5cc688c851bc1a45b1b69aed/metadata</saml:Issuer>	<samlp:NameIDPolicy Format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress" AllowCreate="false"/></samlp:AuthnRequest>
+<samlp:AuthnRequest
+	xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"
+	xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" ID="_166f23bb-522f-47b2-8cad-3a3a9190ca52" Version="2.0" IssueInstant="2019-05-04T10:53:43.188Z" Destination="https://idp1.authing.cn/oauth/saml/idp/5cc6842c68d55954b3b4521f/SingleSignOnService" ProtocolBinding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" AssertionConsumerServiceURL="https://sp1.authing.cn/oauth/saml/sp/5cc688c851bc1a45b1b69aed/acs">
+	<saml:Issuer>https://sp1.authing.cn/oauth/saml/sp/5cc688c851bc1a45b1b69aed/metadata</saml:Issuer>
+	<samlp:NameIDPolicy Format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress" AllowCreate="false"/>
+</samlp:AuthnRequest>
 ```
 
 ### SAML Response
@@ -48,7 +53,78 @@ PHNhbWxwOlJlc3BvbnNlIHhtbG5zOnNhbWxwPSJ1cm46b2FzaXM6bmFtZXM6dGM6U0FNTDoyLjA6cHJv
 base64 decode + inflate 解码后
 
 ```markup
-<samlp:Response xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"   xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" ID="a4ea81892-e1cd-4bbf-bdbd-a630c8bd52f0" Version="2.0" IssueInstant="2019-05-04T11:55:51.673Z" Destination="https://sp1.authing.cn/oauth/saml/sp/5cc688c851bc1a45b1b69aed/acs">  <saml:Issuer>https://idp1.authing.cn/oauth/saml/idp/5cc6842c68d55954b3b4521f/metadata</saml:Issuer>  <samlp:Status>    <samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success"/>  </samlp:Status>  <saml:Assertion ID="a_28986c63-9211-4202-93c2-0f06103c110e" Version="2.0" IssueInstant="2019-05-04T11:55:51.673Z"     xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">    <saml:Issuer>https://idp1.authing.cn/oauth/saml/idp/5cc6842c68d55954b3b4521f/metadata</saml:Issuer>    <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">      <ds:SignedInfo>        <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>        <ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>        <ds:Reference URI="#a_28986c63-9211-4202-93c2-0f06103c110e">          <ds:Transforms>            <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>          </ds:Transforms>          <ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>          <ds:DigestValue>lhlxcy6nTG6yYz49+madz3+pKYz8H8ynxhGsg6JH6b8=</ds:DigestValue>        </ds:Reference>      </ds:SignedInfo>      <ds:SignatureValue>QEdKbrWb6oPGwtPu8qAb7+a9qhVyHObdrCqAvTOi+95/iypnx2tGmXuq/3n3WsF3Ghf+Ur/pqgw40FreWX65Jgpe+X/+hQbGIdqBKE5ZZEU/syQMQAgDyhPHajsQ5cYVhq9YI12dy0unguh8mxf5XqojaDi6cvrhwGf5rPbLvoY=</ds:SignatureValue>      <ds:KeyInfo>        <ds:X509Data>          <ds:X509Certificate>MIIC6DCCAlGgAwIBAgIBADANBgkqhkiG9w0BAQsFADCBkDELMAkGA1UEBhMCY24xEDAOBgNVBAgMB1RpYW5qaW4xDjAMBgNVBAoMBWhlYnV0MRcwFQYDVQQDDA5sb2NhbGhvc3Q6NTU1NjETMBEGA1UEBwwKbXlsb2NhbGl0eTENMAsGA1UECwwEYWljczEiMCAGCSqGSIb3DQEJARYTeWVsZXhpbkBob3RtYWlsLmNvbTAeFw0xOTA0MjkwODM1NDJaFw0yMDA0MjgwODM1NDJaMIGQMQswCQYDVQQGEwJjbjEQMA4GA1UECAwHVGlhbmppbjEOMAwGA1UECgwFaGVidXQxFzAVBgNVBAMMDmxvY2FsaG9zdDo1NTU2MRMwEQYDVQQHDApteWxvY2FsaXR5MQ0wCwYDVQQLDARhaWNzMSIwIAYJKoZIhvcNAQkBFhN5ZWxleGluQGhvdG1haWwuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCyZ9dx8z3ffCbnM+tNOwkJl09sxK+DFL2o+B4MHje79xD0n11w00qYCvErHbT1iXmXJ5bkPccOP+j11gqPZy3uEoJN4mCsC21/pPx/6AL0ZmK3y98k36gYo5B4+uhIm3pFIGOVxIuSAhxbwKleptSHjKGMc3lcyGfZAwV8ET8HgQIDAQABo1AwTjAdBgNVHQ4EFgQUl2tA6TiDarC0kESnPbrxcWlHaYwwHwYDVR0jBBgwFoAUl2tA6TiDarC0kESnPbrxcWlHaYwwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQsFAAOBgQAJjaedyo3SFxPvT21QtXftre399myYkm+Csti6KRQeRRWR1YD8Np+A0ZaLxdSh2zVvbHifkCNEyuEl3vIoTRkPPYkLIOa4oNUZs3t89Avh3nxoWA4bbcVj8Uo1ZjsJ7TRlNgK7SZ6zAgUZCt9KqYgY6WYZtWugnifKCMZ5OyBCzA==</ds:X509Certificate>        </ds:X509Data>      </ds:KeyInfo>    </ds:Signature>    <saml:Subject>      <saml:NameID Format="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent">authing|5cc32b28d6ebae2f240a9bfd</saml:NameID>      <saml:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">        <saml:SubjectConfirmationData NotOnOrAfter="2019-05-04T12:00:51.673Z" Recipient="https://sp1.authing.cn/oauth/saml/sp/5cc688c851bc1a45b1b69aed/acs"/>      </saml:SubjectConfirmation>    </saml:Subject>    <saml:Conditions NotBefore="2019-05-04T11:55:51.673Z" NotOnOrAfter="2019-05-04T12:00:51.673Z">      <saml:AudienceRestriction>        <saml:Audience>https://sp1.authing.cn/oauth/saml/sp/5cc688c851bc1a45b1b69aed/metadata</saml:Audience>      </saml:AudienceRestriction>    </saml:Conditions>    <saml:AttributeStatement>      <saml:Attribute Name="email" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">        <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema"           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">test1@123.com				        </saml:AttributeValue>      </saml:Attribute>      <saml:Attribute Name="photo" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">        <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema"           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">https://usercontents.authing.cn/authing-avatar.png        </saml:AttributeValue>      </saml:Attribute>      <saml:Attribute Name="username" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">        <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema"           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">test1	        </saml:AttributeValue>      </saml:Attribute>      <saml:Attribute Name="nickname" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">        <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema"           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string"/>      </saml:Attribute>      <saml:Attribute Name="identifier" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">        <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema"           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">authing|5cc32b28d6ebae2f240a9bfd        </saml:AttributeValue>      </saml:Attribute>      <saml:Attribute Name="provider" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">        <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema"           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">authing			        </saml:AttributeValue>      </saml:Attribute>    </saml:AttributeStatement>  </saml:Assertion></samlp:Response>
+<samlp:Response xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" 
+  xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" ID="a4ea81892-e1cd-4bbf-bdbd-a630c8bd52f0" Version="2.0" IssueInstant="2019-05-04T11:55:51.673Z" Destination="https://sp1.authing.cn/oauth/saml/sp/5cc688c851bc1a45b1b69aed/acs">
+  <saml:Issuer>https://idp1.authing.cn/oauth/saml/idp/5cc6842c68d55954b3b4521f/metadata</saml:Issuer>
+  <samlp:Status>
+    <samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success"/>
+  </samlp:Status>
+  <saml:Assertion ID="a_28986c63-9211-4202-93c2-0f06103c110e" Version="2.0" IssueInstant="2019-05-04T11:55:51.673Z" 
+    xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">
+    <saml:Issuer>https://idp1.authing.cn/oauth/saml/idp/5cc6842c68d55954b3b4521f/metadata</saml:Issuer>
+    <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+      <ds:SignedInfo>
+        <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+        <ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+        <ds:Reference URI="#a_28986c63-9211-4202-93c2-0f06103c110e">
+          <ds:Transforms>
+            <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+          </ds:Transforms>
+          <ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+          <ds:DigestValue>lhlxcy6nTG6yYz49+madz3+pKYz8H8ynxhGsg6JH6b8=</ds:DigestValue>
+        </ds:Reference>
+      </ds:SignedInfo>
+      <ds:SignatureValue>QEdKbrWb6oPGwtPu8qAb7+a9qhVyHObdrCqAvTOi+95/iypnx2tGmXuq/3n3WsF3Ghf+Ur/pqgw40FreWX65Jgpe+X/+hQbGIdqBKE5ZZEU/syQMQAgDyhPHajsQ5cYVhq9YI12dy0unguh8mxf5XqojaDi6cvrhwGf5rPbLvoY=</ds:SignatureValue>
+      <ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate>MIIC6DCCAlGgAwIBAgIBADANBgkqhkiG9w0BAQsFADCBkDELMAkGA1UEBhMCY24xEDAOBgNVBAgMB1RpYW5qaW4xDjAMBgNVBAoMBWhlYnV0MRcwFQYDVQQDDA5sb2NhbGhvc3Q6NTU1NjETMBEGA1UEBwwKbXlsb2NhbGl0eTENMAsGA1UECwwEYWljczEiMCAGCSqGSIb3DQEJARYTeWVsZXhpbkBob3RtYWlsLmNvbTAeFw0xOTA0MjkwODM1NDJaFw0yMDA0MjgwODM1NDJaMIGQMQswCQYDVQQGEwJjbjEQMA4GA1UECAwHVGlhbmppbjEOMAwGA1UECgwFaGVidXQxFzAVBgNVBAMMDmxvY2FsaG9zdDo1NTU2MRMwEQYDVQQHDApteWxvY2FsaXR5MQ0wCwYDVQQLDARhaWNzMSIwIAYJKoZIhvcNAQkBFhN5ZWxleGluQGhvdG1haWwuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCyZ9dx8z3ffCbnM+tNOwkJl09sxK+DFL2o+B4MHje79xD0n11w00qYCvErHbT1iXmXJ5bkPccOP+j11gqPZy3uEoJN4mCsC21/pPx/6AL0ZmK3y98k36gYo5B4+uhIm3pFIGOVxIuSAhxbwKleptSHjKGMc3lcyGfZAwV8ET8HgQIDAQABo1AwTjAdBgNVHQ4EFgQUl2tA6TiDarC0kESnPbrxcWlHaYwwHwYDVR0jBBgwFoAUl2tA6TiDarC0kESnPbrxcWlHaYwwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQsFAAOBgQAJjaedyo3SFxPvT21QtXftre399myYkm+Csti6KRQeRRWR1YD8Np+A0ZaLxdSh2zVvbHifkCNEyuEl3vIoTRkPPYkLIOa4oNUZs3t89Avh3nxoWA4bbcVj8Uo1ZjsJ7TRlNgK7SZ6zAgUZCt9KqYgY6WYZtWugnifKCMZ5OyBCzA==</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </ds:Signature>
+    <saml:Subject>
+      <saml:NameID Format="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent">authing|5cc32b28d6ebae2f240a9bfd</saml:NameID>
+      <saml:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
+        <saml:SubjectConfirmationData NotOnOrAfter="2019-05-04T12:00:51.673Z" Recipient="https://sp1.authing.cn/oauth/saml/sp/5cc688c851bc1a45b1b69aed/acs"/>
+      </saml:SubjectConfirmation>
+    </saml:Subject>
+    <saml:Conditions NotBefore="2019-05-04T11:55:51.673Z" NotOnOrAfter="2019-05-04T12:00:51.673Z">
+      <saml:AudienceRestriction>
+        <saml:Audience>https://sp1.authing.cn/oauth/saml/sp/5cc688c851bc1a45b1b69aed/metadata</saml:Audience>
+      </saml:AudienceRestriction>
+    </saml:Conditions>
+    <saml:AttributeStatement>
+      <saml:Attribute Name="email" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+        <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">test1@123.com				
+        </saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="photo" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+        <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">https://usercontents.authing.cn/authing-avatar.png
+        </saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="username" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+        <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">test1	
+        </saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="nickname" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+        <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string"/>
+      </saml:Attribute>
+      <saml:Attribute Name="identifier" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+        <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">authing|5cc32b28d6ebae2f240a9bfd
+        </saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="provider" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+        <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">authing			
+        </saml:AttributeValue>
+      </saml:Attribute>
+    </saml:AttributeStatement>
+  </saml:Assertion>
+</samlp:Response>
 ```
 
 读到这里，你可能会对 SP、IdP 如何处理这些冗长的 xml 信息感到困惑。Authing 会解决这些繁琐的处理，而你只需关注 Authing 返回的 JWT Token。以及使用 Authing SDK 检验一个 Authing JWT Token 的有效性。

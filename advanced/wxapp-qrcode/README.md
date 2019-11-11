@@ -64,7 +64,22 @@ $ npm install authing-js-sdk --save
 安装完成后，请新建一个 Web 项目，然后复制以下代码：
 
 ```javascript
-const Authing = require('authing-js-sdk');// 初始化 Authing SDK for JavaScriptconst authing = new Authing({    userPoolId: 'your_userpool_id',});// 调用小程序扫码登录的方法，此方法将生成一个用于扫码登录的图片和相关提示信息// 用户扫描成功后会回调至开发者在控制台中配置的 Redirect URI// 若不想跳转，请将 redirect 参数设置为 false，并在 onSuccess 中处理用户信息authing.startWXAppScaning({  enableFetchPhone: true, // 启用获取手机号    // 可选，登录失败后的回调函数，一般为网络问题  onError: function(error) {}, });
+const Authing = require('authing-js-sdk');
+
+// 初始化 Authing SDK for JavaScript
+const authing = new Authing({
+    userPoolId: 'your_userpool_id',
+});
+
+// 调用小程序扫码登录的方法，此方法将生成一个用于扫码登录的图片和相关提示信息
+// 用户扫描成功后会回调至开发者在控制台中配置的 Redirect URI
+// 若不想跳转，请将 redirect 参数设置为 false，并在 onSuccess 中处理用户信息
+authing.startWXAppScaning({
+  enableFetchPhone: true, // 启用获取手机号
+  
+  // 可选，登录失败后的回调函数，一般为网络问题
+  onError: function(error) {}, 
+});
 ```
 
 运行成功后将生成如下图片：
@@ -89,7 +104,20 @@ const Authing = require('authing-js-sdk');// 初始化 Authing SDK for JavaScrip
 若不想在扫码登录后发生页面跳转，可以配置 redirect 参数为 false，然后在 onSuccess 函数中获取用户数据后执行相应业务，如：
 
 ```javascript
-authing.startWXAppScaning({  // 不自动跳转  redirect: false,    enableFetchPhone: true // 启用获取手机号    // 扫码成功  onSuccess(res) {    const userInfo = res.data;        // 存储 token 到 localStorage 中    localStorage.setItem('token', userInfo.token);  }});
+authing.startWXAppScaning({
+  // 不自动跳转
+  redirect: false,
+  
+  enableFetchPhone: true // 启用获取手机号
+  
+  // 扫码成功
+  onSuccess(res) {
+    const userInfo = res.data;
+    
+    // 存储 token 到 localStorage 中
+    localStorage.setItem('token', userInfo.token);
+  }
+});
 ```
 
 若你想在后端验证 Token 合法性，请参考：[验证 Token 合法性](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token)。
@@ -100,13 +128,68 @@ authing.startWXAppScaning({  // 不自动跳转  redirect: false,    enableFetch
 #### 完整参数说明
 
 ```javascript
-authing.startWXAppScaning({      // 可选，二维码挂载点，如不写则默认漂浮在文档中间      mount: 'qrcode-node',            // 可选，是否执行跳转（在用户后台配置的 Redirect URL），默认为 true，相关用户信息回传至 url 参数上      redirect: true,            // 可选，登录成功后回调函数，redirect 为 true 时不回调此函数      onSuccess: function(res) {},            // 可选，登录失败后回调函数，一般为网络问题      onError: function(error) {},             // 可选，轮询时的回调函数，intervalNum 为 setInterval 返回的数值，可使用 clearInterval 停止轮询      onIntervalStarting: function(intervalNum) {},            // 可选，当二维码展现时的回调函数      onQRCodeShow: function(qrcode) {},            // 可选，当二维码加载完成时的回调函数      onQRCodeLoad: function(qrcode) {},            // 可选，每隔多少秒检查一次，默认 1500      interval: 1500,            // 可选，提示信息，可写 HTML      tips: '搜索小程序 <strong>身份管家</strong> 扫码登录',            // 扫码成功的提示信息，默认：扫码成功      successTips: '扫码成功',            // 扫码成功后跳转前的提示信息，默认：扫码成功，即将跳转      successRedirectTips: '扫码成功，即将跳转',            // 重试扫码的提示信息，默认：重试      retryTips: '重试',             // 扫码失败的提示信息，默认：网络出错，请重试      failedTips: '网络出错，请重试',              // 是否支持获取手机号（使用小登录扫码）      enableFetchPhone: false,            // 私有化部署了小程序的用户请将此参数设置为 true      useSelfWxapp: false,});
+authing.startWXAppScaning({
+      // 可选，二维码挂载点，如不写则默认漂浮在文档中间
+      mount: 'qrcode-node',
+      
+      // 可选，是否执行跳转（在用户后台配置的 Redirect URL），默认为 true，相关用户信息回传至 url 参数上
+      redirect: true,
+      
+      // 可选，登录成功后回调函数，redirect 为 true 时不回调此函数
+      onSuccess: function(res) {},
+      
+      // 可选，登录失败后回调函数，一般为网络问题
+      onError: function(error) {}, 
+      
+      // 可选，轮询时的回调函数，intervalNum 为 setInterval 返回的数值，可使用 clearInterval 停止轮询
+      onIntervalStarting: function(intervalNum) {},
+      
+      // 可选，当二维码展现时的回调函数
+      onQRCodeShow: function(qrcode) {},
+      
+      // 可选，当二维码加载完成时的回调函数
+      onQRCodeLoad: function(qrcode) {},
+      
+      // 可选，每隔多少秒检查一次，默认 1500
+      interval: 1500,
+      
+      // 可选，提示信息，可写 HTML
+      tips: '搜索小程序 <strong>身份管家</strong> 扫码登录',
+      
+      // 扫码成功的提示信息，默认：扫码成功
+      successTips: '扫码成功',
+      
+      // 扫码成功后跳转前的提示信息，默认：扫码成功，即将跳转
+      successRedirectTips: '扫码成功，即将跳转',
+      
+      // 重试扫码的提示信息，默认：重试
+      retryTips: '重试', 
+      
+      // 扫码失败的提示信息，默认：网络出错，请重试
+      failedTips: '网络出错，请重试',  
+      
+      // 是否支持获取手机号（使用小登录扫码）
+      enableFetchPhone: false,
+      
+      // 私有化部署了小程序的用户请将此参数设置为 true
+      useSelfWxapp: false,
+});
 ```
 
 若想动态修改提示信息，请使用以下四个方法：
 
 ```javascript
-  // 修改重试扫码的提示信息  authing.updateRetryTips(tips: string)  // 修改扫码失败的提示信息  authing.updateFailedTips(tips: string)  // 修改扫码成功的提示信息  authing.updateSuccessTips(tips: string)  // 修改扫码成功后跳转前的提示信息  authing.updateSuccessRedirectTips(tips: string)
+  // 修改重试扫码的提示信息
+  authing.updateRetryTips(tips: string)
+
+  // 修改扫码失败的提示信息
+  authing.updateFailedTips(tips: string)
+
+  // 修改扫码成功的提示信息
+  authing.updateSuccessTips(tips: string)
+
+  // 修改扫码成功后跳转前的提示信息
+  authing.updateSuccessRedirectTips(tips: string)
 ```
 
 {% hint style="info" %}
@@ -161,7 +244,22 @@ https://oauth.authing.cn/oauth/wxapp/qrcode/5c344f102e450b000170190a?random=UaJe
 {% endapi-method-response-example-description %}
 
 ```javascript
-{    "data": {        "_id": "*********************",        "client": "*********************",        "oauth": "*********************",        "oauthWithApplication": "*********************",        "qrcode": "https://usercontents.authing.cn/wxapp/qrcode/SweuVjfoPwSUTVEUv.png",        "expiredAt": "2018-07-16T12:56:03.000Z",        "__v": 0,        "createdAt": "2018-07-16T12:55:03.302Z",        "redirect": "",        "success": false,        "used": false    },    "code": 200}
+{
+    "data": {
+        "_id": "*********************",
+        "client": "*********************",
+        "oauth": "*********************",
+        "oauthWithApplication": "*********************",
+        "qrcode": "https://usercontents.authing.cn/wxapp/qrcode/SweuVjfoPwSUTVEUv.png",
+        "expiredAt": "2018-07-16T12:56:03.000Z",
+        "__v": 0,
+        "createdAt": "2018-07-16T12:55:03.302Z",
+        "redirect": "",
+        "success": false,
+        "used": false
+    },
+    "code": 200
+}
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
@@ -190,7 +288,33 @@ https://oauth.authing.cn/oauth/wxapp/qrcode/5c344f102e450b000170190a?random=UaJe
 {% endapi-method-response-example-description %}
 
 ```javascript
-{    "data": {        "code": 200,        "message": "扫码登录成功",        "data": {            "_id": "*********************",            "email": null,            "emailVerified": false,            "username": "ivy",            "nickname": "ivy",            "company": "",            "photo": "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLkQc7PfrbBqFMib6lkPUxaA5UsMiadibfWQtKv0CBcKnH2khXicvUB9WB2ibYxN6GRTaTsQfPtlsAafBg/132",            "browser": "",            "token": "******************************************.*********************.*********************",            "tokenExpiredAt": "Wed Aug 01 2018 15:59:42 GMT+0800 (CST)",            "loginsCount": 14,            "lastLogin": "Tue Jul 17 2018 15:59:42 GMT+0800 (CST)",            "lastIP": "*********************",            "signedUp": "Tue Jul 17 2018 11:15:03 GMT+0800 (CST)",            "blocked": false,            "isDeleted": false,            "__typename": "ExtendUser"        },        "redirect": "http://sample.authing.cn/#/redirect"    },    "code": 200}
+{
+    "data": {
+        "code": 200,
+        "message": "扫码登录成功",
+        "data": {
+            "_id": "*********************",
+            "email": null,
+            "emailVerified": false,
+            "username": "ivy",
+            "nickname": "ivy",
+            "company": "",
+            "photo": "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLkQc7PfrbBqFMib6lkPUxaA5UsMiadibfWQtKv0CBcKnH2khXicvUB9WB2ibYxN6GRTaTsQfPtlsAafBg/132",
+            "browser": "",
+            "token": "******************************************.*********************.*********************",
+            "tokenExpiredAt": "Wed Aug 01 2018 15:59:42 GMT+0800 (CST)",
+            "loginsCount": 14,
+            "lastLogin": "Tue Jul 17 2018 15:59:42 GMT+0800 (CST)",
+            "lastIP": "*********************",
+            "signedUp": "Tue Jul 17 2018 11:15:03 GMT+0800 (CST)",
+            "blocked": false,
+            "isDeleted": false,
+            "__typename": "ExtendUser"
+        },
+        "redirect": "http://sample.authing.cn/#/redirect"
+    },
+    "code": 200
+}
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}

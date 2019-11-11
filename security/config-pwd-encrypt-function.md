@@ -24,7 +24,44 @@ description: 自定义用户池中用户密码的加密方式
 点击页面中的「下载模版」下载 Node.js 代码模版，模版代码如下所示：
 
 ```javascript
-var getRawBody = require('raw-body')const encryptPassword = password => {  // 在此编写加密密码的函数  return password}// 模版代码，勿改动module.exports.encrypt = function(request, response, context) {  // get request body  getRawBody(request, function(err, body) {    const queries = request.queries    const password = queries.password    if (!password) {      response.setStatusCode(500)      response.setHeader('content-type', 'application/json')      response.send(        JSON.stringify(          {            message: 'Please provide password via url query',          },          null,          4        )      )    }    const respBody = {      password: encryptPassword(password), // 在此加密密码    }    response.setStatusCode(200)    response.setHeader('content-type', 'application/json')    response.send(JSON.stringify(respBody, null, 4))  })}
+var getRawBody = require('raw-body')
+
+const encryptPassword = password => {
+  // 在此编写加密密码的函数
+
+  return password
+}
+
+// 模版代码，勿改动
+module.exports.encrypt = function(request, response, context) {
+  // get request body
+  getRawBody(request, function(err, body) {
+    const queries = request.queries
+    const password = queries.password
+
+    if (!password) {
+      response.setStatusCode(500)
+      response.setHeader('content-type', 'application/json')
+      response.send(
+        JSON.stringify(
+          {
+            message: 'Please provide password via url query',
+          },
+          null,
+          4
+        )
+      )
+    }
+
+    const respBody = {
+      password: encryptPassword(password), // 在此加密密码
+    }
+
+    response.setStatusCode(200)
+    response.setHeader('content-type', 'application/json')
+    response.send(JSON.stringify(respBody, null, 4))
+  })
+}
 ```
 
 开发者只需要在 `encryptPassword` 函数中编写相应的密码加密方法即可。
@@ -54,7 +91,44 @@ node\_modules  是存储 NPM 包的文件夹。
 {% endhint %}
 
 ```javascript
-var getRawBody = require('raw-body')var md5 = require('blueimp-md5')const encryptPassword = password => {  // 使用 MD5 加密密码  return md5(password)}// 模版代码，勿改动module.exports.encrypt = function(request, response, context) {  // get request body  getRawBody(request, function(err, body) {    const queries = request.queries    const password = queries.password    if (!password) {      response.setStatusCode(500)      response.setHeader('content-type', 'application/json')      response.send(        JSON.stringify(          {            message: 'Please provide password via url query',          },          null,          4        )      )    }    const respBody = {      password: encryptPassword(password), // 在此加密密码    }    response.setStatusCode(200)    response.setHeader('content-type', 'application/json')    response.send(JSON.stringify(respBody, null, 4))  })}
+var getRawBody = require('raw-body')
+var md5 = require('blueimp-md5')
+
+const encryptPassword = password => {
+  // 使用 MD5 加密密码
+  return md5(password)
+}
+
+// 模版代码，勿改动
+module.exports.encrypt = function(request, response, context) {
+  // get request body
+  getRawBody(request, function(err, body) {
+    const queries = request.queries
+    const password = queries.password
+
+    if (!password) {
+      response.setStatusCode(500)
+      response.setHeader('content-type', 'application/json')
+      response.send(
+        JSON.stringify(
+          {
+            message: 'Please provide password via url query',
+          },
+          null,
+          4
+        )
+      )
+    }
+
+    const respBody = {
+      password: encryptPassword(password), // 在此加密密码
+    }
+
+    response.setStatusCode(200)
+    response.setHeader('content-type', 'application/json')
+    response.send(JSON.stringify(respBody, null, 4))
+  })
+}
 ```
 
 这份代码将密码经过 MD5 加密后返回。

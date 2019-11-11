@@ -62,7 +62,36 @@ clientId 和 secret 在控制台中的查看位置如下图所示：
 在「原始 JSON 数据」选项卡中可以看到一段用来表示该账号的 JSON 数据：
 
 ```javascript
-{	"_id": "5ccbf7551bbaf0f9edced9fd",	"email": "test@feifantech.com",	"phone": "",	"emailVerified": false,	"username": "test",	"nickname": "",	"unionid": null,	"company": "",	"photo": "https://usercontents.authing.cn/authing-avatar.png",	"browser": "",	"registerInClient": "5ccbf4d61bbaf07aefced9d5",	"registerMethod": "default:username-password",	"oauth": "",	"token": null,	"tokenExpiredAt": null,	"loginsCount": 0,	"lastLogin": "Fri May 03 2019 16:09:57 GMT+0800 (CST)",	"lastIP": null,	"signedUp": "Fri May 03 2019 16:09:57 GMT+0800 (CST)",	"blocked": false,	"isDeleted": false,	"clientType": null,	"userLocation": [],	"userLoginHistory": {		"totalCount": 0,		"list": []	},	"systemApplicationType": null}
+{
+	"_id": "5ccbf7551bbaf0f9edced9fd",
+	"email": "test@feifantech.com",
+	"phone": "",
+	"emailVerified": false,
+	"username": "test",
+	"nickname": "",
+	"unionid": null,
+	"company": "",
+	"photo": "https://usercontents.authing.cn/authing-avatar.png",
+	"browser": "",
+	"registerInClient": "5ccbf4d61bbaf07aefced9d5",
+	"registerMethod": "default:username-password",
+	"oauth": "",
+	"token": null,
+	"tokenExpiredAt": null,
+	"loginsCount": 0,
+	"lastLogin": "Fri May 03 2019 16:09:57 GMT+0800 (CST)",
+	"lastIP": null,
+	"signedUp": "Fri May 03 2019 16:09:57 GMT+0800 (CST)",
+	"blocked": false,
+	"isDeleted": false,
+	"clientType": null,
+	"userLocation": [],
+	"userLoginHistory": {
+		"totalCount": 0,
+		"list": []
+	},
+	"systemApplicationType": null
+}
 ```
 
 ### 用户组和权限
