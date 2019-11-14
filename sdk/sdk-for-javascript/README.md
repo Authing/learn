@@ -758,7 +758,6 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](../../advanced/ldap.md)�
 
 * **参数:**
   * `{Object} options`
-    * **clientId**: 用户池 id，必传
     * **userId**：用户 id，必传
     * **page**：页数，可选，默认 1
     * **count**：每页数目，可选，默认 10
@@ -774,7 +773,6 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](../../advanced/ldap.md)�
         password: '123456'
       })
       await authing.getAuthedAppList({
-      	clientId: "5d023c7b5642461234b9c62e",
     	userId: login._id,
     	page: 1,
     	count: 10
