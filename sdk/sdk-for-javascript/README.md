@@ -856,7 +856,6 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](../../advanced/ldap.md)�
 
 * **参数:**
   * `{Object} options`
-    * **userPoolId**: 用户池 id，必传
     * **userId**：用户 id，必传
     * **appId**：SSO 应用的 id，必传
 * **使用方法:**
@@ -871,7 +870,6 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](../../advanced/ldap.md)�
         password: '123456'
       })
       await authing.revokeAuthedApp({
-      	userPoolId: "5d023c7b5642461234b9c62e",
     	userId: login._id,
     	appId: "5d5e2e8b026f9d145bf89203"
       });
