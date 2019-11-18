@@ -12,45 +12,236 @@ Github 地址：
 **NOTE!** 在小程序中开发需要在小程序管理后台中配置域名，两个域名分别为：`https://users.authing.cn`和`https://oauth.authing.cn`
 {% endhint %}
 
-## **下载代码**
+### 准备使用 Authing 接入微信小程序登录
 
-```bash
-$ git clone https://github.com/Authing/authing-wxapp-sdk
+#### 注册微信小程序开发账号
+
+* [微信开放平台](https://mp.weixin.qq.com/)
+* 如果需要获取用户手机号，需通过微信认证。
+* 将 `oauth.authing,cn` 和 `users.authing.cn` 加入微信的服务器列表
+
+![](https://usercontents.authing.cn/2019-11-16-104739.png)
+
+#### 在 Authing 控制台开启微信小程序社会化登录
+
+* 获取微信小程序 AppId 和 AppSecret
+
+![](https://usercontents.authing.cn/website/assets/wechatapp_appid.png)
+
+* 前往 Authing 控制台 **第三方登录** -&gt; **社会化登录** -&gt; **第三方OAuth**
+* 填入微信小程序的 AppId 和 AppSecret
+
+![](https://usercontents.authing.cn/Xnip2019-11-16_17-34-34.png)
+
+### 使用 SDK
+
+#### 下载代码
+
+```text
+git clone https://github.com/Authing/authing-wxapp-sdk
 ```
 
-## **引入文件**
+#### 引入文件
 
-然后将下载的代码内的 authing 文件夹移动到你的项目目录下，之后使用 require 引入
+然后将 repo 内的 authing 文件夹移动到你的项目目录下，之后使用 require 引入
 
 ```javascript
 var Authing = require('path/to/authing/authing.js')
 ```
 
-## **使用**
+#### 初始化
 
-注意，在使用小程序 SDK 时，可以不传入 email 和 password 参数，取而代之的是 unionid，就是从小程序获取的 openid 或 unionid。
+如果你对 Authing 用户池这个概念不是很了解，可以查阅 Authing 官方文档：
+
+* [基础概念](https://learn.authing.cn/authing/quickstart/basic)
+* [如何获取用户池 ID?](https://learn.authing.cn/authing/others/faq)
 
 ```javascript
-var auth = new Authing({
-	clientId: 'your_client_id',
-	secret: 'your_app_secret'
-});
-
-auth.then(function(validAuth) {
-
-	//验证成功后返回新的 authing-js-sdk 实例(validAuth)，可以将此实例挂在全局
-
-	validAuth.login({
-		unionid: 'test@testmail.com',
-	}).then(function(user) {
-		console.log(user);	
-	}).catch(function(error) {
-		console.log(error);	
-	});
-	
-}).catch(function(error) {
-	//验证失败
-	console.log(error);
+const authing = new Authing({
+    userPoolId: 'YOUR_USERPOOLID'
 });
 ```
+
+之后就可以调用其他的方法了，比如：
+
+```text
+authing.login({
+    email: "USER_EMAIL",
+    password: "USER_PASSWORD"
+}).then(userinfo => {
+    this.setData({
+        userinfo: userinfo,
+    })
+}).catch(err => {
+    this.showDialog("登录失败！", err.message)
+})
+```
+
+#### 获取小程序的 Code
+
+Code 用来在小程序中执行微信登录，获取用户信息。`wx.login` 方法用于获取 `code`，此方法不需要经过用于授权。
+
+下面推荐一种如何处理 Code 的最佳实践：
+
+* app 初次启动的时候判断登录态，如未登录，调用 `wx.login()` 获取 `code` 并存入 `stroage`。
+
+  ```javascript
+  // app.js
+  onLaunch: function() {
+    console.log('App Launch')
+
+    // 最佳实践，初次 launch 的时候获取 code 并保存到 localStorage 中
+    wx.checkSession({
+        success(res) {
+            console.log(res)
+        },
+        fail() {
+            wx.login({
+                success(res) {
+                    const code = res.code;
+                    wx.setStorageSync("code", code)
+                }
+            })
+        }
+    })
+  },
+  ```
+
+* 每次页面 `onLoad` 时判断登录态，如果登录失效，重新登录获取 `code` 并替换原来存在 `stroage` 中的 `code`：
+
+```javascript
+onLoad: function() {
+    const self = this
+    wx.checkSession({
+        // 若丢失了登录态，通过 wx.login 重新获取
+        fail() {
+            wx.login({
+                succes(res) {
+                    const code = res.code;
+                    wx.setStorageSync("code", code)
+                }
+            })
+        }
+    })
+},
+```
+
+* 之后调用 Authing SDK 微信相关接口的时候，使用下面的方法获取 `token`，这样就能确保此 `token` 是最新的。
+
+  ```javascript
+  const code = wx.getStorageSync("code")
+  ```
+
+#### 使用微信授权登录
+
+> 注：当前小程序版本，第一次获取用户信息需要用户主动点击开放组件。授权通过之后，后续可以直接调用接口。
+
+Authing 对微信授权协议进行了封装，使得开发者可以用几行代码实现使用微信身份登录。开发者只需要引导用户点击微信开放 button 组件，获取到点击事件 `e` 之后，将 `e.detail` 传给 `authing.loginWithWxapp` 方法即可。
+
+```markup
+<!-- example.wxml -->
+<button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">获取微信头像</button>
+```
+
+```javascript
+// example.js
+onGotUserInfo: function(e) {
+    const self = this;
+
+    // 微信 wx.login 返回的 code, 为了提高灵活性，开发者需要自己维护。
+    // 调用 authing.loginWithWxapp()、authing.bindPhone() 的时候请确保 code 是可用的。
+    const code = wx.getStorageSync("code")
+
+    authing.loginWithWxapp(code, e.detail).then(userinfo => {
+        console.log(userinfo)
+        self.setData({
+            userinfo: userinfo,
+        })
+    }).catch(err => {
+        self.showDialog("操作失败", err)
+    })
+},
+```
+
+若用户之前同意过授权，不需要点击 `button` 就能直接获取，示例：
+
+```javascript
+const self = this;
+// 查看是否授权
+wx.getSetting({
+    success(res) {
+        if (res.authSetting['scope.userInfo']) {
+            // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+            wx.getUserInfo({
+                success: function(res) {
+                    authing.loginWithWxapp(code, res).then(userinfo => {
+                        console.log(userinfo)
+                        self.setData({
+                            userinfo: userinfo,
+                        })
+                    }).catch(err => {
+                        self.showDialog("操作失败", err)
+                    })
+                }
+            })
+        }
+    }
+})
+```
+
+#### 获取并绑定手机号
+
+> 此接口需小程序通过 **微信认证**。
+
+开发者可以使用此接口让用户**绑定手机号**，但是不能用于通过手机号登录或注册新用户，如果想通过手机验证码登录，需要调用 [loginByPhoneCode](https://learn.authing.cn/authing/sdk/sdk-for-javascript#shi-yong-shou-ji-yan-zheng-ma-deng-lu) 方法。
+
+每次获取微信用户的手机号必须用户主动点击开放组件 button，且无主动调用 API。
+
+Authing 对换取用户手机号的协议进行了封装，开发者只需要引导用户点击微信开放 button 组件，获取到点击事件 e 之后，将 e.detail 传给 authing.bindPhone 方法即可。示例：
+
+```markup
+<button open-type="getPhoneNumber" bindgetphonenumber="bindPhone">绑定手机号</button>
+```
+
+```javascript
+// example.js
+bindPhone: function(e) {
+    const self = this
+    console.log(e)
+    // 请确保这个 code 是最新可用的
+    const code = wx.getStorageSync("code")
+    authing.bindPhone(code, e.detail).then(function(userinfo) {
+        console.log(userinfo)
+        self.setData({
+            userinfo: userinfo,
+        })
+    }).catch(function(err) {
+        self.showDialog("操作失败", err.message)
+    })
+},
+```
+
+#### 修改头像
+
+Authing 会自动处理打开相册、上传图片的逻辑，开发者只需要传入唯一的参数：`userId` 即可，成功的回调函数会返回最新的用户信息。
+
+```javascript
+// 需在登录状态下调用
+changeAvatar: function() {
+  const self = this;
+  const userId = this.data.userinfo._id
+  authing.changeAvatar(userId).then(function(userinfo) {
+    console.log(userinfo)
+    self.setData({
+      userinfo: userinfo,
+    })
+  }).catch(function(err) {
+    console.log(err)
+  })
+},
+```
+
+#### 其他接口
+
+其他和 JavaScript 版本相同：[https://github.com/Authing/authing-js-sdk](https://github.com/Authing/authing-js-sdk)，若存在问题，可以发 issue 指出。
 
