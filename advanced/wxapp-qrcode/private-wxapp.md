@@ -21,7 +21,7 @@ const Authing = require('authing-js-sdk');
 
 // 初始化 Authing SDK for JavaScript
 const auth = new Authing({
-    clientId: 'your_userpool_id',
+    userPoolId: 'your_userpool_id',
     useSelfWxapp: true,
 });
 
