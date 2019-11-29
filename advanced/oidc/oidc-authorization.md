@@ -38,6 +38,12 @@ P.S. 文档中出现的 `testapp.authing.cn` 和 `example.authing.cn` 两个域�
 
 这个小节介绍如何使用 code （response\_type 为 code）换取 access\_token（access\_token 可用来换取用户信息）。
 
+### 在控制台配置 OIDC 应用
+
+打开 `authorization_code` 模式，并选择 code 返回类型。
+
+![](../../.gitbook/assets/image%20%28182%29.png)
+
 ### 发起授权
 
 发起授权需要拼接一个用来授权的 URL，具体参数如下：
@@ -307,6 +313,12 @@ POST https://example.authing.cn/oauth/oidc/token
 
 隐式流程将不获取 code，直接在回调地址中附带 `access_token` 和 `id_token`。
 
+### 在控制台配置 OIDC 应用
+
+选择 `implicit` 模式，并在下方选择 `id_token token` 和 `id_token`。
+
+![](../../.gitbook/assets/image%20%28257%29.png)
+
 ### 发起授权
 
 发起授权需要拼接一个用来授权的 URL，具体参数如下：
@@ -339,7 +351,13 @@ https://authing.cn/#id_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1Y2
 
 ## 使用混合模式（Hybrid Flow）
 
-隐式流程将不获取 code，直接在回调地址中附带 `code`、`access_token` 和 `id_token`，且都以 URL **Hash** 的形式传递。
+混合模式直接在回调地址中附带 `code`、`access_token` 和 `id_token`，且都以 URL **Hash** 的形式传递。
+
+### 在控制台配置 OIDC 应用
+
+选择 `authorization_code` 和 `implicit`，并在下方勾选 `code id_token token` 、`code id_token` 、`code token`。
+
+![](../../.gitbook/assets/image%20%28115%29.png)
 
 ### 发起授权
 
