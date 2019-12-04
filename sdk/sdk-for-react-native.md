@@ -30,9 +30,11 @@ Authing 支持 React Native 移动端开发移动端，使得开发者可以快�
 
 ### 安装
 
+> 注：authing-rn-sdk 的 npm 包名称为 @authing/rn
+
 ```text
 yarn add react-native-gesture-handler react-native-webview
-yarn add authing-rn-sdk
+yarn add @authing/rn
 ```
 
 如果是 IOS，需要执行：
@@ -58,7 +60,7 @@ cd ios && pod install
 > 如果你对 Authing 用户池的概念不是很了解，可以先阅读基础概念文档。用户池 ID 可从 Authing 控制台中获取。
 
 ```javascript
-import { Guard } from "authing-rn-sdk"
+import { Guard } from "@authing/rn"
 ```
 
 ```javascript
@@ -82,7 +84,7 @@ import {
   SafeAreaView,
   StatusBar,
 } from 'react-native';
-import { Guard } from "authing-rn-sdk"
+import { Guard } from "@authing/rn"
 
 const App = () => {
   const userPoolId = "5dd77e6efa26f000d18101ca"
