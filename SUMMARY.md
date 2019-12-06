@@ -10,6 +10,7 @@
 * [实现单点登录](quickstart/implement-sso-with-authing.md)
 * [控制台概览](quickstart/dashboard.md)
 * [部署模型](quickstart/deployment.md)
+* [最佳开发实践](quickstart/best-practise.md)
 
 ## 进阶指南 <a id="advanced"></a>
 
@@ -20,7 +21,6 @@
   * [JWT Token 释义及使用](advanced/authentication/jwt-token.md)
   * [验证 JWT Token](advanced/authentication/verify-jwt-token.md)
 * [配置用户权限](advanced/roles.md)
-* [最佳开发实践](advanced/best-practise.md)
 * [接入小程序扫码登录](advanced/wxapp-qrcode/README.md)
   * [接入私有化小程序](advanced/wxapp-qrcode/private-wxapp.md)
 * [接入社会化登录](advanced/social-login/README.md)

@@ -179,7 +179,7 @@ $ http-server
 
 ### 运行效果
 
-最初，我们没有登录，因此，点击 trackSession 按钮获取到的登录状态为空。
+首先点击 trackSession 按钮，获取到的登录状态为空，因为我们还未登录。
 
 ![](../.gitbook/assets/image%20%2898%29.png)
 

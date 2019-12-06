@@ -7,7 +7,7 @@ description: 实现第一个基于 Authing 的应用。
 ## 应用开发 —— 从 Authing 开始
 
 {% hint style="info" %}
-本文是一个使用 Authing 开发一个任意端应用的指南（本文以 Web 端为例），其中包含在后端验证用户合法性的内容，所以任何开发者都可以阅读本文学习 Authing 的使用方法。
+本文是一个使用 Authing 开发一个任意端应用的指南（本文以 Web 端为例），其中包含在后端验证用户合法性的内容，任何开发者都可以阅读本文学习 Authing 的使用方法。
 {% endhint %}
 
 {% hint style="success" %}
