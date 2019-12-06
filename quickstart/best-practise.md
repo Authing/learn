@@ -32,7 +32,9 @@
 若你使用了 OIDC 流程，建议在后端验证 JWT Token 的合法性（避免 OIDC 密钥泄漏）。
 {% endhint %}
 
+## 在后端将 Authing 用户 ID 与业务数据做连接
 
+使用 Authing 后不用建立单独的用户表，若你想拓展用户字段，建议将 Authing 用户 ID 与拓展的用户字段连接，若有其他业务数据，请将 Authing 用户 ID 与业务数据做连接。
 
-
+Authing 的用户 ID 在返回结果中的字段名称为「\_id」。
 
