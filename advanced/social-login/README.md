@@ -4,6 +4,10 @@ description: 使用微信、Github 等社会化登录。
 
 # 接入社会化登录
 
+{% hint style="info" %}
+如果你使用了 Authing 的二级域名处理用户认证，请参考：在云上配置社会化登录。
+{% endhint %}
+
 社会化登录指使用微信、Github 等互联网服务登录自己的服务，Authing 目前支持 Github 登录和微信 PC 网页版扫码登录。
 
 {% hint style="info" %}
