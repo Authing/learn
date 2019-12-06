@@ -198,11 +198,13 @@ authing.startWXAppScaning({
 
 ## 使用 Guard 初始化小程序扫码登录
 
-Guard 是 Authing 提供的快速生成登录表单的 SDK，**若开发者在后台开启了小程序扫码登录，那么 Guard 就会自动生成小程序扫码登录的界面**，你可以[点击此处体验 Guard](https://sample.authing.cn/)。
+Guard 是 Authing 提供的快速生成登录表单的 SDK，**若开发者在后台开启了小程序扫码登录，那么 Guard 就会自动生成小程序扫码登录的界面，不需要再编写代码**，你可以[点击此处体验 Guard](https://sample.authing.cn/)。
 
 Guard 的使用方法请参考：
 
 {% page-ref page="../../sdk/guard/" %}
+
+{% page-ref page="../../sdk/guard-for-mobile/" %}
 
 ## 调用 HTTP API 接入小程序扫码认证
 
