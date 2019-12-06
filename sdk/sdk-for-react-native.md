@@ -250,5 +250,28 @@ Guard 支持高度自定义，可以通过 options 参数传入，如：
 />
 ```
 
-完整的参数请参考：[Guard 官方文档](https://github.com/Authing/Guard#ui-%E5%AE%9A%E5%88%B6)。
+#### 加入自定义 CSS
+
+authing-rn-sdk 还支持通过 `options.css` 传入自定义 CSS 样式，这使得开发者可以高度自定义表单样式。如果指定了 `options.css`，会在 DOM 的 head 中插入一个 `<style type="text/css"></style>` 节点。 示例：
+
+```javascript
+const css = `
+body {
+    background: #6699 !important;
+} 
+`
+<Guard
+  userPoolId={userPoolId}
+  options={{
+    css,
+  }}
+  onLogin={onLogin}
+/>
+```
+
+效果如图所示：
+
+![authing-rn-sdk &#x793A;&#x4F8B;](http://lcjim-img.oss-cn-beijing.aliyuncs.com/2019-12-06-100834.png)
+
+其他完整的参数请参考：[Guard 官方文档](https://github.com/Authing/Guard#ui-%E5%AE%9A%E5%88%B6)。
 
