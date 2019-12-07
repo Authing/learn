@@ -558,6 +558,14 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](../../advanced/ldap.md)�
 
 ## 修改用户资料 <a id="&#x4FEE;&#x6539;&#x7528;&#x6237;&#x8BBE;&#x7F6E;"></a>
 
+{% hint style="info" %}
+此接口不能用来直接修改手机号和邮箱！
+
+修改手机号请使用  changePhone 接口。
+
+修改邮箱请使用 changeEmail 接口。
+{% endhint %}
+
 **Authing.update\(options\)**
 
 此接口可以用来修改密码、昵称、头像等各种用户信息，调用前需要先调用登录函数，以用户身份登录，传入的用户 id 必须与登录用户的 id 一致。
@@ -565,12 +573,9 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](../../advanced/ldap.md)�
 * **参数:**
   * `{Object} options`
     * \_id `{String} 必填`
-    * email `{String}，选填`
-    * emailVerified: `{Boolean}，选填，邮箱是否经过验证`
     * username: `{String}，选填`
     * nickname: `{String}，选填`
     * company: `{String}，选填`
-    * phone: `{String}，选填`
     * oauth: `{String}，选填，oauth 信息`
     * photo: `{String || file object}，选填，用户头像`
     * browser: `{String}，选填，用户注册时所用的浏览器`
@@ -630,6 +635,164 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](../../advanced/ldap.md)�
         }
      }
     ```
+
+## 修改邮箱
+
+如果用户已经绑定了邮箱，默认情况下，需要同时验证原有邮箱（目前账号绑定的邮箱）和当前邮箱（将要绑定的邮箱）。也就是说，用户 A 当前绑定的邮箱为 123456@qq.com，想修改为 1234567@qq.com，那么就需要同时验证这两个邮箱。
+
+开发者也可以选择不开启 “验证原有邮箱“ ，可以在 [Authing 控制台](https://authing.cn/dashboard) 的 **基础配置** - **基础设置** 页面的**安全设置**模块进行关闭。如下图所示：
+
+![](../../.gitbook/assets/image%20%2852%29.png)
+
+> 验证码通过的 sendChangeEmailVerifyCode 接口发送。
+
+**Authing.updateEmail\(options\)**
+
+* 参数：
+  * {Object} options
+    * email : 当前邮箱，必填。
+    * emailCode: 当前邮箱验证码，必填。
+    * oldEmail：原有邮箱，选填。
+    * oldEmailCode: 原有邮箱验证码，选填。
+* 使用方法
+
+```javascript
+(async function() {
+  const authing = new Authing({
+    userPoolId: 'your_userpool_id'
+  });
+  // 以用户身份登录
+  const login = await authing.login({
+    email: 'test@test.com',
+    password: '123456'
+  })
+  await authing.updateEmail({
+	email: "YOUR_NEW_EMAIL"
+	emailCode: "YOUR_EMAIL_CODE"
+  });
+})();
+```
+
+* 返回数据：最新的用户信息
+
+```javascript
+{
+    "_id": "5a584dcd32e6510001a8f144", 
+    "email": "1968198962@qq.com", 
+    "emailVerified": false, 
+    "username": "1968198962@qq.com", 
+    "nickname": "", 
+    "company": "", 
+    "photo": "http://oxacbp94f.bkt.clouddn.com/user-avatars/Fqy_de1Jj5TmngEFiiY1-RsCCDcO", 
+    "browser": "", 
+    "registerInClient": "59f86b4832eb28071bdd9214", 
+    "registerMethod": "default:username-password", 
+    "oauth": "", 
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiMTk2ODE5ODk2MkBxcS5jb20iLCJpZCI6IjVhNTg0ZGNkMzJlNjUxMDAwMWE4ZjE0NCJ9LCJpYXQiOjE1MTcwMzI1MjV9.Ah0Oii741L_wJHhiE5KtWDgRU1Q3x_fNZBNNM5MhqDc", 
+    "tokenExpiredAt": "Sat Jan 27 2018 13:55:25 GMT+0800 (CST)", 
+    "loginsCount": 0, 
+    "lastLogin": "Fri Jan 12 2018 13:55:25 GMT+0800 (CST)", 
+    "lastIP": null, 
+    "signedUp": "Fri Jan 12 2018 13:55:25 GMT+0800 (CST)", 
+    "blocked": false, 
+    "isDeleted": false, 
+    "__typename": "ExtendUser"
+}
+```
+
+##  发送修改邮箱验证码
+
+开发者可以在 **消息服务 - 邮件模版** 中设置邮件模板，默认的邮件如下图所示：
+
+![](../../.gitbook/assets/image%20%2825%29.png)
+
+开发者可以自定义 CSS 样式、主题等。
+
+注意：如果请求发送的邮箱已经注册过了，会提示 “该邮箱已绑定，请换一个吧“ 错误。
+
+**Authing.sendChangeEmailVerifyCode\(options\)**
+
+* 参数：
+  * `{Object} options`
+    * `email`
+* 使用方法
+
+```javascript
+(async function() {
+  const authing = new Authing({
+    userPoolId: 'your_userpool_id'
+  });
+  // 以用户身份登录
+  const login = await authing.login({
+    email: 'test@test.com',
+    password: '123456'
+  })
+  await authing.sendChangeEmailVerifyCode({
+	email: "YOUR_NEW_EMAIL"
+  });
+})();
+```
+
+* 返回数据
+
+成功示例
+
+```javascript
+{
+    code: 200,
+    message: "成功"
+}
+```
+
+失败示例：
+
+```javascript
+{
+    code: 2035,
+    message: "该邮箱已绑定，请换一个吧"
+}
+```
+
+## 修改手机号
+
+和修改邮箱一样，默认情况下，如果用户当前已经绑定了手机号，需要同时验证原有手机号（目前账号绑定的手机号）和当前邮箱（将要绑定的手机号）。也就是说，用户 A 当前绑定的手机号为 15888888888，想修改为 15899999999，那么就需要同时验证这两个手机号。
+
+开发者也可以选择不开启 “验证原有手机号“ ，可以在 [Authing 控制台](https://authing.cn/dashboard) 的 **基础配置** - **基础设置** 页面的**安全设置**模块进行关闭。如下图所示：
+
+![](../../.gitbook/assets/image%20%28210%29.png)
+
+> 手机号短信验证码通过  **getVerificationCode** 接口发送**。**
+
+**Authing.updatePhone\(options\)**
+
+* 参数：
+  * {Object} options
+    * phone : 当前手机号，必填。
+    * emailCode: 当前手机号短信验证码，必填。
+    * oldPhone：原有手机号，选填。
+    * oldPhoneCode: 原有手机号短信验证码，选填。
+* 使用方法
+
+```javascript
+(async function() {
+  const authing = new Authing({
+    userPoolId: 'your_userpool_id'
+  });
+  // 以用户身份登录
+  const login = await authing.login({
+    email: 'test@test.com',
+    password: '123456'
+  })
+  await authing.updateEmail({
+	phone: "YOUR_NEW_PHONE_NUMBER"
+	phoneCode: "YOUR_PHONE_CODE",
+  oldPhone: "YOUR_CURRENT_PHONE_NUMBER",
+  oldPhoneCode: "YOUR_CURRENT_PHONE_CODE"
+  });
+})();
+```
+
+* 返回数据：最新的用户信息。
 
 ## 重置密码 <a id="&#x91CD;&#x7F6E;&#x5BC6;&#x7801;"></a>
 
@@ -810,7 +973,7 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](../../advanced/ldap.md)�
 
 该接口返回用户在一个用户池下授权过的 OAuth 和 OIDC 应用列表。
 
-### **Authing.**getAuthedAppList**\(options\)**
+**Authing.getAuthedAppList\(options\)**
 
 * **参数:**
   * `{Object} options`
@@ -908,7 +1071,7 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](../../advanced/ldap.md)�
 
 ## 撤回用户对 SSO 应用的授权 <a id="&#x9A8C;&#x8BC1;&#x90AE;&#x7BB1;"></a>
 
-### **Authing.revokeAuthedApp\(options\)**
+**Authing.revokeAuthedApp\(options\)**
 
 * **参数:**
   * `{Object} options`

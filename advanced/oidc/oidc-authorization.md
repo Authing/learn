@@ -42,7 +42,7 @@ P.S. 文档中出现的 `testapp.authing.cn` 和 `example.authing.cn` 两个域�
 
 打开 `authorization_code` 模式，并选择 code 返回类型。
 
-![](../../.gitbook/assets/image%20%28183%29.png)
+![](../../.gitbook/assets/image%20%28185%29.png)
 
 ### 发起授权
 
@@ -317,7 +317,7 @@ POST https://example.authing.cn/oauth/oidc/token
 
 选择 `implicit` 模式，并在下方选择 `id_token token` 和 `id_token`。
 
-![](../../.gitbook/assets/image%20%28258%29.png)
+![](../../.gitbook/assets/image%20%28261%29.png)
 
 ### 发起授权
 
@@ -357,7 +357,7 @@ https://authing.cn/#id_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1Y2
 
 选择 `authorization_code` 和 `implicit`，并在下方勾选 `code id_token token` 、`code id_token` 、`code token`。
 
-![](../../.gitbook/assets/image%20%28115%29.png)
+![](../../.gitbook/assets/image%20%28117%29.png)
 
 ### 发起授权
 
