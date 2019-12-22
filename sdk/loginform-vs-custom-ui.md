@@ -34,7 +34,7 @@ Guard 是一个可嵌入任意应用程序的登录部件，它提供一组标�
 
 Guard 是一个登录表单，使用户可以使用选定的连接轻松进行身份验证。 Guard 将自动实现用户注册和登录所涉及的大部分细节。 
 
-![](../.gitbook/assets/image%20%28180%29.png)
+![](../.gitbook/assets/image%20%28181%29.png)
 
 使用 Guard，你将实现以下 UI：
 
@@ -45,7 +45,7 @@ Guard 是一个登录表单，使用户可以使用选定的连接轻松进行�
 
 虽然你无法完全改变 Guard 的行为，但你可以配置几个基本选项以控制 Guard 的显示。
 
-![](../.gitbook/assets/image%20%28289%29.png)
+![](../.gitbook/assets/image%20%28291%29.png)
 
 ### 何时使用 Guard
 

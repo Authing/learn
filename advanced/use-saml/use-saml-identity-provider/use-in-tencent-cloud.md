@@ -39,7 +39,7 @@ Authing SAML IdP 为企业用户提供SSO单点登录能力，通过 IdP 身份�
 
 此处需要上传刚才下载的 IdP Metadata XML 文件。提供商名称需要填入刚才在 Authing 自定义 Attribute 中填写的的`<ProviderName>`。
 
-![](../../../.gitbook/assets/image%20%28200%29.png)
+![](../../../.gitbook/assets/image%20%28201%29.png)
 
 上传后点击下一步。
 
@@ -59,7 +59,7 @@ Authing SAML IdP 为企业用户提供SSO单点登录能力，通过 IdP 身份�
 
 在角色权限配置页面选择授予此身份提供商的权限，这里选择 Administrator 权限，即全权访问。
 
-![&#x89D2;&#x8272;&#x7B56;&#x7565;](../../../.gitbook/assets/image%20%28155%29.png)
+![&#x89D2;&#x8272;&#x7B56;&#x7565;](../../../.gitbook/assets/image%20%28156%29.png)
 
 点击「下一步」。
 
