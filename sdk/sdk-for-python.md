@@ -152,6 +152,31 @@ usersList = authing.list(page=1, count=10)
 result = authing.checkLoginStatus('TOKEN')
 ```
 
+### 更改用户邮箱
+
+#### 发送邮箱验证码
+
+```python
+authing.sendChangeEmailVerifyCode("EMAIL")
+```
+
+#### 执行邮箱更换
+
+```text
+result = authing.updateEmail(options={
+    'email': 'EMAIL',
+    'emailCode': 'CODE'
+    }
+)
+```
+
+其中 \`options\` 的参数为
+
+* email 新邮箱 `{String} 必填`
+* emailCode 邮箱验证码 `{String} 必填`
+* oldEmail 原邮箱 `{String}，选填`
+* oldEmailCode 原邮箱验证码 `{String}，选填`
+
 ### 修改用户资料
 
 ```python

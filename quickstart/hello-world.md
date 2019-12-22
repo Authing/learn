@@ -102,7 +102,8 @@ description: 实现第一个基于 Authing 的应用。
 [Guard](https://github.com/Authing/Guard) 库可以帮助我们快速生成用来验证用户身份的表单，你只需要添加此库的 CDN 就可以使用：
 
 ```markup
-<script src="https://cdn.jsdelivr.net/npm/@authing/guard/dist/Guard.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@authing/guard@1.9.3/dist/Guard.umd.min.js
+"></script>
 ```
 
 将脚本文件放到入口脚本之前即可。
