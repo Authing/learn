@@ -24,14 +24,14 @@ description: >-
 
 如果你还没有账号，请[点击这里注册 Authing 账号](https://authing.cn/login)，注册完成后请根据提示完成引导。
 
-![](../.gitbook/assets/image%20%28316%29.png)
+![](../.gitbook/assets/image%20%28317%29.png)
 
-![](../.gitbook/assets/image%20%28262%29.png)
+![](../.gitbook/assets/image%20%28296%29.png)
 
 ## 创建一个授权应用
 
 {% hint style="info" %}
-若你是首次注册 Authing，可略过此步骤。
+若你是首次注册 Authing，可略过此步骤，首次注册时已自动完成此步骤。
 {% endhint %}
 
 选择**第三方登录** -&gt; **OIDC 应用**选项卡，点击「创建 OIDC 应用」按钮创建应用。

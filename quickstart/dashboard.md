@@ -169,7 +169,7 @@ LDAP 是轻量目录访问协议，英文全称是 Lightweight Directory Access 
 
 {% page-ref page="../advanced/ldap.md" %}
 
-![](../.gitbook/assets/image%20%28306%29.png)
+![](../.gitbook/assets/image%20%28307%29.png)
 
 ## 设置
 
@@ -233,7 +233,7 @@ LDAP 是轻量目录访问协议，英文全称是 Lightweight Directory Access 
 
 若你有私有部署的需求可点击「联系我们」与我们进行接触。
 
-![](../.gitbook/assets/image%20%28298%29.png)
+![](../.gitbook/assets/image%20%28299%29.png)
 
 
 

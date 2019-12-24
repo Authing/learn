@@ -100,7 +100,7 @@ GET https://<domain>.authing.cn/oauth/saml/sp/<appId>/spinitsso-post
 
 用户可以选择一种方式进行登录。
 
-![&#x7528;&#x6237;&#x8FDB;&#x884C;&#x767B;&#x5F55;](../../.gitbook/assets/image%20%28307%29.png)
+![&#x7528;&#x6237;&#x8FDB;&#x884C;&#x767B;&#x5F55;](../../.gitbook/assets/image%20%28308%29.png)
 
 ![&#x7528;&#x6237;&#x786E;&#x6743;](../../.gitbook/assets/image%20%28129%29.png)
 
