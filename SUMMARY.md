@@ -9,7 +9,7 @@
 * [基础概念](quickstart/basic.md)
 * [实现单点登录](quickstart/implement-sso-with-authing.md)
 * [控制台概览](quickstart/dashboard.md)
-* [部署模型](quickstart/deployment.md)
+* [部署模型和价格](quickstart/deployment.md)
 * [最佳开发实践](quickstart/best-practise.md)
 
 ## 进阶指南 <a id="advanced"></a>
