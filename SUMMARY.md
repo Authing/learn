@@ -24,6 +24,7 @@
 * [接入小程序扫码登录](advanced/wxapp-qrcode/README.md)
   * [接入私有化小程序](advanced/wxapp-qrcode/private-wxapp.md)
 * [接入社会化登录](advanced/social-login.md)
+* [使用单点登录](advanced/shi-yong-dan-dian-deng-lu.md)
 * [接入 OAuth 2.0](advanced/oauth2/README.md)
   * [创建 OAuth 应用](advanced/oauth2/create-oauth2.md)
   * [使用 OAuth 授权](advanced/oauth2/oauth-authorization.md)
