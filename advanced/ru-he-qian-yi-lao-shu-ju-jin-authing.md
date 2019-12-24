@@ -54,8 +54,8 @@ const fs = require("fs");
 const path = require("path");
 
 const Authing = require("authing-js-sdk");
-const secret = "1caa5332db050488028670a9293501ac";
-const clientId = "59f86b4832eb28071bdd9214";
+const secret = "xxxxxxxxxxxxxxxxxxx";
+const clientId = "xxxxxxxxxxxxxxxxxxx";
 
 // 如果文件较大建议分批次读入
 // 请将用户信息与本文件保存在同一个目录，文件内容为用户数据的数组 JSON，一个元素为一个用户的信息对象
