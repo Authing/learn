@@ -50,7 +50,7 @@
     * [与 Auth0 SAML IdP 对接](advanced/use-saml/use-saml-service-provider/use-with-auth0.md)
     * [与 SSOCircle SAML IdP 对接](advanced/use-saml/use-saml-service-provider/use-with-ssocircle.md)
 * [使用 Webhook](advanced/use-webhook.md)
-* [如何迁移老数据进 Authing](advanced/ru-he-qian-yi-lao-shu-ju-jin-authing.md)
+* [迁移老数据进 Authing](advanced/ru-he-qian-yi-lao-shu-ju-jin-authing.md)
 * [错误代码](advanced/error-code.md)
 
 ## 开发资源 <a id="sdk"></a>
