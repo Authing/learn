@@ -91,7 +91,7 @@ description: >-
   let auth = new AuthingSSO({
     appId: "YOUR_OIDC_APP_ID",
     appType: "oidc",
-    appDomain: "OIDC_APP_DOMAIN.authing.cn"
+    appDomain: "YOUR_OIDC_APP_DOMAIN.authing.cn"
   });
 </script>
 ```
@@ -141,7 +141,7 @@ logout.onclick = async function() {
       let auth = new AuthingSSO({
         appId: "YOUR_OIDC_APP_ID",
         appType: "oidc",
-        appDomain: "OIDC_APP_DOMAIN.authing.cn"
+        appDomain: "YOUR_OIDC_APP_DOMAIN.authing.cn"
       });
       let login = document.getElementById("btn-login");
       let trackSession = document.getElementById("btn-track-session");
@@ -205,11 +205,11 @@ $ http-server
 
 ![](../.gitbook/assets/image%20%28131%29.png)
 
-## 用户自行修改资料
+## 访问用户个人中心页面
 
-在 SSO 应用的用户认证页面，用户可以修改自己的资料。
+在 SSO 应用中，有独立的用户中心页面，用户可以修改自己的资料。
 
-用户可以访问以下链接，进入个人资料修改页面：
+你的终端用户可以访问以下链接，进入个人资料修改页面：
 
 ```text
 https://<appDomain>.authing.cn/login/profile
