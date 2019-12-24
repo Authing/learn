@@ -7,7 +7,7 @@ description: 实现第一个基于 Authing 的应用。
 ## 应用开发 —— 从 Authing 开始
 
 {% hint style="info" %}
-本文是一个使用 Authing 开发一个任意端应用的指南（本文以 Web 端为例），其中包含在后端验证用户合法性的内容，任何开发者都可以阅读本文学习 Authing 的使用方法。
+本文是一个使用 Authing 开发应用的指南（本文以 Web 端为例），其中包含在后端验证用户合法性的内容，任何开发者都可以阅读本文学习 Authing 的使用方法。
 {% endhint %}
 
 {% hint style="success" %}
@@ -276,6 +276,10 @@ form.on('authing-load', async function(authing) {
 3. [Guard 完整事件列表](https://github.com/Authing/Guard#onevent-callback)
 
 ## 接下来你可能还需要
+
+ 使用 Authing 实现单点登录：
+
+{% page-ref page="implement-sso-with-authing.md" %}
 
  学习 Authing 的基础知识以及我们会用到的专业术语：
 

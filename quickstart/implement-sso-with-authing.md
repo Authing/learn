@@ -1,7 +1,7 @@
 ---
 description: >-
-  单点登录（Single Sign On），简称为SSO，是目前比较流行的企业业务整合的解决方案之一。
-  SSO的定义是在多个应用系统中，用户只需要登录一次就可以访问所有相互信任的应用系统。
+  单点登录（Single Sign On），简称为 SSO，是目前比较流行的企业业务整合的解决方案之一。 SSO
+  的定义是在多个应用系统中，用户只需要登录一次就可以访问所有相互信任的应用系统。
 ---
 
 # 实现单点登录
@@ -228,6 +228,10 @@ Authing 内部涉及到三种 token，建议先[了解它们的用途和区别](
 {% page-ref page="../advanced/authentication/verify-jwt-token.md" %}
 
 ## 接下来你可能还需要
+
+学习 Authing 的基础知识以及我们会用到的专业术语：
+
+{% page-ref page="basic.md" %}
 
 控制台是你管理所有 Authing 资源的地方，了解 Authing 控制台各模块包含的内容和你可以在控制台中做的事情：
 
