@@ -42,7 +42,7 @@ LDAP 是轻量目录访问协议，英文全称是 Lightweight Directory Access 
 
 连通性测试可以帮助你检查参数是否填写正确了，如果你填入了「测试配置」，那么点击页面上的「连通性测试」应该可以看到如下结果：
 
-![](../.gitbook/assets/image%20%28317%29.png)
+![](../.gitbook/assets/image%20%28318%29.png)
 
 你可以用这个测试来测试不同的 `Base DN` 和`密码`。
 

@@ -24,7 +24,7 @@ Authing SAML Identity Provider 为企业提供了单点登录能力。在阿里�
 
 下方提示的「SAML服务提供方元数据URL」右侧，点击链接，下载 SAML SP Metadata，并上传。
 
-![&#x4E0B;&#x8F7D;&#x963F;&#x91CC;&#x4E91;&#x7684; SAML &#x5143;&#x6570;&#x636E;&#x6587;&#x6863;](../../../.gitbook/assets/image%20%28309%29.png)
+![&#x4E0B;&#x8F7D;&#x963F;&#x91CC;&#x4E91;&#x7684; SAML &#x5143;&#x6570;&#x636E;&#x6587;&#x6863;](../../../.gitbook/assets/image%20%28310%29.png)
 
 ![&#x8F93;&#x5165;&#x963F;&#x91CC;&#x4E91;&#x7684; ACS &#x5E76;&#x4E0A;&#x4F20;&#x963F;&#x91CC;&#x4E91;&#x7684; SAML Metadata](../../../.gitbook/assets/image%20%28276%29.png)
 

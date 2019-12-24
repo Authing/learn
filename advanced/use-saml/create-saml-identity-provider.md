@@ -170,7 +170,7 @@ IdP 可以对 SAML Response 进行加密。打开此开关后，IdP 会将 SAML 
 
 点击确定，会显示本 IdP 的一些使用信息。
 
-![&#x4F7F;&#x7528;&#x65B9;&#x6CD5;](../../.gitbook/assets/image%20%28324%29.png)
+![&#x4F7F;&#x7528;&#x65B9;&#x6CD5;](../../.gitbook/assets/image%20%28325%29.png)
 
 到此完成了 SAML Identity Provider 的创建。
 

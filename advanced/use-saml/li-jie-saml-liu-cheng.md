@@ -16,7 +16,7 @@ IdP：身份认证提供方
 
 ## 发起 SAML 登录到登录成功的整个过程
 
-![SAML &#x6D41;&#x7A0B;](../../.gitbook/assets/image%20%28300%29.png)
+![SAML &#x6D41;&#x7A0B;](../../.gitbook/assets/image%20%28301%29.png)
 
 1. 用户试图登录 SP 提供的应用。
 2. SP 生成 SAML Request，通过浏览器重定向，向 IdP 发送 SAML Request。
