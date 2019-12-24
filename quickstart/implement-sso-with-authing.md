@@ -22,13 +22,17 @@ description: >-
 
 ## 注册一个 Authing 账号
 
-如果你还没有账号，请[点击这里注册 Authing 账号](https://authing.cn/login)，注册完成后请[进入控制台](https://authing.cn/dashboard)并创建一个用户池。
+如果你还没有账号，请[点击这里注册 Authing 账号](https://authing.cn/login)，注册完成后请根据提示完成引导。
 
-![&#x521B;&#x5EFA;&#x7528;&#x6237;&#x6C60;](../.gitbook/assets/image%20%2872%29.png)
+![](../.gitbook/assets/image%20%28316%29.png)
 
-![&#x9009;&#x62E9;&#x5E94;&#x7528;&#x7C7B;&#x578B;](../.gitbook/assets/image%20%2858%29.png)
+![](../.gitbook/assets/image%20%28262%29.png)
 
 ## 创建一个授权应用
+
+{% hint style="info" %}
+若你是首次注册 Authing，可略过此步骤。
+{% endhint %}
 
 选择**第三方登录** -&gt; **OIDC 应用**选项卡，点击「创建 OIDC 应用」按钮创建应用。
 

@@ -317,7 +317,7 @@ POST https://example.authing.cn/oauth/oidc/token
 
 选择 `implicit` 模式，并在下方选择 `id_token token` 和 `id_token`。
 
-![](../../.gitbook/assets/image%20%28263%29.png)
+![](../../.gitbook/assets/image%20%28264%29.png)
 
 ### 发起授权
 
