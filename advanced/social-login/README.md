@@ -8,7 +8,7 @@ description: 使用微信、Github 等社会化登录。
 如果你使用了 Authing 的二级域名处理用户认证，请参考：在云上配置社会化登录。
 {% endhint %}
 
-社会化登录指使用微信、Github 等互联网服务登录自己的服务，Authing 目前支持 Github 登录和微信 PC 网页版扫码登录。
+社会化登录指使用微信、Github 等互联网服务登录自己的服务，Authing 目前支持 **Github 登录、微信 PC 网页版扫码登录、微信移动网页登录、小程序登录、支付宝登录、钉钉登录、QQ 登录和微博登录**。
 
 {% hint style="info" %}
 本章节将以接入 Github 为例，演示如何使用 Authing 快速接入社会化登录，其他社会化登录同理。
@@ -48,7 +48,7 @@ description: 使用微信、Github 等社会化登录。
 
 | Client ID | Client Secret | Redirect |
 | :--- | :--- | :--- |
-| 在 OAuth 平台上申请的 APP ID 或 Client ID | OAuth 平台提供的 Client Secret 或 App Secret | 成功或失败后的回调 URL（你的业务地址） |
+| 在 OAuth 平台上申请的 APP ID 或 Client ID | OAuth 平台提供的 Client Secret 或 App Secret | 成功或失败后的回调 URL（你的业务地址）。如果你需要在 OIDC 或 OAuth 应用中配置社会化登录，此处地址可填写为任意值，如：\#。 |
 
 ![](../../.gitbook/assets/image%20%28230%29.png)
 
