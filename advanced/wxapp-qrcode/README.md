@@ -37,11 +37,26 @@ description: 扫描小程序二维码并使用小程序「小登录」进行认�
 
 相关参数解释如下：
 
-| Client ID | Client Secret | Redirect |
-| :--- | :--- | :--- |
-| 小程序的 App ID | 小程序的 App Secret | 成功或失败后的回调 URL（你的业务地址） |
-
-在弹出框中依次填入小程序的 AppID、App Secret 和回调地址并点击「确定」即可完成配置。
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Client ID</th>
+      <th style="text-align:left">Client Secret</th>
+      <th style="text-align:left">Redirect</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">&#x5C0F;&#x7A0B;&#x5E8F;&#x7684; App ID</td>
+      <td style="text-align:left">&#x5C0F;&#x7A0B;&#x5E8F;&#x7684; App Secret</td>
+      <td style="text-align:left">
+        <p>&#x6210;&#x529F;&#x6216;&#x5931;&#x8D25;&#x540E;&#x7684;&#x56DE;&#x8C03;
+          URL&#xFF0C;&#x4F60;&#x7684;&#x4E1A;&#x52A1;&#x5730;&#x5740;&#x3002;</p>
+        <p>&#x8FD9;&#x662F;&#x5FC5;&#x586B;&#x9009;&#x9879;&#xFF0C;&#x82E5;&#x4E0D;&#x586B;&#x5199;&#xFF0C;&#x4F1A;&#x5BFC;&#x81F4;&#x65E0;&#x6CD5;&#x767B;&#x5F55;&#xFF0C;&#x82E5;&#x4F60;&#x8FD8;&#x6CA1;&#x6709;&#x56DE;&#x8C03;&#x5730;&#x5740;&#xFF0C;&#x53EF;&#x4EE5;&#x586B;&#x5199;&#x300C;#&#x300D;&#x53F7;</p>
+      </td>
+    </tr>
+  </tbody>
+</table>在弹出框中依次填入小程序的 AppID、App Secret 和回调地址并点击「确定」即可完成配置。
 
 #### 我该选择哪种配置方式？
 
