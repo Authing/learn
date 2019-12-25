@@ -19,7 +19,7 @@
 
 ## 如何验证 JWT Token 合法性？
 
-{% page-ref page="../advanced/verify-jwt-token.md" %}
+{% page-ref page="../advanced/authentication/verify-jwt-token.md" %}
 
 ## 如何验证 OIDC 流程中的 id\_token 合法性？
 

@@ -6,6 +6,15 @@
 2. ​[使用 OIDC 应用的密钥（secret）验证 Token](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token#oidc-secret-token)​
 3. ​[通过 OIDC 应用或 OAuth 应用的在线验证接口验证](https://app.gitbook.com/@authing/s/authing/~/drafts/-Lww9JZHm0tazuadGyu5/advanced/verify-jwt-token#zai-xian-yan-zheng/@merged)​
 
+请根据以下信息选择验证 Token 的方式：
+
+1. 如果你直接调用了登录方法（Login），这时由 Authing 签发 Token，那么请使用第一种方式验证；
+2. 如果你使用了 OIDC 流程，那么请使用第二种方式验证 OIDC 签发的 Token；
+3. 如果你使用了 OIDC 流程接入了其他 SaaS，该 SaaS 想要通过 API 验证 Token，请使用第三种方法的 OIDC 部分；
+4. 如果你使用了 OIDC 流程，同时想让服务期变得无状态，请使用第三种方法的 OIDC 部分；
+5. 如果你使用了 OAuth 2.0 流程，那么请使用第三种方式的 OAuth 部分；
+6. **注意，不论是 OIDC 还是 OAuth 流程，Authing 都会签发一个由 Authing 签发的 Token，该 Token 也可以用来验证用户的登录状态，该 Token 保存在登录成功后返回的用户信息中，字段名称为 Token。**
+
 ## 发送 Token 给 Authing 服务器验证 <a id="fa-song-token-gei-authing-fu-wu-qi-yan-zheng"></a>
 
 {% hint style="info" %}

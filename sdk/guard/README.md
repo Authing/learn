@@ -73,7 +73,7 @@ form.on('login', (userInfo) => {
 
 ### 4. 验证 JWT Token 的合法性以及是否过期
 
-{% page-ref page="../../advanced/verify-jwt-token.md" %}
+{% page-ref page="../../advanced/authentication/verify-jwt-token.md" %}
 
 ## 使用小程序扫码认证
 
