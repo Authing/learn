@@ -221,7 +221,7 @@ https://<appDomain>.authing.cn/login/profile
 
 Authing 内部涉及到三种 token，建议先[了解它们的用途和区别](https://docs.authing.cn/authing/advanced/oidc/oidc-params#idtokenaccesstoken-he-token-zhi-jian-de-qu-bie)，然后你可能需要了解如何验证它们的合法性。
 
-{% page-ref page="../advanced/authentication/verify-jwt-token.md" %}
+{% page-ref page="../advanced/verify-jwt-token.md" %}
 
 ## 接下来你可能还需要
 

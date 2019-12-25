@@ -9,50 +9,71 @@ JWT Token 是用户登录后的唯一凭证，验证 Token 有三种方法：
 ## 发送 Token 给 Authing 服务器验证
 
 {% hint style="info" %}
-此方式适用于未[使用 OIDC](https://learn.authing.cn/authing/advanced/oidc) 流程的应用进行验证，若你使用了 OIDC，请参考：[使用 OIDC 应用的密钥验证 Token](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token#oidc-secret-token)。
+此方式适用于验证**扫码登录**或**直接调用登录接口**后获取到的 Token。
 {% endhint %}
 
-Authing 使用 [GraphQL](http://graphql.cn/) 进行数据交换，以下以 JavaScript 为例，演示如何发送 Token 给 Authing 服务器：
+{% api-method method="get" host="https://users.authing.cn" path="/authing/token" %}
+{% api-method-summary %}
+ 验证 Authing 签发的 Token
+{% endapi-method-summary %}
+
+{% api-method-description %}
+ 此方式适用于验证扫码登录或者直接调用登录接口后获取到的 Token。
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-path-parameters %}
+{% api-method-parameter name="access\_token" type="string" required=true %}
+
+{% endapi-method-parameter %}
+{% endapi-method-path-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```
+{
+	"status": true,
+	"message": "已登录",
+	"code": 200,
+	"token": {
+		"data": {
+			"email": "YOUR_EMAIL@domain.com",
+			"id": "YOUR_USER_ID",
+			"clientId": "YOUR_UESR_POOL_ID"
+		},
+		"iat": "Token 签发时间"
+		"exp": "Token 过期时间"
+	}
+}
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+### 返回结果示例
 
 ```javascript
-import axios from 'axios'
-
-axios({
-  method: 'POST',
-  operationName: 'checkLoginStatus',
-  query: `query checkLoginStatus($token: String) {
-    checkLoginStatus(token: $token) {
-      status
-      code
-      message
-      token {
-        data {
-          email
-          id
-          clientId
-          unionid
-        }
-        iat
-        exp
-      }
-    }
-  }`,
-  variables: {
-    token: 'USER_JWT_TOKEN'
-  },
-}).then((res) => {
-  const d = res.data;
-  if (d.errors) {
-    throw d.errors[0];
-  }
-  return d.data.checkLoginStatus;
-});
-.then((loginStatus) => {
-  // handle login status
-})
-.catch((error) => {
-  // handle error
-});
+{
+	"status": true,
+	"message": "已登录",
+	"code": 200,
+	"token": {
+		"data": {
+			"email": "YOUR_EMAIL@domain.com",
+			"id": "YOUR_USER_ID",
+			"clientId": "YOUR_UESR_POOL_ID"
+		},
+		"iat": "Token 签发时间"
+		"exp": "Token 过期时间"
+	}
+}
 ```
 
 {% hint style="info" %}
@@ -66,99 +87,6 @@ axios({
    2. iat：Token 签发时间；
    3. exp：Token 过期时间；
 {% endhint %}
-
-若你使用了 Web SDK，使用上可以简单一些，如下所示：
-
-```javascript
-import Authing from 'authing-js-sdk'
-
-(async () => {
-    const authing = await new Authing({
-        clientId: 'your_client_id',
-        secret: 'your_client_secret'
-    });
-    
-    
-    const result = await authing.checkLoginStatus('USER_JWT_TOKEN');
-})()
-```
-
-若 Token 合法，则返回数据为：
-
-```javascript
-{
-  status: false,
-  code: 200,
-  message: '已登录',
-  token: {
-    ... // Token 数据
-  }
-}
-```
-
-当 status 为 false 时，有三种情况，分别返回：
-
-```javascript
-{
-  status: false,
-  code: 2020,
-  message: '未登录'
-}
-```
-
-```javascript
-{
-  status: false,
-  code: 2206,
-  message: '登录信息已过期' 
-}
-```
-
-```javascript
-{
-     status: false,
-     code: 2207,
-     message: '登录信息有误'
- }
-```
-
-若你使用的为非 JavaScript 语言，请参考以下链接查看如何发送 GraphQL 请求：
-
-### 各语言使用 GraphQL 的方法
-
-{% embed url="http://graphql.cn/code/\#%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BA%93" %}
-
-### 验证 JWT Token 合法性的 GraphQL
-
-```graphql
-query checkLoginStatus($token: String) {
-    checkLoginStatus(token: $token) {
-      status
-      code
-      message
-      token {
-        data {
-          email
-          id
-          clientId
-          unionid
-        }
-        iat
-        exp
-      }
-    }
-  }
-```
-
-字段解释：
-
-1. status：Token 状态，true 为正常，false 为非法；
-2. code：状态代码，200 正常，非 200 不正常；
-3. message：提示信息；
-4. token：
-   1. data：用户信息，email 为用户邮箱，id 为用户的唯一标识，clientId 为用户池 id，unioind 为用户使用三方登录时用户在三方登录平台的 id；
-   2. iat：Token 签发时间；
-   3. exp：Token 过期时间；
 
 ## 使用 OIDC 应用的密钥验证 Token <a id="oidc-secret-token"></a>
 
@@ -168,9 +96,9 @@ query checkLoginStatus($token: String) {
 
 密钥在控制台中 OIDC 应用的详情中可以获取到，如下图所示：
 
-![](../../.gitbook/assets/image%20%28295%29.png)
+![](../.gitbook/assets/image%20%28295%29.png)
 
-![](../../.gitbook/assets/image%20%2811%29.png)
+![](../.gitbook/assets/image%20%2811%29.png)
 
 以下验证合法性的代码以 Node 为例（需要安装 `jsonwebtoken`）。
 
@@ -196,7 +124,7 @@ try {
 
 如果你对如何在后端处理 OIDC 有困惑，请参考 Github 上的示例代码：[oidc-demo](https://github.com/Authing/oidc-demo)。
 
-## 在线验证
+## 在线验证 OIDC 或 OAuth Token
 
 {% api-method method="get" host="https://oauth.authing.cn" path="/oauth/oidc/validate\_access\_token" %}
 {% api-method-summary %}

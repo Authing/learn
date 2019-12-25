@@ -18,7 +18,7 @@
   * [邮箱 - 密码认证](advanced/authentication/email-password.md)
   * [手机 - 验证码认证](advanced/authentication/phone-code.md)
   * [JWT Token 释义及使用](advanced/authentication/jwt-token.md)
-  * [验证 JWT Token](advanced/authentication/verify-jwt-token.md)
+* [验证 JWT Token](advanced/verify-jwt-token.md)
 * [配置用户权限](advanced/roles.md)
 * [最佳开发实践](advanced/best-practise.md)
 * [接入小程序扫码登录](advanced/wxapp-qrcode/README.md)
