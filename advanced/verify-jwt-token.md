@@ -34,7 +34,7 @@
 {% api-method-request %}
 {% api-method-path-parameters %}
 {% api-method-parameter name="access\_token" type="string" required=true %}
-Token 字符串
+Authing 签发的 Token
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
 {% endapi-method-request %}
