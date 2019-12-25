@@ -57,6 +57,12 @@ JWT Token 是用户登录后的唯一凭证，验证 Token 有三种方法：
 {% endapi-method-spec %}
 {% endapi-method %}
 
+### 请求示例
+
+```javascript
+$ curl https://users.authing.cn/authing/token?access_token=YOUR_TOKEN
+```
+
 ### 返回结果示例
 
 ```javascript
@@ -200,6 +206,12 @@ try {
 {% endapi-method-spec %}
 {% endapi-method %}
 
+### 请求示例
+
+```javascript
+$ curl https://oauth.authing.cn/oauth/oidc/validate_access_token?access_token=YOUR_TOKEN
+```
+
 {% api-method method="get" host="https://oauth.authing.cn" path="/authenticate" %}
 {% api-method-summary %}
 验证 OAuth access\_token 合法性
@@ -269,4 +281,10 @@ OAuth 签发的 access\_token
 {% endapi-method-response %}
 {% endapi-method-spec %}
 {% endapi-method %}
+
+### 请求示例
+
+```javascript
+$ curl https://oauth.authing.cn/authenticate?access_token=YOUR_TOKEN
+```
 
