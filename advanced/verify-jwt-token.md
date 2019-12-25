@@ -1,61 +1,85 @@
 # 验证 JWT Token
 
-JWT Token 是用户登录后的唯一凭证，验证 Token 有三种方法：
+‌JWT Token 是用户登录后的唯一凭证，验证 Token 有三种方法：‌
 
-1. [发送 Token 给 Authing 服务器验证](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token#fa-song-token-gei-authing-fu-wu-qi-yan-zheng)
-2. [使用 OIDC 应用的密钥（secret）验证 Token](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token#oidc-secret-token)
-3. [通过 OIDC 应用或 OAuth 应用的在线验证接口验证](verify-jwt-token.md#zai-xian-yan-zheng)
+1. ​[发送 Token 给 Authing 服务器验证](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token#fa-song-token-gei-authing-fu-wu-qi-yan-zheng)​
+2. ​[使用 OIDC 应用的密钥（secret）验证 Token](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token#oidc-secret-token)​
+3. ​[通过 OIDC 应用或 OAuth 应用的在线验证接口验证](https://app.gitbook.com/@authing/s/authing/~/drafts/-Lww9JZHm0tazuadGyu5/advanced/verify-jwt-token#zai-xian-yan-zheng/@merged)​
 
-## 发送 Token 给 Authing 服务器验证
+## 发送 Token 给 Authing 服务器验证 <a id="fa-song-token-gei-authing-fu-wu-qi-yan-zheng"></a>
 
 {% hint style="info" %}
-此方式适用于未[使用 OIDC](https://learn.authing.cn/authing/advanced/oidc) 流程的应用进行验证，若你使用了 OIDC，请参考：[使用 OIDC 应用的密钥验证 Token](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token#oidc-secret-token)。
+此方式适用于验证**扫码登录**或**直接调用登录接口**后获取到的 Token。
 {% endhint %}
 
-Authing 使用 [GraphQL](http://graphql.cn/) 进行数据交换，以下以 JavaScript 为例，演示如何发送 Token 给 Authing 服务器：
+{% api-method method="get" host="https://users.authing.cn" path="/authing/token" %}
+{% api-method-summary %}
+验证 Authing 签发的 Token
+{% endapi-method-summary %}
 
-```javascript
-import axios from 'axios'
+{% api-method-description %}
+此方式适用于验证扫码登录或者直接调用登录接口后获取到的 Token
+{% endapi-method-description %}
 
-axios({
-  url: "https://users.authing.cn/graphql",
-  method: 'POST',
-  data: {
-    operationName: 'checkLoginStatus',
-    query: `query checkLoginStatus($token: String) {
-          checkLoginStatus(token: $token) {
-            status
-            code
-            message
-            token {
-              data {
-                email
-                id
-                clientId
-                unionid
-              }
-              iat
-              exp
-            }
-          }
-        }`,
-    variables: {
-      token: 'USER_JWT_TOKEN'
-    }
-  },
-}).then((res) => {
-  const d = res.data;
-  if (d.errors) {
-    throw d.errors[0];
-  }
-  return d.data.checkLoginStatus;
-});
-.then((loginStatus) => {
-  // handle login status
-})
-.catch((error) => {
-  // handle error
-});
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-path-parameters %}
+{% api-method-parameter name="access\_token" type="string" required=true %}
+Token 字符串
+{% endapi-method-parameter %}
+{% endapi-method-path-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```
+{
+	"status": true,
+	"message": "已登录",
+	"code": 200,
+	"token": {
+		"data": {
+			"email": "YOUR_EMAIL@domain.com",
+			"id": "YOUR_USER_ID",
+			"clientId": "YOUR_UESR_POOL_ID"
+		},
+		"iat": "Token 签发时间"
+		"exp": "Token 过期时间"
+	}
+}
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+### 请求示例 <a id="qing-qiu-shi-li"></a>
+
+```text
+$ curl https://users.authing.cn/authing/token?access_token=YOUR_TOKEN
+```
+
+### 返回结果示例 <a id="fan-hui-jie-guo-shi-li"></a>
+
+```text
+{
+	"status": true,
+	"message": "已登录",
+	"code": 200,
+	"token": {
+		"data": {
+			"email": "YOUR_EMAIL@domain.com",
+			"id": "YOUR_USER_ID",
+			"clientId": "YOUR_UESR_POOL_ID"
+		},
+		"iat": "Token 签发时间"
+		"exp": "Token 过期时间"
+	}
+}
 ```
 
 {% hint style="info" %}
@@ -69,120 +93,24 @@ axios({
    2. iat：Token 签发时间；
    3. exp：Token 过期时间；
 {% endhint %}
-
-若你使用了 Web SDK，使用上可以简单一些，如下所示：
-
-```javascript
-import Authing from 'authing-js-sdk'
-
-(async () => {
-    const authing = await new Authing({
-        clientId: 'your_client_id',
-        secret: 'your_client_secret'
-    });
-    
-    
-    const result = await authing.checkLoginStatus('USER_JWT_TOKEN');
-})()
-```
-
-若 Token 合法，则返回数据为：
-
-```javascript
-{
-  status: true,
-  code: 200,
-  message: '已登录',
-  token: {
-    ... // Token 数据
-  }
-}
-```
-
-当 status 为 false 时，有三种情况，分别返回：
-
-```javascript
-{
-  status: false,
-  code: 2020,
-  message: '未登录'
-}
-```
-
-```javascript
-{
-  status: false,
-  code: 2206,
-  message: '登录信息已过期' 
-}
-```
-
-```javascript
-{
-     status: false,
-     code: 2207,
-     message: '登录信息有误'
- }
-```
-
-若你使用的为非 JavaScript 语言，请参考以下链接查看如何发送 GraphQL 请求：
-
-### 各语言使用 GraphQL 的方法
-
-{% embed url="http://graphql.cn/code/\#%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BA%93" %}
-
-### 验证 JWT Token 合法性的 GraphQL
-
-```graphql
-query checkLoginStatus($token: String) {
-    checkLoginStatus(token: $token) {
-      status
-      code
-      message
-      token {
-        data {
-          email
-          id
-          clientId
-          unionid
-        }
-        iat
-        exp
-      }
-    }
-  }
-```
-
-字段解释：
-
-1. status：Token 状态，true 为正常，false 为非法；
-2. code：状态代码，200 正常，非 200 不正常；
-3. message：提示信息；
-4. token：
-   1. data：用户信息，email 为用户邮箱，id 为用户的唯一标识，clientId 为用户池 id，unioind 为用户使用三方登录时用户在三方登录平台的 id；
-   2. iat：Token 签发时间；
-   3. exp：Token 过期时间；
 
 ## 使用 OIDC 应用的密钥验证 Token <a id="oidc-secret-token"></a>
 
-{% hint style="info" %}
-如果你使用了 OIDC 流程，请使用此方式验证 Token。
-{% endhint %}
+如果你使用了 OIDC 流程，请使用此方式验证 Token。‌
 
 密钥在控制台中 OIDC 应用的详情中可以获取到，如下图所示：
 
-![](../../.gitbook/assets/image%20%28295%29.png)
+![](https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LdsKjoPVRBStTP-5zXe%2F-LfcdBKEg0tpVpS-elXb%2F-LfcdoIfgAdfNJLFcsaw%2Fimage.png?alt=media&token=bc9b31cc-c564-4183-a3fe-02eb3250ed14)
 
-![](../../.gitbook/assets/image%20%2811%29.png)
+![](https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LdsKjoPVRBStTP-5zXe%2F-LfcdBKEg0tpVpS-elXb%2F-LfcdxzmhiJztbqnynlX%2Fimage.png?alt=media&token=2737009f-d922-4f9d-952c-55b43249f657)
 
 以下验证合法性的代码以 Node 为例（需要安装 `jsonwebtoken`）。
 
-```javascript
-const jwt = require('jsonwebtoken');
-
+```text
+const jwt = require('jsonwebtoken');​
 try {
   let decoded = jwt.verify('JSON Web Token from client', 'your_secret'),
-    expired = (Date.parse(new Date()) / 1000) > decoded.exp
+      expired = (Date.parse(new Date()) / 1000) > decoded.exp
   if (expired) {
     // 过期
   }else {
@@ -194,12 +122,16 @@ try {
 ```
 
 {% hint style="info" %}
-为了避免在客户端暴露 Token，建议将 Token 验证放在服务端执行。
+为了避免在客户端暴露 Token，建议将 Token 验证放在服务端执行。‌
 {% endhint %}
 
-如果你对如何在后端处理 OIDC 有困惑，请参考 Github 上的示例代码：[oidc-demo](https://github.com/Authing/oidc-demo)。
+如果你对如何在后端处理 OIDC 有困惑，请参考 Github 上的示例代码：[oidc-demo](https://github.com/Authing/oidc-demo)。‌
 
-## 在线验证
+## 在线验证 OIDC 或 OAuth Token <a id="zai-xian-yan-zheng-oidc-huo-oauth-token"></a>
+
+### GET验证 OIDC access\_token 或 id\_token 的合法性 <a id="yan-zheng-oidc-accesstoken-huo-idtoken-de-he-fa-xing"></a>
+
+https://oauth.authing.cn/oauth/oidc/validate\_access\_token验证 OIDC 相关 token 合法性的线上接口。RequestResponsePath Parametersaccess\_tokenREQUIREDstring值为 access\_token 或 id\_token‌
 
 {% api-method method="get" host="https://oauth.authing.cn" path="/oauth/oidc/validate\_access\_token" %}
 {% api-method-summary %}
@@ -207,13 +139,13 @@ try {
 {% endapi-method-summary %}
 
 {% api-method-description %}
-验证 OIDC 相关 token 合法性的线上接口。
+
 {% endapi-method-description %}
 
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-path-parameters %}
-{% api-method-parameter name="access\_token" type="string" required=true %}
+{% api-method-parameter name="" type="string" required=false %}
 值为 access\_token 或 id\_token
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
@@ -249,22 +181,28 @@ try {
     "expires_in": 3360,
     "access_type": "offline"
 }
+
+// 错误结果：
 {
     "code": 1920,
     "message": "查找 session 发生错误"
 }
+
 {
     "code": 1921,
     "message": "session 不存在"
 }
+
 {
     "code": 1922,
     message: "token 不合法"
 }
+
 {
     "code": 1923,
     "message": "token 过期"
 }
+
 {
     "code": 1924,
     "message": "app 不存在"
@@ -274,6 +212,12 @@ try {
 {% endapi-method-response %}
 {% endapi-method-spec %}
 {% endapi-method %}
+
+### 请求示例 <a id="qing-qiu-shi-li-1"></a>
+
+```text
+$ curl https://oauth.authing.cn/oauth/oidc/validate_access_token?access_token=YOUR_TOKEN
+```
 
 {% api-method method="get" host="https://oauth.authing.cn" path="/authenticate" %}
 {% api-method-summary %}
@@ -288,7 +232,7 @@ try {
 {% api-method-request %}
 {% api-method-path-parameters %}
 {% api-method-parameter name="access\_token" type="string" required=true %}
-OAuth 签发的 access\_token
+OAuth 签发的 access\_token  
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
 {% endapi-method-request %}
@@ -344,4 +288,10 @@ OAuth 签发的 access\_token
 {% endapi-method-response %}
 {% endapi-method-spec %}
 {% endapi-method %}
+
+### 请求示例 <a id="qing-qiu-shi-li-2"></a>
+
+```text
+$ curl https://oauth.authing.cn/authenticate?access_token=YOUR_TOKEN
+```
 
