@@ -22,6 +22,7 @@ $ npm install authing-js-sdk --save
 初始化代码：
 
 ```javascript
+const Authing = require('authing-js-sdk');
 const auth = new Authing({
 	userPoolId: 'your_userpool_id',
 	secret: 'your_userpool_secret'
