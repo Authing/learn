@@ -21,8 +21,6 @@
   * [JWT Token 释义及使用](advanced/authentication/jwt-token.md)
 * [验证 Token](advanced/verify-jwt-token.md)
 * [配置用户权限](advanced/roles.md)
-* [接入小程序扫码登录](advanced/wxapp-qrcode/README.md)
-  * [接入私有化小程序](advanced/wxapp-qrcode/private-wxapp.md)
 * [接入社会化登录](advanced/social-login/README.md)
   * [接入移动端支付宝登录](advanced/social-login/jie-ru-yi-dong-duan-zhi-fu-bao-deng-lu.md)
   * [接入微信手机网页授权登录](advanced/social-login/wechatmp-login.md)
@@ -52,6 +50,17 @@
 * [使用 Webhook](advanced/use-webhook.md)
 * [迁移老数据进 Authing](advanced/ru-he-qian-yi-lao-shu-ju-jin-authing.md)
 * [错误代码](advanced/error-code.md)
+
+## 扫码登录 <a id="scan-qrcode"></a>
+
+* [小程序扫码登录](scan-qrcode/wxapp-qrcode/README.md)
+  * [接入私有化小程序](scan-qrcode/wxapp-qrcode/private-wxapp.md)
+* [APP 扫码登录](scan-qrcode/app-qrcode/README.md)
+  * [快速接入](scan-qrcode/app-qrcode/quick-start.md)
+  * [Web 端 SDK](scan-qrcode/app-qrcode/web-side-sdk.md)
+  * [完整接口列表](scan-qrcode/app-qrcode/full-api-list.md)
+  * [自定义配置项](scan-qrcode/app-qrcode/customize.md)
+  * [扫码登录原理](scan-qrcode/app-qrcode/how-it-works.md)
 
 ## 开发资源 <a id="sdk"></a>
 

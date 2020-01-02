@@ -19,7 +19,7 @@
 
 ## 如何验证 JWT Token 合法性？
 
-{% page-ref page="../advanced/authentication/verify-jwt-token.md" %}
+{% page-ref page="../advanced/verify-jwt-token.md" %}
 
 ## 如何验证 OIDC 流程中的 id\_token 合法性？
 
@@ -38,11 +38,11 @@ OIDC 流程包含两个 Token：
 验证 OIDC 流程中 Token 所使用的 secret 的获取方式如下图所示：
 {% endhint %}
 
-![](../.gitbook/assets/image%20%28218%29.png)
+![](../.gitbook/assets/image%20%28220%29.png)
 
 ## 如何使用小程序扫码认证？
 
-{% page-ref page="../advanced/wxapp-qrcode/" %}
+{% page-ref page="../scan-qrcode/wxapp-qrcode/" %}
 
 ## 如何接入社会化登录
 

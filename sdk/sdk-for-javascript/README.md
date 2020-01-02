@@ -15,6 +15,12 @@ Github：[https://github.com/Authing/authing.js](https://github.com/Authing/auth
 $ npm install authing-js-sdk --save
 ```
 
+**CDN**
+
+```markup
+<script src="https://cdn.jsdelivr.net/npm/authing-js-sdk/dist/authing-js-sdk-browser.min.js"></script>
+```
+
 ## 初始化
 
 先从 [Authing 控制台](https://authing.cn/dashboard) 中 [获取用户池 ID](../../others/faq.md#ru-he-huo-qu-client-id-he-client-secret)。
@@ -759,7 +765,7 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](../../advanced/ldap.md)�
 
 开发者也可以选择不开启 “验证原有手机号“ ，可以在 [Authing 控制台](https://authing.cn/dashboard) 的 **基础配置** - **基础设置** 页面的**安全设置**模块进行关闭。如下图所示：
 
-![](../../.gitbook/assets/image%20%28211%29.png)
+![](../../.gitbook/assets/image%20%28213%29.png)
 
 > 手机号短信验证码通过  **getVerificationCode** 接口发送**。**
 
@@ -1114,7 +1120,7 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](../../advanced/ldap.md)�
 
 ####  使用方法请参考：
 
-{% page-ref page="../../advanced/wxapp-qrcode/" %}
+{% page-ref page="../../scan-qrcode/wxapp-qrcode/" %}
 
 ## 自定义请求链接
 

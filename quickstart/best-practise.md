@@ -22,7 +22,7 @@
 
 {% page-ref page="../advanced/social-login/" %}
 
-{% page-ref page="../advanced/wxapp-qrcode/" %}
+{% page-ref page="../scan-qrcode/wxapp-qrcode/" %}
 
 ## 在后端验证 JWT Token 的合法性
 

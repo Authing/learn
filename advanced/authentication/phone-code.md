@@ -22,7 +22,7 @@ description: 手机 - 验证码认证让用户能够使用以短信形式发送�
 
 {% page-ref page="email-password.md" %}
 
-{% page-ref page="../wxapp-qrcode/" %}
+{% page-ref page="../../scan-qrcode/wxapp-qrcode/" %}
 
 {% page-ref page="../../sdk/sdk-for-javascript/" %}
 
