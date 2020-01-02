@@ -36,7 +36,7 @@ description: >-
 
 点击按钮后会弹出一个创建表单，如下图所示：
 
-![&#x914D;&#x7F6E; OIDC &#x5E94;&#x7528;](../.gitbook/assets/image%20%28182%29.png)
+![&#x914D;&#x7F6E; OIDC &#x5E94;&#x7528;](../.gitbook/assets/image%20%28183%29.png)
 
 **填写应用名称**，并指定此应用的二级域名（用户将通过此网址进行认证）和回调地址（业务地址），其他参数保留默认，然后点击「确定」。 
 
@@ -181,25 +181,25 @@ $ http-server
 
 最初，我们没有登录，因此，点击 trackSession 按钮获取到的登录状态为空。
 
-![](../.gitbook/assets/image%20%28100%29.png)
+![](../.gitbook/assets/image%20%28101%29.png)
 
 现在我们点击 login 按钮，会跳转到 OIDC 应用的用户认证页面，输入用户名密码进行登录。
 
-![](../.gitbook/assets/image%20%28111%29.png)
+![](../.gitbook/assets/image%20%28112%29.png)
 
 浏览器被重定向到我们之前设置的回调链接。
 
 点击 trackSession 按钮，此时能够获取到该用户的登录状态，包括用户 ID，应用 ID，应用类型，还有此用户的详细信息。
 
-![](../.gitbook/assets/image%20%28260%29.png)
+![](../.gitbook/assets/image%20%28263%29.png)
 
 点击 logout 按钮，输出单点登出成功。
 
-![](../.gitbook/assets/image%20%28160%29.png)
+![](../.gitbook/assets/image%20%28161%29.png)
 
 此时我们再点击 trackSession 按钮，可见登录状态为空，说明用户已经单点登出了。
 
-![](../.gitbook/assets/image%20%28131%29.png)
+![](../.gitbook/assets/image%20%28132%29.png)
 
 ## 用户自行修改资料
 
@@ -215,7 +215,7 @@ https://<appDomain>.authing.cn/login/profile
 
 如果用户未登录，会先要求用户登录再进入个人中心；对于已登录的用户则会直接进入个人中心。
 
-![&#x4E2A;&#x4EBA;&#x4E2D;&#x5FC3;](../.gitbook/assets/image%20%28102%29.png)
+![&#x4E2A;&#x4EBA;&#x4E2D;&#x5FC3;](../.gitbook/assets/image%20%28103%29.png)
 
 ## 检验 token 合法性
 
