@@ -38,90 +38,137 @@ P.S. 文档中出现的 `testapp.authing.cn` 和 `example.authing.cn` 两个域�
 
 这个小节介绍如何使用 code （response\_type 为 code）换取 access\_token（access\_token 可用来换取用户信息）。
 
-### 在控制台配置 OIDC 应用
+### 01 - 在控制台配置 OIDC 应用
 
 打开 `authorization_code` 模式，并选择 code 返回类型。
 
-![](../../.gitbook/assets/image%20%28187%29.png)
+![](../../.gitbook/assets/image%20%28188%29.png)
 
-### 发起授权
+### 02 - 发起登录请求
 
+{% api-method method="get" host="https://" path="oauth.authing.cn/oauth/oidc/auth" %}
+{% api-method-summary %}
+ 发起 OIDC 登录请求
+{% endapi-method-summary %}
+
+{% api-method-description %}
 发起授权需要拼接一个用来授权的 URL，具体参数如下：
+{% endapi-method-description %}
 
-| 参数名 | 意义 |
-| :--- | :--- |
-| client\_id | OIDC 应用的 **app\_id** |
-| redirect\_uri | 在控制台配置的 OIDC 回调 url 其中的一个值 |
-| scope | 需要请求的权限，如果需要获取 unionid 需要包含 unionid，如果需要获取手机号和 email 需要有 phone email，如果需要 refresh\_token 需要包含 offline\_access [参考 scope 表格](http://docs.authing.cn/authing/advanced/oidc/oidc-params#scope-can-shu-dui-ying-de-yong-hu-xin-xi) |
-| response\_type | OIDC 模式，可以为 code, id\_token, id\_token token, code id\_token, code token, code id\_token token [参考 OIDC 规范](https://openid.net/specs/openid-connect-core-1_0.html#AuthorizationExamples) |
-| prompt | 可以为 none，login，consent 或 select\_account，指定 AP 与 End-User 的交互方式，如需 refresh\_token，必须为 consent [参考 OIDC 规范](https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) |
-| state | 一个随机字符串，用于防范 CSRF 攻击，如果 response 中的 state 值和发送请求之前设置的 state 值不同，说明受到攻击 |
-| nonce | 一个随机字符串，用于防范 Replay 攻击 |
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-query-parameters %}
+{% api-method-parameter name="client\_id" type="string" required=true %}
+OIDC 应用的 app\_id
+{% endapi-method-parameter %}
 
-假设你创建了一个域名为 `testapp` 的 OIDC 应用，那么授权网址是：
+{% api-method-parameter name="redirect\_uri" type="string" required=true %}
+在控制台配置的 OIDC 回调 url 其中的一个值
+{% endapi-method-parameter %}
 
-```text
-GET https://testapp.authing.cn/oauth/oidc/auth?client_id=5c9b079883e333d55a101082&redirect_uri=https://www.example.cn/example&scope=openid profile&response_type=code&state=jacket
+{% api-method-parameter name="scope" type="string" required=true %}
+需要请求的权限，如果需要获取 unionid 需要包含 unionid，如果需要获取手机号和 email 需要有 phone email，如果需要 refresh\_token 需要包含 offline\_access 参考 scope 表格
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="response\_type" type="string" required=true %}
+OIDC 模式，可以为 code, id\_token, id\_token token, code id\_token, code token, code id\_token token 参考 OIDC 规范
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="prompt" type="string" required=true %}
+可以为 none，login，consent 或 select\_account，指定 AP 与 End-User 的交互方式，如需 refresh\_token，必须为 consent 参考 OIDC 规范
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="state" type="string" required=true %}
+一个随机字符串，用于防范 CSRF 攻击，如果 response 中的 state 值和发送请求之前设置的 state 值不同，说明受到攻击
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="nonce" type="string" required=true %}
+ 一个随机字符串，用于防范 Replay 攻击
+{% endapi-method-parameter %}
+{% endapi-method-query-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
 ```
 
-### 用户登录
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+请求示例：
+
+```text
+https://oauth.authing.cn/oauth/oidc/auth?client_id=5c9b079883e333d55a101082&redirect_uri=https://www.example.cn/example&scope=openid profile&response_type=code&state=jacket
+```
+
+### 03 - 用户登录
 
 上一个请求验证通过后会重定向到 Authing 提供的登录框页面，此时用户需要输入他的用户名和密码进行登录。
 
+> 你可以前往这个网址体验：https://sample-sso.authing.cn/login
+
+![](../../.gitbook/assets/image%20%2846%29.png)
+
+
+
 此时 Authing 会验证此用户是否合法，如果合法则会跳到用户配置好的 redirect\_uri 中并附带 code 参数。
 
-### 使用 code 换取 token
+### 04 - 使用 code 换取 token
 
-如果你在控制台配置 OIDC 时，换取 token 方式设置的为 `client_secret_post`，那么按照下面这种方法换取 token：
+{% api-method method="post" host="https://" path="oauth.authing.cn/oauth/oidc/token" %}
+{% api-method-summary %}
+client\_secret\_post 方式换取 token
+{% endapi-method-summary %}
 
-```text
-POST https://testapp.authing.cn/oauth/oidc/token
+{% api-method-description %}
+如果你在控制台配置 OIDC 时，换取 token 方式设置的为 client\_secret\_post，那么按照下面这种方法换取 token。
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-headers %}
+{% api-method-parameter name="Content-Type" type="string" required=true %}
+application/x-www-form-urlencoded
+{% endapi-method-parameter %}
+{% endapi-method-headers %}
+
+{% api-method-form-data-parameters %}
+{% api-method-parameter name="client\_id" type="string" required=true %}
+OIDC 应用的 App Secret
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="client\_secret" type="string" required=true %}
+OIDC 应用的 App Secret
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="grant\_type" type="string" required=true %}
+authorization\_code
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="redirect\_uri" type="string" required=true %}
+在控制台配置的 OIDC 回调 url 中其中一个值
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="code" type="string" required=true %}
+获取到的授权码
+{% endapi-method-parameter %}
+{% endapi-method-form-data-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
 ```
-
-body 参数
-
-| 参数名 | 意义 |
-| :--- | :--- |
-| client\_id | OIDC 应用的 **app\_id** |
-| client\_secret | OIDC 应用的 **app\_secret** |
-| code | 授权码，从 redirect\_uri 中可直接读取 |
-| redirect\_uri | 在控制台配置的 OIDC 回调 url 其中的一个值 |
-| grant\_type | 授权类型，此处填写为 authorization\_code |
-
-如果你在控制台配置 OIDC 时，换取 token 方式设置的为 `none`，那么换取 token 时无需传递 client\_secret，其他参数和上表一样。
-
-如果你在控制台配置 OIDC 时，换取 token 方式设置的为 `client_secret_basic`，那么按照下面这种方法换取 token
-
-> P.S. `client_secret_basic` 是使用 HTTP Basic authentication 模式进行认证。
-
-```text
-POST https://testapp.authing.cn/oauth/oidc/token
-```
-
-### **请求头**
-
-```text
-Content-Type: application/x-www-form-urlencoded
-Authorization: Basic NWNhNzY1ZTM5MzE5NGQ1ODkxZGIxOTI3OmJmNGQ0ZTI4ZTg4NWQ4NjBlZWM5YmIzNzEwYjAyMDY1
-```
-
-其中 `Basic<空格>` 后的值为 `<client_id>:<client_secret>` 的 base64 值。
-
-### **body 参数**
-
-| 参数名 | 意义 |
-| :--- | :--- |
-| code | 授权码 |
-| redirect\_uri | 在控制台配置的 OIDC 回调 url 其中的一个值 |
-| grant\_type | 授权类型，此处填写 authorization\_code |
-
-### **其他 Token 换取方式**
-
-如果你想了解其他换取 Token 的方式，请[参考 OIDC 规范](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication)。
-
-#### 返回示例
-
-```javascript
 {
   "access_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InIxTGtiQm8zOTI1UmIyWkZGckt5VTNNVmV4OVQyODE3S3gwdmJpNmlfS2MifQ.eyJqdGkiOiJ4R01uczd5cmNFckxiakNRVW9US1MiLCJzdWIiOiI1YzlmNzVjN2NjZjg3YjA1YTkyMWU5YjAiLCJpc3MiOiJodHRwczovL2F1dGhpbmcuY24iLCJpYXQiOjE1NTQ1Mzc4NjksImV4cCI6MTU1NDU0MTQ2OSwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBvZmZsaW5lX2FjY2VzcyBwaG9uZSBlbWFpbCIsImF1ZCI6IjVjYTc2NWUzOTMxOTRkNTg5MWRiMTkyNyJ9.wX05OAgYuXeYM7zCxhrkvTO_taqxrCTG_L2ImDmQjMml6E3GXjYA9EFK0NfWquUI2mdSMAqohX-ndffN0fa5cChdcMJEm3XS9tt6-_zzhoOojK-q9MHF7huZg4O1587xhSofxs-KS7BeYxEHKn_10tAkjEIo9QtYUE7zD7JXwGUsvfMMjOqEVW6KuY3ZOmIq_ncKlB4jvbdrduxy1pbky_kvzHWlE9El_N5qveQXyuvNZVMSIEpw8_y5iSxPxKfrVwGY7hBaF40Oph-d2PO7AzKvxEVMamzLvMGBMaRAP_WttBPAUSqTU5uMXwMafryhGdIcQVsDPcGNgMX6E1jzLA",
   "expires_in": 3600,
@@ -131,8 +178,161 @@ Authorization: Basic NWNhNzY1ZTM5MzE5NGQ1ODkxZGIxOTI3OmJmNGQ0ZTI4ZTg4NWQ4NjBlZWM
   "token_type": "Bearer"
 }
 ```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
 
-### 验证 access\_token 和 id\_token 的合法性
+
+
+这里有[完整的 nodejs 示例代码](https://github.com/Authing/oidc-demo)：
+
+```javascript
+let code2tokenResponse
+try {
+  code2tokenResponse = await axios.post(
+    "https://oauth.authing.cn/oauth/oidc/token",
+    qs.stringify({
+      code,
+      client_id: oidcAppId,
+      client_secret: oidcAppSecret,
+      grant_type: "authorization_code",
+      redirect_uri
+    }),
+    {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
+    }
+  );
+} catch (error) {
+  ctx.body = error.response.data
+  return
+}
+```
+
+{% api-method method="post" host="https://" path="oauth.authing.cn/oauth/oidc/token" %}
+{% api-method-summary %}
+client\_secret\_basic 方式换取 token
+{% endapi-method-summary %}
+
+{% api-method-description %}
+如果你在控制台配置 OIDC 时，换取 token 方式设置的为 client\_secret\_basic，那么按照下面这种方法换取 token。（client\_secret\_basic 是使用 HTTP Basic authentication 模式进行认证。）
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-headers %}
+{% api-method-parameter name="Authorization" type="string" required=true %}
+Basic NWNhNzY1ZTM5MzE5NGQ1ODxxxx
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="Content-Type" type="string" required=true %}
+application/x-www-form-urlencoded
+{% endapi-method-parameter %}
+{% endapi-method-headers %}
+
+{% api-method-form-data-parameters %}
+{% api-method-parameter name="grant\_type" type="string" required=true %}
+ authorization\_code
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="redirect\_uri" type="string" required=true %}
+在控制台配置的 OIDC 回调 url 中其中一个值
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="code" type="string" required=true %}
+获取到的授权码
+{% endapi-method-parameter %}
+{% endapi-method-form-data-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```
+{
+  "access_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InIxTGtiQm8zOTI1UmIyWkZGckt5VTNNVmV4OVQyODE3S3gwdmJpNmlfS2MifQ.eyJqdGkiOiJ4R01uczd5cmNFckxiakNRVW9US1MiLCJzdWIiOiI1YzlmNzVjN2NjZjg3YjA1YTkyMWU5YjAiLCJpc3MiOiJodHRwczovL2F1dGhpbmcuY24iLCJpYXQiOjE1NTQ1Mzc4NjksImV4cCI6MTU1NDU0MTQ2OSwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBvZmZsaW5lX2FjY2VzcyBwaG9uZSBlbWFpbCIsImF1ZCI6IjVjYTc2NWUzOTMxOTRkNTg5MWRiMTkyNyJ9.wX05OAgYuXeYM7zCxhrkvTO_taqxrCTG_L2ImDmQjMml6E3GXjYA9EFK0NfWquUI2mdSMAqohX-ndffN0fa5cChdcMJEm3XS9tt6-_zzhoOojK-q9MHF7huZg4O1587xhSofxs-KS7BeYxEHKn_10tAkjEIo9QtYUE7zD7JXwGUsvfMMjOqEVW6KuY3ZOmIq_ncKlB4jvbdrduxy1pbky_kvzHWlE9El_N5qveQXyuvNZVMSIEpw8_y5iSxPxKfrVwGY7hBaF40Oph-d2PO7AzKvxEVMamzLvMGBMaRAP_WttBPAUSqTU5uMXwMafryhGdIcQVsDPcGNgMX6E1jzLA",
+  "expires_in": 3600,
+  "id_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InIxTGtiQm8zOTI1UmIyWkZGckt5VTNNVmV4OVQyODE3S3gwdmJpNmlfS2MifQ.eyJzdWIiOiI1YzlmNzVjN2NjZjg3YjA1YTkyMWU5YjAiLCJub25jZSI6IjIyMTIxIiwiYXRfaGFzaCI6Ik5kbW9iZVBZOEFFaWQ2T216MzIyOXciLCJzaWQiOiI1ODM2NzllNC1lYWM5LTRjNDEtOGQxMS1jZWFkMmE5OWQzZWIiLCJhdWQiOiI1Y2E3NjVlMzkzMTk0ZDU4OTFkYjE5MjciLCJleHAiOjE1NTQ1NDE0NjksImlhdCI6MTU1NDUzNzg2OSwiaXNzIjoiaHR0cHM6Ly9hdXRoaW5nLmNuIn0.IQi5FRHO756e_eAmdAs3OnFMU7QuP-XtrbwCZC1gJntevYJTltEg1CLkG7eVhdi_g5MJV1c0pNZ_xHmwS0R-E4lAXcc1QveYKptnMroKpBWs5mXwoOiqbrjKEmLMaPgRzCOdLiSdoZuQNw_z-gVhFiMNxI055TyFJdXTNtExt1O3KmwqanPNUi6XyW43bUl29v_kAvKgiOB28f3I0fB4EsiZjxp1uxHQBaDeBMSPaRVWQJcIjAJ9JLgkaDt1j7HZ2a1daWZ4HPzifDuDfi6_Ob1ZL40tWEC7xdxHlCEWJ4pUIsDjvScdQsez9aV_xMwumw3X4tgUIxFOCNVEvr73Fg",
+  "refresh_token": "WPsGJbvpBjqXz6IJIr1UHKyrdVF",
+  "scope": "openid profile offline_access phone email",
+  "token_type": "Bearer"
+}
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+其中 `Authorization` 请求头 `Basic<空格>` 后的值为 `<client_id>:<client_secret>` 的 base64 值。
+
+{% api-method method="post" host="https://" path="oauth.authing.cn/oauth/oidc/token" %}
+{% api-method-summary %}
+none 方式换取 token
+{% endapi-method-summary %}
+
+{% api-method-description %}
+如果你在控制台配置 OIDC 时，换取 token 方式设置的为 none，那么换取 token 时无需传递 client\_secret，其他参数和上表一样。
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-headers %}
+{% api-method-parameter name="Content-Type" type="string" required=true %}
+application/x-www-form-urlencoded
+{% endapi-method-parameter %}
+{% endapi-method-headers %}
+
+{% api-method-form-data-parameters %}
+{% api-method-parameter name="client\_id" type="string" required=true %}
+OIDC 应用的 App Secret
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="grant\_type" type="string" required=true %}
+authorization\_code
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="redirect\_uri" type="string" required=true %}
+在控制台配置的 OIDC 回调 url 中其中一个值
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="code" type="string" required=true %}
+获取到的授权码
+{% endapi-method-parameter %}
+{% endapi-method-form-data-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```
+{
+  "access_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InIxTGtiQm8zOTI1UmIyWkZGckt5VTNNVmV4OVQyODE3S3gwdmJpNmlfS2MifQ.eyJqdGkiOiJ4R01uczd5cmNFckxiakNRVW9US1MiLCJzdWIiOiI1YzlmNzVjN2NjZjg3YjA1YTkyMWU5YjAiLCJpc3MiOiJodHRwczovL2F1dGhpbmcuY24iLCJpYXQiOjE1NTQ1Mzc4NjksImV4cCI6MTU1NDU0MTQ2OSwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBvZmZsaW5lX2FjY2VzcyBwaG9uZSBlbWFpbCIsImF1ZCI6IjVjYTc2NWUzOTMxOTRkNTg5MWRiMTkyNyJ9.wX05OAgYuXeYM7zCxhrkvTO_taqxrCTG_L2ImDmQjMml6E3GXjYA9EFK0NfWquUI2mdSMAqohX-ndffN0fa5cChdcMJEm3XS9tt6-_zzhoOojK-q9MHF7huZg4O1587xhSofxs-KS7BeYxEHKn_10tAkjEIo9QtYUE7zD7JXwGUsvfMMjOqEVW6KuY3ZOmIq_ncKlB4jvbdrduxy1pbky_kvzHWlE9El_N5qveQXyuvNZVMSIEpw8_y5iSxPxKfrVwGY7hBaF40Oph-d2PO7AzKvxEVMamzLvMGBMaRAP_WttBPAUSqTU5uMXwMafryhGdIcQVsDPcGNgMX6E1jzLA",
+  "expires_in": 3600,
+  "id_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InIxTGtiQm8zOTI1UmIyWkZGckt5VTNNVmV4OVQyODE3S3gwdmJpNmlfS2MifQ.eyJzdWIiOiI1YzlmNzVjN2NjZjg3YjA1YTkyMWU5YjAiLCJub25jZSI6IjIyMTIxIiwiYXRfaGFzaCI6Ik5kbW9iZVBZOEFFaWQ2T216MzIyOXciLCJzaWQiOiI1ODM2NzllNC1lYWM5LTRjNDEtOGQxMS1jZWFkMmE5OWQzZWIiLCJhdWQiOiI1Y2E3NjVlMzkzMTk0ZDU4OTFkYjE5MjciLCJleHAiOjE1NTQ1NDE0NjksImlhdCI6MTU1NDUzNzg2OSwiaXNzIjoiaHR0cHM6Ly9hdXRoaW5nLmNuIn0.IQi5FRHO756e_eAmdAs3OnFMU7QuP-XtrbwCZC1gJntevYJTltEg1CLkG7eVhdi_g5MJV1c0pNZ_xHmwS0R-E4lAXcc1QveYKptnMroKpBWs5mXwoOiqbrjKEmLMaPgRzCOdLiSdoZuQNw_z-gVhFiMNxI055TyFJdXTNtExt1O3KmwqanPNUi6XyW43bUl29v_kAvKgiOB28f3I0fB4EsiZjxp1uxHQBaDeBMSPaRVWQJcIjAJ9JLgkaDt1j7HZ2a1daWZ4HPzifDuDfi6_Ob1ZL40tWEC7xdxHlCEWJ4pUIsDjvScdQsez9aV_xMwumw3X4tgUIxFOCNVEvr73Fg",
+  "refresh_token": "WPsGJbvpBjqXz6IJIr1UHKyrdVF",
+  "scope": "openid profile offline_access phone email",
+  "token_type": "Bearer"
+}
+
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+如果你想了解其他换取 Token 的方式，请[参考 OIDC 规范](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication)。
+
+### 05 - 验证 access\_token 和 id\_token 的合法性
+
+#### 使用 OIDC 应用的 App Secret 检验
 
 OIDC 默认使用 OIDC 应用的 secret 对 token 进行验证（也就是在创建应用时默认选择 `HS256` 算法）。
 
@@ -245,26 +445,42 @@ token 过期
 {% endapi-method-spec %}
 {% endapi-method %}
 
-### **参考链接**
+**参考链接**
 
 1. jwks [参考规范](https://openid.net/specs/openid-connect-registration-1_0.html#ClientMetadata)；
 2. 可以检验 jwt 的签名的 playground：[https://jwt.io](https://jwt.io)；
 3. RSA 的 pem 格式 与 jwk 格式互转：[https://8gwifi.org/jwkconvertfunctions.jsp](https://8gwifi.org/jwkconvertfunctions.jsp)；
 4. 生成 jwk：[https://mkjwk.org/](https://mkjwk.org/)；
 
-### 使用 access\_token 换取用户信息
+### 06 - 使用 access\_token 换取用户信息
 
 开发者在自己的服务中可以使用 access\_token 换取用户信息。根据 scope 的不同，这里的返回信息也会有所不同，字段符合 [OIDC 规范](https://openid.net/specs/openid-connect-core-1_0.html#AuthorizationExamples)，字段解释请参考[用户信息字段含义](https://docs.authing.cn/authing/advanced/oidc/oidc-params#yong-hu-xin-xi-zi-duan-han-yi)。
 
-**请求链接**：
+{% api-method method="get" host="https://users.authing.cn/oauth/oidc/user/userinfo" path="" %}
+{% api-method-summary %}
+ 使用 access\_token 换取用户信息
+{% endapi-method-summary %}
 
-```text
-GET https://users.authing.cn/oauth/oidc/user/userinfo?access_token=<access_token>
+{% api-method-description %}
+
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-query-parameters %}
+{% api-method-parameter name="access\_token" type="string" required=true %}
+ access\_token
+{% endapi-method-parameter %}
+{% endapi-method-query-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
 ```
-
-**返回示例**：
-
-```javascript
 {
   "sub": "<用户在 Authing 的唯一标识>",
   "nickname": "Authing",
@@ -272,33 +488,61 @@ GET https://users.authing.cn/oauth/oidc/user/userinfo?access_token=<access_token
   "locale": "en-US"
 }
 ```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+请求链接示例：[https://users.authing.cn/oauth/oidc/user/userinfo?access\_token=&lt;access\_token&gt;](https://users.authing.cn/oauth/oidc/user/userinfo?access_token=<access_token>
+)
 
 更多字段解释请参考[用户信息字段含义](https://docs.authing.cn/authing/advanced/oidc/oidc-params#yong-hu-xin-xi-zi-duan-han-yi)。
 
-### 刷新 token
+### 07 - 刷新 token
 
+{% api-method method="post" host="https://oauth.authing.cn/oauth/oidc/token" path="" %}
+{% api-method-summary %}
+   07-  刷新 token
+{% endapi-method-summary %}
+
+{% api-method-description %}
 刷新 token 请使用 token 接口返回的 refresh\_token.
+{% endapi-method-description %}
 
-**请求链接**：
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-headers %}
+{% api-method-parameter name="Content-Type" type="string" required=true %}
+ application/x-www-form-urlencoded
+{% endapi-method-parameter %}
+{% endapi-method-headers %}
 
-```text
-POST https://example.authing.cn/oauth/oidc/token
+{% api-method-form-data-parameters %}
+{% api-method-parameter name="client\_id" type="string" required=true %}
+OIDC 应用的 App Id
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="client\_secret" type="string" required=true %}
+OIDC 应用的 App Secret
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="grant\_type" type="string" required=true %}
+refresh\_token
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="refresh\_token" type="string" required=true %}
+code 换 token 接口返回的 refresh\_token。例：WPsGJbvpBjqXz6IJIr1UHKyrdVF
+{% endapi-method-parameter %}
+{% endapi-method-form-data-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
 ```
-
-其中 `Content-Type` 需为 `application/x-www-form-urlencoded`
-
-**body 部分携带参数如下表**：
-
-| 参数名 | 意义 |
-| :--- | :--- |
-| client\_id | OIDC 应用的 **app\_id** |
-| client\_secret | OIDC 应用的 **app\_secret** |
-| grant\_type | refresh\_token |
-| refresh\_token | code 换 token 接口返回的 refresh\_token。例：WPsGJbvpBjqXz6IJIr1UHKyrdVF |
-
-**返回示例**：
-
-```javascript
 {
   "access_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InIxTGtiQm8zOTI1UmIyWkZGckt5VTNNVmV4OVQyODE3S3gwdmJpNmlfS2MifQ.eyJqdGkiOiJ4MjlRNnIzWkpndVViWHB5RGR0ZVciLCJzdWIiOiI1YzlmNzVjN2NjZjg3YjA1YTkyMWU5YjAiLCJpc3MiOiJodHRwczovL2F1dGhpbmcuY24iLCJpYXQiOjE1NTQ2MTI0NjQsImV4cCI6MTU1NDYxNjA2NCwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBvZmZsaW5lX2FjY2VzcyBwaG9uZSBlbWFpbCIsImF1ZCI6IjVjYTc2NWUzOTMxOTRkNTg5MWRiMTkyNyJ9.VgrdtZRCbapS0hCe5BiV-8rUTXd4x-ZMoFPHV5Zh_HCw-OsJoYN0mVwB1UQ0ZkrA4ojpcZ3MrLnKzRC81BgEnfvaInTqXW8qP36TvR-vl7JkVT-ThkBr0Xdilk0hCfWaMbX9qtCjWYT0b9zxDAdkBKygjztZ74TwKbxNI83vdKSj9A6OfwX9MG4k-Q3ZbKAj1fwncBAp2DEsv1Bd_-4y_n_w-2QtbzZf3409UEotKuU_wGLoVE3DLxJFvEtmunbxQOkqxOGS_JaIvFdhpTZ6I3H_DC5KO8xOR2A6nZGFOhYOZZfnr6tmY_EnOIEsnp4glgTCOqHhd1xoBoDcnEmWEA",
   "expires_in": 3600,
@@ -308,6 +552,12 @@ POST https://example.authing.cn/oauth/oidc/token
   "token_type": "Bearer"
 }
 ```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+
 
 ## 使用隐式流程（Implicit Flow）
 
@@ -317,7 +567,7 @@ POST https://example.authing.cn/oauth/oidc/token
 
 选择 `implicit` 模式，并在下方选择 `id_token token` 和 `id_token`。
 
-![](../../.gitbook/assets/image%20%28267%29.png)
+![](../../.gitbook/assets/image%20%28268%29.png)
 
 ### 发起授权
 
@@ -357,7 +607,7 @@ https://authing.cn/#id_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1Y2
 
 选择 `authorization_code` 和 `implicit`，并在下方勾选 `code id_token token` 、`code id_token` 、`code token`。
 
-![](../../.gitbook/assets/image%20%28118%29.png)
+![](../../.gitbook/assets/image%20%28119%29.png)
 
 ### 发起授权
 

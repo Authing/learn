@@ -138,10 +138,6 @@ try {
 
 ## 在线验证 OIDC 或 OAuth Token <a id="zai-xian-yan-zheng-oidc-huo-oauth-token"></a>
 
-### GET验证 OIDC access\_token 或 id\_token 的合法性 <a id="yan-zheng-oidc-accesstoken-huo-idtoken-de-he-fa-xing"></a>
-
-https://oauth.authing.cn/oauth/oidc/validate\_access\_token验证 OIDC 相关 token 合法性的线上接口。RequestResponsePath Parametersaccess\_tokenREQUIREDstring值为 access\_token 或 id\_token‌
-
 {% api-method method="get" host="https://oauth.authing.cn" path="/oauth/oidc/validate\_access\_token" %}
 {% api-method-summary %}
 验证 OIDC access\_token 或 id\_token 的合法性

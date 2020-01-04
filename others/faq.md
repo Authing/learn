@@ -2,7 +2,7 @@
 
 ## 如何获取 Client Id（UserPool Id） 和 Client Secret （UserPool Secret）？ <a id="ru-he-huo-qu-client-id-he-client-secret"></a>
 
-![](../.gitbook/assets/image%20%2863%29.png)
+![](../.gitbook/assets/image%20%2864%29.png)
 
 ## Client Secret 有何作用？
 
@@ -38,7 +38,7 @@ OIDC 流程包含两个 Token：
 验证 OIDC 流程中 Token 所使用的 secret 的获取方式如下图所示：
 {% endhint %}
 
-![](../.gitbook/assets/image%20%28220%29.png)
+![](../.gitbook/assets/image%20%28221%29.png)
 
 ## 如何使用小程序扫码认证？
 
