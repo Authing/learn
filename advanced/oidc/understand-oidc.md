@@ -18,7 +18,7 @@ id\_token 是用户的身份标识，就像身份证一样。id\_token 是一个
 
 签名：aaa 和 bbb 部分通过 `.` 连接，加上一个私钥进行摘要计算从而得到。如果 token 被篡改过，比如改变认证主体。那么服务器在本地计算的签名和 token 的 ccc 部分携带的签名就会不一致，从而拒绝请求。
 
-![&#x6570;&#x636E;&#x4FDD;&#x62A4;&#x4E2D;&#x95F4;&#x4EF6;](../../.gitbook/assets/image%20%28182%29.png)
+![&#x6570;&#x636E;&#x4FDD;&#x62A4;&#x4E2D;&#x95F4;&#x4EF6;](../../.gitbook/assets/image%20%28185%29.png)
 
 你应该在服务器上实现一个数据保护中间件，对特定的数据接口启用，如果请求没有携带 id\_token 或者签名校验失败就将用户重定向到登录页，如果 id\_token 校验成功，就返回数据给用户。
 
@@ -38,7 +38,7 @@ access\_token 用于**授权**，id\_token 用于**认证**。
 
 授权码模式是最常用的 OIDC 流程。 
 
-![](../../.gitbook/assets/image%20%28257%29.png)
+![](../../.gitbook/assets/image%20%28262%29.png)
 
 1. 三方应用发起授权请求（我需要访问这个用户在你的服务器上的数据！）
 2. 你的服务器询问用户是否同意授权，要求用户输入用户名和密码，并弹出对方请求获取的信息条目（好的，我先问问用户是否同意你获取这些信息）
@@ -53,7 +53,7 @@ access\_token 用于**授权**，id\_token 用于**认证**。
 
 scope 不带 openid 的情况
 
-![](../../.gitbook/assets/image%20%28277%29.png)
+![](../../.gitbook/assets/image%20%28282%29.png)
 
 可见最后没有返回 ID Token。
 
@@ -65,7 +65,7 @@ scope 不带 openid 的情况
 | :--- | :--- | :--- | :--- |
 | 授权 | X | 颁发 | X |
 
-![](../../.gitbook/assets/image%20%28159%29.png)
+![](../../.gitbook/assets/image%20%28161%29.png)
 
 
 
@@ -75,7 +75,7 @@ scope 不带 openid 的情况
 | :--- | :--- | :--- | :--- |
 | 授权 | X | X | 颁发 |
 
-![](../../.gitbook/assets/image%20%28131%29.png)
+![](../../.gitbook/assets/image%20%28133%29.png)
 
 
 
@@ -85,7 +85,7 @@ scope 不带 openid 的情况
 | :--- | :--- | :--- | :--- |
 | 授权 | X | 颁发 | 颁发 |
 
-![](../../.gitbook/assets/image%20%28254%29.png)
+![](../../.gitbook/assets/image%20%28259%29.png)
 
 
 
@@ -102,7 +102,7 @@ scope 不带 openid 的情况
 | 授权 | 颁发 | X | 颁发 |
 | Token | X | 颁发 | 颁发 |
 
-![](../../.gitbook/assets/image%20%28245%29.png)
+![](../../.gitbook/assets/image%20%28250%29.png)
 
 
 
@@ -113,7 +113,7 @@ scope 不带 openid 的情况
 | 授权 | 颁发 | 颁发 | X |
 | Token | X | 颁发 | 颁发 |
 
-![](../../.gitbook/assets/image%20%28216%29.png)
+![](../../.gitbook/assets/image%20%28219%29.png)
 
 
 
@@ -124,7 +124,7 @@ scope 不带 openid 的情况
 | 授权 | 颁发 | 颁发 | X |
 | Token | X | 颁发 | 颁发 |
 
-![](../../.gitbook/assets/image%20%28225%29.png)
+![](../../.gitbook/assets/image%20%28229%29.png)
 
 
 
@@ -135,7 +135,7 @@ scope 不带 openid 的情况
 | 授权 | 颁发 | 颁发 | 颁发 |
 | Token | X | 颁发 | 颁发 |
 
-![](../../.gitbook/assets/image%20%28177%29.png)
+![](../../.gitbook/assets/image%20%28179%29.png)
 
 这个用法可以一次性获取全部内容。
 
