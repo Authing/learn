@@ -27,18 +27,18 @@ description: 使用微信、Github 等社会化登录。
 
 如下图所示：
 
-![](../.gitbook/assets/image%20%28187%29.png)
+![](../.gitbook/assets/image%20%28193%29.png)
 {% endhint %}
 
 ## 在 Authing 控制台配置 Github OAuth 信息
 
 在 Github 创建完 OAuth 应用后请按照下图所示在 Authing 控制台中配置 Github OAuth 信息：
 
-![](../.gitbook/assets/image%20%2896%29.png)
+![](../.gitbook/assets/image%20%28100%29.png)
 
 打开开关后将弹出如下信息框：
 
-![](../.gitbook/assets/image%20%2880%29.png)
+![](../.gitbook/assets/image%20%2883%29.png)
 
 相关参数解释如下：
 
@@ -46,7 +46,7 @@ description: 使用微信、Github 等社会化登录。
 | :--- | :--- | :--- |
 | 在 OAuth 平台上申请的 APP ID 或 Client ID | OAuth 平台提供的 Client Secret 或 App Secret | 成功或失败后的回调 URL（你的业务地址） |
 
-![](../.gitbook/assets/image%20%28241%29.png)
+![](../.gitbook/assets/image%20%28250%29.png)
 
 配置完成后请点击「确定」保存信息。
 
@@ -158,9 +158,9 @@ Callback URL 指在创建微信 OAuth 应用、Github OAuth 等应用时在其�
 | :--- |
 
 
-![](../.gitbook/assets/image%20%28187%29.png)
+![](../.gitbook/assets/image%20%28193%29.png)
 
 而在 Authing 控制台中配置的 Redirect URL 配置为你自己的业务地址：
 
-![](../.gitbook/assets/image%20%28158%29.png)
+![](../.gitbook/assets/image%20%28163%29.png)
 
