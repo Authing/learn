@@ -1,3 +1,7 @@
+---
+description: 'Node.JS Demo 源码：https://github.com/Authing/oauth-demo'
+---
+
 # 使用 OAuth 授权
 
 ## 使用 authorization\_code 模式
