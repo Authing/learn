@@ -6,21 +6,21 @@ description: >-
 
 # 实现单点登录
 
-## 开始之前
+## 开始之前 <a id="before-start"></a>
 
 如果你不了解用户池、单点登录和认证授权，建议先阅读[基础概念](https://docs.authing.cn/authing/quickstart/basic)。
 
-### 预备知识
+### 预备知识 <a id="prepare"></a>
 
 1. 基本的 HTML 和 CSS 知识
 2. 中级 JavaScript 技能
 
-### 所需工具
+### 所需工具 <a id="tools"></a>
 
 1. 你喜欢的文本编辑器
 2. 可以在本地运行的 Web 服务器（比如：`npm install http-server -g`）
 
-## 注册一个 Authing 账号
+## 注册一个 Authing 账号 <a id="register-authing-account"></a>
 
 如果你还没有账号，请[点击这里注册 Authing 账号](https://authing.cn/login)，注册完成后请根据提示完成引导。
 
@@ -28,7 +28,7 @@ description: >-
 
 ![](../.gitbook/assets/image%20%28327%29.png)
 
-## 创建一个授权应用
+## 创建一个授权应用 <a id="add-oidc-app"></a>
 
 {% hint style="info" %}
 若你是首次注册 Authing，可略过此步骤，首次注册时已自动完成此步骤。
@@ -52,9 +52,9 @@ description: >-
 
 在应用列表中点击刚创建好的应用，记录下 AppID，二级域名，供以后使用。
 
-## 使用 AuthingSSO SDK 集成单点登录
+## 使用 AuthingSSO SDK 集成单点登录 <a id="use-authing-sso-sdk"></a>
 
-### 创建一个空白的 HTML 文档用来编写 Authing 程序
+### 创建一个空白的 HTML 文档用来编写 Authing 程序 <a id="add-empty-html"></a>
 
 本教程只是为了演示，因此我们没选择高级框架，这可以让我们专注于 Authing 本身。
 
@@ -71,7 +71,7 @@ description: >-
 </html>
 ```
 
-### 添加三个按钮
+### 添加三个按钮 <a id="add-three-button"></a>
 
 增加三个按钮控件到 body 中，目的是为了演示如何使用 SDK 管理单点登录状态。
 
@@ -81,7 +81,7 @@ description: >-
 <button id="btn-logout">logout</button>
 ```
 
-### 引入 AuthingSSO 并初始化
+### 引入 AuthingSSO 并初始化 <a id="init-authing-sso"></a>
 
 从 CDN 加载 [AuthingSSO](https://github.com/Authing/AuthingSSO) 的 SDK。填入你的 OIDC 应用 ID 和 域名，进行初始化。
 
@@ -96,7 +96,7 @@ description: >-
 </script>
 ```
 
-### 监听按钮的点击事件
+### 监听按钮的点击事件 <a id="listen-click-event"></a>
 
 达到的效果是：
 
@@ -121,7 +121,7 @@ logout.onclick = async function() {
 };
 ```
 
-### 完整代码
+### 完整代码 <a id="full-code"></a>
 
 ```markup
 <!DOCTYPE html>
@@ -164,7 +164,11 @@ logout.onclick = async function() {
 
 示例代码可从 [Github](https://github.com/Authing/authing-sso-demo) 上找到，建议将 Github 上的代码下载运行。
 
-### **运行方法**
+AuthingSSO 单点登录 SDK 完整参数列表：
+
+{% page-ref page="../sdk/sdk-for-sso.md" %}
+
+### **运行方法** <a id="run-the-demo"></a>
 
 在终端中运行以下命令
 
@@ -181,7 +185,7 @@ $ http-server
 如果本地 8080 端口已被占用，应用可能会运行在 8081、8082 等后续端口。
 {% endhint %}
 
-### 运行效果
+### 运行效果 <a id="demo-result"></a>
 
 首先点击 trackSession 按钮，获取到的登录状态为空，因为我们还未登录。
 
@@ -205,7 +209,7 @@ $ http-server
 
 ![](../.gitbook/assets/image%20%28145%29.png)
 
-## 访问用户个人中心页面
+## 访问用户个人中心页面 <a id="visit-profile"></a>
 
 在 SSO 应用中，有独立的用户中心页面，用户可以修改自己的资料。
 
@@ -221,13 +225,13 @@ https://<appDomain>.authing.cn/login/profile
 
 ![&#x4E2A;&#x4EBA;&#x4E2D;&#x5FC3;](../.gitbook/assets/image%20%28115%29.png)
 
-## 检验 token 合法性
+## 检验 token 合法性 <a id="validate-token"></a>
 
 Authing 内部涉及到三种 token，建议先[了解它们的用途和区别](https://docs.authing.cn/authing/advanced/oidc/oidc-params#idtokenaccesstoken-he-token-zhi-jian-de-qu-bie)，然后你可能需要了解如何验证它们的合法性。
 
 {% page-ref page="../advanced/verify-jwt-token.md" %}
 
-## 接下来你可能还需要
+## 接下来你可能还需要 <a id="next"></a>
 
 学习 Authing 的基础知识以及我们会用到的专业术语：
 
@@ -240,6 +244,10 @@ Authing 内部涉及到三种 token，建议先[了解它们的用途和区别](
 了解 Authing 提供的多种部署模型，以帮助你选择该以怎样的形式部署 Authing：
 
 {% page-ref page="deployment.md" %}
+
+了解 「SDK for 单点登录」的详细参数：
+
+{% page-ref page="../sdk/sdk-for-sso.md" %}
 
 
 
