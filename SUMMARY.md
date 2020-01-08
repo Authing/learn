@@ -71,6 +71,7 @@
 * [Guard for Mobile](sdk/guard-for-mobile/README.md)
   * [Guard for React Native](sdk/guard-for-mobile/guard-for-react-native.md)
 * [Guard VS 自定义 UI](sdk/loginform-vs-custom-ui.md)
+* [SDK for 单点登录](sdk/sdk-for-sso.md)
 * [SDK for JavaScript](sdk/sdk-for-javascript/README.md)
   * [绑定社会化登录](sdk/sdk-for-javascript/bind-social-accounts.md)
   * [管理 MFA 口令](sdk/sdk-for-javascript/guan-li-mfa-kou-ling.md)
