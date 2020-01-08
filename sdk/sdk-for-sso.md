@@ -4,9 +4,9 @@ description: Authing SSO SDK 用于发起 SSO 登录、查询 SSO 登录状态�
 
 # SDK for 单点登录
 
-## 安装
+## 安装 <a id="install"></a>
 
-### 通过 NPM 安装
+### 通过 NPM 安装 <a id="npm-install"></a>
 
 ```text
 $ npm install @authing/sso --save
@@ -18,7 +18,7 @@ $ npm install @authing/sso --save
 import AuthingSSO from "@authing/sso";
 ```
 
-### 通过 CDN 安装
+### 通过 CDN 安装 <a id="cdn-install"></a>
 
 ```text
 <script src="https://cdn.jsdelivr.net/npm/@authing/sso/dist/AuthingSSO.umd.min.js"></script>
@@ -27,13 +27,13 @@ import AuthingSSO from "@authing/sso";
 </script>
 ```
 
-## 开始使用
+## 开始使用 <a id="getting-started"></a>
 
 需要先注册一个 [Authing](https://authing.cn/login) 账号，并[创建一个 OIDC 应用](https://docs.authing.cn/authing/advanced/oidc/create-oidc)。
 
-### 发起登录
+### 发起登录 <a id="start-login"></a>
 
-#### **跳转登录**
+#### **跳转登录** <a id="jump-login"></a>
 
 ```text
 import AuthingSSO from "@authing/sso";
@@ -48,7 +48,7 @@ let auth = new AuthingSSO({
 auth.login();
 ```
 
-#### **窗口登录**
+#### **窗口登录** <a id="window-login"></a>
 
 ```text
 import AuthingSSO from "@authing/sso";
@@ -69,7 +69,7 @@ auth.windowLogin();
 
 Github 参考代码：[https://github.com/Authing/oidc-window](https://github.com/Authing/oidc-window)
 
-### 查询登录状态
+### 查询登录状态 <a id="check-login-status"></a>
 
 ```text
 let res = await auth.trackSession();
@@ -102,7 +102,7 @@ let res = await auth.trackSession();
  * */
 ```
 
-### 登出
+### 登出 <a id="logout"></a>
 
 ```text
 let res = await auth.logout();
@@ -197,7 +197,7 @@ let res = await auth.logout();
  * */
 ```
 
-## 获取帮助
+## 获取帮助 <a id="get-help"></a>
 
 1. Join us on Gitter: [\#authing-chat](https://gitter.im/authing-chat/community)
 
