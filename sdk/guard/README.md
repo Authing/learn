@@ -79,7 +79,7 @@ form.on('login', (userInfo) => {
 
 请在 Authing 控制台中配置好小程序扫码登录的信息，Guard 就会自动显示扫码登录的界面，配置方式请参考：[配置小程序信息](https://learn.authing.cn/authing/advanced/wxapp-qrcode#pei-zhi-xiao-cheng-xu-xin-xi)。
 
-![&#x7531; Guard &#x81EA;&#x52A8;&#x751F;&#x6210;&#x7684;&#x5C0F;&#x7A0B;&#x5E8F;&#x626B;&#x7801;&#x767B;&#x5F55;&#x754C;&#x9762;](../../.gitbook/assets/image%20%28306%29.png)
+![&#x7531; Guard &#x81EA;&#x52A8;&#x751F;&#x6210;&#x7684;&#x5C0F;&#x7A0B;&#x5E8F;&#x626B;&#x7801;&#x767B;&#x5F55;&#x754C;&#x9762;](../../.gitbook/assets/image%20%28308%29.png)
 
 ### 处理回调事件
 
