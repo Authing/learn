@@ -260,6 +260,41 @@ main();
 
 验证码接口可结合[使用手机验证码登录](./#shi-yong-shou-ji-yan-zheng-ma-deng-lu)使用。
 
+## 使用手机号注册
+
+### 1. 发送验证码 Authing.sendRegisterPhoneCode\(phone\)
+
+```javascript
+(async function() { const authing = new Authing({
+    userPoolId: 'your_userpool_id'
+  });
+  
+  const response = await authing.sendRegisterPhoneCode(
+  'Your Phone'
+  ).catch((error) => { ... })
+})();
+```
+
+### 2. 调用接口注册 Authing.register\(options\)
+
+* **参数:**
+  * `{Object} options`
+    * **phone** 手机号
+    * **phoneCode** 使用步骤一中的发送短信接口获取
+
+```javascript
+(async function() {  
+const authing = new Authing({
+    userPoolId: 'your_userpool_id'
+  });
+  
+  const userInfo = await authing.register({
+    phone: 'Your Phone',
+    phoneCode: 'Your Phone Code',
+  }).catch((error) => { ... })
+})();
+```
+
 ## 使用手机验证码登录
 
 **Authing.loginByPhoneCode\(options\)**

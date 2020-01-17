@@ -170,7 +170,7 @@ mutation login($phone: String, $phoneCode: Int, $registerInClient: String!, $bro
 
 {% api-method method="get" host="https://users.authing.cn" path="/send\_smscode/:phone/:clientId" %}
 {% api-method-summary %}
- 发送短信验证码
+发送短信验证码  
 {% endapi-method-summary %}
 
 {% api-method-description %}
@@ -198,6 +198,42 @@ mutation login($phone: String, $phoneCode: Int, $registerInClient: String!, $bro
 
 ```javascript
 {"code":200,"message":"发送成功"}
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+{% api-method method="get" host="https://users.authing.cn" path="/notification/send\_register\_smscode/:phone/:clientId" %}
+{% api-method-summary %}
+ 发送注册用短信验证码
+{% endapi-method-summary %}
+
+{% api-method-description %}
+ 发送验证码给指定手机号，与直接发送验证码不同的是，它会检测账号是否已经存在。
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-query-parameters %}
+{% api-method-parameter name="clientId" type="string" required=true %}
+ 应用 ID
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="phone" type="string" required=true %}
+  手机号
+{% endapi-method-parameter %}
+{% endapi-method-query-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```
+
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
