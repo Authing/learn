@@ -24,6 +24,7 @@
 * [接入社会化登录](advanced/social-login/README.md)
   * [接入移动端支付宝登录](advanced/social-login/jie-ru-yi-dong-duan-zhi-fu-bao-deng-lu.md)
   * [接入微信手机网页授权登录](advanced/social-login/wechatmp-login.md)
+  * [接入小程序客户端登录](advanced/social-login/jie-ru-xiao-cheng-xu-ke-hu-duan-deng-lu.md)
   * [在云上配置社会化登录](advanced/social-login/config-social-login-in-cloud.md)
 * [接入 OAuth 2.0](advanced/oauth2/README.md)
   * [创建 OAuth 应用](advanced/oauth2/create-oauth2.md)
