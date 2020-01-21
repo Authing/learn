@@ -222,44 +222,6 @@ main();
      }
     ```
 
-## 发送手机验证码
-
-此接口可结合[使用手机验证码登录](./#shi-yong-shou-ji-yan-zheng-ma-deng-lu)使用。
-
-**Authing.getVerificationCode\(phone\)**
-
-* **参数:**
-  * `{String} phone`
-  * 手机号
-* **使用方法:**
-  * ```javascript
-    (async function() {
-      const authing = new Authing({
-        userPoolId: 'your_userpool_id'
-      });
-  
-      const userInfo = await authing.getVerificationCode('phone number')
-        .catch((error) => { ... })
-    })();
-    ```
-* **返回数据:**
-  * ```javascript
-    {
-      code: 200, // 500 为失败
-      message: '发送成功'
-    }
-    ```
-
-**短信模版**
-
-> 【Authing】{S8} 是你的验证码，有效时间为 {S2} 分钟。如非本人操作请忽略。
-
-{% hint style="info" %}
-当前不支持修改短信模版。
-{% endhint %}
-
-验证码接口可结合[使用手机验证码登录](./#shi-yong-shou-ji-yan-zheng-ma-deng-lu)使用。
-
 ## 使用手机号注册
 
 ### 1. 发送验证码 Authing.sendRegisterPhoneCode\(phone\)
@@ -297,7 +259,39 @@ const authing = new Authing({
 
 ## 使用手机验证码登录
 
-**Authing.loginByPhoneCode\(options\)**
+### 1. 发送验证码 Authing.sendOneTimePhoneCode\(phone\)
+
+* **参数:**
+  * `{String} phone`
+  * 手机号
+* **使用方法:**
+  * ```javascript
+    (async function() {
+      const authing = new Authing({
+        userPoolId: 'your_userpool_id'
+      });
+  
+      const userInfo = await authing.sendOneTimePhoneCode('phone number')
+        .catch((error) => { ... })
+    })();
+    ```
+* **返回数据:**
+  * ```javascript
+    {
+      code: 200, // 500 为失败
+      message: '发送成功'
+    }
+    ```
+
+**短信模版**
+
+> 【Authing】{S8} 是你的验证码，有效时间为 {S2} 分钟。如非本人操作请忽略。
+
+{% hint style="info" %}
+当前不支持修改短信模版。
+{% endhint %}
+
+### 2. 调用接口登陆 Authing.**loginByPhoneCode**\(options\)
 
 * **参数:**
   * `{Object} options`
