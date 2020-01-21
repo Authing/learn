@@ -243,6 +243,7 @@ main();
   * `{Object} options`
     * **phone** 手机号
     * **phoneCode** 使用步骤一中的发送短信接口获取
+    * **password** 密码
 
 ```javascript
 (async function() {  
@@ -253,6 +254,7 @@ const authing = new Authing({
   const userInfo = await authing.register({
     phone: 'Your Phone',
     phoneCode: 'Your Phone Code',
+    password: 'Your Password'
   }).catch((error) => { ... })
 })();
 ```
