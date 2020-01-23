@@ -108,6 +108,14 @@ OIDC 模式，可以为 code, id\_token, id\_token token, code id\_token, code t
 https://oauth.authing.cn/oauth/oidc/auth?client_id=5c9b079883e333d55a101082&redirect_uri=https://www.example.cn/example&scope=openid profile&response_type=code&state=jacket
 ```
 
+**如需后续刷新 access\_token**，请按照以下方式拼接登录链接
+
+带刷新 token 功能的登录请求示例：
+
+```text
+https://oauth.authing.cn/oauth/oidc/auth?client_id=5c9b079883e333d55a101082&redirect_uri=https://example.com&scope=openid profile offline_access&response_type=code&prompt=consent&state=235345
+```
+
 ### 03 - 用户登录
 
 上一个请求验证通过后会重定向到 Authing 提供的登录框页面，此时用户需要输入他的用户名和密码进行登录。
