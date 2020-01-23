@@ -42,7 +42,7 @@ P.S. 文档中出现的 `testapp.authing.cn` 和 `example.authing.cn` 两个域�
 
 打开 `authorization_code` 模式，并选择 code 返回类型。
 
-![](../../.gitbook/assets/image%20%28206%29.png)
+![](../../.gitbook/assets/image%20%28207%29.png)
 
 ### 02 - 发起登录请求
 
@@ -122,7 +122,7 @@ https://oauth.authing.cn/oauth/oidc/auth?client_id=5c9b079883e333d55a101082&redi
 
 > 你可以前往这个网址体验：https://sample-sso.authing.cn/login
 
-![](../../.gitbook/assets/image%20%2850%29.png)
+![](../../.gitbook/assets/image%20%2851%29.png)
 
 
 
@@ -514,7 +514,10 @@ token 过期
 {% endapi-method-summary %}
 
 {% api-method-description %}
-刷新 token 请使用 token 接口返回的 refresh\_token.
+同时发起登录请求时必须填写正确的参数；  
+如需使用刷新 token 功能，需要在控制台 OIDC 应用设置中勾选 refresh\_ token。  
+同时发起登录请求时必须填写正确的参数，带刷新 token 功能的登录请求示例  
+`https://oauth.authing.cn/oauth/oidc/auth?client_id=5c9b079883e333d55a101082&redirect_uri=https://example.com&scope=openid profile offline_access&response_type=code&prompt=consent&state=235345`  
 {% endapi-method-description %}
 
 {% api-method-spec %}
@@ -557,15 +560,14 @@ code 换 token 接口返回的 refresh\_token。例：WPsGJbvpBjqXz6IJIr1UHKyrdV
   "id_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InIxTGtiQm8zOTI1UmIyWkZGckt5VTNNVmV4OVQyODE3S3gwdmJpNmlfS2MifQ.eyJzdWIiOiI1YzlmNzVjN2NjZjg3YjA1YTkyMWU5YjAiLCJub25jZSI6IjIyMTIxIiwiYXRfaGFzaCI6InVySTYzZ3hyeU01UzNqejRLMmpWeGciLCJzaWQiOiIxOTdlOGExMy0wMzE4LTRkZDEtYjQ3Mi0xZjI0MDk5ZTUzOWYiLCJhdWQiOiI1Y2E3NjVlMzkzMTk0ZDU4OTFkYjE5MjciLCJleHAiOjE1NTQ2MTYwNjQsImlhdCI6MTU1NDYxMjQ2NCwiaXNzIjoiaHR0cHM6Ly9hdXRoaW5nLmNuIn0.wh3kCIGyu7IHvkbqCeu9OHg9mdLg-wSbU-1UBLPcNxl5MeXsGxtxjPyM6aONxLt_ZXfBFNZM7FWfGpV_qGSNmeGp0UYV_bK-N0wgB5ZkTN1O4EMECqy7qCExwK3kjsOa-o0KkkJxxcDkfEJ3Icn2Nr3q5ozMz_3oGJWqSt0KxQaR_rCtjbLV6dIpPL1MTpWElORXjsoKb1RVOHF0Qpfq8iuGVJAw828tq4cyLH9-IkE9TGX2L6dWmPaY1xd0ho0N1mqnWJrqacljrvX8qPTfGAB9-9rDk2EvFrZkFY6O6bKlMqdyX4ktxYMlku4-H74wxOqkQ_ZWlI3SUG_m-DNDWg",
   "refresh_token": "wlfsGj5oSm5xmdUV_HqS9FTQpaj",
   "scope": "openid profile offline_access phone email",
-  "token_type": "Bearer"
-}
+  "token_type": "Bearer
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
 {% endapi-method-spec %}
 {% endapi-method %}
 
-
+![](../../.gitbook/assets/image%20%283%29.png)
 
 ## 使用隐式流程（Implicit Flow）
 
@@ -575,7 +577,7 @@ code 换 token 接口返回的 refresh\_token。例：WPsGJbvpBjqXz6IJIr1UHKyrdV
 
 选择 `implicit` 模式，并在下方选择 `id_token token` 和 `id_token`。
 
-![](../../.gitbook/assets/image%20%28294%29.png)
+![](../../.gitbook/assets/image%20%28296%29.png)
 
 ### 发起授权
 
@@ -615,7 +617,7 @@ https://authing.cn/#id_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1Y2
 
 选择 `authorization_code` 和 `implicit`，并在下方勾选 `code id_token token` 、`code id_token` 、`code token`。
 
-![](../../.gitbook/assets/image%20%28130%29.png)
+![](../../.gitbook/assets/image%20%28131%29.png)
 
 ### 发起授权
 
