@@ -46,7 +46,7 @@ P.S. 文档中出现的 `testapp.authing.cn` 和 `example.authing.cn` 两个域�
 
 ### 02 - 发起登录请求
 
-{% api-method method="get" host="https://" path="oauth.authing.cn/oauth/oidc/auth" %}
+{% api-method method="get" host="https://<你的应用域名>.authing.cn" path="/oauth/oidc/auth" %}
 {% api-method-summary %}
  发起 OIDC 登录请求
 {% endapi-method-summary %}
@@ -130,7 +130,7 @@ https://oauth.authing.cn/oauth/oidc/auth?client_id=5c9b079883e333d55a101082&redi
 
 ### 04 - 使用 code 换取 token
 
-{% api-method method="post" host="https://" path="oauth.authing.cn/oauth/oidc/token" %}
+{% api-method method="post" host="https://<你的应用域名>.authing.cn" path="/oauth/oidc/token" %}
 {% api-method-summary %}
 client\_secret\_post 方式换取 token
 {% endapi-method-summary %}
@@ -219,7 +219,7 @@ try {
 }
 ```
 
-{% api-method method="post" host="https://" path="oauth.authing.cn/oauth/oidc/token" %}
+{% api-method method="post" host="https://<你的应用域名>.authing.cn" path="/oauth/oidc/token" %}
 {% api-method-summary %}
 client\_secret\_basic 方式换取 token
 {% endapi-method-summary %}
@@ -278,7 +278,7 @@ application/x-www-form-urlencoded
 
 其中 `Authorization` 请求头 `Basic<空格>` 后的值为 `<client_id>:<client_secret>` 的 base64 值。
 
-{% api-method method="post" host="https://" path="oauth.authing.cn/oauth/oidc/token" %}
+{% api-method method="post" host="https://<你的应用域名>.authing.cn" path="/oauth/oidc/token" %}
 {% api-method-summary %}
 none 方式换取 token
 {% endapi-method-summary %}
@@ -377,7 +377,7 @@ cwIDAQAB
 
 将 token 或 id\_token 发送到 Authing 提供的 token 验证接口进行验证
 
-{% api-method method="get" host="https://<appDomain>.authing.cn" path="/oauth/oidc/validate\_access\_token" %}
+{% api-method method="get" host="https://<你的应用域名>.authing.cn" path="/oauth/oidc/validate\_access\_token" %}
 {% api-method-summary %}
  在线验证 access\_token / id\_token 合法性
 {% endapi-method-summary %}
@@ -464,7 +464,7 @@ token 过期
 
 开发者在自己的服务中可以使用 access\_token 换取用户信息。根据 scope 的不同，这里的返回信息也会有所不同，字段符合 [OIDC 规范](https://openid.net/specs/openid-connect-core-1_0.html#AuthorizationExamples)，字段解释请参考[用户信息字段含义](https://docs.authing.cn/authing/advanced/oidc/oidc-params#yong-hu-xin-xi-zi-duan-han-yi)。
 
-{% api-method method="get" host="https://users.authing.cn/oauth/oidc/user/userinfo" path="" %}
+{% api-method method="get" host="https://users.authing.cn" path="/oauth/oidc/user/userinfo" %}
 {% api-method-summary %}
  使用 access\_token 换取用户信息
 {% endapi-method-summary %}
@@ -508,7 +508,7 @@ token 过期
 
 ### 07 - 刷新 token
 
-{% api-method method="post" host="https://oauth.authing.cn/oauth/oidc/token" path="" %}
+{% api-method method="post" host="https://<你的应用域名>.authing.cn" path="/oauth/oidc/token" %}
 {% api-method-summary %}
    07-  刷新 token
 {% endapi-method-summary %}
@@ -516,8 +516,8 @@ token 过期
 {% api-method-description %}
 同时发起登录请求时必须填写正确的参数；  
 如需使用刷新 token 功能，需要在控制台 OIDC 应用设置中勾选 refresh\_ token。  
-同时发起登录请求时必须填写正确的参数，带刷新 token 功能的登录请求示例  
-`https://oauth.authing.cn/oauth/oidc/auth?client_id=5c9b079883e333d55a101082&redirect_uri=https://example.com&scope=openid profile offline_access&response_type=code&prompt=consent&state=235345`  
+同时发起登录请求时必须填写正确的参数，带刷新 token 功能的登录请求示例：  
+`https://myapp.authing.cn/oauth/oidc/auth?client_id=5c9b079883e333d55a101082&redirect_uri=https://example.com&scope=openid profile offline_access&response_type=code&prompt=consent&state=235345`  
 {% endapi-method-description %}
 
 {% api-method-spec %}
