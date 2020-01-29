@@ -105,7 +105,7 @@ OIDC 模式，可以为 code, id\_token, id\_token token, code id\_token, code t
 请求示例：
 
 ```text
-https://oauth.authing.cn/oauth/oidc/auth?client_id=5c9b079883e333d55a101082&redirect_uri=https://www.example.cn/example&scope=openid profile&response_type=code&state=jacket
+https://<你的应用域名>.authing.cn/oauth/oidc/auth?client_id=5c9b079883e333d55a101082&redirect_uri=https://www.example.cn/example&scope=openid profile&response_type=code&state=jacket
 ```
 
 **如需后续刷新 access\_token**，请按照以下方式拼接登录链接
@@ -113,7 +113,7 @@ https://oauth.authing.cn/oauth/oidc/auth?client_id=5c9b079883e333d55a101082&redi
 带刷新 token 功能的登录请求示例：
 
 ```text
-https://oauth.authing.cn/oauth/oidc/auth?client_id=5c9b079883e333d55a101082&redirect_uri=https://example.com&scope=openid profile offline_access&response_type=code&prompt=consent&state=235345
+https://<你的应用域名>.authing.cn/oauth/oidc/auth?client_id=5c9b079883e333d55a101082&redirect_uri=https://example.com&scope=openid profile offline_access&response_type=code&prompt=consent&state=235345
 ```
 
 ### 03 - 用户登录
@@ -517,7 +517,7 @@ token 过期
 同时发起登录请求时必须填写正确的参数；  
 如需使用刷新 token 功能，需要在控制台 OIDC 应用设置中勾选 refresh\_ token。  
 同时发起登录请求时必须填写正确的参数，带刷新 token 功能的登录请求示例：  
-`https://myapp.authing.cn/oauth/oidc/auth?client_id=5c9b079883e333d55a101082&redirect_uri=https://example.com&scope=openid profile offline_access&response_type=code&prompt=consent&state=235345`  
+`https://example.authing.cn/oauth/oidc/auth?client_id=5c9b079883e333d55a101082&redirect_uri=https://example.com&scope=openid profile offline_access&response_type=code&prompt=consent&state=235345`  
 {% endapi-method-description %}
 
 {% api-method-spec %}
