@@ -1,7 +1,3 @@
----
-description: We are working on this...
----
-
 # 接入组织机构管理
 
 借助 Authing，可以快速[实现基于角色的访问控制（RBAC）](https://mp.weixin.qq.com/s/zRiymhIjTqfUlymjkGfEsA)。简单来说，RBAC 指的是通过用户的角色（Role）赋予其相关权限，这实现了细粒度的访问控制，并提供了一个相比直接授予单个用户权限，更简单、可控的管理方式。
@@ -9,7 +5,7 @@ description: We are working on this...
   
 而在现实生活中，组、角色往往是分层嵌套的，呈树状结构，最常见的就是组织机构，如公司、学校等等。这篇文章，我们会设想一家互联网公司 —— 「非凡科技有限公司」，看看他们是如何使用 Authing 快速完成组织机构建模的。
 
-## 示例组织机构背景介绍
+## 非凡科技有限公司背景介绍
 
 {% hint style="success" %}
 我们假设有一家名为「非凡科技有限公司」的机构，约 300 名员工，他们想使用 Authing 对其组织机构进行建模、管理。
@@ -40,7 +36,7 @@ description: We are working on this...
 
 ## 如何使用 Authing 完成组织机构管理
 
-### 组织结构建模
+### 梳理组织机构节点
 
 首先，我们需要列举出一共有该组织结构一共具备哪些节点：
 
