@@ -25,8 +25,8 @@ Authing 支持非常丰富的认证、授权手段：
 | 分页查询 |  | YES |
 | 通过名称、描述搜索角色 |  | YES |
 | 角色能被授予给分组 |  | YES |
-| 角色嵌套、分层 |  | In future release |
-| 角色通过 namespace、多租户管理 |  | In future release |
+| 角色嵌套、分层 | Group 可以 | In future release |
+| 角色通过 namespace、多租户管理 | Group 可以 | In future release |
 | 查询角色具备的所有权限 |  | YES |
 | 查询角色中包含的所有用户 |  | YES |
 |  |  |  |
@@ -60,9 +60,9 @@ Authing 支持非常丰富的认证、授权手段：
 | 创建/修改/删除 分组 |  | YES |
 | 通过名称、描述搜索分组 |  | In future release |
 | 直接从第三方用户目录导入（如 AD, LDAP, SAML） |  | In future release |
-| 分组嵌套、分层 |  | In future release |
-| 查看分组的子分组 |  | In future release |
-| 分组通过 namespace、多租户管理 |  | In future release |
+| 分组嵌套、分层 |  | YES |
+| 查看分组的子分组 |  | YES |
+| 分组通过 namespace、多租户管理 |  | YES |
 | 查看一个分组具备的所有用户 |  | YES |
 | 查看一个分组具备的所有角色 |  | YES |
 | 查看一个分组具备的所有权限 |  | YES |
