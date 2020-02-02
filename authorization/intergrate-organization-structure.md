@@ -1,5 +1,11 @@
 # 接入组织机构管理
 
+SDK：
+
+{% page-ref page="../sdk/sdk-for-node/org-structure.md" %}
+
+
+
 借助 Authing，可以快速[实现基于角色的访问控制（RBAC）](https://mp.weixin.qq.com/s/zRiymhIjTqfUlymjkGfEsA)。简单来说，RBAC 指的是通过用户的角色（Role）赋予其相关权限，这实现了细粒度的访问控制，并提供了一个相比直接授予单个用户权限，更简单、可控的管理方式。
 
   
