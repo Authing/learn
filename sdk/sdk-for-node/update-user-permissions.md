@@ -1,4 +1,14 @@
-# 读取修改用户权限
+# 老版角色权限管理（deprecated）
+
+
+
+{% hint style="danger" %}
+此部分接口将会被废弃，请使用新版完整基于 RBAC 的角色权限管理。
+{% endhint %}
+
+{% page-ref page="rbac.md" %}
+
+## 
 
 你可以在控制台中创建角色、为角色配置权限和为角色指派用户（配置方式请参考：[配置用户角色和权限](https://learn.authing.cn/authing/advanced/roles)），然后使用本页的 API 根据用户 ID  在程序中读取或修改用户角色和权限。
 

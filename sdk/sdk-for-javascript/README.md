@@ -105,6 +105,48 @@ const main = async () => {
 main();
 ```
 
+## 异常捕获
+
+所有失败的操作，都需要使用 try catch 捕获异常。操作失败有两种情况：
+
+* 网络请求出错，常见情况包括：传递参数不合法，这会被 GraphQL 过滤层直接拦截；网络无法连接。
+* 业务逻辑出错，常见情况包括：密码不正确，删除某资源传递的 id 不存在等。
+
+为了方便开发者快速定位出错原因，我们提供一个 formatError 函数：
+
+```javascript
+function formatError(error) {
+  if (typeof error === 'string') return error;
+  if (error.request) {
+    // 网络请求错误
+    if(error.response)
+      return JSON.stringify(error.response.data);
+    else
+      return JSON.stringify(error.request);
+  } else if (typeof error.message === 'object') {
+    // 业务逻辑错误
+    if (error.message.message) {
+      return JSON.stringify(error.message.message);
+    } else {
+      return JSON.stringify(error.message);
+    }
+  } else {
+    return error;
+  }
+}
+```
+
+示例如下：
+
+```javascript
+  try {
+    const res = await authing.authz.deleteGroup("不存在的 groupId")
+    console.log(res)
+  } catch (error) {
+    console.log(formatError(error))
+  }
+```
+
 ## 注册
 
 **Authing.register\(options\)**
@@ -796,7 +838,7 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](../../advanced/ldap.md)�
 
 开发者也可以选择不开启 “验证原有手机号“ ，可以在 [Authing 控制台](https://authing.cn/dashboard) 的 **基础配置** - **基础设置** 页面的**安全设置**模块进行关闭。如下图所示：
 
-![](../../.gitbook/assets/image%20%28237%29.png)
+![](../../.gitbook/assets/image%20%28240%29.png)
 
 > 手机号短信验证码通过  **getVerificationCode** 接口发送**。**
 

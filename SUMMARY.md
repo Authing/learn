@@ -52,6 +52,17 @@
 * [迁移老数据进 Authing](advanced/ru-he-qian-yi-lao-shu-ju-jin-authing.md)
 * [错误代码](advanced/error-code.md)
 
+## 授权 <a id="authorization"></a>
+
+* [Authorization](authorization/authorization/README.md)
+  * [什么是基于角色的管理\(RBAC\)](authorization/authorization/rbac.md)
+  * [什么是基于属性的管理\(ABAC\)](authorization/authorization/abac.md)
+  * [什么是零信任网络](authorization/authorization/shen-me-shi-ling-xin-ren-wang-luo.md)
+* [Authorization at Authing](authorization/authorization-at-authing.md)
+* [接入 RBAC](authorization/intergrate-rbac.md)
+* [接入 ABAC](authorization/intergrate-abac.md)
+* [接入组织机构管理](authorization/intergrate-organization-structure.md)
+
 ## 扫码登录 <a id="scan-qrcode"></a>
 
 * [小程序扫码登录](scan-qrcode/wxapp-qrcode/README.md)
@@ -74,11 +85,15 @@
 * [Guard VS 自定义 UI](sdk/loginform-vs-custom-ui.md)
 * [SDK for 单点登录](sdk/sdk-for-sso.md)
 * [SDK for JavaScript](sdk/sdk-for-javascript/README.md)
+  * [查询用户权限](sdk/sdk-for-javascript/query-permissions.md)
   * [绑定社会化登录](sdk/sdk-for-javascript/bind-social-accounts.md)
   * [管理 MFA 口令](sdk/sdk-for-javascript/guan-li-mfa-kou-ling.md)
   * [自定义请求链接](sdk/sdk-for-javascript/zi-ding-yi-qing-qiu-lian-jie.md)
 * [SDK for Node.js](sdk/sdk-for-node/README.md)
-  * [读取修改用户权限](sdk/sdk-for-node/update-user-permissions.md)
+  * [角色权限管理](sdk/sdk-for-node/rbac.md)
+  * [查询用户权限](sdk/sdk-for-node/query-permissions.md)
+  * [组织机构管理](sdk/sdk-for-node/org-structure.md)
+  * [老版角色权限管理（deprecated）](sdk/sdk-for-node/update-user-permissions.md)
   * [绑定社会化登录](sdk/sdk-for-node/bind-social-login.md)
   * [管理 MFA 口令](sdk/sdk-for-node/manage-mfa.md)
   * [自定义请求连接](sdk/sdk-for-node/custom-host.md)

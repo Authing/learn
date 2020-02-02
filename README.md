@@ -4,6 +4,8 @@ description: 学习如何使用 Authing 进行开发，并理解身份认证的�
 
 # 欢迎
 
+
+
 > ## Authing - 一个万事万物都可用的身份
 
 {% hint style="success" %}
@@ -40,7 +42,7 @@ description: 学习如何使用 Authing 进行开发，并理解身份认证的�
 
 {% page-ref page="quickstart/deployment.md" %}
 
-![Authing Logo](.gitbook/assets/image%20%28332%29.png)
+![Authing Logo](.gitbook/assets/image%20%28336%29.png)
 
 
 
