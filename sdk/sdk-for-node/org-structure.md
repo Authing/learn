@@ -8,7 +8,7 @@
 
 使用以下接口时，请先完成初始化工作，请参考：
 
-{% page-ref page="rbac.md" %}
+{% page-ref page="./" %}
 
 ## 创建组织机构
 
