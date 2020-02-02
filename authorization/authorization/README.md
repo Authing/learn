@@ -11,7 +11,7 @@
 
 {% page-ref page="abac.md" %}
 
-{% page-ref page="shen-me-shi-ling-xin-ren-wang-luo.md" %}
+{% page-ref page="zero-trust-network.md" %}
 
 查看 Authing 目前支持的 Feature 以及未来的 roadmap：
 

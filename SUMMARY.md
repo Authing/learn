@@ -57,7 +57,7 @@
 * [Authorization](authorization/authorization/README.md)
   * [什么是基于角色的管理\(RBAC\)](authorization/authorization/rbac.md)
   * [什么是基于属性的管理\(ABAC\)](authorization/authorization/abac.md)
-  * [什么是零信任网络](authorization/authorization/shen-me-shi-ling-xin-ren-wang-luo.md)
+  * [什么是零信任网络](authorization/authorization/zero-trust-network.md)
 * [Authorization at Authing](authorization/authorization-at-authing.md)
 * [接入 RBAC](authorization/intergrate-rbac.md)
 * [接入 ABAC](authorization/intergrate-abac.md)
