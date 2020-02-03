@@ -118,11 +118,9 @@ https://<你的应用域名>.authing.cn/oauth/oidc/auth?client_id=5c9b079883e333
 
 参考资料：
 
-[scope 与用户信息对应表](https://docs.authing.cn/authing/advanced/oidc/oidc-params#scope-can-shu-dui-ying-de-yong-hu-xin-xi)
-
-[response\_type 参数 OIDC 规范](https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest)
-
-[prompt 参数 OIDC 规范](https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest)
+1. [scope 与用户信息对应表](https://docs.authing.cn/authing/advanced/oidc/oidc-params#scope-can-shu-dui-ying-de-yong-hu-xin-xi)
+2. [response\_type 参数 OIDC 规范](https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest)
+3. [prompt 参数 OIDC 规范](https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest)
 
 ### 03 - 用户登录
 
@@ -240,7 +238,7 @@ try {
 }
 ```
 
-id\_token 中会**包含 scope 参数请求的信息**，例如邮箱、手机号，解析后的 id\_token：
+**id\_token** 中会**包含 scope 参数请求的信息**，例如邮箱、手机号，解析后的 id\_token：
 
 ```text
 {
@@ -662,6 +660,10 @@ https://authing.cn/#id_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1Y2
 
 换取用户信息的流程和授权码模式相同。
 
+参考资料：
+
+1. [scope 与用户信息对应表](https://docs.authing.cn/authing/advanced/oidc/oidc-params#scope-can-shu-dui-ying-de-yong-hu-xin-xi)
+
 ## 使用混合模式（Hybrid Flow）
 
 混合模式直接在回调地址中附带 `code`、`access_token` 和 `id_token`，且都以 URL **Hash** 的形式传递。
@@ -699,6 +701,10 @@ https://example.com/#code=pIY83Jl_bcerNN9Wt57Sq0TAjTr&id_token=eyJhbGciOiJSUzI1N
 ```
 
 换取用户信息的流程和授权码模式相同。
+
+参考资料：
+
+1. [scope 与用户信息对应表](https://docs.authing.cn/authing/advanced/oidc/oidc-params#scope-can-shu-dui-ying-de-yong-hu-xin-xi)
 
 ## 退出 SSO
 
