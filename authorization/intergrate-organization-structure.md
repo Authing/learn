@@ -1,15 +1,15 @@
 # 接入组织机构管理
 
-SDK：
-
-{% page-ref page="../sdk/sdk-for-node/org-structure.md" %}
-
-
-
 借助 Authing，可以快速[实现基于角色的访问控制（RBAC）](https://mp.weixin.qq.com/s/zRiymhIjTqfUlymjkGfEsA)。简单来说，RBAC 指的是通过用户的角色（Role）赋予其相关权限，这实现了细粒度的访问控制，并提供了一个相比直接授予单个用户权限，更简单、可控的管理方式。
 
   
 而在现实生活中，组、角色往往是分层嵌套的，呈树状结构，最常见的就是组织机构，如公司、学校等等。这篇文章，我们会设想一家互联网公司 —— 「非凡科技有限公司」，看看他们是如何使用 Authing 快速完成组织机构建模的。
+
+JavaScript/Node.JS SDK 请参考：
+
+{% page-ref page="../sdk/sdk-for-node/org-structure.md" %}
+
+非 JavaScript 开发者请使用 API 调试器：[https://authing.cn/graphiql/](https://authing.cn/graphiql/)
 
 ## 非凡科技有限公司背景介绍
 
