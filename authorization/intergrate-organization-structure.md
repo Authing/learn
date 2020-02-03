@@ -44,7 +44,7 @@ SDK：
 
 ### 梳理组织机构节点
 
-首先，我们需要列举出一共有该组织结构一共具备哪些节点：
+首先，我们需要列举出该组织结构拥有的所有节点：
 
 * 非凡科技有限公司
 * 产品部
@@ -321,5 +321,24 @@ permissionList 如下：可见，此用户已经继承了 Invoice Submitter 和 
  ]
 ```
 
+开发者拿到用户权限列表之后，可以在业务代码层判断用户是否具备某一特定权限，如：
 
+```javascript
+if "corp-email:login" not in user.permissionList:
+    return "Permission Denied"
+```
+
+## 总结
+
+本文我们以「非凡科技有限公司」为例，介绍了如何将一棵组织机构树转换成一组嵌套、有层次的 Group。通过 Authing 提供的分组角色权限管理 API，可以为 Group 配置角色、指派成员，使得该 Group 中的用户继承所需的权限，从而完成组织机构建模与权限控制。
+
+## 相关阅读
+
+1. [Authing 的故事：我为什么开发 Authing？](https://mp.weixin.qq.com/s/qVlqwA2ZhZeKsl0RdVsojQ)
+2. [如何在远程办公中保持高效的](https://mp.weixin.qq.com/s/WGL7n9D1L0UG71276Wn6Iw)[研发效率？](https://mp.weixin.qq.com/s/WGL7n9D1L0UG71276Wn6Iw)
+3. [一份普通人能理解的关于 Authing 的介绍](https://mp.weixin.qq.com/s/KkUhNuXnrsWa5Q-ucmIlqA)
+4. [Authing 是什么以及为什么需要 Authing？](https://mp.weixin.qq.com/s/TlYmDRg1q_glJ7Icsj0arw)
+5. [为什么身份认证值得上云？](https://mp.weixin.qq.com/s/TlYmDRg1q_glJ7Icsj0arw)
+6. [Authing](https://mp.weixin.qq.com/s/6SsGcgoesVGaLT19auK7yg) [@ 2019 总结](https://mp.weixin.qq.com/s/6SsGcgoesVGaLT19auK7yg)
+7. [Authing 开发资源最全合集](https://mp.weixin.qq.com/s/Xd3SR2WaB15a250RxEZWpg)
 
