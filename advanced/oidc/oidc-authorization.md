@@ -67,15 +67,15 @@ OIDC 应用的 app\_id
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="scope" type="string" required=true %}
-需要请求的权限，如果需要获取 unionid 需要包含 unionid，如果需要获取手机号和 email 需要有 phone email，如果需要 refresh\_token 需要包含 offline\_access 参考 scope 表格
+需要请求的权限，如果需要获取 unionid 需要包含 unionid，如果需要获取手机号和 email 需要有 phone email，如果需要 refresh\_token 需要包含 offline\_access。同时 id\_token 中会包含相关的字段。
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="response\_type" type="string" required=true %}
-OIDC 模式，可以为 code, id\_token, id\_token token, code id\_token, code token, code id\_token token 参考 OIDC 规范
+OIDC 模式，可以为 code, id\_token, id\_token token, code id\_token, code token, code id\_token token
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="prompt" type="string" required=true %}
-可以为 none，login，consent 或 select\_account，指定 AP 与 End-User 的交互方式，如需 refresh\_token，必须为 consent 参考 OIDC 规范
+可以为 none，login，consent 或 select\_account，指定 AP 与 End-User 的交互方式，如需 refresh\_token，必须为 consent
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="state" type="string" required=true %}
@@ -115,6 +115,14 @@ https://<你的应用域名>.authing.cn/oauth/oidc/auth?client_id=5c9b079883e333
 ```text
 https://<你的应用域名>.authing.cn/oauth/oidc/auth?client_id=5c9b079883e333d55a101082&redirect_uri=https://example.com&scope=openid profile offline_access&response_type=code&prompt=consent&state=235345
 ```
+
+参考资料：
+
+[scope 与用户信息对应表](https://docs.authing.cn/authing/advanced/oidc/oidc-params#scope-can-shu-dui-ying-de-yong-hu-xin-xi)
+
+[response\_type 参数 OIDC 规范](https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest)
+
+[prompt 参数 OIDC 规范](https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest)
 
 ### 03 - 用户登录
 
@@ -216,6 +224,51 @@ try {
 } catch (error) {
   ctx.body = error.response.data
   return
+}
+```
+
+返回示例：
+
+```text
+{
+    "access_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEifQ.eyJqdGkiOiJ-azVqal9LelNoSl9adGg0RFc1YmkiLCJzdWIiOiI1Y2U1M2FlYTlmODUyNTdkZDEzMmQ3NDkiLCJpc3MiOiJodHRwczovL29hdXRoLmF1dGhpbmcuY24vb2F1dGgvb2lkYyIsImlhdCI6MTU4MDcxOTU5NSwiZXhwIjoxNTgwNzIzMTkyLCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIGVtYWlsIHBob25lIGFkZHJlc3Mgb2ZmbGluZV9hY2Nlc3MiLCJhdWQiOiI1ZDAxZTM4OTk4NWY4MWM2YzFkZDMxZGUifQ.OBcLmACMYnXnB6OYcjwC7K5GpP-TOoQhtXtNrqVZfsbmHYU3P4uO68nI41wlcwYhH_J9V3XphmuVK-RT9RiuZN0a7BmgY1YJVF1piF28u4KLoOnz8sMo2ccZAaMxiFBiqInYPn02rhQK9Qbxp7oZcwlmtV74k_ih-GS__cDHDWGbNB-dzT75fsc3aXpBTJv3yutJeThRtHGNZn50R196VkcEUE9oGbdPbKLzzi_dM0bQ5Lq3BlXrlzuj4Nc6iOoZvJhh-eogtoQ7jjtGH42ESmTsGbob4uvDZXS04FttE8uQ4T-VD1h_BB651ZLPa4nQGsWfRr9d0ALXTCLBvyvuiQ",
+    "expires_in": 3597,
+    "id_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEifQ.eyJzdWIiOiI1Y2U1M2FlYTlmODUyNTdkZDEzMmQ3NDkiLCJiaXJ0aGRhdGUiOiIiLCJmYW1pbHlfbmFtZSI6IiIsImdlbmRlciI6IiIsImdpdmVuX25hbWUiOiIiLCJsb2NhbGUiOiIiLCJtaWRkbGVfbmFtZSI6IiIsIm5hbWUiOiIiLCJuaWNrbmFtZSI6IiIsInBpY3R1cmUiOiJodHRwczovL3VzZXJjb250ZW50cy5hdXRoaW5nLmNuL2F1dGhpbmctYXZhdGFyLnBuZyIsInByZWZlcnJlZF91c2VybmFtZSI6IiIsInByb2ZpbGUiOiIiLCJ1cGRhdGVkX2F0IjoiIiwid2Vic2l0ZSI6IiIsInpvbmVpbmZvIjoiIiwiZW1haWwiOiJ0ZXN0M0AxMjMuY29tIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwaG9uZV9udW1iZXJfdmVyaWZpZWQiOiIxMzExMjM0MTIzNCIsImFkZHJlc3MiOiIiLCJhdF9oYXNoIjoiMU9RLWRoTjZLakdEaDlHakNnUGNTdyIsInNpZCI6IjZmMmRhZmVmLTI0ZTQtNDBmNC04OTVhLTQwNjdhOTRmNDA2NyIsImF1ZCI6IjVkMDFlMzg5OTg1ZjgxYzZjMWRkMzFkZSIsImV4cCI6MTU4MDcyMzE5MiwiaWF0IjoxNTgwNzE5NTk1LCJpc3MiOiJodHRwczovL29hdXRoLmF1dGhpbmcuY24vb2F1dGgvb2lkYyJ9.vQNYBzZhcYUISonwhZE1FFpoqtxGR_aPbUwfvB-aQAFWCOimu0fPtJbTLLzKeAg8xptDZLIt4F2z9NFg3E33eTaaVhVKQSrpxqH0L1T1OK6T0EBZLQn2l8GFhG33AxCSI1uCZM6ncjSDAJ6zFXHsWXmBoZtfDhY29xc-HY520xV8AseFKxLLrI_y9lmqTI-9EYPCKDYi6l-G8FA9BFbDU04TQVHFYJ40LfZB18zBTkgNSkGdvutUjulFI_bp5_SKMtCH0WEAZPbV3fjuPisemgu7awc4pDOA_IrvnSpx6ktrUO6TBdFOgWIYNs8hSL65y666B_xkVc05gEpyCE70_g",
+    "refresh_token": "kKXMlK4IybivfIJ25pmM5CjisyL",
+    "scope": "openid profile email phone address offline_access",
+    "token_type": "Bearer"
+}
+```
+
+id\_token 中会**包含 scope 参数请求的信息**，例如邮箱、手机号，解析后的 id\_token：
+
+```text
+{
+  "sub": "5ce53aea9f85257dd132d749",
+  "birthdate": "",
+  "family_name": "",
+  "gender": "",
+  "given_name": "",
+  "locale": "",
+  "middle_name": "",
+  "name": "",
+  "nickname": "",
+  "picture": "https://usercontents.authing.cn/authing-avatar.png",
+  "preferred_username": "",
+  "profile": "",
+  "updated_at": "",
+  "website": "",
+  "zoneinfo": "",
+  "email": "test3@123.com",
+  "email_verified": false,
+  "phone_number": "13112341234",
+  "address": "",
+  "at_hash": "Djult1dxcKyR2DwssGFYkg",
+  "sid": "6f2dafef-24e4-40f4-895a-4067a94f4067",
+  "aud": "5d01e389985f81c6c1dd31de",
+  "exp": 1580726037,
+  "iat": 1580722440,
+  "iss": "https://oauth.authing.cn/oauth/oidc"
 }
 ```
 
@@ -587,7 +640,7 @@ code 换 token 接口返回的 refresh\_token。例：WPsGJbvpBjqXz6IJIr1UHKyrdV
 | :--- | :--- |
 | client\_id | OIDC 应用的 **app\_id** |
 | redirect\_uri | 在控制台配置的 OIDC 回调 url 其中的一个值。启用隐式模式时，**控制台配置的所有** redirect\_uri 必须都为 https 协议 |
-| scope | 需要请求的权限 |
+| scope | 需要请求的权限，如果需要获取 unionid 需要包含 unionid，如果需要获取手机号和 email 需要有 phone email，同时 id\_token 中会包含相关的字段。隐式模式不能刷新 token，所以 offline\_access 字段无效。 |
 | response\_type | OIDC 模式，可以为 id\_token, id\_token token [参考 OIDC 规范](https://openid.net/specs/openid-connect-core-1_0.html#AuthorizationExamples) |
 | prompt | 可以为 none，login，consent 或 select\_account，指定 AP 与 End-User 的交互方式。[参考 OIDC 规范](https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) |
 | state | 一个随机字符串，用于防范 CSRF 攻击，如果 response 中的 state 值和发送请求之前设置的 state 值不同，说明受到攻击 |
@@ -627,7 +680,7 @@ https://authing.cn/#id_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1Y2
 | :--- | :--- |
 | client\_id | OIDC 应用的 **app\_id** |
 | redirect\_uri | 在控制台配置的 OIDC 回调 url 其中的一个值。启用隐式模式时，**控制台配置的所有** redirect\_uri 必须都为 https 协议 |
-| scope | 需要请求的权限 |
+| scope | 需要请求的权限，如果需要获取 unionid 需要包含 unionid，如果需要获取手机号和 email 需要有 phone email，同时 id\_token 中会包含相关的字段。如果需要刷新 token，需要有 offline\_access 参数，同时 response\_type 参数中必须包含 code，并使用 code 换取 token，否则 offline\_access 字段无效。 |
 | response\_type | OIDC 模式，此处为 code id\_token token [参考 OIDC 规范](https://openid.net/specs/openid-connect-core-1_0.html#AuthorizationExamples) |
 | prompt | 可以为 none，login，consent 或 select\_account，指定 AP 与 End-User 的交互方式。[参考 OIDC 规范](https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) |
 | state | 一个随机字符串，用于防范 CSRF 攻击，如果 response 中的 state 值和发送请求之前设置的 state 值不同，说明受到攻击 |
