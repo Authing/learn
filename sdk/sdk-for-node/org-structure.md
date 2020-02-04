@@ -1,6 +1,6 @@
 # 组织机构管理
 
-## 如何接入
+## 开始前请阅读
 
 {% page-ref page="../../authorization/intergrate-organization-structure.md" %}
 
@@ -12,16 +12,24 @@
 
 ## 创建组织机构
 
+{% hint style="info" %}
+在 Authing 中，组织机构树中的每个节点对应一个 Group。如在创建组织机构时，需要指定根节点对应 Group 的 ID，即需要先创建 Group 再创建节点。
+{% endhint %}
+
 Authing.org.createOrg\(input\)
 
 * 参数：
   * input: &lt;Object&gt; 
-    * rootGroupId：&lt;string&gt; 必填，根节点群组 ID
+    * rootGroupId：&lt;string&gt; 必填，根节点 Group ID（每个节点对应一个 Group）。
 * 使用方法
 
 ```javascript
+const root = await authing.authz.createGroup({
+    name: "非凡科技有限公司",
+    description: "非凡科技有限公司"
+})
 const org = await authing.org.createOrg({
-    rootGroupId: "xxxxx"
+    rootGroupId: root._id
 })
 ```
 

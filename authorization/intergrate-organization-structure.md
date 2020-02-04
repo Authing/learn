@@ -42,6 +42,59 @@ JavaScript/Node.JS SDK 请参考：
 
 ## 如何使用 Authing 完成组织机构管理
 
+{% hint style="info" %}
+本文中用到的 createGroup，createRole 等为封装的方法，如下所示。
+
+参见此测试用例：[https://github.com/authing/authing.js/blob/master/tests/org.js](https://github.com/authing/authing.js/blob/master/tests/org.js)
+{% endhint %}
+
+```javascript
+async function createGroup(name, description) {
+  name = name || `分组${Math.random().toString(36).slice(2)}`
+  description = description || ""
+  return await authing.authz.createGroup({
+    name,
+    description
+  })
+}
+
+async function createRole(name, description) {
+  name = name || `角色${Math.random().toString(36).slice(2)}`
+  description = description || ""
+  return await authing.authz.createRole({
+    name,
+    description
+  })
+}
+
+async function createPermission(name, description) {
+  name = name || `权限${Math.random().toString(36).slice(2)}`;
+  description = description || ""
+  return await authing.authz.createPermission({
+    name,
+    description
+  })
+}
+
+async function createPermissionBatch(permissions) {
+  let list = []
+  for (let name of permissions) {
+    list.push(await createPermission(name))
+  }
+  return list
+}
+
+async function createUser() {
+  return await authing.register({
+    email: Math.random()
+      .toString(36)
+      .slice(2) + "@authing.cn",
+    password: "123456a"
+  });
+}
+
+```
+
 ### 梳理组织机构节点
 
 首先，我们需要列举出该组织结构拥有的所有节点：
