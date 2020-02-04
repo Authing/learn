@@ -1,5 +1,9 @@
 # 接入 RBAC
 
+## 学习 RBAC 的基本概念
+
+{% page-ref page="authorization/rbac.md" %}
+
 ## SDK
 
 {% page-ref page="../sdk/sdk-for-node/rbac.md" %}
