@@ -1,4 +1,4 @@
-# 老版角色权限管理（deprecated）
+# 老版权限控制（deprecated）
 
 
 
