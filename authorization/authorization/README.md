@@ -21,5 +21,7 @@
 
 ## 快速开始
 
+{% page-ref page="../intergrate-rbac.md" %}
+
 {% page-ref page="../intergrate-organization-structure.md" %}
 
