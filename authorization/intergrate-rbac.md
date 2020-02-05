@@ -4,19 +4,13 @@
 
 {% page-ref page="authorization/rbac.md" %}
 
-## Node.js SDK
+## SDK
 
 {% page-ref page="../sdk/sdk-for-node/rbac.md" %}
 
 {% page-ref page="../sdk/sdk-for-node/query-permissions.md" %}
 
-## 其他语言
-
-其他语言请调用 API 接入组织机构管理：
-
-{% embed url="https://authing.cn/graphiql" %}
-
-## 最佳实践
+## 如何使用
 
 1. 配置分组、角色、权限
    * 一个分组包含一个或多个角色
@@ -28,7 +22,7 @@
 4. 查询用户权限列表
 5. 在自己的业务代码层，判断用户是否具备某种权限，从而执行对应逻辑。
 
-假设在后端获取到的用户权限列表如下：
+假设获取到的用户权限列表如下：
 
 ```javascript
 ["email:login", "email:read", "email:write", "email:send"]

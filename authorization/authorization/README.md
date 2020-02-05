@@ -1,5 +1,7 @@
 # Authorization 基础概念
 
+## 基础概念
+
 认证（Authentication）和授权（Authorization）是两码事：
 
 * 认证是识别请求方是谁的过程
@@ -17,5 +19,7 @@
 
 {% page-ref page="../authorization-at-authing.md" %}
 
+## 快速开始
 
+{% page-ref page="../intergrate-organization-structure.md" %}
 

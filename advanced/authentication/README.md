@@ -41,7 +41,3 @@ description: 理解 Authing 提供的认证方式
 1. 若你不理解什么是 OAuth、OIDC、SAML、LDAP 等标准协议且应用安全性要求不高，建议[使用普通认证](https://learn.authing.cn/authing/advanced/authentication#pu-tong-ren-zheng)；
 2. 若你的应用安全性要求较高，无论是否了解标准协议，请[使用标准协议认证](https://learn.authing.cn/authing/advanced/authentication#biao-zhun-xie-yi-ren-zheng)。
 
-## 授权
-
-{% page-ref page="../../authorization/authorization/" %}
-
