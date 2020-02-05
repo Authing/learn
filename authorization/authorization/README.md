@@ -1,4 +1,4 @@
-# Authorization
+# Authorization 基础概念
 
 认证（Authentication）和授权（Authorization）是两码事：
 
@@ -11,9 +11,9 @@
 
 {% page-ref page="abac.md" %}
 
-{% page-ref page="shen-me-shi-ling-xin-ren-wang-luo.md" %}
+{% page-ref page="zero-trust-network.md" %}
 
-查看 Authing 目前支持的 Feature 以及未来的 roadmap：
+查看 Authing 目前支持的 Features 以及未来的 roadmap：
 
 {% page-ref page="../authorization-at-authing.md" %}
 

@@ -54,7 +54,7 @@
 
 ## 授权 <a id="authorization"></a>
 
-* [Authorization](authorization/authorization/README.md)
+* [Authorization 基础概念](authorization/authorization/README.md)
   * [什么是基于角色的管理\(RBAC\)](authorization/authorization/rbac.md)
   * [什么是基于属性的管理\(ABAC\)](authorization/authorization/abac.md)
   * [什么是零信任网络](authorization/authorization/zero-trust-network.md)
