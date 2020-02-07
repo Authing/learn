@@ -109,7 +109,7 @@ if (ok) {
 }
 ```
 
-> 完整的 DEMO 可从 [examples](./examples/) 目录下获取。
+> 完整的 DEMO 可从 [examples](https://github.com/Authing/authing-wxmp-sdk/tree/master/examples/html) 目录下获取。
 
 ### 完整 API 列表
 
