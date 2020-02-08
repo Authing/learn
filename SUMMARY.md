@@ -26,6 +26,7 @@
   * [接入微信手机网页授权登录](advanced/social-login/wechatmp-login.md)
   * [接入小程序客户端登录](advanced/social-login/jie-ru-xiao-cheng-xu-ke-hu-duan-deng-lu.md)
   * [在云上配置社会化登录](advanced/social-login/config-social-login-in-cloud.md)
+  * [社会化登录授权 Scope](advanced/social-login/social-login-scopes.md)
 * [接入 OAuth 2.0](advanced/oauth2/README.md)
   * [创建 OAuth 应用](advanced/oauth2/create-oauth2.md)
   * [使用 OAuth 授权](advanced/oauth2/oauth-authorization.md)

@@ -482,7 +482,7 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](../../advanced/ldap.md)�
 }
 ```
 
-## 刷新用户 Token
+## 刷新用户 Token <a id="refresh-user-token"></a>
 
 **Authing.refreshToken\(options\)**
 
@@ -508,7 +508,47 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](../../advanced/ldap.md)�
     {
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoieGlleWFuZ0Bkb2RvcmEuY24iLCJpZCI6IjVkMDQ2M2FjODdkNmU5NTEwM2E3MTBjNSJ9LCJpYXQiOjE1NjA1NzEwNzYsImV4cCI6MTU2MTg2NzA3Nn0.qs-Q7UOC5wFa40uIau-50-VjSAVOVjr5nw2opzQeLYg",
       "iat": 1560571076,
-      "exp": 1561867076
+      "exp": 1561867076,
+      "thirdPartyIdentity": {
+        "refreshSuccess": true,
+        "message": "qq token 刷新成功",
+        "provider": "qq",
+        "refreshToken": "929BF76A31B5F32D3A10F871ABC809F4",
+        "accessToken": "5B99DCFB144917B3D04E522499BD340C",
+        "updatedAt": "2020-02-08T18:12:04+08:00"
+      }
+    }
+    ```
+
+## 刷新用户三方 Token <a id="refresh-user-token"></a>
+
+**Authing.refreshThirdPartyToken\(userId\)**
+
+此接口用于刷新用户在社会化登录时产生的 access\_token。例如使用 QQ 登录后的 access\_token，可用于调用 QQ 相关业务接口。
+
+* **参数:**
+  * `{String} userId`必填，用户的 \_id
+* **使用方法:**
+  * ```javascript
+    (async function() {
+      const authing = new Authing({
+        userPoolId: 'your_userpool_id',
+        secret: 'your_userpool_secret'
+      });
+  
+      const token = await authing.refreshToken('59e5ff4935eebf1913cfe8a1')
+        .catch((error) => { ... })
+    })();
+    ```
+* **返回数据:**
+  * ```javascript
+    {
+        "refreshSuccess": true,
+        "message": "qq token 刷新成功",
+        "provider": "qq",
+        "refreshToken": "929BF76A31B5F32D3A10F871ABC809F4",
+        "accessToken": "5B99DCFB144917B3D04E522499BD340C",
+        "updatedAt": "2020-02-08T18:12:04+08:00"
     }
     ```
 
@@ -555,6 +595,8 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](../../advanced/ldap.md)�
 
 **Authing.user\(options\)**
 
+除 Authing 用户信息外，`thirdPartyIdentity` 字段包含用户在**第三方社会化登录时**产生的 **access\_token**，可用于调用第三方相关业务接口。
+
 * **参数:**
   * `{Object} options`
     * **id**，必填，用户的 \_id
@@ -593,7 +635,14 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](../../advanced/ldap.md)�
         "lastIP": null, 
         "signedUp": "Fri Jan 12 2018 13:55:25 GMT+0800 (CST)", 
         "blocked": false, 
-        "isDeleted": false, 
+        "isDeleted": false,
+        "thirdPartyIdentity" : {
+    		  "provider" : "wechat-mp",
+    		  "refreshToken" : "30_dfRXbdXTTb3MLeQawh3v-Qcs94cLWbQixkSXlzTtOyaM0ym-K_0kcytTspceZcvu3CCkb6g1NAjId82Vw2DWfGv8sayIjHDFepR1H0SKxyc",
+    		  "accessToken" : "30_MFUPDUNMrQ-3Z9GSlpZaM3VZjz4guazxZwTyD9pH4640xy1XAYKpFA6eBhYhXFvyTSwtVC3TvyXBemTEkqrALwQ3FzCQsHl43MePbEbzg1Y",
+    		  "expiresIn" : 7200,
+    		  "updatedAt" : "2020-02-08T18:11:37.807+08:00"
+    	  },
         "__typename": "ExtendUser"
     }
     ```
