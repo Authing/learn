@@ -520,7 +520,7 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](../../advanced/ldap.md)�
     }
     ```
 
-## 刷新用户三方 Token <a id="refresh-user-token"></a>
+## 刷新用户三方 Token <a id="refresh-user-third-party-token"></a>
 
 **Authing.refreshThirdPartyToken\(userId\)**
 
@@ -591,7 +591,7 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](../../advanced/ldap.md)�
 
 {% page-ref page="update-user-permissions.md" %}
 
-## 获取单个用户资料
+## 获取单个用户资料 <a id="get-single-user-data"></a>
 
 **Authing.user\(options\)**
 
