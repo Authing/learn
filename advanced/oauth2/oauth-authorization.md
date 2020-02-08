@@ -8,7 +8,7 @@ description: 'Node.JS Demo 源码：https://github.com/Authing/oauth-demo'
 
 以下流程图列举了一种使用 OAuth 协议授权码模式的方式。
 
-![&#x6388;&#x6743;&#x7801;&#x6A21;&#x5F0F;&#x6D41;&#x7A0B;&#x56FE;](../../.gitbook/assets/image%20%28179%29.png)
+![&#x6388;&#x6743;&#x7801;&#x6A21;&#x5F0F;&#x6D41;&#x7A0B;&#x56FE;](../../.gitbook/assets/image%20%28180%29.png)
 
 ### **1. 请求授权**
 

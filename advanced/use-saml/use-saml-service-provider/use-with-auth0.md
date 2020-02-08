@@ -26,7 +26,7 @@ entityID 填入 Auth0 IdP 的 Issuer，形如 `urn:xxx.auth0.com`。
 
 在下方 SAML Response 验签证书处上传在 Auth0 下载的 IdP 证书。
 
-![&#x4E0A;&#x4F20; auth0 IdP &#x7684;&#x8BC1;&#x4E66;](../../../.gitbook/assets/image%20%28172%29.png)
+![&#x4E0A;&#x4F20; auth0 IdP &#x7684;&#x8BC1;&#x4E66;](../../../.gitbook/assets/image%20%28173%29.png)
 
 其他选项保留默认即可。
 
@@ -50,9 +50,9 @@ entityID 填入 Auth0 IdP 的 Issuer，形如 `urn:xxx.auth0.com`。
 
 浏览器会跳转到 Auth0 IdP 用户认证登录页，选择一种方式进行登录。
 
-![](../../../.gitbook/assets/image%20%28206%29.png)
+![](../../../.gitbook/assets/image%20%28207%29.png)
 
 浏览器会跳转到在 Authing SP 设置的回调地址，以 url query 的形式附带用户信息，key 为 data。
 
-![](../../../.gitbook/assets/image%20%28316%29.png)
+![](../../../.gitbook/assets/image%20%28317%29.png)
 
