@@ -24,7 +24,7 @@
 
 `https://idp.ssocircle.com:443/sso/IDPSloRedirect/metaAlias/publicidp`
 
-![](../../../.gitbook/assets/image%20%28222%29.png)
+![](../../../.gitbook/assets/image%20%28224%29.png)
 
 entityID 填入 SSOCircle IdP 的 entityID，`https://idp.ssocircle.com`。
 
@@ -63,7 +63,7 @@ aLfL63AFVlpOnEpIio5++UjNJRuPuAA=
 -----END CERTIFICATE-----
 ```
 
-![](../../../.gitbook/assets/image%20%28144%29.png)
+![](../../../.gitbook/assets/image%20%28146%29.png)
 
 其他配置保留默认。
 
@@ -85,13 +85,13 @@ FQDN 处输入 Authing SP 应用的云上地址（不含 `https://`）。
 
 点击「Submit」。
 
-![](../../../.gitbook/assets/image%20%28238%29.png)
+![](../../../.gitbook/assets/image%20%28240%29.png)
 
 ## 使用 Authing SAML SP 发起登录
 
 将 Authing SAML SP 应用详情 -&gt; 使用方法选项卡 -&gt; 发起 SAML 登录项目下的地址复制到浏览器地址栏，进行访问。
 
-![](../../../.gitbook/assets/image%20%28268%29.png)
+![](../../../.gitbook/assets/image%20%28270%29.png)
 
 浏览器会跳转到 SSOCircle IdP 用户认证登录页，选择一种方式进行登录。此 IdP 需要科学上网使用，否则确权页面无法加载 Google 的资源。
 
@@ -99,5 +99,5 @@ FQDN 处输入 Authing SP 应用的云上地址（不含 `https://`）。
 
 浏览器会跳转到在 Authing SP 设置的回调地址，以 url query 的形式附带用户信息，key 为 data。
 
-![](../../../.gitbook/assets/image%20%28187%29.png)
+![](../../../.gitbook/assets/image%20%28189%29.png)
 

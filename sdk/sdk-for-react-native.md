@@ -47,7 +47,7 @@ cd ios && pod install
 
 如果一切顺利，你会看到：
 
-![](../.gitbook/assets/image%20%28140%29.png)
+![](../.gitbook/assets/image%20%28142%29.png)
 
 > 由于平台限制，如果需要接入社会化登录，还需要进行一些额外配置，详情见下文。
 
