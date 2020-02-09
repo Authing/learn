@@ -127,7 +127,8 @@
 
 * [常见问题](others/faq.md)
 * [集成案例](others/cases/README.md)
-  * [使用 Authing 补充 AWS 中国区 Cognito User Pool](others/cases/shi-yong-authing-bu-chong-aws-zhong-guo-qu-cognito-user-pool.md)
+  * [Authing 与 AWS 集成案例](others/cases/authing-aws.md)
+  * [函数计算与 AaaS 集成案例](others/cases/faas-aaas.md)
 * [社交互联数据](others/solid/README.md)
   * [Authing 与社交互联数据](others/solid/authing-solid.md)
 * [为 Authing 贡献 SDK](others/wei-authing-gong-xian-sdk/README.md)
