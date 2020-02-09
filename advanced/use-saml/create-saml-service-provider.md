@@ -8,11 +8,11 @@
 
 打开应用控制台 -&gt; 第三方登录 -&gt; 社会化登录选项卡
 
-![&#x5E94;&#x7528;&#x63A7;&#x5236;&#x53F0;](../../.gitbook/assets/image%20%28161%29.png)
+![&#x5E94;&#x7528;&#x63A7;&#x5236;&#x53F0;](../../.gitbook/assets/image%20%28168%29.png)
 
 滚动到页面下方，在 SAML Service Provider 区域，点击 ➕
 
-![&#x521B;&#x5EFA; SAML SP](../../.gitbook/assets/image%20%28236%29.png)
+![&#x521B;&#x5EFA; SAML SP](../../.gitbook/assets/image%20%28248%29.png)
 
 在弹出的窗口中，输入应用信息，点击「创建应用」。
 
@@ -24,7 +24,7 @@
 
 接下来需要填写一些 SP 的基础配置才能使 SP 正常工作。
 
-![&#x57FA;&#x7840;&#x914D;&#x7F6E;](../../.gitbook/assets/image%20%28414%29.png)
+![&#x57FA;&#x7840;&#x914D;&#x7F6E;](../../.gitbook/assets/image%20%28428%29.png)
 
 **IdP 登录 URL** 由 IdP 提供，如果没有，可以从 IdP 元数据 XML 文档中查找。
 
@@ -56,7 +56,7 @@
 
 接下来，需要配置一些 SP 对 IdP 的“要求”。
 
-![SP &#x5BF9; IdP &#x7684;&#x201C;&#x8981;&#x6C42;&#x201D;](../../.gitbook/assets/image%20%28223%29.png)
+![SP &#x5BF9; IdP &#x7684;&#x201C;&#x8981;&#x6C42;&#x201D;](../../.gitbook/assets/image%20%28234%29.png)
 
  **要求的用户唯一标识符形式** SP 可以要求 IdP 返回特定格式的用户唯一标识符。默认为 unspecified，会返回 persistent 类型的用户 Id。
 
@@ -84,7 +84,7 @@
 
 作为 SP，必须对 IdP 颁发的 SAML Assertion 验签从而提升安全性。输入或者从文件读入 IdP 签名证书，这样 SP 收到 SAML Assertion 后就会检验签名合法性，确保是真实的 IdP 颁发的断言，如果签名不正确，SP 会跳转到回调网址，错误信息以 query 的形式传递，不会返回用户信息。
 
-![&#x9A8C;&#x7B7E; SAML Response](../../.gitbook/assets/image%20%28122%29.png)
+![&#x9A8C;&#x7B7E; SAML Response](../../.gitbook/assets/image%20%28128%29.png)
 
 此处需要上传或输入相应 IdP 的签名证书。IdP 可能会单独提供此证书，如果没有，可以从 IdP 的元数据 XML 文档中获取，注意对其进行[格式化](https://www.samltool.com/format_x509cert.php)。
 
@@ -104,7 +104,7 @@
 
 SP 可以要求 IdP 对 SAML Assertion 进行加密，SP 需要为 IdP 提供加密公钥，IdP 进行加密。SP 使用自己的私钥解密内容。打开开关，输入或从文件读入加密证书秘钥对，随后需要将公钥，或者 SP 元数据 XML 文档交给 IdP，在你的 IdP 提供商进行相应配置。
 
-![&#x52A0;&#x5BC6; SAML Response](../../.gitbook/assets/image%20%28151%29.png)
+![&#x52A0;&#x5BC6; SAML Response](../../.gitbook/assets/image%20%28158%29.png)
 
 输入或从文件读入证书内容，注意证书算法必须与选择的签名和摘要算法**一致**。如果你没有证书，可以从[这里](https://www.samltool.com/self_signed_certs.php)生成一个。
 
@@ -112,7 +112,7 @@ SP 可以要求 IdP 对 SAML Assertion 进行加密，SP 需要为 IdP 提供加
 
 SP 可以对发出的 SAML Request 进行签名，确保此 SAML Request 的发出者身份合法。IdP 可能通过 SAML Request 签名来判断请求来源，从而拒绝非法的 SALM Request 请求。
 
-![&#x7B7E;&#x540D; SAML Request](../../.gitbook/assets/image%20%28306%29.png)
+![&#x7B7E;&#x540D; SAML Request](../../.gitbook/assets/image%20%28319%29.png)
 
 输入或从文件读入证书内容，注意证书算法必须与选择的签名和摘要算法**一致**。如果你没有证书，可以从[这里](https://www.samltool.com/self_signed_certs.php)生成一个。
 
@@ -122,7 +122,7 @@ SP 可以对发出的 SAML Request 进行签名，确保此 SAML Request 的发�
 
 当 IdP 和用户完成了身份验证，IdP 会把用户信息放在 SAML Response 的 Assertion 中发给 SP。Authing 需要将其中的数据存入自己的数据库，这就需要字段对齐。Authing 需要知道 SAML Response 中的用户信息字段名称是什么，进行取出。Authing 内置了一些 IdP 的字段对齐配置，你需要从中选择你的 IdP 提供商。
 
-![&#x5185;&#x7F6E; IdP &#x6620;&#x5C04;&#x65B9;&#x6848;](../../.gitbook/assets/image%20%28130%29.png)
+![&#x5185;&#x7F6E; IdP &#x6620;&#x5C04;&#x65B9;&#x6848;](../../.gitbook/assets/image%20%28136%29.png)
 
 如果找不到你的 IdP 提供商或内置的字段对齐方案不能满足需求，你可以使用自定义字段对齐配置
 
@@ -179,7 +179,7 @@ company：不填，因为 Assertion 中无此信息
 
 完成设置后，点击确定，会展示一些使用提示。
 
-![SAML SP &#x4F7F;&#x7528;&#x65B9;&#x6CD5;](../../.gitbook/assets/image%20%28207%29.png)
+![SAML SP &#x4F7F;&#x7528;&#x65B9;&#x6CD5;](../../.gitbook/assets/image%20%28217%29.png)
 
 到此 SAML Service Provider 创建完成。
 
