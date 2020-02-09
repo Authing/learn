@@ -24,9 +24,9 @@ description: >-
 
 如果你还没有账号，请[点击这里注册 Authing 账号](https://authing.cn/login)，注册完成后请根据提示完成引导。
 
-![](../.gitbook/assets/image%20%28367%29.png)
+![](../.gitbook/assets/image%20%28368%29.png)
 
-![](../.gitbook/assets/image%20%28343%29.png)
+![](../.gitbook/assets/image%20%28344%29.png)
 
 ## 创建一个授权应用 <a id="add-oidc-app"></a>
 
@@ -40,7 +40,7 @@ description: >-
 
 点击按钮后会弹出一个创建表单，如下图所示：
 
-![&#x914D;&#x7F6E; OIDC &#x5E94;&#x7528;](../.gitbook/assets/image%20%28210%29.png)
+![&#x914D;&#x7F6E; OIDC &#x5E94;&#x7528;](../.gitbook/assets/image%20%28211%29.png)
 
 **填写应用名称**，并指定此应用的二级域名（用户将通过此网址进行认证）和回调地址（业务地址），其他参数保留默认，然后点击「确定」。 
 
@@ -193,21 +193,21 @@ $ http-server
 
 现在我们点击 login 按钮，会跳转到 OIDC 应用的用户认证页面，输入用户名密码进行登录。
 
-![](../.gitbook/assets/image%20%28129%29.png)
+![](../.gitbook/assets/image%20%28130%29.png)
 
 浏览器被重定向到我们之前设置的回调链接。
 
 点击 trackSession 按钮，此时能够获取到该用户的登录状态，包括用户 ID，应用 ID，应用类型，还有此用户的详细信息。
 
-![](../.gitbook/assets/image%20%28301%29.png)
+![](../.gitbook/assets/image%20%28302%29.png)
 
 点击 logout 按钮，输出单点登出成功。
 
-![](../.gitbook/assets/image%20%28186%29.png)
+![](../.gitbook/assets/image%20%28187%29.png)
 
 此时我们再点击 trackSession 按钮，可见登录状态为空，说明用户已经单点登出了。
 
-![](../.gitbook/assets/image%20%28151%29.png)
+![](../.gitbook/assets/image%20%28152%29.png)
 
 ## 访问用户个人中心页面 <a id="visit-profile"></a>
 

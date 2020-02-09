@@ -10,7 +10,7 @@ description: 本文介绍几种常见社会化登录授权域参数含义。
 
 在 [**Authing 控制台**](https://authing.cn/dashboard) &gt; **第三方登录，**选择一个社会化登录选项卡，勾选发起授权登录时**请求用户授予**的权限：
 
-![&#x914D;&#x7F6E;&#x6388;&#x6743;&#x57DF;](../../.gitbook/assets/image%20%28175%29.png)
+![&#x914D;&#x7F6E;&#x6388;&#x6743;&#x57DF;](../../.gitbook/assets/image%20%28176%29.png)
 
 
 
