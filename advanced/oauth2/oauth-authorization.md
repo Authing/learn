@@ -4,7 +4,7 @@
 
 以下流程图列举了一种使用 OAuth 协议授权码模式的方式。
 
-![&#x6388;&#x6743;&#x7801;&#x6A21;&#x5F0F;&#x6D41;&#x7A0B;&#x56FE;](../../.gitbook/assets/image%20%28199%29.png)
+![&#x6388;&#x6743;&#x7801;&#x6A21;&#x5F0F;&#x6D41;&#x7A0B;&#x56FE;](../../.gitbook/assets/image%20%28200%29.png)
 
 ### **1. 请求授权**
 
@@ -85,7 +85,7 @@ curl --request POST \
 
 下面 implicit 模式时序图中红框部分是与授权码模式不同的地方。
 
-![implicit &#x6A21;&#x5F0F;](../../.gitbook/assets/image%20%28185%29.png)
+![implicit &#x6A21;&#x5F0F;](../../.gitbook/assets/image%20%28186%29.png)
 
 ### **1. 发起授权**
 
