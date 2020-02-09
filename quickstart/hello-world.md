@@ -37,9 +37,9 @@ description: 实现第一个基于 Authing 的应用。
 
 如果你还没有账号，请[点击这里注册 Authing 账号](https://authing.cn/login)，注册完成后系统会引导你创建你的第一个用户池：
 
-![](../.gitbook/assets/image%20%28177%29.png)
+![](../.gitbook/assets/image%20%28178%29.png)
 
-![](../.gitbook/assets/image%20%28287%29.png)
+![](../.gitbook/assets/image%20%28288%29.png)
 
 如果你有很多独立的系统，那么可以创建多个「用户池」来分割用户。如果你想多个应用共用一个用户池，请学习我们的[单点登录](https://learn.authing.cn/authing/quickstart/basic#dan-dian-deng-lu)概念。
 
@@ -108,7 +108,7 @@ description: 实现第一个基于 Authing 的应用。
 
 使用该库可以生成一个登录表单，其样式如下图所示：
 
-![&#x767B;&#x5F55;&#x8868;&#x5355;](../.gitbook/assets/image%20%28259%29.png)
+![&#x767B;&#x5F55;&#x8868;&#x5355;](../.gitbook/assets/image%20%28260%29.png)
 
 调用方法非常简单，代码如下所示：
 
@@ -132,7 +132,7 @@ const form = new Guard('AUTHING_CLIENT_ID', {
 
 **AUTHING\_CLIENT\_ID** 参数获取方式如下：
 
-![](../.gitbook/assets/image%20%28126%29.png)
+![](../.gitbook/assets/image%20%28127%29.png)
 
 你可以点击这里[访问 DEMO 网站](https://sample.authing.cn/#/)。
 
@@ -203,17 +203,17 @@ Hit CTRL-C to stop the server
 
 现在让我们用浏览器打开 http://127.0.0.1:8080，应该可以看到如下界面：
 
-![](../.gitbook/assets/image%20%28163%29.png)
+![](../.gitbook/assets/image%20%28164%29.png)
 
 此时，请先点击「注册」按钮注册一个账户：
 
-![](../.gitbook/assets/image%20%28203%29.png)
+![](../.gitbook/assets/image%20%28204%29.png)
 
-![&#x6CE8;&#x518C;&#x6210;&#x529F;&#x540E;&#x70B9;&#x51FB;&#x300C;&#x767B;&#x5F55;&#x300D;&#x4FBF;&#x53EF;&#x4EE5;&#x767B;&#x5F55;](../.gitbook/assets/image%20%28155%29.png)
+![&#x6CE8;&#x518C;&#x6210;&#x529F;&#x540E;&#x70B9;&#x51FB;&#x300C;&#x767B;&#x5F55;&#x300D;&#x4FBF;&#x53EF;&#x4EE5;&#x767B;&#x5F55;](../.gitbook/assets/image%20%28156%29.png)
 
 登录完成后可以看到如下信息：
 
-![](../.gitbook/assets/image%20%28359%29.png)
+![](../.gitbook/assets/image%20%28362%29.png)
 
 登录后能看到此界面表明已经调试成功了。
 
@@ -253,11 +253,11 @@ form.on('authing-load', async function(authing) {
 
 请打开浏览器，刷新页面，点击「退出」，稍等片刻后可以看到页面弹出了下面这个提示：
 
-![&#x9000;&#x51FA;&#x6D89;&#x53CA;&#x5230;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x51FA;&#x73B0;&#x7F51;&#x7EDC;&#x5EF6;&#x8FDF;&#xFF0C;&#x82E5;&#x6CA1;&#x7ACB;&#x5373;&#x51FA;&#x73B0;&#xFF0C;&#x8BF7;&#x7B49;&#x5F85;&#x4E00;&#x4E0B;&#x5373;&#x53EF;&#x770B;&#x5230;&#x63D0;&#x793A;](../.gitbook/assets/image%20%28282%29.png)
+![&#x9000;&#x51FA;&#x6D89;&#x53CA;&#x5230;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x51FA;&#x73B0;&#x7F51;&#x7EDC;&#x5EF6;&#x8FDF;&#xFF0C;&#x82E5;&#x6CA1;&#x7ACB;&#x5373;&#x51FA;&#x73B0;&#xFF0C;&#x8BF7;&#x7B49;&#x5F85;&#x4E00;&#x4E0B;&#x5373;&#x53EF;&#x770B;&#x5230;&#x63D0;&#x793A;](../.gitbook/assets/image%20%28283%29.png)
 
 点击弹出对话框的「OK」或「确认」按钮后可以看到页面重新启用了登录框：
 
-![](../.gitbook/assets/image%20%28357%29.png)
+![](../.gitbook/assets/image%20%28360%29.png)
 
 {% hint style="info" %}
 若你需要在后端验证 JWT Token 的合法性请[点击这里查看](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token)。
