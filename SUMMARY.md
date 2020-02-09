@@ -129,8 +129,7 @@
 * [集成案例](others/cases/README.md)
   * [Authing 与 AWS 集成案例](others/cases/authing-aws.md)
   * [函数计算与 AaaS 集成案例](others/cases/faas-aaas.md)
-* [社交互联数据](others/solid/README.md)
-  * [Authing 与社交互联数据](others/solid/authing-solid.md)
+* [社交互联数据](others/solid.md)
 * [为 Authing 贡献 SDK](others/wei-authing-gong-xian-sdk/README.md)
   * [了解 Authing 的模块](others/wei-authing-gong-xian-sdk/le-jie-authing-de-mo-kuai.md)
 
