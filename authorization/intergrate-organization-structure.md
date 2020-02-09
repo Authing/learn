@@ -16,7 +16,7 @@
 * 一级部门有产品部、研发部、运营部、综合管理部
 * 一级部门下面又有二级部门，如产品部中包含产品经理和设计等。
 
-![](../.gitbook/assets/image%20%28205%29.png)
+![](../.gitbook/assets/image%20%28214%29.png)
 
 这是一个典型的树状结构，其中有且仅有一个根节点，一般而言，根节点就是一家公司、一个组织。每个节点对应一个分层的部门。
 
@@ -276,7 +276,7 @@ const { tree } = await authing.org.findById(org._id)
 
 tree 数据如下所示：
 
-![](../.gitbook/assets/image%20%2875%29.png)
+![](../.gitbook/assets/image%20%2877%29.png)
 
 ## 如何向组织机构中添加用户和配置权限
 

@@ -8,13 +8,13 @@ Authing 云上的 SAML Service Provider 只做两件事：替开发者发送 SAM
 
 ## 发起登录
 
-![](../../../.gitbook/assets/image%20%28164%29.png)
+![](../../../.gitbook/assets/image%20%28172%29.png)
 
 在 SAML Service Provider 的使用方法选项卡，找到「发起 SAML 登录」，复制下面的连接，在浏览器打开访问，即可自动向配置好的 SAML IdP 发送 SAML Request。
 
 ## 用户信息回调
 
-![](../../../.gitbook/assets/image%20%28250%29.png)
+![](../../../.gitbook/assets/image%20%28260%29.png)
 
 在 IdP 完成登录后，Authing SAML SP 会将解析后的用户信息以 url query 的形式发送到回调地址，数据格式为 JSON。
 

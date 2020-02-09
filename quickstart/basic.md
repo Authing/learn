@@ -16,9 +16,9 @@ description: 学习 Authing 的基础知识以及我们会用到的一些术语�
 
 [注册完 Authing 账户](https://authing.cn/login)后，你看到的是一个空白的列表页，此时你需要创建一个**用户池**。拥有了一个用户池之后你可以授权其他应用（第三方应用或者你自己写的应用）读取用户数据，授权协议支持 [OAuth2.0](https://docs.authing.cn/authing/advanced/oauth2)、[OIDC](https://docs.authing.cn/authing/advanced/oidc)、[SAML](https://docs.authing.cn/authing/advanced/shi-yong-saml) 和 [LDAP](https://docs.authing.cn/authing/advanced/ldap)。
 
-![&#x70B9;&#x51FB;&#x300C;&#x521B;&#x5EFA;&#x7528;&#x6237;&#x6C60;&#x300D;&#x5373;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;](../.gitbook/assets/image%20%28110%29.png)
+![&#x70B9;&#x51FB;&#x65B0;&#x5EFA;&#x7528;&#x6237;&#x6C60; &#x5373;&#x53EF;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x7528;&#x6237;&#x6C60;](../.gitbook/assets/image%20%28169%29.png)
 
-![&#x586B;&#x5199;&#x7528;&#x6237;&#x6C60;&#x540D;&#x79F0;&#x548C;&#x7528;&#x6237;&#x6C60;&#x7C7B;&#x578B;](../.gitbook/assets/image%20%28241%29.png)
+![&#x586B;&#x5199;&#x7528;&#x6237;&#x6C60;&#x540D;&#x79F0; &#x548C;&#x57DF;&#x540D;](../.gitbook/assets/image%20%28392%29.png)
 
 创建应用时可以选择如下四种类型：
 
@@ -28,7 +28,7 @@ description: 学习 Authing 的基础知识以及我们会用到的一些术语�
 
 clientId 和 secret 在控制台中的查看位置如下图所示：
 
-![&#x5728;&#x5E94;&#x7528;&#x7684;&#x300C;&#x8BBE;&#x7F6E;&#x300D;&#x83DC;&#x5355;&#x4E2D;&#x53EF;&#x4EE5;&#x67E5;&#x770B; clientId &#x548C; secret](../.gitbook/assets/image%20%2832%29.png)
+![&#x5728;&#x5E94;&#x7528;&#x7684;&#x300C;&#x57FA;&#x7840;&#x8BBE;&#x7F6E;&#x300D;&#x83DC;&#x5355;&#x4E2D;&#x53EF;&#x4EE5;&#x67E5;&#x770B; clientId &#x548C; secret](../.gitbook/assets/image%20%2895%29.png)
 
 如上图所示，如果你的 secret 不小心泄漏，可以通过「刷新」按钮重置 secret。但是请注意，如果你在某些程序中使用了该 secret，那么使用该 secret 的程序也必须要手动更新 secret，否则会造成该程序的「身份认证功能」毁坏。
 
@@ -51,39 +51,47 @@ clientId 和 secret 在控制台中的查看位置如下图所示：
 
 你可以在控制台中创建用户：
 
-![&#x652F;&#x6301;&#x4F7F;&#x7528;&#x90AE;&#x7BB1;&#x548C;&#x624B;&#x673A;&#x521B;&#x5EFA;](../.gitbook/assets/image%20%2837%29.png)
+![&#x652F;&#x6301;&#x4F7F;&#x7528;&#x90AE;&#x7BB1;&#x548C;&#x624B;&#x673A;&#x521B;&#x5EFA;](../.gitbook/assets/image%20%28294%29.png)
 
 {% hint style="success" %}
 在本文的例子中，「非凡科技」创建了一个邮箱为「test@feifantech.com」的账号用来测试 Authing 的账号系统。
 {% endhint %}
 
-![&#x5728;&#x63A7;&#x5236;&#x53F0;&#x4E2D;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x7684;&#x7528;&#x6237;&#x8D44;&#x6599;](../.gitbook/assets/image%20%28273%29.png)
+![&#x5728;&#x63A7;&#x5236;&#x53F0;&#x4E2D;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x7684;&#x7528;&#x6237;&#x8D44;&#x6599;](../.gitbook/assets/image%20%28278%29.png)
 
 在「原始 JSON 数据」选项卡中可以看到一段用来表示该账号的 JSON 数据：
 
 ```javascript
 {
-	"_id": "5ccbf7551bbaf0f9edced9fd",
+	"_id": "5e3f8211abc507cd902f2b3c",
 	"email": "test@feifantech.com",
 	"phone": "",
 	"emailVerified": false,
-	"username": "test",
+	"username": "tester",
 	"nickname": "",
 	"unionid": null,
+	"openid": null,
 	"company": "",
 	"photo": "https://usercontents.authing.cn/authing-avatar.png",
 	"browser": "",
-	"registerInClient": "5ccbf4d61bbaf07aefced9d5",
+	"device": "",
+	"registerInClient": "5cce4aa83ed9f97b4dfd95f0",
 	"registerMethod": "default:username-password",
 	"oauth": "",
 	"token": null,
-	"tokenExpiredAt": null,
+	"tokenExpiredAt": "Invalid date",
 	"loginsCount": 0,
-	"lastLogin": "Fri May 03 2019 16:09:57 GMT+0800 (CST)",
+	"lastLogin": "2020-02-09T11:52:49+08:00",
 	"lastIP": null,
-	"signedUp": "Fri May 03 2019 16:09:57 GMT+0800 (CST)",
+	"signedUp": "2020-02-09T11:52:49+08:00",
 	"blocked": false,
 	"isDeleted": false,
+	"group": {
+		"_id": "5a597f35085a2000144a10ef",
+		"name": "default",
+		"descriptions": "default",
+		"createdAt": "2018-01-13T11:38:29+08:00"
+	},
 	"clientType": null,
 	"userLocation": [],
 	"userLoginHistory": {
@@ -110,7 +118,7 @@ Authing 中可以配置每个账号所属的用户组和用户组权限，如果
 
 此外，如果用户使用手机 - 验证码登录，那么其背后的短信发送也由 Authing 完成，Authing 的短信发送能力依赖于第三方短信服务。
 
-![&#x6D88;&#x606F;&#x670D;&#x52A1;&#x5728;&#x63A7;&#x5236;&#x53F0;&#x4E2D;&#x7684;&#x4F4D;&#x7F6E;](../.gitbook/assets/image%20%28380%29.png)
+![&#x6D88;&#x606F;&#x670D;&#x52A1;&#x5728;&#x63A7;&#x5236;&#x53F0;&#x4E2D;&#x7684;&#x4F4D;&#x7F6E;](../.gitbook/assets/image%20%28139%29.png)
 
 {% hint style="success" %}
 在本文的例子中，「非凡科技」修改了邮件模版，将邮件主题「你已成功注册 {{ client\_name }}」修改为了「欢迎注册 {{ client\_name }}」。
