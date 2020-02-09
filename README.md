@@ -40,7 +40,7 @@ description: 学习如何使用 Authing 进行开发，并理解身份认证的�
 
 {% page-ref page="quickstart/deployment.md" %}
 
-![Authing Logo](.gitbook/assets/image%20%28341%29.png)
+![Authing Logo](.gitbook/assets/image%20%28343%29.png)
 
 
 
