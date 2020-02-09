@@ -173,7 +173,7 @@ if (ok) {
    * 当用户通过微信客户端网页打开时，点击登录按钮之后跳转
    * 可以参考掘金的微信登录按钮，点击按钮之后跳转
 
-   ![](../../.gitbook/assets/image%20%2825%29.png)
+   ![](../../.gitbook/assets/image%20%2826%29.png)
 
 2. Authing 和微信服务器完成 OAuth 认证授权
    * Authing 为开发者省去了其中复杂的获取 authorization\_code、获取 access\_token、换取用户信息的流程，真正的零行代码接入。
