@@ -10,11 +10,11 @@
 
 依次点击**第三方登录**  -&gt; **OIDC 应用** -&gt; **选择你创建好的应用**
 
-![](../../.gitbook/assets/image%20%28361%29.png)
+![](../../.gitbook/assets/image%20%28362%29.png)
 
 点击**「编辑 CSS 代码」**后会弹出来一个用来编辑 CSS 代码的编辑器：
 
-![](../../.gitbook/assets/image%20%28178%29.png)
+![](../../.gitbook/assets/image%20%28179%29.png)
 
 在此编辑器中编辑 Guard 的样式，保存后可即时预览。
 
