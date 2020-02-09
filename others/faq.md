@@ -1,10 +1,8 @@
 # 常见问题
 
-## 如何获取 UserPool Id 和 UserPool Secret？ <a id="ru-he-huo-qu-client-id-he-client-secret"></a>
+## 如何获取 Client Id（UserPool Id） 和 Client Secret （UserPool Secret）？ <a id="ru-he-huo-qu-client-id-he-client-secret"></a>
 
-依次点击**基础配置** -&gt; **基础设置**，找到「用户池 ID」和「密钥」即是「UserPoolId」和「UserPool Secret」，如下图所示：
-
-![](../.gitbook/assets/image%20%28113%29.png)
+![](../.gitbook/assets/image%20%2875%29.png)
 
 ## Client Secret 有何作用？
 
@@ -40,7 +38,7 @@ OIDC 流程包含两个 Token：
 验证 OIDC 流程中 Token 所使用的 secret 的获取方式如下图所示：
 {% endhint %}
 
-![](../.gitbook/assets/image%20%28132%29.png)
+![](../.gitbook/assets/image%20%28255%29.png)
 
 ## 如何使用小程序扫码认证？
 
