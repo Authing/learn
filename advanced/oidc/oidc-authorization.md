@@ -225,6 +225,18 @@ try {
 }
 ```
 
+使用 curl 发送请求示例：
+
+```text
+curl --location --request POST 'https://core.authing.cn/oauth/oidc/token' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'code=61yhuOVrgyhKlFTU~bnEKA_fnnz' \
+--data-urlencode 'client_id=5e37979f7b757ead14c534af' \
+--data-urlencode 'client_secret=64b517f8de3648091654eb4ee9b479d3' \
+--data-urlencode 'grant_type=authorization_code' \
+--data-urlencode 'redirect_uri=https://baidu.com'
+```
+
 返回示例：
 
 ```text
