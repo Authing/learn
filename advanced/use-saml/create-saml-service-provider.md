@@ -12,7 +12,7 @@
 
 滚动到页面下方，在 SAML Service Provider 区域，点击 ➕
 
-![&#x521B;&#x5EFA; SAML SP](../../.gitbook/assets/image%20%28248%29.png)
+![&#x521B;&#x5EFA; SAML SP](../../.gitbook/assets/image%20%28249%29.png)
 
 在弹出的窗口中，输入应用信息，点击「创建应用」。
 
@@ -24,7 +24,7 @@
 
 接下来需要填写一些 SP 的基础配置才能使 SP 正常工作。
 
-![&#x57FA;&#x7840;&#x914D;&#x7F6E;](../../.gitbook/assets/image%20%28428%29.png)
+![&#x57FA;&#x7840;&#x914D;&#x7F6E;](../../.gitbook/assets/image%20%28429%29.png)
 
 **IdP 登录 URL** 由 IdP 提供，如果没有，可以从 IdP 元数据 XML 文档中查找。
 
@@ -112,7 +112,7 @@ SP 可以要求 IdP 对 SAML Assertion 进行加密，SP 需要为 IdP 提供加
 
 SP 可以对发出的 SAML Request 进行签名，确保此 SAML Request 的发出者身份合法。IdP 可能通过 SAML Request 签名来判断请求来源，从而拒绝非法的 SALM Request 请求。
 
-![&#x7B7E;&#x540D; SAML Request](../../.gitbook/assets/image%20%28319%29.png)
+![&#x7B7E;&#x540D; SAML Request](../../.gitbook/assets/image%20%28320%29.png)
 
 输入或从文件读入证书内容，注意证书算法必须与选择的签名和摘要算法**一致**。如果你没有证书，可以从[这里](https://www.samltool.com/self_signed_certs.php)生成一个。
 

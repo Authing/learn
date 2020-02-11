@@ -98,7 +98,7 @@ description: 控制台是你管理和配置所有 Authing 资源的地方，这�
 
 ### 查看用户列表
 
-![](../.gitbook/assets/image%20%28276%29.png)
+![](../.gitbook/assets/image%20%28277%29.png)
 
 ### 配置用户权限
 
@@ -169,7 +169,7 @@ LDAP 是轻量目录访问协议，英文全称是 Lightweight Directory Access 
 
 {% page-ref page="../advanced/ldap.md" %}
 
-![](../.gitbook/assets/image%20%28404%29.png)
+![](../.gitbook/assets/image%20%28405%29.png)
 
 ## 设置
 
@@ -197,11 +197,11 @@ LDAP 是轻量目录访问协议，英文全称是 Lightweight Directory Access 
 
 ### 配置 JWT 到期时间
 
-![](../.gitbook/assets/image%20%28350%29.png)
+![](../.gitbook/assets/image%20%28351%29.png)
 
 ### 开启/关闭注册
 
-![](../.gitbook/assets/image%20%28270%29.png)
+![](../.gitbook/assets/image%20%28271%29.png)
 
 ### 开启/关闭/配置注册频率限制
 
@@ -233,7 +233,7 @@ LDAP 是轻量目录访问协议，英文全称是 Lightweight Directory Access 
 
 若你有私有部署的需求可点击「联系我们」与我们进行接触。
 
-![](../.gitbook/assets/image%20%28392%29.png)
+![](../.gitbook/assets/image%20%28393%29.png)
 
 
 
