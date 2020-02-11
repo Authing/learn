@@ -67,7 +67,7 @@ OIDC 应用的 app\_id
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="scope" type="string" required=true %}
-需要请求的权限，如果需要获取 unionid 需要包含 unionid，如果需要获取手机号和 email 需要有 phone email，如果需要 refresh\_token 需要包含 offline\_access。多个 scope 请用空格分开。同时 id\_token 中会包含相关的字段。
+需要请求的权限，如果需要获取 unionid 需要包含 unionid；如果需要获取**手机号**和 **email** 需要包含 phone email；如果需要用户与 Authing 之间的 Token 需要包含 authing\_token；如果需要 refresh\_token 需要包含 offline\_access。多个 scope 请用**空格分隔**。同时 **id\_token** 中会包含**相关的字段**。
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="response\_type" type="string" required=true %}
@@ -241,11 +241,11 @@ curl --location --request POST 'https://core.authing.cn/oauth/oidc/token' \
 
 ```text
 {
-    "access_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEifQ.eyJqdGkiOiJ-azVqal9LelNoSl9adGg0RFc1YmkiLCJzdWIiOiI1Y2U1M2FlYTlmODUyNTdkZDEzMmQ3NDkiLCJpc3MiOiJodHRwczovL29hdXRoLmF1dGhpbmcuY24vb2F1dGgvb2lkYyIsImlhdCI6MTU4MDcxOTU5NSwiZXhwIjoxNTgwNzIzMTkyLCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIGVtYWlsIHBob25lIGFkZHJlc3Mgb2ZmbGluZV9hY2Nlc3MiLCJhdWQiOiI1ZDAxZTM4OTk4NWY4MWM2YzFkZDMxZGUifQ.OBcLmACMYnXnB6OYcjwC7K5GpP-TOoQhtXtNrqVZfsbmHYU3P4uO68nI41wlcwYhH_J9V3XphmuVK-RT9RiuZN0a7BmgY1YJVF1piF28u4KLoOnz8sMo2ccZAaMxiFBiqInYPn02rhQK9Qbxp7oZcwlmtV74k_ih-GS__cDHDWGbNB-dzT75fsc3aXpBTJv3yutJeThRtHGNZn50R196VkcEUE9oGbdPbKLzzi_dM0bQ5Lq3BlXrlzuj4Nc6iOoZvJhh-eogtoQ7jjtGH42ESmTsGbob4uvDZXS04FttE8uQ4T-VD1h_BB651ZLPa4nQGsWfRr9d0ALXTCLBvyvuiQ",
+    "access_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEifQ.eyJqdGkiOiJQZU41YXg1b3FabGRhcUJUMzQzeUkiLCJzdWIiOiI1Y2U1M2FlYTlmODUyNTdkZDEzMmQ3NDkiLCJpc3MiOiJodHRwczovL29hdXRoLmF1dGhpbmcuY24vb2F1dGgvb2lkYyIsImlhdCI6MTU4MTQyMDk1NywiZXhwIjoxNTgxNDI0NTU0LCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIGF1dGhpbmdfdG9rZW4gZW1haWwgcGhvbmUgYWRkcmVzcyBvZmZsaW5lX2FjY2VzcyIsImF1ZCI6IjVkMDFlMzg5OTg1ZjgxYzZjMWRkMzFkZSJ9.rtpRSL3_U03zXShZUCILquSR_KEDuS-OldWpy8RLztWUNG_tMyrg2g9CG4hC7pJUwmgzZKtp7vsVrj6W0eyo_ehE4KGz9iKnyd46DFbx9W9pi-mieRW5HuVMGL2zvDH8zF467WXET2SVB3LUhFLNmEbxpvjPZ5Ksvbcd7nqHfnUN4-z3SqAvhGWWfcmt7QDFlLtWPw4LzyznEqmM9sDkNiNDnTkjmcjm7yHJR-yv5FvpzQB2kraQVOrrdAixbHf29ihOVO25CrjmgeKemg1vuLNGUcOrr_XWn7xaCSvyAfXrBuRalecW9RA4p_Cp6YslHc_572awekt3kUO2TebUQA",
     "expires_in": 3597,
-    "id_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEifQ.eyJzdWIiOiI1Y2U1M2FlYTlmODUyNTdkZDEzMmQ3NDkiLCJiaXJ0aGRhdGUiOiIiLCJmYW1pbHlfbmFtZSI6IiIsImdlbmRlciI6IiIsImdpdmVuX25hbWUiOiIiLCJsb2NhbGUiOiIiLCJtaWRkbGVfbmFtZSI6IiIsIm5hbWUiOiIiLCJuaWNrbmFtZSI6IiIsInBpY3R1cmUiOiJodHRwczovL3VzZXJjb250ZW50cy5hdXRoaW5nLmNuL2F1dGhpbmctYXZhdGFyLnBuZyIsInByZWZlcnJlZF91c2VybmFtZSI6IiIsInByb2ZpbGUiOiIiLCJ1cGRhdGVkX2F0IjoiIiwid2Vic2l0ZSI6IiIsInpvbmVpbmZvIjoiIiwiZW1haWwiOiJ0ZXN0M0AxMjMuY29tIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwaG9uZV9udW1iZXJfdmVyaWZpZWQiOiIxMzExMjM0MTIzNCIsImFkZHJlc3MiOiIiLCJhdF9oYXNoIjoiMU9RLWRoTjZLakdEaDlHakNnUGNTdyIsInNpZCI6IjZmMmRhZmVmLTI0ZTQtNDBmNC04OTVhLTQwNjdhOTRmNDA2NyIsImF1ZCI6IjVkMDFlMzg5OTg1ZjgxYzZjMWRkMzFkZSIsImV4cCI6MTU4MDcyMzE5MiwiaWF0IjoxNTgwNzE5NTk1LCJpc3MiOiJodHRwczovL29hdXRoLmF1dGhpbmcuY24vb2F1dGgvb2lkYyJ9.vQNYBzZhcYUISonwhZE1FFpoqtxGR_aPbUwfvB-aQAFWCOimu0fPtJbTLLzKeAg8xptDZLIt4F2z9NFg3E33eTaaVhVKQSrpxqH0L1T1OK6T0EBZLQn2l8GFhG33AxCSI1uCZM6ncjSDAJ6zFXHsWXmBoZtfDhY29xc-HY520xV8AseFKxLLrI_y9lmqTI-9EYPCKDYi6l-G8FA9BFbDU04TQVHFYJ40LfZB18zBTkgNSkGdvutUjulFI_bp5_SKMtCH0WEAZPbV3fjuPisemgu7awc4pDOA_IrvnSpx6ktrUO6TBdFOgWIYNs8hSL65y666B_xkVc05gEpyCE70_g",
-    "refresh_token": "kKXMlK4IybivfIJ25pmM5CjisyL",
-    "scope": "openid profile email phone address offline_access",
+    "id_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEifQ.eyJzdWIiOiI1Y2U1M2FlYTlmODUyNTdkZDEzMmQ3NDkiLCJiaXJ0aGRhdGUiOiIiLCJmYW1pbHlfbmFtZSI6IiIsImdlbmRlciI6IiIsImdpdmVuX25hbWUiOiIiLCJsb2NhbGUiOiIiLCJtaWRkbGVfbmFtZSI6IiIsIm5hbWUiOiIiLCJuaWNrbmFtZSI6IiIsInBpY3R1cmUiOiJodHRwczovL3VzZXJjb250ZW50cy5hdXRoaW5nLmNuL2F1dGhpbmctYXZhdGFyLnBuZyIsInByZWZlcnJlZF91c2VybmFtZSI6IiIsInByb2ZpbGUiOiIiLCJ1cGRhdGVkX2F0IjoiIiwid2Vic2l0ZSI6IiIsInpvbmVpbmZvIjoiIiwiY29tcGFueSI6IiIsImJyb3dzZXIiOiIiLCJsb2dpbnNfY291bnQiOjEwMywicmVnaXN0ZXJfbWV0aG9kIjoiZGVmYXVsdDp1c2VybmFtZS1wYXNzd29yZCIsImJsb2NrZWQiOmZhbHNlLCJsYXN0X2lwIjoiMTIxLjIxLjU2LjE3MSIsInJlZ2lzdGVyX2luX3VzZXJwb29sIjoiNWM5NTkwNTU3OGZjZTUwMDAxNjZmODUzIiwibGFzdF9sb2dpbiI6IjIwMjAtMDItMTFUMTE6MzU6MTUuNjk2WiIsInNpZ25lZF91cCI6IjIwMTktMDUtMjJUMTI6MDQ6NTguMjk0WiIsInRva2VuIjoiZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmtZWFJoSWpwN0ltVnRZV2xzSWpvaWRHVnpkRE5BTVRJekxtTnZiU0lzSW1sa0lqb2lOV05sTlROaFpXRTVaamcxTWpVM1pHUXhNekprTnpRNUlpd2lZMnhwWlc1MFNXUWlPaUkxWXprMU9UQTFOVGM0Wm1ObE5UQXdNREUyTm1ZNE5UTWlmU3dpYVdGMElqb3hOVGd4TkRJd09URTFMQ0psZUhBaU9qRTFPREkzTVRZNU1URjkuM0l0X0NJQTNFbUpoYWcyMW92WjNwd0RfY0owcTVTZkJjSURSZThRX3FoayIsImVtYWlsIjoidGVzdDNAMTIzLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicGhvbmVfbnVtYmVyIjoiMTMxMTIzNDEyMzQiLCJhZGRyZXNzIjoiIiwiYXRfaGFzaCI6IjV6QnNUOHF4RHc1RmNYdU55UFg4YUEiLCJzaWQiOiJkNmZiOTE5Ny00NmE3LTQ1ZGEtOGVkMC05ODhjZjg0ZjQwZWUiLCJhdWQiOiI1ZDAxZTM4OTk4NWY4MWM2YzFkZDMxZGUiLCJleHAiOjE1ODE0MjQ1NTQsImlhdCI6MTU4MTQyMDk1NywiaXNzIjoiaHR0cHM6Ly9vYXV0aC5hdXRoaW5nLmNuL29hdXRoL29pZGMifQ.VZzqULytIteyBfouww5TsHQ50gEhM06kUWMeDiO3FVFSCW9ys2bFPos5p6LFzliK4Ce09ypOwVQiRnE2gNYsukLvlUPlKDIP_Xk5W19frKi1Z8ImuIPvUqVMKbFutVNS0TfIPCPJVBl8C1j5OXeIs6z0V90QrvyJao6FqVEa3axOHxbhpo1fH2hP04-wkGOp_l10d7RFhGcnPyPnz9-C5X6A4UEsCSDCVw1mDQHxDSFP9OPaB_OlCG_Bi6G-CeLhPa3V5hyIefdBvxC9SIpK-6qY-_BfsNKkBHDVKMb0xodgN2hzn3UTUGBuuoiaB4JhCv72EZ7eiXKIXFz6zVcogA",
+    "refresh_token": "DuSPlrUFPAvCZ1WQKarv5MbEsXN",
+    "scope": "openid profile authing_token email phone address offline_access",
     "token_type": "Bearer"
 }
 ```
@@ -269,15 +269,25 @@ curl --location --request POST 'https://core.authing.cn/oauth/oidc/token' \
   "updated_at": "",
   "website": "",
   "zoneinfo": "",
+  "company": "",
+  "browser": "",
+  "logins_count": 103,
+  "register_method": "default:username-password",
+  "blocked": false,
+  "last_ip": "121.21.56.171",
+  "register_in_userpool": "5c95905578fce5000166f853",
+  "last_login": "2020-02-11T11:35:15.696Z",
+  "signed_up": "2019-05-22T12:04:58.294Z",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoidGVzdDNAMTIzLmNvbSIsImlkIjoiNWNlNTNhZWE5Zjg1MjU3ZGQxMzJkNzQ5IiwiY2xpZW50SWQiOiI1Yzk1OTA1NTc4ZmNlNTAwMDE2NmY4NTMifSwiaWF0IjoxNTgxNDIwOTE1LCJleHAiOjE1ODI3MTY5MTF9.3It_CIA3EmJhag21ovZ3pwD_cJ0q5SfBcIDRe8Q_qhk",
   "email": "test3@123.com",
   "email_verified": false,
   "phone_number": "13112341234",
   "address": "",
-  "at_hash": "Djult1dxcKyR2DwssGFYkg",
-  "sid": "6f2dafef-24e4-40f4-895a-4067a94f4067",
+  "at_hash": "5zBsT8qxDw5FcXuNyPX8aA",
+  "sid": "d6fb9197-46a7-45da-8ed0-988cf84f40ee",
   "aud": "5d01e389985f81c6c1dd31de",
-  "exp": 1580726037,
-  "iat": 1580722440,
+  "exp": 1581424554,
+  "iat": 1581420957,
   "iss": "https://oauth.authing.cn/oauth/oidc"
 }
 ```
@@ -567,6 +577,43 @@ token 过期
 请求链接示例：[https://users.authing.cn/oauth/oidc/user/userinfo?access\_token=&lt;access\_token&gt;](https://users.authing.cn/oauth/oidc/user/userinfo?access_token=<access_token>
 )
 
+返回示例：
+
+```text
+{
+    "sub": "5ce53aea9f85257dd132d749",
+    "birthdate": "",
+    "family_name": "",
+    "gender": "",
+    "given_name": "",
+    "locale": "",
+    "middle_name": "",
+    "name": "",
+    "nickname": "",
+    "picture": "https://usercontents.authing.cn/authing-avatar.png",
+    "preferred_username": "",
+    "profile": "",
+    "updated_at": "",
+    "website": "",
+    "zoneinfo": "",
+    "company": "",
+    "browser": "",
+    "logins_count": 103,
+    "register_method": "default:username-password",
+    "blocked": false,
+    "last_ip": "127.0.0.1",
+    "register_in_userpool": "5c95905578fce5000166f853",
+    "last_login": "2020-02-11T11:35:15.696Z",
+    "signed_up": "2019-05-22T12:04:58.294Z",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoidGVzdDNAMTIzLmNvbSIsImlkIjoiNWNlNTNhZWE5Zjg1MjU3ZGQxMzJkNzQ5IiwiY2xpZW50SWQiOiI1Yzk1OTA1NTc4ZmNlNTAwMDE2NmY4NTMifSwiaWF0IjoxNTgxNDIwOTE1LCJleHAiOjE1ODI3MTY5MTF9.3It_CIA3EmJhag21ovZ3pwD_cJ0q5SfBcIDRe8Q_qhk",
+    "email": "test3@123.com",
+    "email_verified": false,
+    "phone_number": "13112341234",
+    "phone_number_verified": false,
+    "address": ""
+}
+```
+
 更多字段解释请参考[用户信息字段含义](https://docs.authing.cn/authing/advanced/oidc/oidc-params#yong-hu-xin-xi-zi-duan-han-yi)。
 
 ### 07 - 刷新 token
@@ -650,7 +697,7 @@ code 换 token 接口返回的 refresh\_token。例：WPsGJbvpBjqXz6IJIr1UHKyrdV
 | :--- | :--- |
 | client\_id | OIDC 应用的 **app\_id** |
 | redirect\_uri | 在控制台配置的 OIDC 回调 url 其中的一个值。启用隐式模式时，**控制台配置的所有** redirect\_uri 必须都为 https 协议 |
-| scope | 需要请求的权限，如果需要获取 unionid 需要包含 unionid，如果需要获取手机号和 email 需要有 phone email，多个 scope 请用空格分开。同时 id\_token 中会包含相关的字段。隐式模式不能刷新 token，所以 offline\_access 字段无效。 |
+| scope | 需要请求的权限，如果需要获取 unionid 需要包含 unionid；如果需要获取**手机号**和 **email** 需要包含 phone email；如果需要用户与 Authing 之间的 Token 需要包含 authing\_token；多个 scope 请用**空格分隔**。同时 id\_token 中会包含相关的字段。**隐式模式不能刷新 token**，所以 offline\_access 字段无效。 |
 | response\_type | OIDC 模式，可以为 id\_token, id\_token token [参考 OIDC 规范](https://openid.net/specs/openid-connect-core-1_0.html#AuthorizationExamples) |
 | prompt | 可以为 none，login，consent 或 select\_account，指定 AP 与 End-User 的交互方式。[参考 OIDC 规范](https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) |
 | state | 一个随机字符串，用于防范 CSRF 攻击，如果 response 中的 state 值和发送请求之前设置的 state 值不同，说明受到攻击 |
@@ -694,7 +741,7 @@ https://authing.cn/#id_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1Y2
 | :--- | :--- |
 | client\_id | OIDC 应用的 **app\_id** |
 | redirect\_uri | 在控制台配置的 OIDC 回调 url 其中的一个值。启用隐式模式时，**控制台配置的所有** redirect\_uri 必须都为 https 协议 |
-| scope | 需要请求的权限，如果需要获取 unionid 需要包含 unionid，如果需要获取手机号和 email 需要有 phone email。多个 scope 请用空格分开。同时 id\_token 中会包含相关的字段。如果需要刷新 token，需要有 offline\_access 参数，同时 response\_type 参数中必须包含 code，并使用 code 换取 token，否则 offline\_access 字段无效。 |
+| scope | 需要请求的权限，如果需要获取 unionid 需要包含 unionid，如果需要**获取手机号**和 **email** 需要包含 phone email，如果需要用户与 Authing 之间的 Token 需要包含 authing\_token。多个 scope 请用空格分开。同时 **id\_token** 中会包含相关的字段。如果需要刷新 token，需要有 offline\_access 参数，同时 **response\_type** 参数中**必须包含 code**，**并使用 code 换取 token**，否则 offline\_access 字段无效。 |
 | response\_type | OIDC 模式，此处为 code id\_token token [参考 OIDC 规范](https://openid.net/specs/openid-connect-core-1_0.html#AuthorizationExamples) |
 | prompt | 可以为 none，login，consent 或 select\_account，指定 AP 与 End-User 的交互方式。[参考 OIDC 规范](https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) |
 | state | 一个随机字符串，用于防范 CSRF 攻击，如果 response 中的 state 值和发送请求之前设置的 state 值不同，说明受到攻击 |

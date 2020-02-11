@@ -45,8 +45,9 @@ description: 了解 OIDC 包含的常见问题，在开发时可以查阅此文�
 | email | email，email\_verified |
 | phone | phone\_number, phone\_number\_verified |
 | profile | birthdate，family\_name，gender，given\_name，locale，middle\_name，name，nickname，picture，preferred\_username，profile，updated\_at，website，zoneinfo |
-| offline\_access | token 接口返回 refresh\_token 字段 |
+| offline\_access | 如果存在此参数，token 接口会返回 refresh\_token 字段 |
 | unionid | unionid |
+| authing\_token | 用户信息中的 Authing Token |
 
 ## 用户信息字段含义
 
@@ -90,5 +91,5 @@ description: 了解 OIDC 包含的常见问题，在开发时可以查阅此文�
 
 当你需要向 **Authing 服务器**请求属于该用户的资源时，需要携带 **access\_token**，拥有 **access\_token**，你就能够以终端用户的身份，访问位于 Authing 服务器上属于他的资源。
 
-当你需要向 **Authing 服务器**请求属于该用户的资源时，也可以携带 **token**。终端用户完成登录后，你的应用前端通过 [AuthingSSO SDK](https://github.com/Authing/AuthingSSO) 中的 trackSession 函数能够直接获取到用户信息，其中的 **token** 字段，相当于 Authing 与该终端用户维持内部会话状态的 Cookie。
+当你需要向 **Authing 服务器**请求属于该用户的资源时，也可以携带 **token**。终端用户完成登录后，你的应用前端通过 [AuthingSSO SDK](https://github.com/Authing/AuthingSSO) 中的 trackSession 函数能够直接获取到用户信息，其中的 **token** 字段，相当于 Authing 与该终端用户维持内部会话状态的 Cookie；使用 OIDC 协议授权时，如果发起授权请求时的 scope 包含 `authing_token` ，在用户信息接口获取到的用户信息中会包含 **token** 字段，相当于 Authing 与该终端用户维持内部会话状态的 Cookie。
 
