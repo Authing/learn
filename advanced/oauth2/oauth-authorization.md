@@ -14,7 +14,19 @@ description: 'Node.JS Demo 源码：https://github.com/Authing/oauth-demo'
 
 首先需要请求以下链接来获取 `authorization_code`
 
-`https://sso.authing.cn/authorize?app_id=5c7253efe21948de32723725&state=123456lkjljkf3&response_type=code&redirect_uri=https%3A%2F%2Fauthing.cn&scope=user`
+```text
+https://sso.authing.cn/authorize?app_id=5c7253efe21948de32723725&state=123456lkjljkf3&response_type=code&redirect_uri=https%3A%2F%2Fauthing.cn&scope=user
+```
+
+此链接会重定向到 Authing 提供的认证授权页面，此时用户需要输入他的用户名密码或社会化登录手段进行登录。
+
+{% hint style="info" %}
+> 你可以前往这个网址体验：[https://sample-sso.authing.cn/login](https://sample-sso.authing.cn/login)
+{% endhint %}
+
+{% hint style="info" %}
+请使用**浏览器**访问此链接！
+{% endhint %}
 
 #### 参数说明
 
@@ -28,9 +40,17 @@ description: 'Node.JS Demo 源码：https://github.com/Authing/oauth-demo'
 
 ### **2. 重定向并获取 `access_token`**
 
-`{redirect_uri}?code=8cce9189ee40f6f8874a9d4618a2996ece7dd737&state=123456lkjljkf3`
+经过上一步之后，用户将会跳转到 Authing 提供的认证授权页面：
 
-当授权成功后，用户将会被重定向到如上的链接，链接中带有参数 `code` 和 `state`。在 `redirect_uri` 的请求处理中，你应该检查 `state` 参数是否与你请求时一致，这样能确保请求不是来自第三方应用。然后，你应该使用 `POST` 请求`https://sso.authing.cn/token` 来获取 `access_token`，需要携带以下参数
+![](../../.gitbook/assets/image%20%28236%29.png)
+
+当授权成功后，用户将会被重定向到以下链接：
+
+```text
+{redirect_uri}?code=8cce9189ee40f6f8874a9d4618a2996ece7dd737&state=123456lkjljkf3
+```
+
+链接中带有 GET 请求参数 `code` 和 `state`。在 `redirect_uri` 的请求处理中，你应该检查 `state` 参数是否与你请求时一致，这样能确保请求不是来自第三方应用。然后，你应该使用 `POST` 请求`https://sso.authing.cn/token` 来获取 `access_token`，需要携带以下参数
 
 | 参数 | 说明 |
 | :--- | :--- |

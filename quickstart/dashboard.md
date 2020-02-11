@@ -157,7 +157,7 @@ description: 控制台是你管理和配置所有 Authing 资源的地方，这�
 
 {% page-ref page="../advanced/social-login/" %}
 
-![](../.gitbook/assets/image%20%28405%29.png)
+![](../.gitbook/assets/image%20%28406%29.png)
 
 ### 添加 OAuth 应用
 
@@ -183,7 +183,7 @@ LDAP 是轻量目录访问协议，英文全称是 Lightweight Directory Access 
 
 {% page-ref page="../advanced/ldap.md" %}
 
-![](../.gitbook/assets/image%20%28401%29.png)
+![](../.gitbook/assets/image%20%28402%29.png)
 
 ## 设置
 
@@ -201,7 +201,7 @@ LDAP 是轻量目录访问协议，英文全称是 Lightweight Directory Access 
 8. 是否开启频繁登录失败限制
 9. 是否开启邮箱验证
 
-![](../.gitbook/assets/image%20%28236%29.png)
+![](../.gitbook/assets/image%20%28237%29.png)
 
 ### 配置 CORS 域
 

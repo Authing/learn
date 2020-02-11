@@ -50,9 +50,9 @@ entityID 填入 Auth0 IdP 的 Issuer，形如 `urn:xxx.auth0.com`。
 
 浏览器会跳转到 Auth0 IdP 用户认证登录页，选择一种方式进行登录。
 
-![](../../../.gitbook/assets/image%20%28243%29.png)
+![](../../../.gitbook/assets/image%20%28244%29.png)
 
 浏览器会跳转到在 Authing SP 设置的回调地址，以 url query 的形式附带用户信息，key 为 data。
 
-![](../../../.gitbook/assets/image%20%28364%29.png)
+![](../../../.gitbook/assets/image%20%28365%29.png)
 

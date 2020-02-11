@@ -24,9 +24,9 @@ description: >-
 
 如果你还没有账号，请[点击这里注册 Authing 账号](https://authing.cn/login)，注册完成后请根据提示完成引导。
 
-![](../.gitbook/assets/image%20%28419%29.png)
+![](../.gitbook/assets/image%20%28420%29.png)
 
-![](../.gitbook/assets/image%20%28389%29.png)
+![](../.gitbook/assets/image%20%28390%29.png)
 
 ## 创建一个授权应用 <a id="add-oidc-app"></a>
 
@@ -36,11 +36,11 @@ description: >-
 
 选择**第三方登录** -&gt; **OIDC 应用**选项卡，点击「创建 OIDC 应用」按钮创建应用。
 
-![](../.gitbook/assets/image%20%28305%29.png)
+![](../.gitbook/assets/image%20%28306%29.png)
 
 点击按钮后会弹出一个创建表单，如下图所示：
 
-![](../.gitbook/assets/image%20%28411%29.png)
+![](../.gitbook/assets/image%20%28412%29.png)
 
 **填写应用名称**，并指定此应用的二级域名（用户将通过此网址进行认证）和回调地址（业务地址），其他参数保留默认，然后点击「确定」。 
 
@@ -199,7 +199,7 @@ $ http-server
 
 点击 trackSession 按钮，此时能够获取到该用户的登录状态，包括用户 ID，应用 ID，应用类型，还有此用户的详细信息。
 
-![](../.gitbook/assets/image%20%28342%29.png)
+![](../.gitbook/assets/image%20%28343%29.png)
 
 点击 logout 按钮，输出单点登出成功。
 
