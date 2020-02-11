@@ -67,7 +67,7 @@ OIDC 应用的 app\_id
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="scope" type="string" required=true %}
-需要请求的权限，如果需要获取 unionid 需要包含 unionid，如果需要获取手机号和 email 需要有 phone email，如果需要 refresh\_token 需要包含 offline\_access。同时 id\_token 中会包含相关的字段。
+需要请求的权限，如果需要获取 unionid 需要包含 unionid，如果需要获取手机号和 email 需要有 phone email，如果需要 refresh\_token 需要包含 offline\_access。多个 scope 请用空格分开。同时 id\_token 中会包含相关的字段。
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="response\_type" type="string" required=true %}
@@ -650,7 +650,7 @@ code 换 token 接口返回的 refresh\_token。例：WPsGJbvpBjqXz6IJIr1UHKyrdV
 | :--- | :--- |
 | client\_id | OIDC 应用的 **app\_id** |
 | redirect\_uri | 在控制台配置的 OIDC 回调 url 其中的一个值。启用隐式模式时，**控制台配置的所有** redirect\_uri 必须都为 https 协议 |
-| scope | 需要请求的权限，如果需要获取 unionid 需要包含 unionid，如果需要获取手机号和 email 需要有 phone email，同时 id\_token 中会包含相关的字段。隐式模式不能刷新 token，所以 offline\_access 字段无效。 |
+| scope | 需要请求的权限，如果需要获取 unionid 需要包含 unionid，如果需要获取手机号和 email 需要有 phone email，多个 scope 请用空格分开。同时 id\_token 中会包含相关的字段。隐式模式不能刷新 token，所以 offline\_access 字段无效。 |
 | response\_type | OIDC 模式，可以为 id\_token, id\_token token [参考 OIDC 规范](https://openid.net/specs/openid-connect-core-1_0.html#AuthorizationExamples) |
 | prompt | 可以为 none，login，consent 或 select\_account，指定 AP 与 End-User 的交互方式。[参考 OIDC 规范](https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) |
 | state | 一个随机字符串，用于防范 CSRF 攻击，如果 response 中的 state 值和发送请求之前设置的 state 值不同，说明受到攻击 |
@@ -694,7 +694,7 @@ https://authing.cn/#id_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1Y2
 | :--- | :--- |
 | client\_id | OIDC 应用的 **app\_id** |
 | redirect\_uri | 在控制台配置的 OIDC 回调 url 其中的一个值。启用隐式模式时，**控制台配置的所有** redirect\_uri 必须都为 https 协议 |
-| scope | 需要请求的权限，如果需要获取 unionid 需要包含 unionid，如果需要获取手机号和 email 需要有 phone email，同时 id\_token 中会包含相关的字段。如果需要刷新 token，需要有 offline\_access 参数，同时 response\_type 参数中必须包含 code，并使用 code 换取 token，否则 offline\_access 字段无效。 |
+| scope | 需要请求的权限，如果需要获取 unionid 需要包含 unionid，如果需要获取手机号和 email 需要有 phone email。多个 scope 请用空格分开。同时 id\_token 中会包含相关的字段。如果需要刷新 token，需要有 offline\_access 参数，同时 response\_type 参数中必须包含 code，并使用 code 换取 token，否则 offline\_access 字段无效。 |
 | response\_type | OIDC 模式，此处为 code id\_token token [参考 OIDC 规范](https://openid.net/specs/openid-connect-core-1_0.html#AuthorizationExamples) |
 | prompt | 可以为 none，login，consent 或 select\_account，指定 AP 与 End-User 的交互方式。[参考 OIDC 规范](https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) |
 | state | 一个随机字符串，用于防范 CSRF 攻击，如果 response 中的 state 值和发送请求之前设置的 state 值不同，说明受到攻击 |
