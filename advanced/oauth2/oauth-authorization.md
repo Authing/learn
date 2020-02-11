@@ -18,9 +18,9 @@ description: 'Node.JS Demo 源码：https://github.com/Authing/oauth-demo'
 https://sso.authing.cn/authorize?app_id=5c7253efe21948de32723725&state=123456lkjljkf3&response_type=code&redirect_uri=https%3A%2F%2Fauthing.cn&scope=user
 ```
 
+{% hint style="info" %}
 此链接会重定向到 Authing 提供的认证授权页面，此时用户需要输入他的用户名密码或社会化登录手段进行登录。
 
-{% hint style="info" %}
 > 你可以前往这个网址体验：[https://sample-sso.authing.cn/login](https://sample-sso.authing.cn/login)
 {% endhint %}
 
