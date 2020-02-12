@@ -120,17 +120,83 @@ let res = await auth.logout();
 
 构造函数，接受一个对象作为参数。对象中的参数列表如下：
 
-| 参数名 | 是否必填 | 描述 | 默认 |
-| :--- | :--- | :--- | :--- |
-| appId | 是 | SSO 应用的 ID | - |
-| appDomain | 是 | SSO 应用域名，例如 `app1.authing.cn` | - |
-| appType | 否 | SSO 应用的 类型，可选值为 `oidc`，`oauth`，`saml` | `oidc` |
-| responseType | 否 | SSO 应用授权流程，可选值为 `code`，`implicit` | `code` |
-| redirectUrl | 否 | SSO 应用回调域名 | 在 Authing 控制台配置的第一个业务域名 |
-| nonce | 否 | 随机数 | 随机数 |
-| timestamp | 否 | 时间戳 | 当前时间戳 |
-
-示例
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">&#x53C2;&#x6570;&#x540D;</th>
+      <th style="text-align:left">&#x662F;&#x5426;&#x5FC5;&#x586B;</th>
+      <th style="text-align:left">&#x63CF;&#x8FF0;</th>
+      <th style="text-align:left">&#x9ED8;&#x8BA4;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">appId</td>
+      <td style="text-align:left">&#x662F;</td>
+      <td style="text-align:left">SSO &#x5E94;&#x7528;&#x7684; ID</td>
+      <td style="text-align:left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">appDomain</td>
+      <td style="text-align:left">&#x662F;</td>
+      <td style="text-align:left">SSO &#x5E94;&#x7528;&#x57DF;&#x540D;&#xFF0C;&#x4F8B;&#x5982; <code>app1.authing.cn</code>
+      </td>
+      <td style="text-align:left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">appType</td>
+      <td style="text-align:left">&#x5426;</td>
+      <td style="text-align:left">SSO &#x5E94;&#x7528;&#x7684; &#x7C7B;&#x578B;&#xFF0C;&#x53EF;&#x9009;&#x503C;&#x4E3A; <code>oidc</code>&#xFF0C;<code>oauth</code>&#xFF0C;<code>saml</code>
+      </td>
+      <td style="text-align:left"><code>oidc</code>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">host</td>
+      <td style="text-align:left">&#x5426;</td>
+      <td style="text-align:left">&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x7528;&#x4E8E;&#x6307;&#x5B9A;
+        GraphQL &#x5730;&#x5740;</td>
+      <td style="text-align:left">
+        <p><code>{ </code>
+        </p>
+        <p><code>  oauth: &apos;https://oauth.authing.cn/graphql&apos; }</code>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">host.oauth</td>
+      <td style="text-align:left">&#x5426;</td>
+      <td style="text-align:left">GraphQL &#x901A;&#x4FE1;&#x5730;&#x5740;</td>
+      <td style="text-align:left">https://oauth.authing.cn/graphql</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">responseType</td>
+      <td style="text-align:left">&#x5426;</td>
+      <td style="text-align:left">SSO &#x5E94;&#x7528;&#x6388;&#x6743;&#x6D41;&#x7A0B;&#xFF0C;&#x53EF;&#x9009;&#x503C;&#x4E3A; <code>code</code>&#xFF0C;<code>implicit</code>
+      </td>
+      <td style="text-align:left"><code>code</code>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">redirectUrl</td>
+      <td style="text-align:left">&#x5426;</td>
+      <td style="text-align:left">SSO &#x5E94;&#x7528;&#x56DE;&#x8C03;&#x57DF;&#x540D;</td>
+      <td style="text-align:left">&#x5728; Authing &#x63A7;&#x5236;&#x53F0;&#x914D;&#x7F6E;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x4E1A;&#x52A1;&#x57DF;&#x540D;</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">nonce</td>
+      <td style="text-align:left">&#x5426;</td>
+      <td style="text-align:left">&#x968F;&#x673A;&#x6570;</td>
+      <td style="text-align:left">&#x968F;&#x673A;&#x6570;</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">timestamp</td>
+      <td style="text-align:left">&#x5426;</td>
+      <td style="text-align:left">&#x65F6;&#x95F4;&#x6233;</td>
+      <td style="text-align:left">&#x5F53;&#x524D;&#x65F6;&#x95F4;&#x6233;</td>
+    </tr>
+  </tbody>
+</table>示例
 
 ```text
 let auth = new AuthingSSO({
