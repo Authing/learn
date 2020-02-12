@@ -228,8 +228,9 @@ https://<appDomain>.authing.cn/login/profile
 
 * **clientId**: 用户池 id
 * **options {Object}**: 允许你自定义表单的 UI，相关参数请参考 [自定义](https://github.com/Authing/Guard#自定义)
-* **options.appId {String}**: Authing SSO 类应用的 _appId_；
-* **options.domain {String}**: Authing 中配置的 _域名_. 通常是 &lt;appDomain&gt;.authing.cn；
+* **options.appId {String}**: Authing SSO 应用的 _appId_；
+* **options.domain {String}**: Authing SSO 应用的_域名_. 通常是 &lt;appDomain&gt;.authing.cn；
+* **options.passwordEncPublicKey {String}**: PEM 格式密码加密公钥，默认为 Authing 官方的加密公钥。私有化部署用户需要传入自己的加密公钥。
 
 #### authing 对象
 
