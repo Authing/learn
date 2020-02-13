@@ -152,6 +152,13 @@ let res = await auth.logout();
       </td>
     </tr>
     <tr>
+      <td style="text-align:left">scope</td>
+      <td style="text-align:left">&#x5426;</td>
+      <td style="text-align:left">SSO &#x6388;&#x6743;&#x57DF;</td>
+      <td style="text-align:left">&apos;openid profile email phone&apos;&#xFF0C;&#x67E5;&#x770B;<a href="https://docs.authing.cn/authing/advanced/oidc/oidc-params#scope-can-shu-dui-ying-de-yong-hu-xin-xi">&#x652F;&#x6301;&#x7684; scope</a>
+      </td>
+    </tr>
+    <tr>
       <td style="text-align:left">host</td>
       <td style="text-align:left">&#x5426;</td>
       <td style="text-align:left">&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x7528;&#x4E8E;&#x6307;&#x5B9A;
