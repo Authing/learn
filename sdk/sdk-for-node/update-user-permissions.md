@@ -175,8 +175,10 @@
         secret: 'your_userpool_secret'
       });
   
-      const rolesList = await authing.assignUserToRole('USER_ID')
-        .catch((error) => { ... });;
+      const rolesList = await authing.assignUserToRole({
+        user: 'USER_ID',
+        roleId: 'ROLE_ID'
+      }).catch((error) => { ... });;
     })();
     ```
 * **返回数据:**
