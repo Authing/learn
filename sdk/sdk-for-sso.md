@@ -159,6 +159,13 @@ let res = await auth.logout();
       </td>
     </tr>
     <tr>
+      <td style="text-align:left">state</td>
+      <td style="text-align:left">&#x5426;</td>
+      <td style="text-align:left">&#x81EA;&#x5B9A;&#x4E49;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x56DE;&#x8C03;&#x5730;&#x5740;&#x4E5F;&#x4F1A;&#x53D7;&#x5230;&#x6B64;&#x53C2;&#x6570;&#xFF0C;&#x5185;&#x5BB9;&#x76F8;&#x540C;&#xFF0C;&#x53EF;&#x7528;&#x4E8E;&#x4F20;&#x9012;&#x4FE1;&#x606F;</td>
+      <td
+      style="text-align:left">&#x968F;&#x673A;&#x5B57;&#x7B26;&#x4E32;</td>
+    </tr>
+    <tr>
       <td style="text-align:left">host</td>
       <td style="text-align:left">&#x5426;</td>
       <td style="text-align:left">&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x7528;&#x4E8E;&#x6307;&#x5B9A;
