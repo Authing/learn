@@ -24,11 +24,15 @@ Authing SAML Identity Provider 为企业提供了单点登录能力。在阿里�
 
 下方提示的「SAML服务提供方元数据URL」右侧，点击链接，下载 SAML SP Metadata，并上传。
 
-![&#x4E0B;&#x8F7D;&#x963F;&#x91CC;&#x4E91;&#x7684; SAML &#x5143;&#x6570;&#x636E;&#x6587;&#x6863;](../../../.gitbook/assets/image%20%28410%29.png)
+![&#x4E0B;&#x8F7D;&#x963F;&#x91CC;&#x4E91;&#x7684; SAML &#x5143;&#x6570;&#x636E;&#x6587;&#x6863;](../../../.gitbook/assets/image%20%28414%29.png)
 
-![&#x8F93;&#x5165;&#x963F;&#x91CC;&#x4E91;&#x7684; ACS &#x5E76;&#x4E0A;&#x4F20;&#x963F;&#x91CC;&#x4E91;&#x7684; SAML Metadata](../../../.gitbook/assets/image%20%28362%29.png)
+![&#x8F93;&#x5165;&#x963F;&#x91CC;&#x4E91;&#x7684; ACS &#x5E76;&#x4E0A;&#x4F20;&#x963F;&#x91CC;&#x4E91;&#x7684; SAML Metadata](../../../.gitbook/assets/image%20%28366%29.png)
 
 在 SAML Response 签名处，上传或输入一对秘钥，并正确选择秘钥算法。
+
+在下方邮箱域替换输入框中输入阿里云用户的邮箱域。
+
+![&#x8F93;&#x5165;&#x963F;&#x91CC;&#x4E91;&#x7528;&#x6237;&#x7684;&#x90AE;&#x7BB1;&#x57DF;](../../../.gitbook/assets/image%20%2878%29.png)
 
 其余配置使用默认即可。
 
@@ -42,7 +46,7 @@ Authing SAML Identity Provider 为企业提供了单点登录能力。在阿里�
 
 在你的用户头像上悬停鼠标，出现下拉菜单，点击「访问控制」。
 
-![](../../../.gitbook/assets/image%20%2881%29.png)
+![](../../../.gitbook/assets/image%20%2883%29.png)
 
 进入左侧菜单 -&gt; 人员管理 -&gt; 用户，点击「新建用户」。
 
@@ -50,47 +54,49 @@ Authing SAML Identity Provider 为企业提供了单点登录能力。在阿里�
 
 输入用户名称、显示名称，勾选控制台密码登录并点击「确认」。本教程中输入的登录名称是 authing，显示名称也是 authing。
 
-![](../../../.gitbook/assets/image%20%28108%29.png)
+![](../../../.gitbook/assets/image%20%28110%29.png)
 
-点击左侧菜单 -&gt; 人员管理 -&gt; 用户，在右侧页面的列表中可以看到刚刚添加的用户，记录下用户登录名称（xxx@xxx.onaliyun.com），随后会用到。点击对应用户条目右侧的「添加权限」。
+点击**左侧菜单** -&gt; **人员管理** -&gt; **用户**，在右侧页面的列表中可以看到刚刚添加的用户，**记录下用户登录名称**（xxx@xxx.onaliyun.com），随后会用到。点击对应用户条目右侧的「添加权限」。
 
-![](../../../.gitbook/assets/image%20%28321%29.png)
+![](../../../.gitbook/assets/image%20%28325%29.png)
 
 在权限列表中选择需要赋予该账户的权限，本教程选择「AdministratorAccess」最高权限。点击「确定」。
 
-![](../../../.gitbook/assets/image%20%2850%29.png)
+![](../../../.gitbook/assets/image%20%2851%29.png)
 
-进入左侧菜单 -&gt; 设置，右侧页面点击「高级设置」选项卡，在下方 SSO 登录设置处点击「编辑 SSO 登录设置」。
+进入**左侧菜单** -&gt; **SSO 管理**，右侧页面点击「**用户 SSO**」选项卡，在下方 SSO 登录设置处点击「**编辑**」。
+
+![](../../../.gitbook/assets/image%20%28202%29.png)
 
 SSO 功能状态选择「开启」。点击「上传文件」，上传刚刚在 Authing 下载的 SAML IdP Metadata。点击「确认」。
 
-![](../../../.gitbook/assets/image%20%28259%29.png)
+![](../../../.gitbook/assets/image%20%287%29.png)
 
 ### 在 Authing 配置用户
 
-阿里云要求用户的电子邮件域必须和用户的登录名称中「@」后的内容一样，因此，在创建用户时，email 需要和阿里云中的用户登录名称保持一致，形如 authing@xxx.onaliyun.com 这种形式。
+在创建用户时，用户邮箱「@」符号之前的部分需要和阿里云中的用户登录名称保持一致。
 
-进入应用控制台 -&gt; 用户中心，点击「创建用户」红色按钮，填入相关信息，**注意**邮箱要填入阿里云中的用户登录名称。点击「创建」。
+进入**应用控制台** -&gt; **用户中心**，点击「**创建用户**」按钮，填入相关信息，**注意**邮箱「@」符号之前要填入阿里云中的用户登录名称。点击「创建」。
 
-![](../../../.gitbook/assets/image%20%28188%29.png)
+![](../../../.gitbook/assets/image%20%28295%29.png)
 
 ### 使用 Authing IdP 登录阿里云
 
 访问[阿里云 RAM 账户登录页](https://signin.aliyun.com)，输入刚才在阿里云新建的用户的登录名称，形如：authing@xxx.onaliyun.com。
 
-![](../../../.gitbook/assets/image%20%28175%29.png)
+![](../../../.gitbook/assets/image%20%28177%29.png)
 
 点击「下一步」，会跳转到 Authing IdP 登录认证页面。
 
-![](../../../.gitbook/assets/image%20%28366%29.png)
+![](../../../.gitbook/assets/image%20%28370%29.png)
 
-可以选择任意方式进行登录，但是该用户的邮箱字段必须和阿里云中配置的一样。这里我们可以直接输入用户名，或者邮箱进行登录。
+可以选择任意方式进行登录，但是该用户的**邮箱名称部分**必须和**阿里云中用户名称**一样。
 
-![&#x8FDB;&#x5165;&#x786E;&#x6743;&#x9875;](../../../.gitbook/assets/image%20%28151%29.png)
+![&#x8FDB;&#x5165;&#x786E;&#x6743;&#x9875;](../../../.gitbook/assets/image%20%28153%29.png)
 
 登录成功后回跳转到阿里云的控制台。
 
-![](../../../.gitbook/assets/image%20%28163%29.png)
+![](../../../.gitbook/assets/image%20%28165%29.png)
 
 
 

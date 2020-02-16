@@ -46,6 +46,8 @@ const auth = new Authing({
   * 是否开启 CDN 网络状况预检，默认为 false。此参数适用于检查用户的网络是否可以访问七牛云 CDN（某些开了代理的场景下无法访问），检查成功不进行任何通知，检查失败后调用传入的错误处理函数。**执行 CDN 预检之后会导致 SDK 初始化速度变慢，请谨慎使用。**
 * **timeout**
   * 超时时间，默认为 10000 毫秒（10 秒）。
+* **passwordEncPublicKey**
+  * PEM 格式密码加密公钥，默认为 Authing 官方的加密公钥。私有化部署用户需要传入自己的加密公钥。
 * **onInitError，**`function(err) {}`
   * 错误处理函数，用于处理初始化失败错误、预检错误。
 
@@ -721,7 +723,7 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](../../advanced/ldap.md)�
 
 开发者也可以选择不开启 “验证原有邮箱“ ，可以在 [Authing 控制台](https://authing.cn/dashboard) 的 **基础配置** - **基础设置** 页面的**安全设置**模块进行关闭。如下图所示：
 
-![](../../.gitbook/assets/image%20%2867%29.png)
+![](../../.gitbook/assets/image%20%2868%29.png)
 
 > 验证码通过的 sendChangeEmailVerifyCode 接口发送。
 
@@ -783,7 +785,7 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](../../advanced/ldap.md)�
 
 开发者可以在 **消息服务 - 邮件模版** 中设置邮件模板，默认的邮件如下图所示：
 
-![](../../.gitbook/assets/image%20%2831%29.png)
+![](../../.gitbook/assets/image%20%2832%29.png)
 
 开发者可以自定义 CSS 样式、主题等。
 
@@ -838,7 +840,7 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](../../advanced/ldap.md)�
 
 开发者也可以选择不开启 “验证原有手机号“ ，可以在 [Authing 控制台](https://authing.cn/dashboard) 的 **基础配置** - **基础设置** 页面的**安全设置**模块进行关闭。如下图所示：
 
-![](../../.gitbook/assets/image%20%28280%29.png)
+![](../../.gitbook/assets/image%20%28283%29.png)
 
 > 手机号短信验证码通过  **getVerificationCode** 接口发送**。**
 
