@@ -48,11 +48,11 @@ P.S. 文档中出现的 `testapp.authing.cn` 和 `example.authing.cn` 两个域�
 
 {% api-method method="get" host="https://<你的应用域名>.authing.cn" path="/oauth/oidc/auth" %}
 {% api-method-summary %}
- 发起 OIDC 登录请求
+ 发起 OIDC 登录请求并让终端用户在浏览器中访问
 {% endapi-method-summary %}
 
 {% api-method-description %}
-发起授权需要拼接一个用来授权的 URL，具体参数如下：
+发起授权需要拼接一个用来授权的 URL，并让终端用户在浏览器中访问，具体参数如下：
 {% endapi-method-description %}
 
 {% api-method-spec %}
@@ -691,7 +691,7 @@ code 换 token 接口返回的 refresh\_token。例：WPsGJbvpBjqXz6IJIr1UHKyrdV
 
 ### 发起授权
 
-发起授权需要拼接一个用来授权的 URL，具体参数如下：
+发起授权需要拼接一个用来授权的 URL，并让终端用户在浏览器中访问，具体参数如下：
 
 | 参数名 | 意义 |
 | :--- | :--- |
@@ -735,7 +735,7 @@ https://authing.cn/#id_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1Y2
 
 ### 发起授权
 
-发起授权需要拼接一个用来授权的 URL，具体参数如下：
+发起授权需要拼接一个用来授权的 URL，并让终端用户在浏览器中访问，具体参数如下：
 
 | 参数名 | 意义 |
 | :--- | :--- |

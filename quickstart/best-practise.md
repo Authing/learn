@@ -1,6 +1,6 @@
 # 最佳开发实践
 
-## 使用单点登录（Web）实现用户认证和登录状态检查
+## 在 Web 应用中使用单点登录实现用户认证和登录状态检查
 
 {% page-ref page="implement-sso-with-authing.md" %}
 
