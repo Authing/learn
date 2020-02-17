@@ -163,6 +163,8 @@ function formatError(error) {
     * **company**，可选，公司名称
     * **photo**，可选，用户头像
     * **lastIP**，可选，用户登录的 IP 地址
+    * **signedUp** `{JS Date Object}`，可选，注册时间
+    * **lastLogin** `{JS Date Object}`，可选，上次登录时间
 * **使用方法:**
   * ```javascript
     (async function() {
