@@ -11,7 +11,7 @@
 * [控制台概览](quickstart/dashboard.md)
 * [部署模型和价格](quickstart/deployment.md)
 * [最佳开发实践](quickstart/best-practise.md)
-* [我该如何选择 Authing 的技术](quickstart/wo-gai-ru-he-xuan-ze-authing-de-ji-shu.md)
+* [我该如何选择 Authing 的技术](quickstart/how-i-choose-authing-tech.md)
 
 ## 进阶指南 <a id="advanced"></a>
 
