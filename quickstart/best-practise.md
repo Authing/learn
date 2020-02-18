@@ -1,6 +1,20 @@
 # 最佳开发实践
 
-## 使用单点登录（Web）实现用户认证和登录状态检查
+## 将 Authing 作为身份中台来使用
+
+1. 将你的所有用户存储在 Authing 平台，不论是员工数据还是自研应用的用户数据，抑或是 IoT 设备数据；
+2. 从 Authing 中读取/修改用户资料和角色权限；
+3. 经由 Authing 判断用户/设备的登录状态；
+
+### 参考资料
+
+{% page-ref page="implement-sso-with-authing.md" %}
+
+{% page-ref page="../sdk/sdk-for-node/org-structure.md" %}
+
+{% page-ref page="../advanced/verify-jwt-token.md" %}
+
+## 在 Web 应用中使用单点登录实现用户认证和登录状态检查
 
 {% page-ref page="implement-sso-with-authing.md" %}
 
