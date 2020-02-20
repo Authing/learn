@@ -42,17 +42,17 @@ P.S. 文档中出现的 `testapp.authing.cn` 和 `example.authing.cn` 两个域�
 
 打开 `authorization_code` 模式，并选择 code 返回类型。
 
-![](../../.gitbook/assets/image%20%28251%29.png)
+![](../../.gitbook/assets/image%20%28267%29.png)
 
 ### 02 - 发起登录请求
 
 {% api-method method="get" host="https://<你的应用域名>.authing.cn" path="/oauth/oidc/auth" %}
 {% api-method-summary %}
- 发起 OIDC 登录请求
+ 发起 OIDC 登录请求并让终端用户在浏览器中访问
 {% endapi-method-summary %}
 
 {% api-method-description %}
-发起授权需要拼接一个用来授权的 URL，具体参数如下：
+发起授权需要拼接一个用来授权的 URL，并让终端用户在浏览器中访问，具体参数如下：
 {% endapi-method-description %}
 
 {% api-method-spec %}
@@ -128,7 +128,7 @@ https://<你的应用域名>.authing.cn/oauth/oidc/auth?client_id=5c9b079883e333
 
 > 你可以前往这个网址体验：https://sample-sso.authing.cn/login
 
-![](../../.gitbook/assets/image%20%2859%29.png)
+![](../../.gitbook/assets/image%20%2860%29.png)
 
 
 
@@ -687,11 +687,11 @@ code 换 token 接口返回的 refresh\_token。例：WPsGJbvpBjqXz6IJIr1UHKyrdV
 
 选择 `implicit` 模式，并在下方选择 `id_token token` 和 `id_token`。
 
-![](../../.gitbook/assets/image%20%28352%29.png)
+![](../../.gitbook/assets/image%20%28379%29.png)
 
 ### 发起授权
 
-发起授权需要拼接一个用来授权的 URL，具体参数如下：
+发起授权需要拼接一个用来授权的 URL，并让终端用户在浏览器中访问，具体参数如下：
 
 | 参数名 | 意义 |
 | :--- | :--- |
@@ -731,11 +731,11 @@ https://authing.cn/#id_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1Y2
 
 选择 `authorization_code` 和 `implicit`，并在下方勾选 `code id_token token` 、`code id_token` 、`code token`。
 
-![](../../.gitbook/assets/image%20%28158%29.png)
+![](../../.gitbook/assets/image%20%28172%29.png)
 
 ### 发起授权
 
-发起授权需要拼接一个用来授权的 URL，具体参数如下：
+发起授权需要拼接一个用来授权的 URL，并让终端用户在浏览器中访问，具体参数如下：
 
 | 参数名 | 意义 |
 | :--- | :--- |

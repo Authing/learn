@@ -50,7 +50,6 @@
   * [使用 SAML Service Provider](advanced/use-saml/use-saml-service-provider/README.md)
     * [与 Auth0 SAML IdP 对接](advanced/use-saml/use-saml-service-provider/use-with-auth0.md)
     * [与 SSOCircle SAML IdP 对接](advanced/use-saml/use-saml-service-provider/use-with-ssocircle.md)
-* [使用 Webhook](advanced/use-webhook.md)
 * [迁移老数据进 Authing](advanced/ru-he-qian-yi-lao-shu-ju-jin-authing.md)
 * [错误代码](advanced/error-code.md)
 
@@ -64,6 +63,22 @@
 * [接入 RBAC](authorization/intergrate-rbac.md)
 * [接入 ABAC](authorization/intergrate-abac.md)
 * [接入组织机构管理](authorization/intergrate-organization-structure.md)
+
+## 扩展能力 <a id="extensibility"></a>
+
+* [自定义 Pipeline](extensibility/pipeline/README.md)
+  * [创建你的第一个 Pipeline 函数](extensibility/pipeline/write-your-first-pipeline-function.md)
+  * [Pipeline 函数开发指南](extensibility/pipeline/pipeline-function-api-doc.md)
+  * [user 对象](extensibility/pipeline/user-object.md)
+  * [context 对象](extensibility/pipeline/context-object.md)
+  * [使用环境变量](extensibility/pipeline/env.md)
+  * [可用的 Node Modules](extensibility/pipeline/available-node-modules.md)
+  * [如何调试](extensibility/pipeline/how-to-debug.md)
+  * [Node SDK](extensibility/pipeline/node-sdk.md)
+  * [GraphQL API](extensibility/pipeline/graphql-api.md)
+  * [常见问题](extensibility/pipeline/qa.md)
+* [使用 Webhook](extensibility/use-webhook.md)
+* [自定义用户 Metadata](extensibility/user-metadata.md)
 
 ## 扫码登录 <a id="scan-qrcode"></a>
 
@@ -89,6 +104,7 @@
 * [SDK for JavaScript](sdk/sdk-for-javascript/README.md)
   * [查询用户权限](sdk/sdk-for-javascript/query-permissions.md)
   * [绑定社会化登录](sdk/sdk-for-javascript/bind-social-accounts.md)
+  * [用户自定义 Metadata](sdk/sdk-for-javascript/yong-hu-zi-ding-yi-metadata.md)
   * [管理 MFA 口令](sdk/sdk-for-javascript/guan-li-mfa-kou-ling.md)
   * [自定义请求链接](sdk/sdk-for-javascript/zi-ding-yi-qing-qiu-lian-jie.md)
 * [SDK for Node.js](sdk/sdk-for-node/README.md)
@@ -96,6 +112,8 @@
   * [查询用户权限](sdk/sdk-for-node/query-permissions.md)
   * [组织机构管理](sdk/sdk-for-node/org-structure.md)
   * [老版权限控制（deprecated）](sdk/sdk-for-node/update-user-permissions.md)
+  * [Pipeline 函数](sdk/sdk-for-node/pipeline.md)
+  * [用户自定义 Metadata](sdk/sdk-for-node/user-metadata.md)
   * [绑定社会化登录](sdk/sdk-for-node/bind-social-login.md)
   * [管理 MFA 口令](sdk/sdk-for-node/manage-mfa.md)
   * [自定义请求连接](sdk/sdk-for-node/custom-host.md)

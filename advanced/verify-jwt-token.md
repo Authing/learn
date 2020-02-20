@@ -15,6 +15,12 @@
 5. 如果你使用了 OAuth 2.0 流程，那么请使用第三种方式的 OAuth 部分；
 6. **注意，不论是 OIDC 还是 OAuth 流程，Authing 都会签发一个由 Authing 签发的 Token，该 Token 也可以用来验证用户的登录状态，该 Token 保存在登录成功后返回的用户信息中，字段名称为 Token。**
 
+{% hint style="warning" %}
+注：如果你的 Token 中带有自定义字段，请使用 https://users.authing.cn/authing/token 接口，否则无法得到自定义 Token 字段。
+
+关于如何往 Token 中加入自定义字段，请见[自定义  Pipeline 中的 user 对象](../extensibility/pipeline/user-object.md#fang-fa)。
+{% endhint %}
+
 ## 发送 Token 给 Authing 服务器验证 <a id="fa-song-token-gei-authing-fu-wu-qi-yan-zheng"></a>
 
 {% hint style="info" %}
