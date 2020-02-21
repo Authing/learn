@@ -38,7 +38,7 @@ const auth = new Authing({
 // authing.login({...}).then(info => {})
 ```
 
-也可以通过用户的 accessToken 初始化，获得此用户的权限，例如获取他的信息。
+也可以通过用户的 token 初始化，获得此用户的权限，例如获取他的信息。
 
 * accessToken
   * 用户 token

@@ -36,6 +36,21 @@ auth.login({...}).then((info) => {
 });
 ```
 
+也可以通过用户池管理员的 token 初始化，获得此用户池管理员的权限，之后可以操作用户池中的所有用户，例如获取任意用户池中用户的信息。
+
+* accessToken
+  * 用户池管理员 token
+
+**示例**
+
+```javascript
+const auth = new Authing({
+	accessToken: 'userpool_manager_token',
+});
+// authing.user({id: '任意用户池中的用户 id'}).then(info => {})
+
+```
+
 #### 其他参数
 
 * **preflight**
