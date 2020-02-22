@@ -1,4 +1,4 @@
-# 自定义 Pipeline
+# 自定义认证流程（Pipeline）
 
 ## 简介
 
@@ -9,6 +9,8 @@ Authing Pipeline 函数均为用户可自定义，同时我们还提供了[丰�
 同时 Pipeline 为一组函数，和普通 Hooks 的区别在于，Pipeline 整个流程中的函数数据可以相互传递，实现工业流水线一样的效果。这种设计模式，可以使得开发者的自定义函数更加模块化，便于管理。
 
 Authing Pipeline 后端使用  serverless 架构，所有的用户自定义代码均运行在云端，保证不同租户之间的隔离性，同时能弹性伸缩，既保证了安全性，有提升了运行效率。
+
+![](../../.gitbook/assets/authing-pipeline.png)
 
 ## 应用场景
 

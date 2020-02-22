@@ -66,7 +66,7 @@
 
 ## 扩展能力 <a id="extensibility"></a>
 
-* [自定义 Pipeline](extensibility/pipeline/README.md)
+* [自定义认证流程（Pipeline）](extensibility/pipeline/README.md)
   * [创建你的第一个 Pipeline 函数](extensibility/pipeline/write-your-first-pipeline-function.md)
   * [Pipeline 函数开发指南](extensibility/pipeline/pipeline-function-api-doc.md)
   * [user 对象](extensibility/pipeline/user-object.md)
