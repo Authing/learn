@@ -24,15 +24,15 @@
 
 如：
 
-![](../../.gitbook/assets/image%20%28423%29.png)
+![](../../.gitbook/assets/image%20%28424%29.png)
 
 点击确定创建完成后可看到：
 
-![](../../.gitbook/assets/image%20%28463%29.png)
+![](../../.gitbook/assets/image%20%28464%29.png)
 
 每一个 OIDC 应用都有一个 **App ID** 和一个 **App Secret**，**请妥善保管好 App Secret**。
 
-![](../../.gitbook/assets/image%20%28445%29.png)
+![](../../.gitbook/assets/image%20%28446%29.png)
 
 ## 接下来你可能需要
 

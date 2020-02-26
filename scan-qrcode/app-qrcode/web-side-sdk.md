@@ -152,7 +152,7 @@ authing.startAppAuthScanning({
 
 扫码组件示例：
 
-![](../../.gitbook/assets/image%20%28459%29.png)
+![](../../.gitbook/assets/image%20%28460%29.png)
 
 ## 生成二维码
 

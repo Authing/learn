@@ -213,7 +213,7 @@ Hit CTRL-C to stop the server
 
 登录完成后可以看到如下信息：
 
-![](../.gitbook/assets/image%20%28474%29.png)
+![](../.gitbook/assets/image%20%28475%29.png)
 
 登录后能看到此界面表明已经调试成功了。
 
@@ -257,7 +257,7 @@ form.on('authing-load', async function(authing) {
 
 点击弹出对话框的「OK」或「确认」按钮后可以看到页面重新启用了登录框：
 
-![](../.gitbook/assets/image%20%28472%29.png)
+![](../.gitbook/assets/image%20%28473%29.png)
 
 {% hint style="info" %}
 若你需要在后端验证 JWT Token 的合法性请[点击这里查看](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token)。

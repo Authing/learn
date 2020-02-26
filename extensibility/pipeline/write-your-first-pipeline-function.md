@@ -42,7 +42,7 @@ Authing 提供了很多开箱即用的模版，帮助你快速上手。
 
 回到  Pipeline 函数列表页面，可以看到我们刚刚添加的那个函数。
 
-![](../../.gitbook/assets/image%20%28494%29.png)
+![](../../.gitbook/assets/image%20%28495%29.png)
 
 {% hint style="success" %}
 如果你有多个 Pipeline 函数，可以拖拽进行排序。
@@ -52,7 +52,7 @@ Authing 提供了很多开箱即用的模版，帮助你快速上手。
 
 这里我们使用 Authing 提供的表单进行登录，进入 **用户池** - **社会化登录**- **OIDC 应用**页面，你可以看到你的所有 OIDC 应用。
 
-![](../../.gitbook/assets/image%20%28413%29.png)
+![](../../.gitbook/assets/image%20%28414%29.png)
 
  点击右边第一个按钮 “体验登录”，你会跳转到 Authing 的登录表单 Guard 的页面。
 

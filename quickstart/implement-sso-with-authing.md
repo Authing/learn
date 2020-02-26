@@ -24,9 +24,9 @@ description: >-
 
 如果你还没有账号，请[点击这里注册 Authing 账号](https://authing.cn/login)，注册完成后请根据提示完成引导。
 
-![](../.gitbook/assets/image%20%28482%29.png)
+![](../.gitbook/assets/image%20%28483%29.png)
 
-![](../.gitbook/assets/image%20%28443%29.png)
+![](../.gitbook/assets/image%20%28444%29.png)
 
 ## 创建一个授权应用 <a id="add-oidc-app"></a>
 
@@ -40,7 +40,7 @@ description: >-
 
 点击按钮后会弹出一个创建表单，如下图所示：
 
-![](../.gitbook/assets/image%20%28471%29.png)
+![](../.gitbook/assets/image%20%28472%29.png)
 
 **填写应用名称**，并指定此应用的二级域名（用户将通过此网址进行认证）和回调地址（业务地址），其他参数保留默认，然后点击「确定」。 
 
