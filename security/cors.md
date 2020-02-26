@@ -32,7 +32,7 @@ https:
 
 如果在前端使用 JavaScript SDK，当你打算正式发布出去的时候，请务必配置 **Web 安全域名**，方法是进入 _控制台 &gt; 基础设置 &gt; **Web 安全域名**_。
 
-![](../.gitbook/assets/image%20%2819%29.png)
+![](../.gitbook/assets/image%20%2820%29.png)
 
 {% hint style="info" %}
 Web 安全域名的生效仅限操作敏感信息时，比如修改用户资料、删除用户等。公开的接口，比如登录、注册，不受 Web 安全域名影响。

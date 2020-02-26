@@ -17,7 +17,7 @@ description: 自定义用户池中用户密码的加密方式
 
 进入用户池，依次点击**基础配置** -&gt; **密码管理** -&gt; **自定义密码加密方法**，如下图所示：
 
-![](../.gitbook/assets/image%20%2830%29.png)
+![](../.gitbook/assets/image%20%2831%29.png)
 
 ### 下载模版
 
@@ -141,13 +141,13 @@ Authing 支持的代码包只能为 .js 格式或 .zip 格式。
 
 若你没有引入任何包，可直接上传 .js 格式的模版文件；若你引入了包请连带 node\_modules 一起打包为 .zip 格式并在 Authing 控制台中上传。
 
-![](../.gitbook/assets/image%20%28394%29.png)
+![](../.gitbook/assets/image%20%28400%29.png)
 
 ### 测试密码加密函数
 
 上传成功后开发者可测试密码加密效果，如下所示，在输入框中输入原密码后点击「加密测试」即可看到加密后的密码（若未上传任何加密函数将显示 Authing 默认的密码加密结果）。
 
-![](../.gitbook/assets/image%20%28410%29.png)
+![](../.gitbook/assets/image%20%28416%29.png)
 
 ## 注意事项
 
