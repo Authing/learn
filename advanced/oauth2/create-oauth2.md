@@ -4,9 +4,9 @@
 
 在 Authing 创建 OAuth 应用非常简单，按照下图即可完成创建：
 
-![](../../.gitbook/assets/image%20%28455%29.png)
+![](../../.gitbook/assets/image%20%28456%29.png)
 
-![](../../.gitbook/assets/image%20%28334%29.png)
+![](../../.gitbook/assets/image%20%28335%29.png)
 
 ### 参数解释
 
@@ -31,7 +31,7 @@
 
 此时访问 [https://first-oauth-app.authing.cn](https://first-oauth-app.authing.cn) 可以看到如下界面：
 
-![](../../.gitbook/assets/image%20%28453%29.png)
+![](../../.gitbook/assets/image%20%28454%29.png)
 
 用户将通过此界面进入开发者接入的其他应用。
 
