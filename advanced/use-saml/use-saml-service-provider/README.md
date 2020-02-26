@@ -14,7 +14,7 @@ Authing 云上的 SAML Service Provider 只做两件事：替开发者发送 SAM
 
 ## 用户信息回调
 
-![](../../../.gitbook/assets/image%20%28300%29.png)
+![](../../../.gitbook/assets/image%20%28301%29.png)
 
 在 IdP 完成登录后，Authing SAML SP 会将解析后的用户信息以 url query 的形式发送到回调地址，数据格式为 JSON。
 

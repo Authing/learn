@@ -157,7 +157,7 @@ description: 控制台是你管理和配置所有 Authing 资源的地方，这�
 
 {% page-ref page="../advanced/social-login/" %}
 
-![](../.gitbook/assets/image%20%28444%29.png)
+![](../.gitbook/assets/image%20%28445%29.png)
 
 ### 添加 OAuth 应用
 
@@ -183,7 +183,7 @@ LDAP 是轻量目录访问协议，英文全称是 Lightweight Directory Access 
 
 {% page-ref page="../advanced/ldap.md" %}
 
-![](../.gitbook/assets/image%20%28440%29.png)
+![](../.gitbook/assets/image%20%28441%29.png)
 
 ## 设置
 

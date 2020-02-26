@@ -16,7 +16,7 @@ description: 学习 Authing 的基础知识以及我们会用到的一些术语�
 
 [注册完 Authing 账户](https://authing.cn/login)后，你看到的是一个空白的列表页，此时你需要创建一个**用户池**。拥有了一个用户池之后你可以授权其他应用（第三方应用或者你自己写的应用）读取用户数据，授权协议支持 [OAuth2.0](https://docs.authing.cn/authing/advanced/oauth2)、[OIDC](https://docs.authing.cn/authing/advanced/oidc)、[SAML](https://docs.authing.cn/authing/advanced/shi-yong-saml) 和 [LDAP](https://docs.authing.cn/authing/advanced/ldap)。
 
-![](../.gitbook/assets/image%20%28359%29.png)
+![](../.gitbook/assets/image%20%28360%29.png)
 
 ![](../.gitbook/assets/image%20%2857%29.png)
 
@@ -51,13 +51,13 @@ userPoolId 和 secret 在控制台中的查看位置如下图所示：
 
 你可以在控制台中创建用户：
 
-![](../.gitbook/assets/image%20%28420%29.png)
+![](../.gitbook/assets/image%20%28421%29.png)
 
 {% hint style="success" %}
 在本文的例子中，「非凡科技」创建了一个邮箱为「test@feifantech.com」的账号用来测试 Authing 的账号系统。
 {% endhint %}
 
-![](../.gitbook/assets/image%20%28448%29.png)
+![](../.gitbook/assets/image%20%28449%29.png)
 
 在「原始 JSON 数据」选项卡中可以看到一段用来表示该账号的 JSON 数据：
 

@@ -50,7 +50,7 @@ description: 使用微信、Github 等社会化登录。
 | :--- | :--- | :--- |
 | 在 OAuth 平台上申请的 APP ID 或 Client ID | OAuth 平台提供的 Client Secret 或 App Secret | 成功或失败后的回调 URL（你的业务地址）。如果你需要在 OIDC 或 OAuth 应用中配置社会化登录，此处地址可填写为任意值，如：\#。 |
 
-![](../../.gitbook/assets/image%20%28330%29.png)
+![](../../.gitbook/assets/image%20%28331%29.png)
 
 配置完成后请点击「确定」保存信息。
 
