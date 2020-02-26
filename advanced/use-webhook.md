@@ -8,7 +8,7 @@ description: Webhooks 允许你对用户注册、登录等行为进行监听，�
 
 ## 配置 Webhook
 
-![](../.gitbook/assets/image%20%28338%29.png)
+![](../.gitbook/assets/image%20%28342%29.png)
 
 点击页面的「添加」按钮即可开始配置，如下图所示：
 
@@ -32,7 +32,7 @@ description: Webhooks 允许你对用户注册、登录等行为进行监听，�
 
 刚创建好的 Hook 请求事件都为空，这时你可以点击「测试」触发一个「测试事件」：
 
-![](../.gitbook/assets/image%20%28340%29.png)
+![](../.gitbook/assets/image%20%28344%29.png)
 
 测试成功后你将看到详细的请求信息和返回信息。
 
@@ -40,7 +40,7 @@ description: Webhooks 允许你对用户注册、登录等行为进行监听，�
 
  调试 Webhook 的方法如下图所示：
 
-![](../.gitbook/assets/image%20%28272%29.png)
+![](../.gitbook/assets/image%20%28275%29.png)
 
 点击后将发送一个 Post 请求到配置好的 HTTP URL 中。
 
