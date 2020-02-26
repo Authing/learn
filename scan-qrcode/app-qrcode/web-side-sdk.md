@@ -152,7 +152,7 @@ authing.startAppAuthScanning({
 
 扫码组件示例：
 
-![](../../.gitbook/assets/image%20%28436%29.png)
+![](../../.gitbook/assets/image%20%28441%29.png)
 
 ## 生成二维码
 
@@ -396,7 +396,7 @@ authing.startPollingQRCodeStatus({
       </td>
     </tr>
   </tbody>
-</table>![&#x4E00;&#x4E2A;&#x5B8C;&#x6574;&#x7684;&#x626B;&#x7801;&#x6D41;&#x7A0B;](../../.gitbook/assets/image%20%28291%29.png)
+</table>![&#x4E00;&#x4E2A;&#x5B8C;&#x6574;&#x7684;&#x626B;&#x7801;&#x6D41;&#x7A0B;](../../.gitbook/assets/image%20%28294%29.png)
 
 ## ticket 换用户信息接口
 

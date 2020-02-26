@@ -115,9 +115,9 @@ $ curl https://users.authing.cn/authing/token?access_token=YOUR_TOKEN
 
 密钥在控制台中 OIDC 应用的详情中可以获取到，如下图所示：
 
-![](https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LdsKjoPVRBStTP-5zXe%2F-LfcdBKEg0tpVpS-elXb%2F-LfcdoIfgAdfNJLFcsaw%2Fimage.png?alt=media&token=bc9b31cc-c564-4183-a3fe-02eb3250ed14)
+![](../.gitbook/assets/image%20%28394%29.png)
 
-![](https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LdsKjoPVRBStTP-5zXe%2F-LfcdBKEg0tpVpS-elXb%2F-LfcdxzmhiJztbqnynlX%2Fimage.png?alt=media&token=2737009f-d922-4f9d-952c-55b43249f657)
+![](../.gitbook/assets/image%20%28196%29.png)
 
 以下验证合法性的代码以 Node 为例（需要安装 `jsonwebtoken`）。
 
