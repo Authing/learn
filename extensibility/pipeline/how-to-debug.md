@@ -28,7 +28,7 @@ async function pipe(context, callback) {
 
 点击此按钮打开调试窗口：Authing 会**根据你的用户池**生产相对应的测试数据。
 
-![](../../.gitbook/assets/image%20%28394%29.png)
+![](../../.gitbook/assets/image%20%28397%29.png)
 
 **注意到测试数据中 `data.userInfo.email` 为  `xxxxxx@example.com`。**
 
@@ -66,7 +66,7 @@ log(context)
 
 如果你的函数有语法错误， Authing Pipeline 也能捕捉到，这里我们修改一下代码，在 pipe 函数最前面加上了一行 xxxxxxx：
 
-![](../../.gitbook/assets/image%20%28474%29.png)
+![](../../.gitbook/assets/image%20%28479%29.png)
 
 再次点击调试，可以看到相应的错误提示：`message: “xxxxxxx is not defined”`。
 

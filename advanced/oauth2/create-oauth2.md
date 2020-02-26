@@ -6,7 +6,7 @@
 
 ![](../../.gitbook/assets/image%20%28208%29.png)
 
-![](../../.gitbook/assets/image%20%28345%29.png)
+![](../../.gitbook/assets/image%20%28346%29.png)
 
 ### 参数解释
 
@@ -23,7 +23,7 @@
 
 点击确定创建完成后可看到：
 
-![](../../.gitbook/assets/image%20%28480%29.png)
+![](../../.gitbook/assets/image%20%28485%29.png)
 
 每一个 OAuth 应用都有一个 **App ID** 和一个 **App Secret**，**请妥善保管好 App Secret**。
 
@@ -31,7 +31,7 @@
 
 此时访问 [https://first-oauth-app.authing.cn](https://first-oauth-app.authing.cn) 可以看到如下界面：
 
-![](../../.gitbook/assets/image%20%28468%29.png)
+![](../../.gitbook/assets/image%20%28473%29.png)
 
 用户将通过此界面进入开发者接入的其他应用。
 
