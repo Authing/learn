@@ -8,19 +8,19 @@ description: Authing 一直以来都致力于带给开发者高度自定义的�
 
 ![](../../.gitbook/assets/image%20%28149%29.png)
 
-### 二维码有效时间 
+### 二维码有效时间  <a id="code-expires-after"></a>
 
 默认 120 s。 
 
-### 是否在查询二维码状态接口返回完整用户信息
+### 是否在查询二维码状态接口返回完整用户信息 <a id="return-full-userinfo-at-polling-response"></a>
 
 默认不返回。由于查询二维码状态接口是没有权限校验的，这意味着直接在此接口返回用户信息（包含登录凭证 token）是存在安全隐患的，所以我们推荐开发者遵循最佳实践：查询二维码状态接口只返回用户昵称和头像，使用 ticket 换取用户信息。
 
-### ticket 有效时间
+### ticket 有效时间 <a id="ticket-expires-at"></a>
 
 默认为 300 s。
 
-### 是否允许在浏览器使用 ticket 换取用户信息
+### 是否允许在浏览器使用 ticket 换取用户信息 <a id="allow-exchange-userrinfo-from-browser"></a>
 
 默认不允许，需要在服务器端调用，即需要使用用户池密钥初始化之后。[点击了解如何初始化后端 SDK](https://docs.authing.cn/authing/sdk/sdk-for-node#chu-shi-hua)。
 
