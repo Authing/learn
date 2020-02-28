@@ -28,13 +28,13 @@ import (
 )
 
 const (
-    clientID  = "5adb75e03055230001023b26"
-    appSecret = "e683d18f9d597317d43d7a6522615b9d"
+    userPoolId  = "5adb75e03055230001023b26"
+    userPoolSecret = "e683d18f9d597317d43d7a6522615b9d"
 )
 
 func main() {
     // ---User Endpoint
-    client := authing.NewClient(clientID, appSecret, false)
+    client := authing.NewClient(userPoolId, userPoolSecret, false)
     // Enable debug info for graphql client, just comment it if you want to disable the debug info
     client.Client.Log = func(s string) {
         b := []byte(s)
@@ -46,7 +46,7 @@ func main() {
     input := authing.UserRegisterInput{
         Email:            graphql.String("kelvinji2009@gmail.com"),
         Password:         graphql.String("password"),
-        RegisterInClient: graphql.String(clientID),
+        RegisterInClient: graphql.String(userPoolId),
     }
 
     m, err := client.Register(&input)
@@ -57,7 +57,7 @@ func main() {
     }
 
     // ---OAuth Endpoint
-    oauthClient := authing.NewOauthClient(clientID, appSecret, false)
+    oauthClient := authing.NewOauthClient(userPoolId, userPoolSecret, false)
     // Enable debug info for graphql client, just comment it if you want to disable the debug info
     oauthClient.Client.Log = func(s string) {
         b := []byte(s)
@@ -67,7 +67,7 @@ func main() {
 
     // >>>>Graphql Query: Read OAuth List
     readOauthListQueryParameter := authing.ReadOauthListQueryParameter{
-        ClientID:   graphql.String(clientID),
+        ClientID:   graphql.String(userPoolId),
         DontGetURL: graphql.Boolean(false),
     }
 
@@ -90,7 +90,7 @@ func printJSON(v interface{}) {
 }
 ```
 
-[如何获取 Client ID 和 Client Secret ？](../others/faq.md#ru-he-huo-qu-client-id-he-client-secret)
+[如何获取 UserPool ID 和 UserPool Secret ？](../others/faq.md#ru-he-huo-qu-client-id-he-client-secret)
 
 ## API 使用实例
 
@@ -99,7 +99,7 @@ func printJSON(v interface{}) {
 请先创建一个用户 Endpoint Client。然后你可以对用户进行一系列操作，包括注册，登录，更新用户资料，删除用户，修改密码等等。
 
 ```go
-client := authing.NewClient(clientID, appSecret, false)
+client := authing.NewClient(userPoolId, userPoolSecret, false)
 // Enable debug info for graphql client, just comment it if you want to disable the debug info
 client.Client.Log = func(s string) { log.Println(s) }
 ```
@@ -110,7 +110,7 @@ client.Client.Log = func(s string) { log.Println(s) }
 input := authing.UserRegisterInput{
     Email:            graphql.String("kelvinji2009@gmail.com"),
     Password:         graphql.String("password"),
-    RegisterInClient: graphql.String(clientID),
+    RegisterInClient: graphql.String(userPoolId),
 }
 
 m, err := client.Register(&input)
@@ -127,7 +127,7 @@ if err != nil {
 loginInput := authing.UserLoginInput{
     Email:            graphql.String("kelvinji2009@gmail.com"),
     Password:         graphql.String("password!"),
-    RegisterInClient: graphql.String(clientID),
+    RegisterInClient: graphql.String(userPoolId),
 }
 
 m, err := client.Login(&loginInput)
@@ -156,7 +156,7 @@ if err != nil {
 ```go
 p := authing.UserQueryParameter{
     ID:               graphql.String("5ae3d830f0db4b000117a95e"),
-    RegisterInClient: graphql.String(clientID),
+    RegisterInClient: graphql.String(userPoolId),
 }
 
 q, err := client.User(&p)
@@ -171,7 +171,7 @@ if err != nil {
 
 ```go
 p := authing.UsersQueryParameter{
-    RegisterInClient: graphql.String(clientID),
+    RegisterInClient: graphql.String(userPoolId),
     Page:             graphql.Int(1),
     Count:            graphql.Int(10),
 }
@@ -189,7 +189,7 @@ if err != nil {
 ```go
 removeUsersInput := authing.RemoveUsersInput{
     IDs:              []graphql.String{"111", "222"}, // NOTE: Please use your real user IDs
-    RegisterInClient: graphql.String(clientID),
+    RegisterInClient: graphql.String(userPoolId),
     // Operator should be your `Authing.cn` account ID
     // Operator:         graphql.String("5adb75be3055230001023b20"), // no more needed
 }
@@ -219,7 +219,7 @@ userUpdateInput := authing.UserUpdateInput{
     Username:         graphql.String("kelvinji2009x"),
     Nickname:         graphql.String("Sicario13th"),
     Phone:            graphql.String("18665308994"),
-    RegisterInClient: graphql.String(clientID),
+    RegisterInClient: graphql.String(userPoolId),
 }
 
 m, err := client.UpdateUser(&userUpdateInput)
@@ -235,7 +235,7 @@ if err != nil {
 ```go
 sendVerifyEmailInput := authing.SendVerifyEmailInput{
     Email:  graphql.String("kelvinji2009@gmail.com"),
-    Client: graphql.String(clientID),
+    Client: graphql.String(userPoolId),
 }
 
 err := client.SendVerifyEmail(&sendVerifyEmailInput)
@@ -248,7 +248,7 @@ if err != nil {
 
 ```go
 sendResetPasswordEmailInput := authing.SendResetPasswordEmailInput{
-    Client: graphql.String(clientID),
+    Client: graphql.String(userPoolId),
     Email:  graphql.String("kelvinji2009@gmail.com"),
 }
 
@@ -262,7 +262,7 @@ if err != nil {
 
 ```go
 verifyResetPasswordVerifyCodeInput := authing.VerifyResetPasswordVerifyCodeInput{
-    Client:     graphql.String(clientID),
+    Client:     graphql.String(userPoolId),
     Email:      graphql.String("kelvinji2009@gmail.com"),
     VerifyCode: graphql.String("7670"),
 }
@@ -277,7 +277,7 @@ if err != nil {
 
 ```go
 changePasswordInput := authing.ChangePasswordInput{
-    Client:     graphql.String(clientID),
+    Client:     graphql.String(userPoolId),
     Email:      graphql.String("kelvinji2009@gmail.com"),
     VerifyCode: graphql.String("7670"),
     Password:   graphql.String("password!"),
@@ -294,7 +294,7 @@ if err != nil {
 请先创建 OAuth Endpoint Client.
 
 ```go
-oauthClient := authing.NewOauthClient(clientID, appSecret, false)
+oauthClient := authing.NewOauthClient(userPoolId, userPoolSecret, false)
 // Enable debug info for graphql client, just comment it if you want to disable the debug info
 oauthClient.Client.Log = func(s string) { log.Println(s) }
 ```
@@ -303,7 +303,7 @@ oauthClient.Client.Log = func(s string) { log.Println(s) }
 
 ```go
 readOauthListQueryParameter := authing.ReadOauthListQueryParameter{
-    ClientID:   graphql.String(clientID),
+    ClientID:   graphql.String(userPoolId),
     DontGetURL: graphql.Boolean(false),
 }
 
