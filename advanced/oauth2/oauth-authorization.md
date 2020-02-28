@@ -34,7 +34,7 @@ https://sso.authing.cn/authorize?app_id=5c7253efe21948de32723725&state=123456lkj
 | :--- | :--- |
 | app\_id | 必须，创建 OAuth 应用后详情中的 `App ID` |
 | response\_type | 必须，授权的类型，在 `authorization_code 模式` 中值必须为 `"code"` |
-| redirect\_uri | 必须，授权成功后的回掉地址，必须为 OAuth 应用配置好的 `URL` 中的一个 |
+| redirect\_uri | 必须，授权成功后的回调地址，**必须**与控制台 **OAuth 应用配置的 `URL`** 一致，需要经过 urlencoded 编码 |
 | state | 一段随机字符串，主要用于防止跨站请求伪造攻击，它将原封不动地在 `redirect_uri` 中返回 |
 | scope | 允许的授权的范围，暂时没有实现此字段的相关功能，可不传 |
 
@@ -57,7 +57,7 @@ https://sso.authing.cn/authorize?app_id=5c7253efe21948de32723725&state=123456lkj
 | app\_id/client\_id | 必须，创建 OAuth 应用后详情中的 `App ID` |
 | app\_secret/client\_secret | 必须，创建 OAuth 应用后详情中的 `App Secret` |
 | code | 必须，我们返回的 `code` |
-| redirect\_uri | 必须，授权成功后的回掉地址，必须为 OAuth 应用配置好的 `URL` 中的一个，需要经过 urlencoded 编码 |
+| redirect\_uri | 必须，授权成功后的回调地址，**必须**与控制台 **OAuth 应用配置的 `URL`** 一致，需要经过 urlencoded 编码 |
 | grant\_type | 必须，授权类型，在 `authorization_code 模式`中必须为 `"authorization_code"` |
 
 同时 `Content-Type` 为 `application/x-www-form-urlencoded`。
@@ -123,7 +123,7 @@ curl --request POST \
 | :--- | :--- |
 | app\_id | 必须，创建 OAuth 应用后详情中的 `App ID` |
 | response\_type | 必须，授权的类型，在 `implicit 模式` 中值必须为 `"token"` |
-| redirect\_uri | 必须，授权成功后的回掉地址，必须为 OAuth 应用配置好的 `URL` 中的一个 |
+| redirect\_uri | 必须，授权成功后的回调地址，**必须**与控制台 **OAuth 应用配置的 `URL`** 一致，需要经过 urlencoded 编码 |
 | scope | 允许的授权的范围，暂时没有实现此字段的相关功能，可不传 |
 
 ### **2. 重定向并返回 `access_token`**
