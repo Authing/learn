@@ -33,11 +33,11 @@ impelementation 'cn.authing:java-core:0.5.0'
 
 ## 快速上手
 
-先从 [Authing 控制台](https://authing.cn/dashboard) 中 [获取 Client ID](https://docs.authing.cn/#/quick_start/howto)，然后调用初始化函数。初始化调用一次即可，在 Android 开发中，推荐放在 Application 中进行初始化。
+先从 [Authing 控制台](https://authing.cn/dashboard) 中 [获取 UserPool ID](https://docs.authing.cn/#/quick_start/howto)，然后调用初始化函数。初始化调用一次即可，在 Android 开发中，推荐放在 Application 中进行初始化。
 
 ```text
 // 初始化
-Authing.init(cliendId, secret)
+Authing.init(userPoolId, secret)
 
 // 注册用户，异步调用
 val registerParam: RegisterParam = RegisterParam.Builder(email, psd).nickname(nickname).build()
