@@ -6,13 +6,13 @@
 
 ![](../.gitbook/assets/image%20%28140%29.png)
 
-## Client Secret 有何作用？
+## UserPool Secret 有何作用？
 
 1. [在服务端初始化 Authing SDK for Node.js](../sdk/sdk-for-node/)
 
-## Client ID/Client Secret 和 OAuth/OIDC 应用的 App ID 和 App Secret 的区别？
+## UserPool ID/UserPool Secret 和 OAuth/OIDC 应用的 App ID 和 App Secret 的区别？
 
-1. Client ID 和 Client Secret 是 Authing 开发者创建的用户池的信息，通过 Client ID 和 Client Secret，Authing 的开发者拥有用户池的所有访问权限；
+1. UserPool ID 和 UserPool Secret 是 Authing 开发者创建的用户池的信息，通过 UserPool ID 和 UserPool Secret，Authing 的开发者拥有用户池的所有访问权限；
 2. OAuth/OIDC 应用的 App ID 和 App Secret 是 OAuth 或 OIDC 应用的信息，用来授权其他应用访问用户池，还可以用来[验证 JWT token 的合法性](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token)。
 
 ## 什么是 JWT Token？
