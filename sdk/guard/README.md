@@ -49,10 +49,10 @@ $ npm install @authing/guard --save
 
 ### 2. 显示表单
 
-首先， 你需要初始化一个新的 Guard 对象，并提供 Authing ClientId（每个 Authing 应用的唯一客户端 ID，你可以从控制台中获取），如下所示：
+首先， 你需要初始化一个新的 Guard 对象，并提供 Authing UserPoolId（每个 Authing 应用的唯一用户池 ID，你可以从控制台中获取），如下所示：
 
 ```javascript
-const form = new Guard('AUTHING_CLIENT_ID');
+const form = new Guard('AUTHING_USERPOOL_ID');
 ```
 
 完成这两步后就可以使用表单了。
@@ -86,7 +86,7 @@ form.on('login', (userInfo) => {
 初始化 Guard 后可监听 `scanned-success` 事件取回用户信息，如下所示：
 
 ```javascript
-const form = new Guard('AUTHING_CLIENT_ID');
+const form = new Guard('AUTHING_USERPOOL_ID');
 
 form.on('scanned-success', (userInfo) => {
   // 使用 userInfo 以及 userInfo.token 等信息
@@ -116,8 +116,8 @@ form.on('scanned-success', (userInfo) => {
     <div id="my-form"></div>
 
     <script>
-        const clientId = "YOUR_AUTHING_USERPOOL_ID";
-        const guard = new Guard(clientId, {
+        const userPoolId = "YOUR_AUTHING_USERPOOL_ID";
+        const guard = new Guard(userPoolId, {
             logo: "https://usercontents.authing.cn/client/logo@2.png",
             title: "Authing",
             // 把表单插入到 id 为 my-form 的标签
@@ -170,9 +170,9 @@ form.on('scanned-success', (userInfo) => {
     <script src="https://cdn.jsdelivr.net/npm/@authing/guard/dist/Guard.umd.min.js"></script>
     <script>
       var appId = "YOUR_AUTHING_SSO_APPID";
-      var clientId = "YOUR_AUTHING_USERPOOL_ID";
+      var userPoolId = "YOUR_AUTHING_USERPOOL_ID";
       var domain = "example.authing.cn";
-      const guard = new Guard(clientId, {
+      const guard = new Guard(userPoolId, {
         appId,
         domain,
         hideClose: true,
@@ -209,7 +209,7 @@ https://<appDomain>.authing.cn/login/profile
 
 ## API
 
-### 构造函数 new Guard\(clientId, options\)
+### 构造函数 new Guard\(userPoolId, options\)
 
 初始化一个新的 `Guard` 实例。SSO 场景和非 SSO 场景下传参方式有所不同。
 
@@ -217,7 +217,7 @@ https://<appDomain>.authing.cn/login/profile
 
 只需提供用户池 id。
 
-* **clientId**: 用户池 id
+* **userPoolId**: 用户池 id
 * **options {Object}**: 允许你自定义表单的 UI，相关参数请参考 [自定义](https://github.com/Authing/Guard#自定义)
 
 #### **SSO 场景**
@@ -226,7 +226,7 @@ https://<appDomain>.authing.cn/login/profile
 
 需要提供用户池 id，在 options 对象中，传入你在 [Authing](https://authing.cn/dashboard) 对应应用中的 appId 和域名信息。
 
-* **clientId**: 用户池 id
+* **userPoolId**: 用户池 id
 * **options {Object}**: 允许你自定义表单的 UI，相关参数请参考 [自定义](https://github.com/Authing/Guard#自定义)
 * **options.appId {String}**: Authing SSO 应用的 _appId_；
 * **options.domain {String}**: Authing SSO 应用的_域名_. 通常是 &lt;appDomain&gt;.authing.cn；
@@ -263,7 +263,7 @@ Guard 提供了两个方法用以操作界面的显示和隐藏，方法名见�
 在初始化完构造函数后会自动执行 `show` 方法，如：
 
 ```javascript
-const form = new Guard('AUTHING_CLIENT_ID', { ... });
+const form = new Guard('AUTHING_USERPOOL_ID', { ... });
 form.hide();
 ```
 
@@ -320,7 +320,7 @@ Guard 的构造函数 `Guard` 的第二个参数提供了一些高级功能。
 在初始化 `Guard` 后，可使用 `on`方法，如：
 
 ```javascript
-const form = new Guard('AUTHING_CLIENT_ID');
+const form = new Guard('AUTHING_USERPOOL_ID');
 form.on('login', function(user) {
     // 成功登录后的回调事件，参数 user 为用户数据
 });
@@ -330,8 +330,8 @@ Guard 会在以下生命周期中触发相应事件，完整的事件列表如�
 
 | 事件名称 | 事件说明 | 事件参数 | 事件参数说明 |
 | :--- | :--- | :--- | :--- |
-| authing-load | Authing Client ID 验证通过，加载完成 | authing | authing 对象，可直接操作 `login`,`register` 等方法 |
-| authing-unload | Authing Client ID 验证失败 | `error` | 错误信息 |
+| authing-load | Authing UserPool ID 验证通过，加载完成 | authing | authing 对象，可直接操作 `login`,`register` 等方法 |
+| authing-unload | Authing UserPool ID 验证失败 | `error` | 错误信息 |
 | social-load | 社会化登录列表加载完成 | oauthList | 完整的 OAuth 列表，若用户未在后台配置过则为空 |
 | social-unload | 社会化登录列表加载失败 | `error` | 错误信息 |
 | login/authenticated | 用户登录成功 | user | 用户数据 |
