@@ -91,7 +91,7 @@ description: 'context 对象中保存了当前认证流程的上下文，包括�
       <td style="text-align:left">social:wechat-app</td>
       <td style="text-align:left">&#x4F7F;&#x7528;&#x5FAE;&#x4FE1;&#x79FB;&#x52A8;&#x5E94;&#x7528;&#x767B;&#x5F55;&#x3002;&#x8BE6;&#x60C5;&#x89C1;
         <a
-        href="../../social-login/mobile/wechat-mobile.md">&#x63A5;&#x5165;&#x79FB;&#x52A8;&#x5E94;&#x7528;&#x5FAE;&#x4FE1;&#x767B;&#x5F55;</a>&#x3002;</td>
+        href="../../social-login/mobile/wechat.md">&#x63A5;&#x5165;&#x79FB;&#x52A8;&#x5E94;&#x7528;&#x5FAE;&#x4FE1;&#x767B;&#x5F55;</a>&#x3002;</td>
     </tr>
     <tr>
       <td style="text-align:left">social:app2wxapp</td>

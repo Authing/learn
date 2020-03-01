@@ -2,7 +2,7 @@
 
 目前 Authing 支持的移动端社会化登录方式包括：
 
-{% page-ref page="wechat-mobile.md" %}
+{% page-ref page="wechat.md" %}
 
 {% page-ref page="alipay.md" %}
 
