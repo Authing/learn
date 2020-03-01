@@ -23,8 +23,6 @@ Authing 支持 React Native 移动端开发移动端，使得开发者可以快�
 
 你可以通过下面这些文档了解如何使用 authing-rn-sdk 接入移动端社会化登录：
 
-{% page-ref page="../advanced/social-login/jie-ru-yi-dong-duan-zhi-fu-bao-deng-lu.md" %}
-
 如果你想直接调用接口，可以使用 [authing.js](https://github.com/Authing/authing.js%20%20
 )。
 
@@ -47,7 +45,7 @@ cd ios && pod install
 
 如果一切顺利，你会看到：
 
-![](../.gitbook/assets/image%20%28179%29.png)
+![](../.gitbook/assets/image%20%28196%29.png)
 
 > 由于平台限制，如果需要接入社会化登录，还需要进行一些额外配置，详情见下文。
 

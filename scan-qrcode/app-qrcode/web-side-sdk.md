@@ -13,7 +13,7 @@ Authing SDK 提供两种方式接入：
 
 ## 一键生成扫码登录组件
 
-Authing.startAppAuthScanning\(options\)
+Authing.qrlogin.startScanning\(options\)
 
 ```javascript
 authing.startAppAuthScanning({
@@ -143,7 +143,7 @@ authing.startAppAuthScanning({
 </table>下面是一个最简的调用：一共只需要 5 行代码。
 
 ```javascript
-authing.startAppAuthScanning({
+authing.qrlogin.startScanning({
   onSuccess(userInfo) {
     localStorage.setItem('token', userInfo.token);
   }
@@ -152,11 +152,11 @@ authing.startAppAuthScanning({
 
 扫码组件示例：
 
-![](../../.gitbook/assets/image%20%28460%29.png)
+![](../../.gitbook/assets/image%20%28522%29.png)
 
 ## 生成二维码
 
-Authing.geneQRCode\(options\)
+Authing.qrlogin.geneCode\(options\)
 
 ```javascript
 authing.geneQRCode({ 
@@ -176,7 +176,7 @@ authing.geneQRCode({
 请求示例：
 
 ```javascript
-const res = await authing.geneQRCode({ 
+const res = await authing.qrlogin.geneCode({ 
     scene: "APP_AUTH", 
     userDefinedData: {
         customVar1: "xxx", 
@@ -219,10 +219,10 @@ if(res.code === 200){
 
 ## 查询二维码状态
 
-Authing.checkQRCodeStatus\(options\)
+Authing.qrlogin.checkCodeStatus\(options\)
 
 ```javascript
-const res = await authing.checkQRCodeStatus({
+const res = await authing.qrlogin.checkCodeStatus({
     qrcodeId: "xxxxx",
     scene: "APP_AUTH"
 })
@@ -236,7 +236,7 @@ const res = await authing.checkQRCodeStatus({
 请求示例：
 
 ```javascript
-authing.checkQRCodeStatus({
+authing.qrlogin.checkCodeStatus({
     qrcodeId: "xxxxx",
     scene: "APP_AUTH"
 }).then(res => {
@@ -281,14 +281,14 @@ authing.checkQRCodeStatus({
 
 ## 轮询二维码状态
 
-Authing.startPollingQRCodeStatus\(options\)
+Authing.qrlogin.pollingCodeStatus\(options\)
 
 > 此接口为 checkQRCodeStatus 的封装。
 
 ```javascript
-authing.startPollingQRCodeStatus({
+authing.qrlogin.pollingCodeStatus({
   qrcodeId,
-  : 'APP_AUTH',
+  scene: 'APP_AUTH',
   interval: 1000,
   onPollingStart: function (intervalNum) {
     console.log("Start polling for qrcode status: ", intervalNum)
@@ -396,14 +396,14 @@ authing.startPollingQRCodeStatus({
       </td>
     </tr>
   </tbody>
-</table>![&#x4E00;&#x4E2A;&#x5B8C;&#x6574;&#x7684;&#x626B;&#x7801;&#x6D41;&#x7A0B;](../../.gitbook/assets/image%20%28305%29.png)
+</table>![&#x4E00;&#x4E2A;&#x5B8C;&#x6574;&#x7684;&#x626B;&#x7801;&#x6D41;&#x7A0B;](../../.gitbook/assets/image%20%28337%29.png)
 
 ## ticket 换用户信息接口
 
-Authing.exchangeUserInfoWithTicket\(ticket\)
+Authing.qrlogin.exchangeUserInfo\(ticket\)
 
 ```javascript
-const res = authing.exchangeUserInfoWithTicket(ticket)
+const res = authing.qrlogin.exchangeUserInfo(ticket)
 ```
 
 参数说明：
@@ -415,7 +415,7 @@ const res = authing.exchangeUserInfoWithTicket(ticket)
 调用示例：
 
 ```javascript
-authing.exchangeUserInfoWithTicket(ticket).then(res => {
+authing.qrlogin.exchangeUserInfo(ticket).then(res => {
   const { code } = res
   if (code === 200) {
     console.log("Exchange userInfo success: ", res.data)

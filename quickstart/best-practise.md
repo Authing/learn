@@ -34,8 +34,6 @@
 
 同时我们建议你配置社会化登录或小程序扫码登录使得终端用户拥有更好的登录体验：
 
-{% page-ref page="../advanced/social-login/" %}
-
 {% page-ref page="../scan-qrcode/wxapp-qrcode/" %}
 
 ## 在后端验证 JWT Token 的合法性

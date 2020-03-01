@@ -18,8 +18,6 @@ description: 理解 Authing 提供的认证方式
 
 {% page-ref page="../../scan-qrcode/wxapp-qrcode/" %}
 
-{% page-ref page="../social-login/" %}
-
 ## 标准协议认证
 
 标准协议认证指通过 OAuth 2.0、OIDC、SAML、LDAP 等标准协议认证的过程，**若你的应用安全性要求较高建议使用此种认证方式**。

@@ -177,6 +177,15 @@ Pre-Register（注册前） Pipeline 中没有 user  对象。
       </td>
       <td style="text-align:left">user.removeTokenField(&apos;KEY&apos;)</td>
     </tr>
+    <tr>
+      <td style="text-align:left">setIdTokenField</td>
+      <td style="text-align:left">
+        <p>&#x8BBE;&#x7F6E; idToken &#x81EA;&#x5B9A;&#x4E49;&#x5B57;&#x6BB5;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x66FF;&#x6362;&#x539F;&#x6CB9;
+          idToken &#x5185;&#x5BB9;&#x3002;</p>
+        <p><b>&#x6B64;&#x63A5;&#x53E3;&#x4EC5;&#x5728; Pre-OIDCTokenIssued Pipeline &#x4E2D;&#x53EF;&#x7528;</b>&#x3002;</p>
+      </td>
+      <td style="text-align:left">user.setIdTokenField(&quot;KEY&quot;,&quot;VALUE&quot;)</td>
+    </tr>
   </tbody>
 </table>
 

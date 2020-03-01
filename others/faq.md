@@ -4,7 +4,7 @@
 
 依次点击**基础配置** -&gt; **基础设置**，找到「用户池 ID」和「密钥」即是「UserPoolId」和「UserPool Secret」，如下图所示：
 
-![](../.gitbook/assets/image%20%28140%29.png)
+![](../.gitbook/assets/image%20%28153%29.png)
 
 ## UserPool Secret 有何作用？
 
@@ -40,15 +40,13 @@ OIDC 流程包含两个 Token：
 验证 OIDC 流程中 Token 所使用的 secret 的获取方式如下图所示：
 {% endhint %}
 
-![](../.gitbook/assets/image%20%28163%29.png)
+![](../.gitbook/assets/image%20%28180%29.png)
 
 ## 如何使用小程序扫码认证？
 
 {% page-ref page="../scan-qrcode/wxapp-qrcode/" %}
 
 ## 如何接入社会化登录
-
-{% page-ref page="../advanced/social-login/" %}
 
 ## 如何接入单点登录？
 

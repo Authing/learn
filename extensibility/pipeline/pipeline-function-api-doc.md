@@ -13,6 +13,7 @@ Pipeline 为一组函数，和普通 Hooks 的区别在于，Pipeline 整个流�
 | Pre-Register  Pipeline | 注册前 Pipeline，会在每次用户正式进入注册逻辑前触发，开发者可用此实现注册邮箱白名单、注册 IP 白名单等功能。 |
 | Post-Register Pipeline | 注册后Pipeline， 会在每次用户完成注册逻辑 **（但还未保存至数据库）** 之后触发，开发者可用此实现往数据库写入自定义 metadata 、新用户注册 webhook 通知等功能。  |
 | Post-Authentication Pipeline | 认证后 Pipeline 会在每次用户完成认证之后触发，开发者可用此实现往 token 加入自定义字段等功能。 |
+| Pre-OIDCTokenIssued  Pipeline | OIDC 应用 code 换 token 之前触发，开发者可用此实现往 idToken 中写入自定义字段等功能。OIDC 认证流程的 code 换 token 部分详情请见：[使用 OIDC 授权](../../advanced/oidc/oidc-authorization.md#04-shi-yong-code-huan-qu-token)。 |
 
 {% hint style="info" %}
 开发者创建 Pipeline 函数时必须选择一种  Pipeline 类型。

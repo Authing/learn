@@ -740,7 +740,7 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](../../advanced/ldap.md)�
 
 开发者也可以选择不开启 “验证原有邮箱“ ，可以在 [Authing 控制台](https://authing.cn/dashboard) 的 **基础配置** - **基础设置** 页面的**安全设置**模块进行关闭。如下图所示：
 
-![](../../.gitbook/assets/image%20%2875%29.png)
+![](../../.gitbook/assets/image%20%2881%29.png)
 
 > 验证码通过的 sendChangeEmailVerifyCode 接口发送。
 
@@ -802,7 +802,7 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](../../advanced/ldap.md)�
 
 开发者可以在 **消息服务 - 邮件模版** 中设置邮件模板，默认的邮件如下图所示：
 
-![](../../.gitbook/assets/image%20%2834%29.png)
+![](../../.gitbook/assets/image%20%2837%29.png)
 
 开发者可以自定义 CSS 样式、主题等。
 
@@ -857,7 +857,7 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](../../advanced/ldap.md)�
 
 开发者也可以选择不开启 “验证原有手机号“ ，可以在 [Authing 控制台](https://authing.cn/dashboard) 的 **基础配置** - **基础设置** 页面的**安全设置**模块进行关闭。如下图所示：
 
-![](../../.gitbook/assets/image%20%28313%29.png)
+![](../../.gitbook/assets/image%20%28347%29.png)
 
 > 手机号短信验证码通过  **getVerificationCode** 接口发送**。**
 

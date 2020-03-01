@@ -5,6 +5,7 @@
 
 ## 快速开始 <a id="quickstart"></a>
 
+* [注册 Authing 开发者账号](quickstart/create-authing-account.md)
 * [第一个应用](quickstart/hello-world.md)
 * [实现单点登录](quickstart/implement-sso-with-authing.md)
 * [基础概念](quickstart/basic.md)
@@ -22,12 +23,6 @@
   * [JWT Token 释义及使用](advanced/authentication/jwt-token.md)
 * [验证 Token](advanced/verify-jwt-token.md)
 * [配置用户权限](advanced/roles.md)
-* [接入社会化登录](advanced/social-login/README.md)
-  * [接入移动端支付宝登录](advanced/social-login/jie-ru-yi-dong-duan-zhi-fu-bao-deng-lu.md)
-  * [接入微信手机网页授权登录](advanced/social-login/wechatmp-login.md)
-  * [接入小程序客户端登录](advanced/social-login/jie-ru-xiao-cheng-xu-ke-hu-duan-deng-lu.md)
-  * [在云上配置社会化登录](advanced/social-login/config-social-login-in-cloud.md)
-  * [社会化登录授权 Scope](advanced/social-login/social-login-scopes.md)
 * [接入 OAuth 2.0](advanced/oauth2/README.md)
   * [创建 OAuth 应用](advanced/oauth2/create-oauth2.md)
   * [使用 OAuth 授权](advanced/oauth2/oauth-authorization.md)
@@ -52,6 +47,35 @@
     * [与 SSOCircle SAML IdP 对接](advanced/use-saml/use-saml-service-provider/use-with-ssocircle.md)
 * [迁移老数据进 Authing](advanced/ru-he-qian-yi-lao-shu-ju-jin-authing.md)
 * [错误代码](advanced/error-code.md)
+
+## 社会化登录 <a id="social-login"></a>
+
+* [接入 Web 端社会化登录](social-login/web/README.md)
+  * [GitHub 登录](social-login/web/github-deng-lu.md)
+  * [微信 PC 扫码登录](social-login/web/wechat-pc.md)
+  * [微信 APP 内网页登录](social-login/web/auth-in-wechat-browser.md)
+  * [新浪微博登录](social-login/web/weibo.md)
+  * [钉钉登录](social-login/web/dingtalk.md)
+  * [QQ 登录](social-login/web/qq-deng-lu.md)
+  * [配置登录授权 Scope](social-login/web/social-login-scopes.md)
+* [接入移动端社会化登录](social-login/mobile/README.md)
+  * [微信登录](social-login/mobile/wechat-mobile.md)
+  * [支付宝登录](social-login/mobile/alipay.md)
+* [接入小程序登录](social-login/miniprogram/README.md)
+  * [小程序登录](social-login/miniprogram/miniprogram/README.md)
+    * [用户登录凭证（code）最佳实践](social-login/miniprogram/miniprogram/code-best-practice.md)
+  * [APP 拉起小程序登录](social-login/miniprogram/app2wxapp.md)
+
+## 扫码登录 <a id="scan-qrcode"></a>
+
+* [小程序扫码登录](scan-qrcode/wxapp-qrcode/README.md)
+  * [接入私有化小程序](scan-qrcode/wxapp-qrcode/private-wxapp.md)
+* [APP 扫码登录](scan-qrcode/app-qrcode/README.md)
+  * [快速接入](scan-qrcode/app-qrcode/quick-start.md)
+  * [Web 端 SDK](scan-qrcode/app-qrcode/web-side-sdk.md)
+  * [完整接口列表](scan-qrcode/app-qrcode/full-api-list.md)
+  * [自定义配置项](scan-qrcode/app-qrcode/customize.md)
+  * [扫码登录原理](scan-qrcode/app-qrcode/how-it-works.md)
 
 ## 授权 <a id="authorization"></a>
 
@@ -79,17 +103,6 @@
   * [常见问题](extensibility/pipeline/qa.md)
 * [使用 Webhook](extensibility/use-webhook.md)
 * [自定义用户 Metadata](extensibility/user-metadata.md)
-
-## 扫码登录 <a id="scan-qrcode"></a>
-
-* [小程序扫码登录](scan-qrcode/wxapp-qrcode/README.md)
-  * [接入私有化小程序](scan-qrcode/wxapp-qrcode/private-wxapp.md)
-* [APP 扫码登录](scan-qrcode/app-qrcode/README.md)
-  * [快速接入](scan-qrcode/app-qrcode/quick-start.md)
-  * [Web 端 SDK](scan-qrcode/app-qrcode/web-side-sdk.md)
-  * [完整接口列表](scan-qrcode/app-qrcode/full-api-list.md)
-  * [自定义配置项](scan-qrcode/app-qrcode/customize.md)
-  * [扫码登录原理](scan-qrcode/app-qrcode/how-it-works.md)
 
 ## 开发资源 <a id="sdk"></a>
 

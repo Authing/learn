@@ -6,19 +6,7 @@ description: >-
 
 # 快速接入
 
-## 代码示例
-
-Web 端：[https://github.com/Authing/app-qrcode-login-sample](https://github.com/Authing/app-qrcode-login-sample)
-
-APP 端：
-
-## 在线体验
-
-点击在线体验：https://sample.authing.co/app-qrcode/
-
-## 接入流程
-
-### Web 端
+## Web 端
 
 在 Web 端，我们推荐使用Authing 提供的 SDK。安装流程请查看 SDK for JavaScript。
 
@@ -48,7 +36,7 @@ authing.startAppAuthScanning({
 
 运行后将自动生成用于 APP 扫码登录的二维码：
 
-![](../../.gitbook/assets/image%20%28489%29.png)
+![](../../.gitbook/assets/image%20%28555%29.png)
 
 扫码成功之后，Authing 将会回调开发者传入的 onSuccess，回调的参数中包含了 ticket 和 userInfo，ticket 可以用来换取用户信息。
 
@@ -58,7 +46,7 @@ authing.startAppAuthScanning({
 
 {% page-ref page="full-api-list.md" %}
 
-### 移动端
+## 移动端
 
 Authing 生成的二维码中包含的原始信息为一串字符串，转换为 JSON 后如下：
 
@@ -94,12 +82,12 @@ Authing 生成的二维码中包含的原始信息为一串字符串，转换为
 
 下面以 Objective-C 为例，实现同意授权登录：
 
-* api 地址为：[http://oauth.athing.co/oauth/scan-qrcode/confirm](http://oauth.athing.co/oauth/scan-qrcode/confirm)
+* api 地址为：[http://oauth.authing.cn/oauth/scan-qrcode/confirm](http://oauth.authing.cn/oauth/scan-qrcode/confirm)
 * 第 9 行在请求头带上了用户登录凭证。
 
 ```objectivec
 - (void) ConfirmAuthorization:(NSString *) qrcodeId{    
-    NSURL * api =[NSURL URLWithString:@"http://oauth.athing.co/oauth/scan-qrcode/confirm"];
+    NSURL * api =[NSURL URLWithString:@"http://oauth.authing.cn/oauth/scan-qrcode/confirm"];
     NSDictionary *bodyDict = @{
         @"qrcodeId": qrcodeId,
     };
@@ -144,7 +132,7 @@ Authing 生成的二维码中包含的原始信息为一串字符串，转换为
 
 移动端确认授权之后，Web 将会看到相关提示。
 
-![](../../.gitbook/assets/image%20%28458%29.png)
+![](../../.gitbook/assets/image%20%28520%29.png)
 
 这个时候，整个登录流程也就完成了，开发者可以使用 ticket 去换取用户信息了。
 
@@ -187,11 +175,5 @@ Authing 生成的二维码中包含的原始信息为一串字符串，转换为
 }
 ```
 
-其中有登录凭证 token，下面我们以一个具体的例子说明一下如何处理这个 token：
-
-
-
-了解验证 token的详情，可查看：
-
-{% page-ref page="../../advanced/verify-jwt-token.md" %}
+恭喜你，此时已经接入了 App  扫码登录。获取到用户信息之后，你可以得到登录凭证 token，你可以在后续的 API 请求中携带上此 token, 然后在后端接口中根据此 token 区分不同用户，详情请见[验证 token](../../advanced/verify-jwt-token.md#yan-zheng-authing-qian-fa-de-token)。
 
