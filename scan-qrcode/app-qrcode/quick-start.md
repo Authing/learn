@@ -23,7 +23,7 @@ const authing = new Authing({
 });
 
 // 调用 APP 扫码登录的方法，此方法将生成一个用于扫码登录的图片和相关提示信息
-authing.startAppAuthScanning({
+authing.qrlogin.startScanning({
   onSuccess(data) {
     alert('扫码成功，请打开控制台查看用户信息')
     console.log(data);
