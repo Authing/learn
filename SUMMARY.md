@@ -102,7 +102,7 @@
   * [GraphQL API](extensibility/pipeline/graphql-api.md)
   * [常见问题](extensibility/pipeline/qa.md)
 * [使用 Webhook](extensibility/use-webhook.md)
-* [自定义用户 Metadata](extensibility/user-metadata.md)
+* [自定义用户字段](extensibility/user-metadata.md)
 
 ## 开发资源 <a id="sdk"></a>
 
@@ -126,7 +126,7 @@
   * [组织机构管理](sdk/sdk-for-node/org-structure.md)
   * [老版权限控制（deprecated）](sdk/sdk-for-node/update-user-permissions.md)
   * [Pipeline 函数](sdk/sdk-for-node/pipeline.md)
-  * [用户自定义 Metadata](sdk/sdk-for-node/user-metadata.md)
+  * [自定义用户字段](sdk/sdk-for-node/user-metadata.md)
   * [绑定社会化登录](sdk/sdk-for-node/bind-social-login.md)
   * [管理 MFA 口令](sdk/sdk-for-node/manage-mfa.md)
   * [自定义请求连接](sdk/sdk-for-node/custom-host.md)
