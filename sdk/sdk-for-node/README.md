@@ -389,6 +389,7 @@ function formatError(error) {
   * `{Object} options`
     * **phone** 手机号
     * **phoneCode** 使用步骤一中的发送短信接口获取
+    * **password** 可选，密码
 
 ```javascript
 (async function() {  
@@ -398,6 +399,7 @@ const authing = new Authing({
   
   const userInfo = await authing.register({
     phone: 'Your Phone',
+    password: 'password',
     phoneCode: 'Your Phone Code',
   }).catch((error) => { ... })
 })();

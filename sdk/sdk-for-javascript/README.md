@@ -304,7 +304,7 @@ function formatError(error) {
   * `{Object} options`
     * **phone** 手机号
     * **phoneCode** 使用步骤一中的发送短信接口获取
-    * **password** 密码
+    * **password** 可选 密码
 
 ```javascript
 (async function() {  
