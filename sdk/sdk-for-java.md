@@ -64,7 +64,7 @@ dependencies {
 
 在类的 main 函数中，引入 Authing 开始使用
 
-![&#x5BFC;&#x5165; Authing](https://cdn.authing.cn/blog/20200311012122.png)
+![&#x5BFC;&#x5165; Authing](https://cdn.authing.cn/blog/20200311013959.png)
 
 > Android 注意
 >
