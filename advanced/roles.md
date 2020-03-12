@@ -2,7 +2,7 @@
 
 Authing 控制台中支持快速配置用户权限，操作流程如下。
 
-若想使用 API 操作用户权限，请点击[这里](../sdk/sdk-for-node/update-user-permissions.md#huo-qu-yong-hu-quan-xian-he-jiao-se)查看。
+若想使用 API 操作用户权限，请点击[这里](../sdk/sdk-for-node/rbac.md)查看。
 
 ## 创建角色
 
