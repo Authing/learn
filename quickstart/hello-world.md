@@ -94,7 +94,7 @@ description: 实现第一个基于 Authing 的应用。
 [Guard](https://github.com/Authing/Guard) 库可以帮助我们快速生成用来验证用户身份的表单，你只需要添加此库的 CDN 就可以使用：
 
 ```markup
-<script src="https://cdn.jsdelivr.net/npm/@authing/guard@1.9.3/dist/Guard.umd.min.js">
+<script src="https://cdn.jsdelivr.net/npm/@authing/guard@1.9.10/dist/Guard.umd.min.js">
 </script>
 ```
 
@@ -107,24 +107,30 @@ description: 实现第一个基于 Authing 的应用。
 调用方法非常简单，代码如下所示：
 
 ```javascript
-const form = new Guard('AUTHING_CLIENT_ID', {
+const form = new Guard('userPoolId', {
   // 时间戳，不填则默认生成当前时间戳
   timestamp: Math.round(new Date() / 1000),
   // 随机数，不填则默认生成随机数
   nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
+  // 设置登录表单标题
+  title: '第一个应用', 
+  // 小程序扫码登录配置
+  qrcodeScanning: {
+    redirect: false,
+  }
 });
 ```
 
 所需参数解释如下：
 
-* **AUTHING\_CLIENT\_ID**
-  * 用户池 ID，可从 [Authing 控制台](https://authing.cn/dashboard) 中[获取](https://learn.authing.cn/authing/others/faq#ru-he-huo-qu-client-id-he-client-secret)。
-* **timestamp**
-  * 当前时间戳 `Math.round(new Date() / 1000)`
-* **nonce**
-  * 一个随机数字，不要超过十位数
+* **userPoolId：**用户池 ID，可从 [Authing 控制台](https://authing.cn/dashboard) 中[获取](https://learn.authing.cn/authing/others/faq#ru-he-huo-qu-client-id-he-client-secret)。
+* **timestamp：**当前时间戳 `Math.round(new Date() / 1000)`
+* **nonce：**一个随机数字，不要超过十位数
+* **title**: 表单标题。
+* **qrcodeScanning**
+  * **redirect:** 是否执行跳转（在用户后台配置的 URL），若值为 false，用户数据可通过 .on\('authenticated'\) 监听函数得到. 
 
-**AUTHING\_CLIENT\_ID** 参数获取方式如下：
+**userPoolId** 参数获取方式如下：
 
 ![](../.gitbook/assets/image%20%28236%29.png)
 
@@ -134,19 +140,23 @@ const form = new Guard('AUTHING_CLIENT_ID', {
 
 在 Guard 中，开发者可以使用 `.on` 方法监听登录成功的事件，[完整的事件列表请参考这里](https://github.com/authing/guard#onevent-callback)。
 
-登录成功的事件名称为「login」：
+登录成功的事件名称为「authenticated」：
 
 ```javascript
-const form = new Guard('AUTHING_CLIENT_ID', {
+const form = new Guard('userPoolId', {
   // 时间戳，不填则默认生成当前时间戳
   timestamp: Math.round(new Date() / 1000),
   // 随机数，不填则默认生成随机数
   nonce: Math.ceil(Math.random() * Math.pow(10, 6)),
-  
-  title: '第一个应用' // 设置登录表单标题
+  // 设置登录表单标题
+  title: '第一个应用', 
+  // 小程序扫码登录配置
+  qrcodeScanning: {
+    redirect: false,
+  }
 });
 
-form.on('login', function(user) {
+form.on('authenticated', function(user) {
     // 成功登录后的回调事件，参数 user 为用户数据
 
     localStorage.setItem('userInfo', JSON.stringify(user)); // 存储用户 id 到 localStorage 中
@@ -224,7 +234,8 @@ form.on('authing-load', async function(authing) {
     // 使用 checkLoginStatus 方法判断当前的登录状态，需要使用 await
     // 如已经登录则隐藏登录框并显示当前的用户信息
     // 这段代码的作用是用户如果已经登录，那么刷新后还可以看到自己的用户信息
-    const result = await authing.checkLoginStatus();
+    const token = localStorage.getItem('token')
+    const result = await authing.checkLoginStatus(token);
     if (result.status) {
         // 隐藏登录框
         form.hide();
