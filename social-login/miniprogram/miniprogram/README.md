@@ -23,11 +23,11 @@
 * `oauth.authing,cn` 
 * `users.authing.cn` 
 
-![](../../../.gitbook/assets/image%20%28243%29.png)
+![](../../../.gitbook/assets/image%20%28246%29.png)
 
 你可以在此页面获取到小程序的 AppId 和 AppSecret：
 
-![](../../../.gitbook/assets/image%20%28500%29.png)
+![](../../../.gitbook/assets/image%20%28504%29.png)
 
 ### 在 Authing 后台填入你的小程序信息
 
@@ -40,7 +40,7 @@
 * App ID
 * App Secret
 
-![](../../../.gitbook/assets/image%20%28455%29.png)
+![](../../../.gitbook/assets/image%20%28459%29.png)
 
 ## 正式接入
 

@@ -14,7 +14,7 @@
 
 你可以扫描下方的小程序二维码体验一下「小登录」：
 
-![](../../.gitbook/assets/image%20%28296%29.png)
+![](../../.gitbook/assets/image%20%28300%29.png)
 
 
 
@@ -33,7 +33,7 @@
 
 可在[微信开放平台](https://open.weixin.qq.com/) **“管理中心-移动应用-应用详情-关联小程序信息”**，为通过审核的移动应用发起关联小程序操作。小登录的 AppID 为 wxa0435021fd7a3af2 .
 
-![](../../.gitbook/assets/image%20%28321%29.png)
+![](../../.gitbook/assets/image%20%28325%29.png)
 
 ### 在 Authing 控制台配置小程序信息（可选，私有化部署需填）
 
@@ -43,7 +43,7 @@
 
 填入你的小程序的 AppID 和 AppSecret:
 
-![](../../.gitbook/assets/image%20%28157%29.png)
+![](../../.gitbook/assets/image%20%28159%29.png)
 
 ### 自定义配置项
 
@@ -51,7 +51,7 @@ Authing 一直以来都致力于带给开发者高度自定义的开发体验，
 
 开发者可在 [Authing 控制台](https://authing.cn/dashboard) **基础配置** -&gt; **基础设置** -&gt; **App 打开小程序登录自定义配置项** 处自定义配置。
 
-![](../../.gitbook/assets/image%20%28439%29.png)
+![](../../.gitbook/assets/image%20%28443%29.png)
 
 #### 换取用户信息是否需要用户池 secret
 

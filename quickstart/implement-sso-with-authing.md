@@ -32,11 +32,11 @@ description: >-
 
 选择**第三方登录** -&gt; **OIDC 应用**选项卡，点击「创建 OIDC 应用」按钮创建应用。
 
-![](../.gitbook/assets/image%20%28380%29.png)
+![](../.gitbook/assets/image%20%28384%29.png)
 
 点击按钮后会弹出一个创建表单，如下图所示：
 
-![](../.gitbook/assets/image%20%28534%29.png)
+![](../.gitbook/assets/image%20%28538%29.png)
 
 **填写应用名称**，并指定此应用的二级域名（用户将通过此网址进行认证）和回调地址（业务地址），其他参数保留默认，然后点击「确定」。 
 
@@ -185,25 +185,25 @@ $ http-server
 
 首先点击 trackSession 按钮，获取到的登录状态为空，因为我们还未登录。
 
-![](../.gitbook/assets/image%20%28165%29.png)
+![](../.gitbook/assets/image%20%28167%29.png)
 
 现在我们点击 login 按钮，会跳转到 OIDC 应用的用户认证页面，输入用户名密码进行登录。
 
-![](../.gitbook/assets/image%20%28184%29.png)
+![](../.gitbook/assets/image%20%28186%29.png)
 
 浏览器被重定向到我们之前设置的回调链接。
 
 点击 trackSession 按钮，此时能够获取到该用户的登录状态，包括用户 ID，应用 ID，应用类型，还有此用户的详细信息。
 
-![](../.gitbook/assets/image%20%28434%29.png)
+![](../.gitbook/assets/image%20%28438%29.png)
 
 点击 logout 按钮，输出单点登出成功。
 
-![](../.gitbook/assets/image%20%28269%29.png)
+![](../.gitbook/assets/image%20%28273%29.png)
 
 此时我们再点击 trackSession 按钮，可见登录状态为空，说明用户已经单点登出了。
 
-![](../.gitbook/assets/image%20%28218%29.png)
+![](../.gitbook/assets/image%20%28221%29.png)
 
 ## 访问用户个人中心页面 <a id="visit-profile"></a>
 
@@ -219,11 +219,38 @@ https://<appDomain>.authing.cn/login/profile
 
 如果用户未登录，会先要求用户登录再进入个人中心；对于已登录的用户则会直接进入个人中心。
 
-![&#x4E2A;&#x4EBA;&#x4E2D;&#x5FC3;](../.gitbook/assets/image%20%28167%29.png)
+![&#x4E2A;&#x4EBA;&#x4E2D;&#x5FC3;](../.gitbook/assets/image%20%28169%29.png)
+
+## 访问同一用户池下的其他应用 <a id="validate-token"></a>
+
+Single Sign On \(简称  SSO\) 单点登录，可以实现登录一个授权应用之后，**自动登录**同一用户池下的所有其他应用。下面我们再按照上面的步骤创建一个新的应用，并将 appId、appType、appDomain 修改成相对应的，用 http-server 再起一个页面。现在我们有两个页面：
+
+* [http://localhost:8080](http://localhost:8080)
+* [http://localhost:8081](http://localhost:8081)
+
+目前都处于未登录状态下。在其中一个页面中点击「login」之后点击 「trackSession」：
+
+![](../.gitbook/assets/image%20%28271%29.png)
+
+再在第二个页面中点击「trackSession」：
+
+![](../.gitbook/assets/image%20%28207%29.png)
+
+可以看到没有点击登录的情况下，也已经获取到了用户登录信息。
+
+接着在第一个页面点击「logout」单点退出再点击「trackSession」：
+
+![](../.gitbook/assets/image%20%2892%29.png)
+
+接着再在第二个页面中点击「trackSession」：
+
+![](../.gitbook/assets/image%20%2835%29.png)
+
+可以看到第二个页面也已经自动退出登录了。现在我们就已经成功实现了单点登录，你可以用此构建更复杂的单点登录系统了！
 
 ## 检验 token 合法性 <a id="validate-token"></a>
 
-Authing 内部涉及到三种 token，建议先[了解它们的用途和区别](https://docs.authing.cn/authing/advanced/oidc/oidc-params#idtokenaccesstoken-he-token-zhi-jian-de-qu-bie)，然后你可能需要了解如何验证它们的合法性。
+成功登录之后，你获得的用户信息中包含一个 token 字段，这是用于的登录凭证，可以在后端用于判断用户身份。Authing 内部涉及到三种 token，建议先[了解它们的用途和区别](https://docs.authing.cn/authing/advanced/oidc/oidc-params#idtokenaccesstoken-he-token-zhi-jian-de-qu-bie)，然后你可能需要了解如何验证它们的合法性。
 
 {% page-ref page="../advanced/verify-jwt-token.md" %}
 

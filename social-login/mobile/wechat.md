@@ -27,11 +27,11 @@
 
 在 Apple Developer 控制台 **Membership** 页面找到自己的 Team ID:
 
-![](../../.gitbook/assets/image%20%28426%29.png)
+![](../../.gitbook/assets/image%20%28430%29.png)
 
 在 Xcode  **Targets** -&gt; **Signing & Capabilities** 中找到 Bundle Identifier:
 
-![](../../.gitbook/assets/image%20%28352%29.png)
+![](../../.gitbook/assets/image%20%28356%29.png)
 
 接下来创建 apple-app-site-association 文件：
 
@@ -88,41 +88,41 @@ server {
 
 加下来在 Xcode 中配置 Associated Domains。 在 Xcode   **Targets** -&gt; **Signing & Capabilities** 页面点击右上角的 **+Capability** :
 
-![](../../.gitbook/assets/image%20%28422%29.png)
+![](../../.gitbook/assets/image%20%28426%29.png)
 
 选择 Associated Domains: 
 
-![](../../.gitbook/assets/image%20%2899%29.png)
+![](../../.gitbook/assets/image%20%28101%29.png)
 
 假设你的域名是 example.com, 则填入 `applinks:example.com` :
 
-![](../../.gitbook/assets/image%20%2893%29.png)
+![](../../.gitbook/assets/image%20%2895%29.png)
 
 #### 验证 Universal Links 是否生效
 
 假设你的域名为 example.com，Path 为 `/native/*`在手机上安装了你的 App 之后，使用 Safari 浏览器访问 `https://example.com/native/`，网上拉动网页，你应该能看到你的 App: 
 
-![](../../.gitbook/assets/image%20%28495%29.png)
+![](../../.gitbook/assets/image%20%28499%29.png)
 
 再访问 `https://example.com/native/xxx`，依旧可以看到。
 
 #### 在微信开放平台填写 Universal Links
 
-![](../../.gitbook/assets/image%20%28175%29.png)
+![](../../.gitbook/assets/image%20%28177%29.png)
 
 ### 在 Authing 控制台配置微信移动应用信息
 
 在 Authing 控制台 **用户池** -&gt; **第三方登录** -&gt; **社会化登录** 页面找到“移动端社会化登录“中的“微信移动应用“：
 
-![](../../.gitbook/assets/image%20%28560%29.png)
+![](../../.gitbook/assets/image%20%28564%29.png)
 
 填入你的移动应用 AppID 和 AppSecret: 
 
-![](../../.gitbook/assets/image%20%28250%29.png)
+![](../../.gitbook/assets/image%20%28253%29.png)
 
 AppID 和 AppSecret 可在微信开放平台 **管理中心** - **移动应用** - **应用详情** 页面看到：
 
-![](../../.gitbook/assets/image%20%28509%29.png)
+![](../../.gitbook/assets/image%20%28513%29.png)
 
 ## 正式接入
 
@@ -147,7 +147,7 @@ func loginByWechat() {
 
 你可以在 AppDelegate 或 SceneDelegate 的 onResp 方法获取到授权码 code,  如下图所示：
 
-![](../../.gitbook/assets/image%20%28343%29.png)
+![](../../.gitbook/assets/image%20%28347%29.png)
 
 ### 接收微信回调数据获取 code
 
