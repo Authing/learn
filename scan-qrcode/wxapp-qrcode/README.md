@@ -74,7 +74,13 @@ description: 扫描小程序二维码并使用小程序「小登录」进行认�
 $ npm install authing-js-sdk --save
 ```
 
-更多 SDK 的使用方法请参考：
+你也可以直接通过  CDN 引入：
+
+```javascript
+<script src="https://cdn.jsdelivr.net/npm/authing-js-sdk/dist/authing-js-sdk-browser.min.js"></script>
+```
+
+> 更多 SDK 的使用方法请参考：
 
 {% page-ref page="../../sdk/sdk-for-javascript/" %}
 
@@ -85,7 +91,7 @@ const Authing = require('authing-js-sdk');
 
 // 初始化 Authing SDK for JavaScript
 const authing = new Authing({
-    userPoolId: 'your_userpool_id',
+    userPoolId: 'your_userpool_id', // 你的用户池 ID
 });
 
 // 调用小程序扫码登录的方法，此方法将生成一个用于扫码登录的图片和相关提示信息
@@ -125,12 +131,12 @@ authing.startWXAppScaning({
   // 不自动跳转
   redirect: false,
   
-  enableFetchPhone: true // 启用获取手机号
+  enableFetchPhone: true, // 启用获取手机号
   
   // 扫码成功
   onSuccess(res) {
     const userInfo = res.data;
-    
+    console.log(userInfo)
     // 存储 token 到 localStorage 中
     localStorage.setItem('token', userInfo.token);
   }
