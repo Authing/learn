@@ -11,6 +11,8 @@ description: >-
 1. [注册一个 Authing 账号](https://authing.cn/login)并[创建一个 OIDC 应用](https://docs.authing.cn/authing/advanced/oidc/create-oidc)。
 2. 进入 OIDC 登录页面 `https://<appDomain>.authing.cn/login/profile`
 
+你可以在此在线体验：[https://first-oidc-app.authing.cn/login/profile](https://first-oidc-app.authing.cn/login/profile)
+
 ### 操作流程
 
 输入以上网址后，由于初次访问，用户没有登录，会跳转到登录页面要求用户登录。
@@ -57,7 +59,5 @@ description: >-
 
 ![](../.gitbook/assets/image%20%28327%29.png)
 
-### 在线体验
-
-[https://first-oidc-app.authing.cn/login/profile](https://first-oidc-app.authing.cn/login/profile)
+### 
 
