@@ -65,6 +65,8 @@ const auth = new Authing({
   * PEM 格式密码加密公钥，默认为 Authing 官方的加密公钥。私有化部署用户需要传入自己的加密公钥。
 * **onInitError，**`function(err) {}`
   * 错误处理函数，用于处理初始化失败错误、预检错误。
+* **cdnHost**: **string**
+  * 图片 CDN host，供私有化部署了 Authing 服务的开发者填写。示例： https://mybucket.yourcdndomain.com，**末尾请不要带 "/"** 。
 
 ## 使用
 
@@ -447,7 +449,7 @@ const authing = new Authing({
 
 ## 使用 LDAP 登录
 
-LDAP 服务的配置流程请参考[配置 LDAP 服务](../../advanced/ldap.md)。
+LDAP 服务的配置流程请参考[配置 LDAP 服务](../../authentication/ldap/ldap.md)。
 
 **Authing.loginByLDAP\(options\)**
 
