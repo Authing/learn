@@ -4,6 +4,10 @@
 Pipeline 为一组函数，和普通 Hooks 的区别在于，Pipeline 整个流程中的函数数据可以相互传递，实现工业流水线一样的效果。这种设计模式，可以使得开发者的自定义函数更加模块化，便于管理。
 {% endhint %}
 
+{% hint style="danger" %}
+处于安全考虑， Authing 会通过特殊方式，使用你的用户池 ID（userPoolId） 和用户池密钥（secret） 初始化 authing-js-sdk，此过程不会将你的用户池密钥发送到公网。你可以使用使用全局变量 **authing**，**请勿再次初始化 SDK！**
+{% endhint %}
+
 ## Pipeline 函数类型 <a id="pipeline-type"></a>
 
 目前 Authing 支持三种类型的 Pipeline 函数：
@@ -13,7 +17,7 @@ Pipeline 为一组函数，和普通 Hooks 的区别在于，Pipeline 整个流�
 | Pre-Register  Pipeline | 注册前 Pipeline，会在每次用户正式进入注册逻辑前触发，开发者可用此实现注册邮箱白名单、注册 IP 白名单等功能。 |
 | Post-Register Pipeline | 注册后Pipeline， 会在每次用户完成注册逻辑 **（但还未保存至数据库）** 之后触发，开发者可用此实现往数据库写入自定义 metadata 、新用户注册 webhook 通知等功能。  |
 | Post-Authentication Pipeline | 认证后 Pipeline 会在每次用户完成认证之后触发，开发者可用此实现往 token 加入自定义字段等功能。 |
-| Pre-OIDCTokenIssued  Pipeline | OIDC 应用 code 换 token 之前触发，开发者可用此实现往 idToken 中写入自定义字段等功能。OIDC 认证流程的 code 换 token 部分详情请见：[使用 OIDC 授权](../../advanced/oidc/oidc-authorization.md#04-shi-yong-code-huan-qu-token)。 |
+| Pre-OIDCTokenIssued  Pipeline | OIDC 应用 code 换 token 之前触发，开发者可用此实现往 idToken 中写入自定义字段等功能。OIDC 认证流程的 code 换 token 部分详情请见：[使用 OIDC 授权](../../authentication/oidc/oidc-authorization.md#04-shi-yong-code-huan-qu-token)。 |
 
 {% hint style="info" %}
 开发者创建 Pipeline 函数时必须选择一种  Pipeline 类型。

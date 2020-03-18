@@ -9,6 +9,10 @@
 
 ## Authing SDK for Node.js
 
+{% hint style="danger" %}
+处于安全考虑， Authing 会通过特殊方式，使用你的用户池 ID（userPoolId） 和用户池密钥（secret） 初始化 authing-js-sdk，此过程不会将你的用户池密钥发送到公网。你可以使用使用全局变量 **authing**，**请勿再次初始化 SDK！**
+{% endhint %}
+
 开发者可以直接使用[初始化](../../sdk/sdk-for-javascript/#chu-shi-hua)过后的 authing 实例，**无需手动初始化**！Authing Pipeline 会自动帮助开发者  take care 初始化过程。
 
 如下所示：
