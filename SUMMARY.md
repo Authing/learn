@@ -105,7 +105,7 @@
   * [Node SDK](extensibility/pipeline/node-sdk.md)
   * [GraphQL API](extensibility/pipeline/graphql-api.md)
   * [常见问题](extensibility/pipeline/qa.md)
-  * [私有化部署](extensibility/pipeline/si-you-hua-bu-shu.md)
+  * [私有化部署](extensibility/pipeline/private.md)
 * [使用 Webhook](extensibility/use-webhook.md)
 * [自定义用户字段](extensibility/user-metadata.md)
 
