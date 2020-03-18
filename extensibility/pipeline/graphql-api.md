@@ -4,11 +4,11 @@
 
 ![](../../.gitbook/assets/image%20%2888%29.png)
 
-![](../../.gitbook/assets/image%20%28156%29.png)
+![](../../.gitbook/assets/image%20%28159%29.png)
 
 点击 “生成查询语句“ 按钮，可生成查询语句：
 
-![](../../.gitbook/assets/image%20%28173%29.png)
+![](../../.gitbook/assets/image%20%28176%29.png)
 
 
 
