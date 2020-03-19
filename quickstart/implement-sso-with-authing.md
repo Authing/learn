@@ -191,7 +191,7 @@ $ http-server
 
 点击 trackSession 按钮，此时能够获取到该用户的登录状态，包括用户 ID，应用 ID，应用类型，还有此用户的详细信息。
 
-![](../.gitbook/assets/image%20%28443%29.png)
+![](../.gitbook/assets/image%20%28444%29.png)
 
 点击 logout 按钮，输出单点登出成功。
 

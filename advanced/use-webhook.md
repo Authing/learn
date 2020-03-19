@@ -32,7 +32,7 @@ description: Webhooks 允许你对用户注册、登录等行为进行监听，�
 
 刚创建好的 Hook 请求事件都为空，这时你可以点击「测试」触发一个「测试事件」：
 
-![](../.gitbook/assets/image%20%28404%29.png)
+![](../.gitbook/assets/image%20%28405%29.png)
 
 测试成功后你将看到详细的请求信息和返回信息。
 
