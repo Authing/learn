@@ -51,7 +51,7 @@ Authing 一直以来都致力于带给开发者高度自定义的开发体验，
 
 开发者可在 [Authing 控制台](https://authing.cn/dashboard) **基础配置** -&gt; **基础设置** -&gt; **App 打开小程序登录自定义配置项** 处自定义配置。
 
-![](../../.gitbook/assets/image%20%28448%29.png)
+![](../../.gitbook/assets/image%20%28449%29.png)
 
 #### 换取用户信息是否需要用户池 secret
 

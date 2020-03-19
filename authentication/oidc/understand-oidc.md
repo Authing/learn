@@ -53,7 +53,7 @@ access\_token 用于**授权**，id\_token 用于**认证**。
 
 scope 不带 openid 的情况
 
-![](../../.gitbook/assets/image%20%28433%29.png)
+![](../../.gitbook/assets/image%20%28434%29.png)
 
 可见最后没有返回 ID Token。
 

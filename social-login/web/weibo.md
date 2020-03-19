@@ -25,7 +25,7 @@
 * Redirect：**这是你的业务回调域名，和微博网页应用里配置的回调链接不一样**。比如你的网站域名是 https://example.com ， 处理 Authing 回调请求的 url 为 /auth/weibo/callback ， 那么你应该填写为 `https://example.com/auth/weibo/callback`。如果你需要在 OIDC 或 OAuth 应用中单独配置回调链接，此处地址可填入： \#。
 * Scopes（可选）: 默认情况下，Authing 只会向用户申请基础用户信息（如头像、昵称等）的授权，如果你需要更多高级权限，可以勾选上对应的选项。详细说明请见[配置登录授权 Scopes](social-login-scopes.md#sina-blog)。
 
-![](../../.gitbook/assets/image%20%28426%29.png)
+![](../../.gitbook/assets/image%20%28427%29.png)
 
 配置完成后请点击「确定」保存信息。
 

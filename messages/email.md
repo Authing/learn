@@ -6,7 +6,7 @@ description: 邮件是 Authing 提供的针对使用「邮箱」注册的用户�
 
 邮件是 Authing 提供的针对使用「邮箱」注册的用户的邮件发送服务，进入任意应用后按照下图点击按钮即可进入邮件管理面板：
 
-![](../.gitbook/assets/image%20%28542%29.png)
+![](../.gitbook/assets/image%20%28543%29.png)
 
 ## 管理邮件模版
 
@@ -71,7 +71,7 @@ description: 邮件是 Authing 提供的针对使用「邮箱」注册的用户�
 
 我们自带的邮件发送服务器使用阿里云企业邮箱，若你想自定义邮件服务器可在此页面中设置（目前支持阿里企业邮箱、腾讯企业邮箱和自定义 SMTP 服务）。
 
-![](../.gitbook/assets/image%20%28483%29.png)
+![](../.gitbook/assets/image%20%28484%29.png)
 
 ### 配置方法
 

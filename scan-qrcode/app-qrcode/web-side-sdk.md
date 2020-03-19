@@ -152,7 +152,7 @@ authing.qrlogin.startScanning({
 
 扫码组件示例：
 
-![](../../.gitbook/assets/image%20%28531%29.png)
+![](../../.gitbook/assets/image%20%28532%29.png)
 
 ## 生成二维码
 
