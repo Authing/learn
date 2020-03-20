@@ -917,7 +917,7 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](../../authentication/lda
 * 参数：
   * {Object} options
     * phone : 当前手机号，必填。
-    * emailCode: 当前手机号短信验证码，必填。
+    * phoneCode: 当前手机号短信验证码，必填。
     * oldPhone：原有手机号，选填。
     * oldPhoneCode: 原有手机号短信验证码，选填。
 * 使用方法
