@@ -155,7 +155,7 @@ application/x-www-form-urlencoded
 
 {% api-method-form-data-parameters %}
 {% api-method-parameter name="client\_id" type="string" required=true %}
-OIDC 应用的 App Secret
+OIDC 应用的 App ID
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="client\_secret" type="string" required=true %}
