@@ -22,6 +22,10 @@ description: >-
 
 Authing 提供了很多开箱即用的模版，帮助你快速上手。
 
+{% hint style="success" %}
+你也可以在这里查看 Pipeline 模版函数列表：https://github/com/authing/pipeline。同时欢迎你发挥才智，为我们贡献 Pipeline 模版函数。
+{% endhint %}
+
 首先进入控制台的 **用户池** - **扩展能力** - **自定义 Pipeline** 页面，你会看到一些提示：
 
 ![](../../.gitbook/assets/image%20%28191%29.png)
