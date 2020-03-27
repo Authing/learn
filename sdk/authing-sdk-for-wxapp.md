@@ -12,9 +12,9 @@ Github 地址：
 **NOTE!** 在小程序中开发需要在小程序管理后台中配置域名，两个域名分别为：`https://users.authing.cn`和`https://oauth.authing.cn`
 {% endhint %}
 
-### 准备使用 Authing 接入微信小程序登录
+## 准备工作
 
-#### 注册微信小程序开发账号
+### 注册微信小程序开发账号
 
 * [微信开放平台](https://mp.weixin.qq.com/)
 * 如果需要获取用户手机号，需通过微信认证。
@@ -22,7 +22,7 @@ Github 地址：
 
 ![](https://usercontents.authing.cn/2019-11-16-104739.png)
 
-#### 在 Authing 控制台开启微信小程序社会化登录
+### 在 Authing 控制台开启微信小程序社会化登录
 
 * 获取微信小程序 AppId 和 AppSecret
 
@@ -33,15 +33,15 @@ Github 地址：
 
 ![](https://usercontents.authing.cn/Xnip2019-11-16_17-34-34.png)
 
-### 使用 SDK
+## 开始接入
 
-#### 下载代码
+### 下载代码
 
 ```text
 git clone https://github.com/Authing/authing-wxapp-sdk
 ```
 
-#### 引入文件
+### 引入文件
 
 然后将 repo 内的 authing 文件夹移动到你的项目目录下，之后使用 require 引入
 
@@ -49,7 +49,7 @@ git clone https://github.com/Authing/authing-wxapp-sdk
 var Authing = require('path/to/authing/authing.js')
 ```
 
-#### 初始化
+### 初始化
 
 如果你对 Authing 用户池这个概念不是很了解，可以查阅 Authing 官方文档：
 
@@ -77,7 +77,7 @@ authing.login({
 })
 ```
 
-#### 获取小程序的 Code
+### 获取小程序的 Code
 
 Code 用来在小程序中执行微信登录，获取用户信息。`wx.login` 方法用于获取 `code`，此方法不需要经过用于授权。
 
@@ -132,7 +132,7 @@ onLoad: function() {
   const code = wx.getStorageSync("code")
   ```
 
-#### 使用微信授权登录
+### 使用微信授权登录
 
 > 注：当前小程序版本，第一次获取用户信息需要用户主动点击开放组件。授权通过之后，后续可以直接调用接口。
 
@@ -218,7 +218,7 @@ wx.getSetting({
 
 > 注⚠️：在获取用户信息之后，code 将会失效，所以这里调用了 `wx.login` 刷新 `code` 并保持至 `localStorage` 。
 
-#### 获取手机号
+### 获取手机号
 
 > 此接口需小程序通过 **微信认证**。
 >
@@ -266,7 +266,7 @@ getPhone: function(e) {
 
 > 注⚠️：在获取手机号之后，code 将会失效，所以这里调用了 `wx.login` 刷新 `code` 并保持至 `localStorage` 。
 
-#### 绑定手机号
+### 绑定手机号
 
 > 此接口需小程序通过 **微信认证**。
 
@@ -312,7 +312,7 @@ bindPhone: function(e) {
 
 > 注⚠️：在获取用户手机号之后，code 将会失效，所以这里调用了 `wx.login` 刷新 `code` 并保持至 `localStorage` 。
 
-#### 修改头像
+### 修改头像
 
 Authing 会自动处理打开相册、上传图片的逻辑，开发者只需要传入唯一的参数：`userId` 即可，成功的回调函数会返回最新的用户信息。
 
@@ -332,7 +332,11 @@ changeAvatar: function() {
 },
 ```
 
-#### 其他接口
+### 其他接口
 
 其他和 JavaScript 版本相同：[https://github.com/Authing/authing-js-sdk](https://github.com/Authing/authing-js-sdk)，若存在问题，可以发 issue 指出。
+
+## 完成接入
+
+恭喜你，此时已经接入了微信小程序登录。获取到用户信息之后，你可以得到登录凭证 token，你可以在后续的 API 请求中携带上此 token, 然后在后端接口中根据此 token 区分不同用户，详情请见[验证 token](../advanced/verify-jwt-token.md#yan-zheng-authing-qian-fa-de-token)。
 
