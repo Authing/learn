@@ -27,9 +27,9 @@ description: 'context 对象中保存了当前认证流程的上下文，包括�
 | :--- | :--- |
 | basic | 普通认证模式，基于用户名密码、手机号验证码。 |
 | social | 社会化登录认证默认，当使用 Authing 集成的社会化登录手段登录时为此值。 |
-| ldap | 使用 LDAP 进行认证。有关如何接入 LDAP 请见 [配置 LDAP 服务](../../advanced/ldap.md)。 |
-| saml | 使用 SAML 进行认证。有关如何接入 SAML 请见 [接入 SAML](../../advanced/use-saml/)。 |
-| oidc | 使用 OIDC 协议认证。有关如何接入 OIDC 请见[使用 OIDC 授权](../../advanced/oidc/oidc-authorization.md)。 |
+| ldap | 使用 LDAP 进行认证。有关如何接入 LDAP 请见 [配置 LDAP 服务](../../authentication/ldap/ldap.md)。 |
+| saml | 使用 SAML 进行认证。有关如何接入 SAML 请见 [接入 SAML](../../authentication/use-saml/)。 |
+| oidc | 使用 OIDC 协议认证。有关如何接入 OIDC 请见[使用 OIDC 授权](../../authentication/oidc/oidc-authorization.md)。 |
 
 ## connection
 
@@ -54,23 +54,23 @@ description: 'context 对象中保存了当前认证流程的上下文，包括�
         &#x4E00;&#x4E2A; Authing LDAP &#x670D;&#x52A1;&#x5BF9;&#x5E94;&#x4E00;&#x4E2A;
         Authing &#x7528;&#x6237;&#x76EE;&#x5F55;&#x6216;&#x7B2C;&#x4E09;&#x65B9;&#x7528;&#x6237;&#x76EE;&#x5F55;&#xFF0C;&#x8BE6;&#x60C5;&#x8BF7;&#x89C1;
         <a
-        href="../../advanced/ldap.md">&#x914D;&#x7F6E; LDAP&#x670D;&#x52A1;</a>&#x548C; <a href="../../advanced/ldap-idp.md">&#x4F7F;&#x7528; Authing &#x7684; LDAP &#x7528;&#x6237;&#x76EE;&#x5F55;</a>&#x3002;</td>
+        href="../../authentication/ldap/ldap.md">&#x914D;&#x7F6E; LDAP&#x670D;&#x52A1;</a>&#x548C; <a href="../../authentication/ldap/ldap-idp.md">&#x4F7F;&#x7528; Authing &#x7684; LDAP &#x7528;&#x6237;&#x76EE;&#x5F55;</a>&#x3002;</td>
     </tr>
     <tr>
       <td style="text-align:left">saml:&lt;SAML Idp &#x670D;&#x52A1; ID&gt;</td>
       <td style="text-align:left">&#x4F7F;&#x7528; SAML &#x534F;&#x8BAE;&#x8FDB;&#x884C;&#x767B;&#x5F55;&#x3002;&#x6709;&#x5173;&#x5982;&#x4F55;&#x63A5;&#x5165;
-        SAML &#x8BF7;&#x89C1; <a href="../../advanced/use-saml/">&#x63A5;&#x5165; SAML</a>&#x3002;</td>
+        SAML &#x8BF7;&#x89C1; <a href="../../authentication/use-saml/">&#x63A5;&#x5165; SAML</a>&#x3002;</td>
     </tr>
     <tr>
       <td style="text-align:left">oidc:&lt;OIDC &#x5E94;&#x7528; ID&gt;</td>
       <td style="text-align:left">&#x4F7F;&#x7528; OIDC &#x534F;&#x8BAE;&#x8BA4;&#x8BC1;&#x3002;&#x6709;&#x5173;&#x5982;&#x4F55;&#x63A5;&#x5165;
-        OIDC &#x8BF7;&#x89C1; <a href="../../advanced/oidc/oidc-authorization.md">&#x4F7F;&#x7528; OIDC &#x6388;&#x6743;</a>&#x3002;</td>
+        OIDC &#x8BF7;&#x89C1; <a href="../../authentication/oidc/oidc-authorization.md">&#x4F7F;&#x7528; OIDC &#x6388;&#x6743;</a>&#x3002;</td>
     </tr>
     <tr>
       <td style="text-align:left">social:github</td>
       <td style="text-align:left">&#x4F7F;&#x7528; GitHub &#x767B;&#x5F55;&#x3002;&#x8BE6;&#x60C5;&#x89C1;
         <a
-        href>&#x63A5;&#x5165;&#x793E;&#x4F1A;&#x5316;&#x767B;&#x5F55;</a>&#x3002;</td>
+        href="../../social-login/web/github.md">&#x63A5;&#x5165; GitHub &#x767B;&#x5F55;</a>&#x3002;</td>
     </tr>
     <tr>
       <td style="text-align:left">
@@ -79,55 +79,55 @@ description: 'context 对象中保存了当前认证流程的上下文，包括�
       </td>
       <td style="text-align:left">&#x5FAE;&#x4FE1; PC &#x626B;&#x7801;&#x767B;&#x5F55;&#x3002;&#x8BE6;&#x60C5;&#x89C1;
         <a
-        href>&#x63A5;&#x5165;&#x793E;&#x4F1A;&#x5316;&#x767B;&#x5F55;</a>&#x3002;</td>
+        href="../../social-login/web/wechat-pc.md">&#x63A5;&#x5165;&#x5FAE;&#x4FE1; PC &#x626B;&#x7801;&#x767B;&#x5F55;</a>&#x3002;</td>
     </tr>
     <tr>
       <td style="text-align:left">social:wechat-miniprogram</td>
       <td style="text-align:left">&#x4F7F;&#x7528;&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;&#x767B;&#x5F55;&#x3002;&#x8BE6;&#x60C5;&#x89C1;
         <a
-        href>&#x63A5;&#x5165;&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;&#x767B;&#x5F55;</a>&#x3002;</td>
+        href="../../social-login/miniprogram/miniprogram/">&#x63A5;&#x5165;&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;&#x767B;&#x5F55;</a>&#x3002;</td>
     </tr>
     <tr>
       <td style="text-align:left">social:wechat-app</td>
       <td style="text-align:left">&#x4F7F;&#x7528;&#x5FAE;&#x4FE1;&#x79FB;&#x52A8;&#x5E94;&#x7528;&#x767B;&#x5F55;&#x3002;&#x8BE6;&#x60C5;&#x89C1;
         <a
-        href="../../social-login/mobile/wechat.md">&#x63A5;&#x5165;&#x79FB;&#x52A8;&#x5E94;&#x7528;&#x5FAE;&#x4FE1;&#x767B;&#x5F55;</a>&#x3002;</td>
+        href="../../social-login/mobile/wechat.md">&#x63A5;&#x5165;&#x79FB;&#x52A8;&#x7AEF; APP &#x5FAE;&#x4FE1;&#x767B;&#x5F55;</a>&#x3002;</td>
     </tr>
     <tr>
       <td style="text-align:left">social:app2wxapp</td>
       <td style="text-align:left">&#x5728;&#x79FB;&#x52A8;&#x5E94;&#x7528; App &#x4E2D;&#x62C9;&#x8D77;&#x5C0F;&#x7A0B;&#x5E8F;&#x767B;&#x5F55;&#x3002;&#x8BE6;&#x60C5;&#x89C1;
         <a
-        href="../../social-login/miniprogram/app2wxapp.md">&#x63A5;&#x5165;&#x79FB;&#x52A8;&#x5E94;&#x7528;&#x5C0F;&#x7A0B;&#x5E8F;&#x767B;&#x5F55;</a>&#x3002;</td>
+        href="../../social-login/miniprogram/app2wxapp.md">&#x63A5;&#x5165;&#x79FB;&#x52A8;&#x7AEF; APP &#x62C9;&#x8D77;&#x5C0F;&#x7A0B;&#x5E8F;&#x767B;&#x5F55;</a>&#x3002;</td>
     </tr>
     <tr>
       <td style="text-align:left">social:wechat-officialaccount-web</td>
       <td style="text-align:left">&#x4F7F;&#x7528;&#x5FAE;&#x4FE1;&#x516C;&#x4F17;&#x53F7;&#x7F51;&#x9875;&#x6388;&#x6743;&#x767B;&#x5F55;&#x3002;&#x8BE6;&#x60C5;&#x89C1;
         <a
-        href>&#x63A5;&#x5165;&#x5FAE;&#x4FE1;&#x516C;&#x4F17;&#x53F7;&#x7F51;&#x9875;&#x6388;&#x6743;&#x767B;&#x5F55;</a>&#x3002;</td>
+        href="../../social-login/web/wechat-mp.md">&#x63A5;&#x5165;&#x5FAE;&#x4FE1;&#x516C;&#x4F17;&#x53F7;&#x7F51;&#x9875;&#x6388;&#x6743;&#x767B;&#x5F55;</a>&#x3002;</td>
     </tr>
     <tr>
       <td style="text-align:left">social:qq-web</td>
       <td style="text-align:left">&#x4F7F;&#x7528; QQ &#x7F51;&#x9875;&#x7248;&#x767B;&#x5F55;&#x3002;&#x8BE6;&#x60C5;&#x89C1;
         <a
-        href>&#x63A5;&#x5165;&#x793E;&#x4F1A;&#x5316;&#x767B;&#x5F55;</a>&#x3002;</td>
+        href="../../social-login/web/qq.md">&#x63A5;&#x5165; QQ &#x767B;&#x5F55;</a>&#x3002;</td>
     </tr>
     <tr>
       <td style="text-align:left">social:weibo-web</td>
       <td style="text-align:left">&#x4F7F;&#x7528;&#x5FAE;&#x535A;&#x7F51;&#x9875;&#x7248;&#x767B;&#x5F55;&#x3002;&#x8BE6;&#x60C5;&#x89C1;
         <a
-        href>&#x63A5;&#x5165;&#x793E;&#x4F1A;&#x5316;&#x767B;&#x5F55;</a>&#x3002;</td>
+        href="../../social-login/web/weibo.md">&#x63A5;&#x5165;&#x5FAE;&#x535A;&#x767B;&#x5F55;</a>&#x3002;</td>
     </tr>
     <tr>
       <td style="text-align:left">social:dingtalk-web</td>
       <td style="text-align:left">&#x4F7F;&#x7528;&#x9489;&#x9489;&#x7F51;&#x9875;&#x7248;&#x767B;&#x5F55;&#x3002;&#x8BE6;&#x60C5;&#x89C1;
         <a
-        href>&#x63A5;&#x5165;&#x793E;&#x4F1A;&#x5316;&#x767B;&#x5F55;</a>&#x3002;</td>
+        href="../../social-login/web/dingtalk.md">&#x63A5;&#x5165;&#x9489;&#x9489;&#x767B;&#x5F55;</a>&#x3002;</td>
     </tr>
     <tr>
       <td style="text-align:left">social:alipay-mobile</td>
       <td style="text-align:left">&#x4F7F;&#x7528;&#x652F;&#x4ED8;&#x5B9D; APP &#x767B;&#x5F55;&#x3002;&#x8BE6;&#x60C5;&#x89C1;
         <a
-        href>&#x63A5;&#x5165;&#x652F;&#x4ED8;&#x5B9D;&#x79FB;&#x52A8;&#x7AEF;&#x767B;&#x5F55;</a>&#x3002;</td>
+        href="../../social-login/mobile/alipay.md">&#x63A5;&#x5165;&#x79FB;&#x52A8; APP &#x652F;&#x4ED8;&#x5B9D;&#x767B;&#x5F55;</a>&#x3002;</td>
     </tr>
     <tr>
       <td style="text-align:left"></td>
