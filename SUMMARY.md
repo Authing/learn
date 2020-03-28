@@ -58,6 +58,8 @@
   * [GitHub 登录](social-login/web/github.md)
   * [微信 PC 扫码登录](social-login/web/wechat-pc.md)
   * [微信 APP 内网页登录](social-login/web/wechat-mp.md)
+  * [企业微信网页授权登录](social-login/web/wechatwork-web.md)
+  * [企业微信扫码登录](social-login/web/wechatwork-qrconnect.md)
   * [新浪微博登录](social-login/web/weibo.md)
   * [钉钉登录](social-login/web/dingtalk.md)
   * [QQ 登录](social-login/web/qq.md)

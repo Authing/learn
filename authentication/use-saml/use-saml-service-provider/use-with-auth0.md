@@ -12,7 +12,7 @@
 
 填写应用信息，为云上的 SP 指定一个二级域名，填写用户信息回调地址，点击「确定」。
 
-![](../../../.gitbook/assets/image%20%28136%29.png)
+![](../../../.gitbook/assets/image%20%28146%29.png)
 
 在 IdP 登录 URL 填入 Auth0 IdP 的登录地址，形如`https://YOUR_DOMAIN/samlp/CLIENT_ID`
 
@@ -22,11 +22,11 @@ entityID 填入 Auth0 IdP 的 Issuer，形如 `urn:xxx.auth0.com`。
 
 上传 Auth0 的 IdP Metadata。
 
-![&#x586B;&#x5199; SAML IdP &#x57FA;&#x672C;&#x4FE1;&#x606F;&#x5E76;&#x4E0A;&#x4F20; IdP Metadata](../../../.gitbook/assets/image%20%28142%29.png)
+![&#x586B;&#x5199; SAML IdP &#x57FA;&#x672C;&#x4FE1;&#x606F;&#x5E76;&#x4E0A;&#x4F20; IdP Metadata](../../../.gitbook/assets/image%20%28152%29.png)
 
 在下方 SAML Response 验签证书处上传在 Auth0 下载的 IdP 证书。
 
-![&#x4E0A;&#x4F20; auth0 IdP &#x7684;&#x8BC1;&#x4E66;](../../../.gitbook/assets/image%20%28265%29.png)
+![&#x4E0A;&#x4F20; auth0 IdP &#x7684;&#x8BC1;&#x4E66;](../../../.gitbook/assets/image%20%28278%29.png)
 
 其他选项保留默认即可。
 
@@ -34,25 +34,25 @@ entityID 填入 Auth0 IdP 的 Issuer，形如 `urn:xxx.auth0.com`。
 
 在字段映射设置中选择 Auth0，点击确定。
 
-![&#x914D;&#x7F6E;&#x5B57;&#x6BB5;&#x6620;&#x5C04;](../../../.gitbook/assets/image%20%28260%29.png)
+![&#x914D;&#x7F6E;&#x5B57;&#x6BB5;&#x6620;&#x5C04;](../../../.gitbook/assets/image%20%28273%29.png)
 
 ## 在 Auth0 填入 Authing SAML SP ACS 地址
 
 在 Applications -&gt; 应用列表条目 -&gt; Addons -&gt; SAML2 WEB APP -&gt; Allowed Callback URL 中填入 Authing SP 的 AssertionConsumeURL。
 
-![&#x586B;&#x5165; Authing SP &#x7684; ACS &#x5730;&#x5740;](../../../.gitbook/assets/image%20%2852%29.png)
+![&#x586B;&#x5165; Authing SP &#x7684; ACS &#x5730;&#x5740;](../../../.gitbook/assets/image%20%2857%29.png)
 
 ## 使用 Authing SAML SP 发起登录
 
 将 Authing SAML SP 应用详情 -&gt; 使用方法选项卡 -&gt; 发起 SAML 登录项目下的地址复制到浏览器地址栏，进行访问。
 
-![](../../../.gitbook/assets/image%20%28150%29.png)
+![](../../../.gitbook/assets/image%20%28160%29.png)
 
 浏览器会跳转到 Auth0 IdP 用户认证登录页，选择一种方式进行登录。
 
-![](../../../.gitbook/assets/image%20%28311%29.png)
+![](../../../.gitbook/assets/image%20%28324%29.png)
 
 浏览器会跳转到在 Authing SP 设置的回调地址，以 url query 的形式附带用户信息，key 为 data。
 
-![](../../../.gitbook/assets/image%20%28479%29.png)
+![](../../../.gitbook/assets/image%20%28495%29.png)
 

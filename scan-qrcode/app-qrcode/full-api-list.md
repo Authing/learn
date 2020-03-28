@@ -55,7 +55,7 @@ description: Authing 提供基于 REST 的扫码登录接口，开发者可以�
 
 生成的二维码：
 
-![](../../.gitbook/assets/image%20%28369%29.png)
+![](../../.gitbook/assets/image%20%28383%29.png)
 
 使用[在线二维码解码工具](https://cli.im/deqr) 查看二维码数据如下：其中 customVar1 和 customVar2 保存到了 userDefinedData 对象中。
 

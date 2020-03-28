@@ -24,21 +24,21 @@ async function pipe(context, callback) {
 
 进入该函数详情页，最下方有一个“调试代码“ 按钮：
 
-![](../../.gitbook/assets/image%20%2870%29.png)
+![](../../.gitbook/assets/image%20%2878%29.png)
 
 点击此按钮打开调试窗口：Authing 会**根据你的用户池**生产相对应的测试数据。
 
-![](../../.gitbook/assets/image%20%28453%29.png)
+![](../../.gitbook/assets/image%20%28468%29.png)
 
 **注意到测试数据中 `data.userInfo.email` 为  `xxxxxx@example.com`。**
 
 点击 “调试“ 按钮：下方输出了调试结果，我们得到了最新的 context 对象，说明此邮箱通过了该 Pipeline 函数。
 
-![](../../.gitbook/assets/image%20%2876%29.png)
+![](../../.gitbook/assets/image%20%2885%29.png)
 
 我们再将 email 后缀改为 qq.com，输出结果区域我们得到了相应的错误提示。
 
-![](../../.gitbook/assets/image%20%28214%29.png)
+![](../../.gitbook/assets/image%20%28226%29.png)
 
 ## 查看 log 日志 \(BETA\) <a id="log"></a>
 
@@ -52,11 +52,11 @@ async function pipe(context, callback) {
 log(context)
 ```
 
-![](../../.gitbook/assets/image%20%2869%29.png)
+![](../../.gitbook/assets/image%20%2877%29.png)
 
 再次点击“调试“，就能看到输出的日志了。
 
-![](../../.gitbook/assets/image%20%2828%29.png)
+![](../../.gitbook/assets/image%20%2830%29.png)
 
 {% hint style="info" %}
 如果没有日志输出，请重试几次！
@@ -66,11 +66,11 @@ log(context)
 
 如果你的函数有语法错误， Authing Pipeline 也能捕捉到，这里我们修改一下代码，在 pipe 函数最前面加上了一行 xxxxxxx：
 
-![](../../.gitbook/assets/image%20%28555%29.png)
+![](../../.gitbook/assets/image%20%28576%29.png)
 
 再次点击调试，可以看到相应的错误提示：`message: “xxxxxxx is not defined”`。
 
-![](../../.gitbook/assets/image%20%28194%29.png)
+![](../../.gitbook/assets/image%20%28206%29.png)
 
 {% hint style="info" %}
 我们推荐先用调试器调试代码通过之后再将此函数发不到线上。
