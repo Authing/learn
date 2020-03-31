@@ -7,8 +7,7 @@
 1. [注册 Authing 开发者账号](../../quickstart/create-authing-account.md)
    * 在创建账号的引导过程中，你会得到一个二级域名，在后面会用到。
 2. [申请一个企业微信服务商账号](https://open.work.weixin.qq.com/)
-3. [申请并配置一个企业微信网页应用](https://open.work.weixin.qq.com/wwopen/common/readDocument/13245)
-4. 在 Authing 控制台填入微信网页应用信息
+3. 在 Authing 控制台填入微信网页应用信息
 
 ### 在 Authing  控制台找到「企业微信网页授权登录」
 
