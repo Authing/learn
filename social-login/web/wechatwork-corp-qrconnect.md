@@ -9,7 +9,7 @@
 2. [注册一个企业微信账号](https://work.weixin.qq.com/)
 3. 在 Authing 控制台填入企业微信相关信息
 
-### 在 Authing  控制台找到「企业微信网页授权登录」
+### 在 Authing  控制台找到「企业微信（内部应用）扫码登录」
 
 ![](../../.gitbook/assets/image%20%28271%29.png)
 
