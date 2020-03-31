@@ -120,15 +120,15 @@ https://core.authing.cn/oauth/wechatwork/5e4cdd055df3df65dc58b97d/redirect/comma
 
 你应该能够获取到成功提示。
 
-### 配置业务回调链接
+### 配置业务回调链接 Redirect URL
 
 {% hint style="warning" %}
 业务回调链接和企业微信内配置的回调链接不一样，这是 Authing 将用户信息回调给你的回调链接。
 {% endhint %}
 
-比如：https://youdomain.com/callback，之后 Authing 会将用户信息回调给此链接：
+如果你使用 [Guard](../../sdk/guard/)，可以留空填 「\#」。
 
-![](../../.gitbook/assets/image%20%28531%29.png)
+如果你需要手动接入企业微信扫码登录，需要填写你的**业务回调链接**，用户授权之后，Authing 将会把用户信息回调给你。
 
 ## 开始接入
 
