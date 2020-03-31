@@ -10,7 +10,7 @@ description: >-
 
 1. [注册一个 Authing 账号](https://authing.cn/login)。
 2. [创建一个用户池](../quickstart/basic.md#yong-hu-chi)。
-3. [创建一个 OIDC 应用](../advanced/oidc/create-oidc.md)。
+3. [创建一个 OIDC 应用](../authentication/oidc/create-oidc.md)。
 4. 建议安装 http-server 用于快速启动 http 服务器来查看 html 文件。`npm install -g http-server`
 
 ## 所需技能

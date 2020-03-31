@@ -20,7 +20,7 @@
 
 ## 使用 OIDC 协议对用户进行认证和授权
 
-{% page-ref page="../advanced/oidc/" %}
+{% page-ref page="../authentication/oidc/" %}
 
 ## 使用 Guard
 

@@ -14,19 +14,19 @@
 
 ## 我在做 MVC 或后端主导前端的应用
 
-{% page-ref page="../advanced/oidc/understand-oidc.md" %}
+{% page-ref page="../authentication/oidc/understand-oidc.md" %}
 
-{% page-ref page="../advanced/oidc/create-oidc.md" %}
+{% page-ref page="../authentication/oidc/create-oidc.md" %}
 
-{% page-ref page="../advanced/oidc/oidc-authorization.md" %}
+{% page-ref page="../authentication/oidc/oidc-authorization.md" %}
 
 ## 我有第三方应用和自研应用需要做单点登录
 
-{% page-ref page="../advanced/oidc/understand-oidc.md" %}
+{% page-ref page="../authentication/oidc/understand-oidc.md" %}
 
-{% page-ref page="../advanced/oidc/create-oidc.md" %}
+{% page-ref page="../authentication/oidc/create-oidc.md" %}
 
-{% page-ref page="../advanced/oidc/oidc-authorization.md" %}
+{% page-ref page="../authentication/oidc/oidc-authorization.md" %}
 
 {% page-ref page="../advanced/verify-jwt-token.md" %}
 

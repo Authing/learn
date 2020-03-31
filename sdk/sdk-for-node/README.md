@@ -284,6 +284,56 @@ function formatError(error) {
      }
     ```
 
+## 
+
+## 使用 ODIC 登录
+
+### Authing.loginByOidc\(option\)
+
+* **参数**:
+  * `{object} options`
+    * **client\_id 必填**  （必填）OIDC 应用 ID
+    * **client\_secret** （必填）OIDC 应用 Secret
+    * **email** （必填） 用户 Email
+    * **password** （必填） 用户密码
+
+```javascript
+(async function() { const authing = new Authing({
+    userPoolId: 'your_userpool_id'
+  });
+  
+  const response = await authing.loginByOidc({
+    client_id: 'your userpoolId',
+    client_secret: 'your client_serret',
+    email: 'your email',
+    password: 'your password ',
+  }).catch((error) => { ... })
+})();
+```
+
+## 刷新 OIDC Token
+
+**Authing.refreshOidcToken\(options\)**
+
+* **参数：**
+  * `{Object} options`
+    * **client\_id**   OIDC 应用 id
+    * **client\_secret**    OIDC 应用 secret
+    * **refresh\_token**   要刷新的 Token
+
+```javascript
+(async function() { const authing = new Authing({
+    userPoolId: 'your_userpool_id'
+  });
+  
+  const response = await authing.refreshOidcToken({
+    client_id: 'your OIDC client_id',
+    client_secret: 'your OIDC secret',
+    refresh_token: 'your Token '
+  }).catch((error) => { ... })
+})();
+```
+
 ## 发送手机验证码
 
 此接口可结合[使用手机验证码登录](./#shi-yong-shou-ji-yan-zheng-ma-deng-lu)使用。

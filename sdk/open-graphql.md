@@ -297,6 +297,186 @@ mutation RefreshToken(
 
 此接口需发送 `OwnerToken`。
 
+{% api-method method="get" host="https://users.authing.cn" path="/oauth/oidc/token" %}
+{% api-method-summary %}
+ 通过 OIDC 登录
+{% endapi-method-summary %}
+
+{% api-method-description %}
+
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-path-parameters %}
+{% api-method-parameter name="email" type="string" required=true %}
+email
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="password" type="string" required=true %}
+password
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="client\_secret" type="string" required=true %}
+OIDC secret
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="client\_id" type="string" required=true %}
+OIDC ID
+{% endapi-method-parameter %}
+{% endapi-method-path-parameters %}
+
+{% api-method-headers %}
+{% api-method-parameter name="Content-Type" type="string" required=true %}
+application/x-www-form-urlencoded
+{% endapi-method-parameter %}
+{% endapi-method-headers %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```
+
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+
+
+{% api-method method="get" host="https://users.authing.cn" path="/oauth/oidc/token" %}
+{% api-method-summary %}
+ 刷新 OIDC oken
+{% endapi-method-summary %}
+
+{% api-method-description %}
+    
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-path-parameters %}
+{% api-method-parameter name="refresh\_token" type="string" required=true %}
+Your refresh\_token
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="client\_secret" type="string" required=true %}
+OIDC secret   
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="client\_id" type="string" required=true %}
+OIDC ID
+{% endapi-method-parameter %}
+{% endapi-method-path-parameters %}
+
+{% api-method-headers %}
+{% api-method-parameter name="Content-Type" type="string" required=true %}
+application/x-www-form-urlencoded
+{% endapi-method-parameter %}
+{% endapi-method-headers %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```
+
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+
+
+## Sign In
+
+```graphql
+mutation SignIn($oidcAppId: String, $email: String, $userPoolId: String, $phone: String, $username: String, $unionid: String, $password: String) {
+      signIn(oidcAppId: $oidcAppId,
+      userPoolId: $userPoolId,
+      email: $email,
+      phone: $phone,
+      password: $password,
+      username: $username,
+      unionid: $unionid) {
+        sub
+        birthdate
+        family_name
+        gender
+        given_name
+        locale
+        middle_name
+        name
+        nickname
+        picture
+        preferred_username
+        profile
+        updated_at
+        website
+        zoneinfo
+        username
+        _id
+        company
+        browser
+        device
+        logins_count
+        register_method
+        blocked,
+        last_ip
+        register_in_userpool
+        last_login
+        signed_up
+        email
+        email_verified,
+        phone_number
+        phone_number_verified
+        token
+        access_token
+        id_token
+        refresh_token
+        expires_in
+        token_type
+        scope
+      }
+    }
+```
+
+
+
+## Refresh SignInToken
+
+```graphql
+      mutation RefreshSignInToken(
+        $oidcAppId: String,
+        $userPoolId: String,
+        $refreshToken: String!
+      ) {
+        refreshSignInToken(
+          oidcAppId: $oidcAppId
+          userPoolId: $userPoolId
+          refreshToken: $refreshToken
+        ) {
+          id_token
+          access_token
+          refresh_token
+          scope
+          expires_in
+        }
+      }
+    
+```
+
+## 
+
 ## 注册
 
 ```graphql
