@@ -8,7 +8,7 @@ description: 'Node.JS Demo 源码：https://github.com/Authing/oauth-demo'
 
 以下流程图列举了一种使用 OAuth 协议授权码模式的方式。
 
-![&#x6388;&#x6743;&#x7801;&#x6A21;&#x5F0F;&#x6D41;&#x7A0B;&#x56FE;](../../.gitbook/assets/image%20%28286%29.png)
+![&#x6388;&#x6743;&#x7801;&#x6A21;&#x5F0F;&#x6D41;&#x7A0B;&#x56FE;](../../.gitbook/assets/image%20%28291%29.png)
 
 ### **1. 请求授权**
 
@@ -42,7 +42,7 @@ https://sso.authing.cn/authorize?app_id=5c7253efe21948de32723725&state=123456lkj
 
 经过上一步之后，用户将会跳转到 Authing 提供的认证授权页面：
 
-![](../../.gitbook/assets/image%20%28315%29.png)
+![](../../.gitbook/assets/image%20%28322%29.png)
 
 当授权成功后，用户将会被重定向到以下链接：
 
@@ -109,7 +109,7 @@ curl --request POST \
 
 下面 implicit 模式时序图中红框部分是与授权码模式不同的地方。
 
-![implicit &#x6A21;&#x5F0F;](../../.gitbook/assets/image%20%28268%29.png)
+![implicit &#x6A21;&#x5F0F;](../../.gitbook/assets/image%20%28273%29.png)
 
 ### **1. 发起授权**
 
@@ -146,7 +146,7 @@ curl --request POST \
 
 此模式要求有用户名和密码，且必须使用 `POST` 请求
 
-![password &#x6A21;&#x5F0F;](../../.gitbook/assets/image%20%28130%29.png)
+![password &#x6A21;&#x5F0F;](../../.gitbook/assets/image%20%28133%29.png)
 
 ### **1. 发起授权**
 

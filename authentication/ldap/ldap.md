@@ -20,13 +20,13 @@ LDAP 是轻量目录访问协议，英文全称是 Lightweight Directory Access 
 
 ### 添加 LDAP 服务 <a id="&#x6DFB;&#x52A0;-ldap-&#x670D;&#x52A1;"></a>
 
-![](../../.gitbook/assets/image%20%28462%29.png)
+![](../../.gitbook/assets/image%20%28471%29.png)
 
 ### 填写相关信息 <a id="&#x586B;&#x5199;&#x76F8;&#x5173;&#x4FE1;&#x606F;"></a>
 
 在弹出的对话框中填写相关信息，如果你不知道如何填写可以点击右上角的「点击这里」填充测试配置信息。
 
-![](../../.gitbook/assets/image%20%28120%29.png)
+![](../../.gitbook/assets/image%20%28123%29.png)
 
 #### 参数解释 <a id="&#x53C2;&#x6570;&#x89E3;&#x91CA;"></a>
 
@@ -42,7 +42,7 @@ LDAP 是轻量目录访问协议，英文全称是 Lightweight Directory Access 
 
 连通性测试可以帮助你检查参数是否填写正确了，如果你填入了「测试配置」，那么点击页面上的「连通性测试」应该可以看到如下结果：
 
-![](../../.gitbook/assets/image%20%28581%29.png)
+![](../../.gitbook/assets/image%20%28591%29.png)
 
 你可以用这个测试来测试不同的 `Base DN` 和`密码`。
 
@@ -52,11 +52,11 @@ LDAP 是轻量目录访问协议，英文全称是 Lightweight Directory Access 
 
 我们给出的测试用户名是 `tesla`，密码是 `password`，查询条件是 `uid`，点击「验证用户」后应该看到如下结果：
 
-![](../../.gitbook/assets/image%20%2890%29.png)
+![](../../.gitbook/assets/image%20%2893%29.png)
 
 如果将查询条件从 `uid` 改为 `uidd`，那么此时应该返回如下结果：
 
-![](../../.gitbook/assets/image%20%28458%29.png)
+![](../../.gitbook/assets/image%20%28467%29.png)
 
 用户可用此方式，通过修改 `Search DN` 和 `查询条件` 完成对 LDAP 的调试。
 

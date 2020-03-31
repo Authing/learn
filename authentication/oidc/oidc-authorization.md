@@ -42,7 +42,7 @@ P.S. 文档中出现的 `testapp.authing.cn` 和 `example.authing.cn` 两个域�
 
 打开 `authorization_code` 模式，并选择 code 返回类型。
 
-![](../../.gitbook/assets/image%20%28329%29.png)
+![](../../.gitbook/assets/image%20%28337%29.png)
 
 ### 02 - 发起登录请求
 
@@ -128,7 +128,7 @@ https://<你的应用域名>.authing.cn/oauth/oidc/auth?client_id=5c9b079883e333
 
 > 你可以前往这个网址体验：https://sample-sso.authing.cn/login
 
-![](../../.gitbook/assets/image%20%2876%29.png)
+![](../../.gitbook/assets/image%20%2879%29.png)
 
 
 
@@ -677,7 +677,7 @@ code 换 token 接口返回的 refresh\_token。例：WPsGJbvpBjqXz6IJIr1UHKyrdV
 {% endapi-method-spec %}
 {% endapi-method %}
 
-![](../../.gitbook/assets/image%20%28187%29.png)
+![](../../.gitbook/assets/image%20%28191%29.png)
 
 ## 使用隐式流程（Implicit Flow）
 
@@ -687,7 +687,7 @@ code 换 token 接口返回的 refresh\_token。例：WPsGJbvpBjqXz6IJIr1UHKyrdV
 
 选择 `implicit` 模式，并在下方选择 `id_token token` 和 `id_token`。
 
-![](../../.gitbook/assets/image%20%28378%29.png)
+![](../../.gitbook/assets/image%20%28386%29.png)
 
 ### 发起授权
 
@@ -731,7 +731,7 @@ https://authing.cn/#id_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1Y2
 
 选择 `authorization_code` 和 `implicit`，并在下方勾选 `code id_token token` 、`code id_token` 、`code token`。
 
-![](../../.gitbook/assets/image%20%28213%29.png)
+![](../../.gitbook/assets/image%20%28217%29.png)
 
 ### 发起授权
 

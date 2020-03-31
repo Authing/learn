@@ -1,4 +1,4 @@
-# 企业微信（第三方应用）扫码登录
+# 企业微信（企业内部）扫码登录
 
 ## 准备工作 <a id="prepare"></a>
 
@@ -6,54 +6,58 @@
 
 1. [注册 Authing 开发者账号](../../quickstart/create-authing-account.md)
    * 在创建账号的引导过程中，你会得到一个二级域名，在后面会用到。
-2. [申请一个企业微信服务商账号](https://open.work.weixin.qq.com/)
-3. 在 Authing 控制台填入企业微信信息
+2. [注册一个企业微信账号](https://work.weixin.qq.com/)
+3. 在 Authing 控制台填入企业微信相关信息
 
 ### 在 Authing  控制台找到「企业微信网页授权登录」
 
-按照下图的指引找到「企业微信网页授权登录」配置。
-
-![](../../.gitbook/assets/image%20%2826%29.png)
+![](../../.gitbook/assets/image%20%28271%29.png)
 
 之后你需要将相关配置填入下面的表单：
 
-![](../../.gitbook/assets/image%20%28190%29.png)
+![](../../.gitbook/assets/image%20%2823%29.png)
 
-### 添加 IP 白名单
+### 获取企业ID（CorpID）
 
-请将下面这几个 IP 添加到白名单：
+在 [我的企业 - 企业信息 ](https://work.weixin.qq.com/wework_admin/frame#profile)页面可以获取到。
 
-```javascript
-175.102.179.59;123.207.175.159;123.206.254.171;123.206.70.134
-```
+![](../../.gitbook/assets/image%20%28460%29.png)
 
-你可在 [服务商信息 - 基本信息](https://open.work.weixin.qq.com/wwopen/developer#/profile/basic) 页面进行配置。 
+### 获取 AgentID 和 Secret
 
-![](../../.gitbook/assets/image%20%2837%29.png)
+在 [应用管理 - 应用管理 ](https://work.weixin.qq.com/wework_admin/frame#apps)页面的应用详情可以获取到。
 
-### 获取服务商基础配置
+![](../../.gitbook/assets/image%20%2847%29.png)
 
-你需要提供 CorpID 和 ProviderSecret，可在 [应用管理 - 通用开发参数 ](https://open.work.weixin.qq.com/wwopen/developer#/sass/power/inter)页面获取：
+### 启用企业微信授权登录
 
-![](../../.gitbook/assets/image%20%28184%29.png)
+在应用详情页，点击设置企业微信授权登录：
 
-之后填入上文提示的表单。
+![](../../.gitbook/assets/image%20%28563%29.png)
 
-###  添加登录授权发起域名
+在新打开的页面，设置授权回调域为 core.authing.cn 。
 
-如果你要使用 Guard 登录，请将你在 Authing 的二级域名加入登录授权发起域名列表：
+![](../../.gitbook/assets/image%20%2818%29.png)
 
-![](../../.gitbook/assets/image%20%2850%29.png)
+### 添加网页授权信任域名
+
+在应用详情页，设置网页授权及JS-SDK域名，填写你的 OIDC 应用二级域名，如 yourapp.authing.cn 。
+
+![](../../.gitbook/assets/image%20%28313%29.png)
+
+### 配置回调链接 Redirect URL
+
+如果你使用 [Guard](../../sdk/guard/)，可以留空填 「\#」。
+
+如果你需要手动接入企业微信扫码登录，需要填写你的**业务回调链接**，用户授权之后，Authing 将会把用户信息回调给你。
+
+
 
 ## 开始接入
 
-{% hint style="info" %}
-如果你使用 Authing 自定义登录表单 Guard，不需要进行下面的手动代码接入。
-{% endhint %}
+### 拼接网页授权链接
 
-### 拼接扫码登录授权链接
-
-{% api-method method="get" host="https://core.authing.cn/" path="oauth/wechatwork/:userPoolId/qrconnect-url" %}
+{% api-method method="get" host="https://core.authing.cn/" path="oauth/wechatwork/:userPoolId/sso-qrconnect-url" %}
 {% api-method-summary %}
 
 {% endapi-method-summary %}
@@ -85,7 +89,7 @@
 {% endapi-method-spec %}
 {% endapi-method %}
 
-比如你的用户池 ID 为 5e4cdd055df3df65dc58b97d，则你需要引导你的用户跳转到[https://core.authing.cn/oauth/wechatwork/5e4cdd055df3df65dc58b97d/qrconnect-url](http://foreign.holegots.com:8005/oauth/wechatwork/5e4cdd055df3df65dc58b97d/authorization-url)
+比如你的用户池 ID 为 5e4cdd055df3df65dc58b97d，则你需要引导你的用户跳转到[https://core.authing.cn/oauth/wechatwork/5e4cdd055df3df65dc58b97d/sso-qrconnect-url](http://foreign.holegots.com:8005/oauth/wechatwork/5e4cdd055df3df65dc58b97d/authorization-url)
 
 {% hint style="info" %}
 你可以在 Web 页面上放置一个可点击的按钮或 Logo 链接到上面的链接以便用户可以点击登录。
@@ -93,7 +97,7 @@
 
 在浏览器中访问上述链接，你应该成功可以跳转企业微信扫码登录页面：
 
-![](../../.gitbook/assets/image%20%28119%29.png)
+![](../../.gitbook/assets/image%20%28185%29.png)
 
 ### 处理 Authing 回调数据
 
@@ -175,7 +179,7 @@ if(code !== 200) {
 
 ## 完成接入
 
-恭喜你，此时已经接入了企业微信网页授权登录。获取到用户信息之后，你可以得到登录凭证 token，你可以在后续的 API 请求中携带上此 token, 然后在后端接口中根据此 token 区分不同用户，详情请见[验证 token](https://docs.authing.cn/authing/advanced/verify-jwt-token#yan-zheng-authing-qian-fa-de-token)。
+恭喜你，此时已经接入了企业微信扫码登录。获取到用户信息之后，你可以得到登录凭证 token，你可以在后续的 API 请求中携带上此 token, 然后在后端接口中根据此 token 区分不同用户，详情请见[验证 token](https://docs.authing.cn/authing/advanced/verify-jwt-token#yan-zheng-authing-qian-fa-de-token)。
 
 
 
