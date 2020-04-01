@@ -16,7 +16,7 @@
 
 创建完微博网页应用后请按照下图指示在 Authing 控制台找到钉钉社会化登录配置：
 
-![](../../.gitbook/assets/image%20%28523%29.png)
+![](../../.gitbook/assets/image%20%28524%29.png)
 
 在此需要填入你的钉钉网页应用信息：
 
@@ -24,7 +24,7 @@
 * Client Secret
 * Redirect：**这是你的业务回调域名，和钉钉网页应用里配置的回调链接不一样**。比如你的网站域名是 https://example.com ， 处理 Authing 回调请求的 url 为 /auth/dingtalk/callback ， 那么你应该填写为 `https://example.com/auth/dingtalk/callback`。如果你需要在 OIDC 或 OAuth 应用中单独配置回调链接，此处地址可填入： \#。
 
-![](../../.gitbook/assets/image%20%28145%29.png)
+![](../../.gitbook/assets/image%20%28146%29.png)
 
 配置完成后请点击「确定」保存信息。
 

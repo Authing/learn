@@ -17,17 +17,17 @@
 请确保你的应用勾选了获取「头像」、「二维码」。
 {% endhint %}
 
-![](../../.gitbook/assets/image%20%28423%29.png)
+![](../../.gitbook/assets/image%20%28424%29.png)
 
 ### 在 Authing  控制台找到「企业微信网页授权登录」
 
 按照下图的指引找到「企业微信网页授权登录」配置。
 
-![](../../.gitbook/assets/image%20%28532%29.png)
+![](../../.gitbook/assets/image%20%28533%29.png)
 
 之后你需要将相关配置填入下面的表单：
 
-![](../../.gitbook/assets/image%20%2873%29.png)
+![](../../.gitbook/assets/image%20%2874%29.png)
 
 ### 获取企业微信应用配置
 
@@ -35,7 +35,7 @@
 
 获取 SuiteID 和 Secret ：在 [应用管理 - 网页应用 - 应用详情](https://open.work.weixin.qq.com/wwopen/developer#/sass/apps/list) 处可以获取到。 
 
-![](../../.gitbook/assets/image%20%28558%29.png)
+![](../../.gitbook/assets/image%20%28559%29.png)
 
 获取 CorpID ：在 [服务商信息 - 基本信息](https://open.work.weixin.qq.com/wwopen/developer#/profile/basic) 处可以获取到
 
@@ -59,22 +59,22 @@
 
 将 `core.authing.cn` 设置为可信域名。
 
-![](../../.gitbook/assets/image%20%28350%29.png)
+![](../../.gitbook/assets/image%20%28351%29.png)
 
 点击「检验可信域名归属」，在弹出的 Modal 中，你需要下载一个 Txt 文件：
 
-![](../../.gitbook/assets/image%20%28270%29.png)
+![](../../.gitbook/assets/image%20%28271%29.png)
 
 并将 **Txt 文件名**和 **Txt 文件内容**填入上文显示的表单。
 
 * Txt Filename 一般为 WW\_verify\_ 开头，**请注意保留 .txt 文件后缀**！
 * Txt Content: 文件内容，一般为 10-20 位随机字符串。
 
-![](../../.gitbook/assets/image%20%2884%29.png)
+![](../../.gitbook/assets/image%20%2885%29.png)
 
 点击「确定」按钮：
 
-![](../../.gitbook/assets/image%20%2845%29.png)
+![](../../.gitbook/assets/image%20%2846%29.png)
 
 你应该可以看到可信域名验证成功了：
 
@@ -82,13 +82,13 @@
 如果你遇到任何问题，可以在这里联系到我们：[https://gitter.im/authing-chat/community](https://gitter.im/authing-chat/community)
 {% endhint %}
 
-![](../../.gitbook/assets/image%20%2869%29.png)
+![](../../.gitbook/assets/image%20%2870%29.png)
 
 ### 配置企业微信回调链接
 
 一共配置两个回调链接：
 
-![](../../.gitbook/assets/image%20%28480%29.png)
+![](../../.gitbook/assets/image%20%28481%29.png)
 
 * 数据回调 URL。链接格式为: 
 
@@ -116,7 +116,7 @@ https://core.authing.cn/oauth/wechatwork/5e4cdd055df3df65dc58b97d/redirect/comma
 
 请将 Token 和 EncodingAESKey 填入上文提到的表单，之后点击申请检验：
 
-![](../../.gitbook/assets/image%20%28544%29.png)
+![](../../.gitbook/assets/image%20%28545%29.png)
 
 你应该能够获取到成功提示。
 

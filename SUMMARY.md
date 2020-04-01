@@ -154,7 +154,8 @@
 
 ## MFA
 
-* [配置 MFA 安全口令](mfa/configure-mfa.md)
+* [配置 MFA 安全口令](mfa/configure-mfa/README.md)
+  * [使用 Microsoft Authenticator 添加 MFA 令牌](mfa/configure-mfa/use-microsoft-authenticator-to-add-mfa-token.md)
 * [接入 MFA](mfa/integrate-mfa.md)
 
 ## 安全 <a id="security"></a>
