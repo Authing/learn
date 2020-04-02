@@ -50,3 +50,11 @@
 
 Authing 的用户 ID 在返回结果中的字段名称为「\_id」。
 
+## 使用云开发执行后续业务逻辑
+
+腾讯云云开发（CloudBase）是一款云端一体化的产品方案 ，采用 Serverless 架构，提供云函数、云数据库、云存储等基础资源服务，免环境搭建等运维事务 ，同时提供静态托管、命令行工具（CLI）、Flutter SDK 等能力，极大降低应用开发门槛，助力快速构建小程序、Web 应用和 App。
+
+在使用 Authing 完成认证后可以非常方便的使用云开发完成后续业务逻辑，请参考以下文档：
+
+{% embed url="https://cloud.tencent.com/product/tcb/details" %}
+
