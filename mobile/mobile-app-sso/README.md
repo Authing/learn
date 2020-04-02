@@ -9,13 +9,19 @@
 
 ### 自动检测方式
 
-自动检测方式，和美团系 App 类似，可以实现同一设备上所有相互信任系统只要有其中一个处于登录状态，就能检测出相关用户，提示用户是否该账号登录，从而实现单点登录。
+自动检测方式，和美团系 App 类似，可以实现同一设备上所有相互信任系统只要有其中一个处于登录状态，就能检测出相关用户，提示用户是否使用该账号登录，从而实现单点登录。
+
+如下图所示：
+
+![](../../.gitbook/assets/image%20%28578%29.png)
+
+你还可以查看这个视频的演示：
+
+[https://cdn.authing.cn/videos/Authing%20App%20SSO%20Demo.mp4](https://cdn.authing.cn/videos/Authing%20App%20SSO%20Demo.mp4)
 
 具体接入方式请见：
 
 {% page-ref page="track-session.md" %}
-
-![](../../.gitbook/assets/image%20%28578%29.png)
 
 ### 唤起  App 方式
 
