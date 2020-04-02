@@ -14,7 +14,7 @@ Authing 控制台中支持快速配置用户权限，操作流程如下。
 
 然后输入**角色名称**后点击**创建**。
 
-![](../.gitbook/assets/image%20%28573%29.png)
+![](../.gitbook/assets/image%20%28574%29.png)
 
 ## 创建权限
 
@@ -24,7 +24,7 @@ Authing 控制台中支持快速配置用户权限，操作流程如下。
 
 在弹出的窗口中可以设置用户权限，如下图所示：
 
-![](../.gitbook/assets/image%20%28552%29.png)
+![](../.gitbook/assets/image%20%28553%29.png)
 
 权限这里可以任意字符串或 JSON，这块由开发者定义，之后可以使用 [API](../sdk/sdk-for-node/update-user-permissions.md#huo-qu-yong-hu-quan-xian-he-jiao-se) 在程序中根据用户 ID 读取此处权限，并完成业务逻辑。
 
@@ -42,7 +42,7 @@ Authing 控制台中支持快速配置用户权限，操作流程如下。
 
 在弹出的选框中将名字前面的选择框中打勾，然后选择决定，即可将权限添加至角色。
 
-![](../.gitbook/assets/image%20%28547%29.png)
+![](../.gitbook/assets/image%20%28548%29.png)
 
 ## 指派成员
 

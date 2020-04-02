@@ -21,7 +21,7 @@
 
 在 [我的企业 - 企业信息 ](https://work.weixin.qq.com/wework_admin/frame#profile)页面可以获取到。
 
-![](../../.gitbook/assets/image%20%28461%29.png)
+![](../../.gitbook/assets/image%20%28462%29.png)
 
 ### 获取 AgentID 和 Secret
 
@@ -33,7 +33,7 @@
 
 在应用详情页，点击设置企业微信授权登录：
 
-![](../../.gitbook/assets/image%20%28564%29.png)
+![](../../.gitbook/assets/image%20%28565%29.png)
 
 在新打开的页面，设置授权回调域为 core.authing.cn 。
 

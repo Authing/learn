@@ -27,13 +27,13 @@
 
 你可以在此页面获取到小程序的 AppId 和 AppSecret：
 
-![](../../../.gitbook/assets/image%20%28538%29.png)
+![](../../../.gitbook/assets/image%20%28539%29.png)
 
 ### 在 Authing 后台填入你的小程序信息
 
 在微信公众平台创建完小程序之后，请按照下图指示在 Authing 控制台找到小程序社会化登录配置：
 
-![](../../../.gitbook/assets/image%20%28582%29.png)
+![](../../../.gitbook/assets/image%20%28584%29.png)
 
 ![](../../../.gitbook/assets/image%20%28428%29.png)
 
@@ -42,7 +42,7 @@
 * App ID
 * App Secret
 
-![](../../../.gitbook/assets/image%20%28491%29.png)
+![](../../../.gitbook/assets/image%20%28492%29.png)
 
 ## 正式接入
 

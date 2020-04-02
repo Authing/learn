@@ -54,5 +54,5 @@ entityID 填入 Auth0 IdP 的 Issuer，形如 `urn:xxx.auth0.com`。
 
 浏览器会跳转到在 Authing SP 设置的回调地址，以 url query 的形式附带用户信息，key 为 data。
 
-![](../../../.gitbook/assets/image%20%28505%29.png)
+![](../../../.gitbook/assets/image%20%28506%29.png)
 

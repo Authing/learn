@@ -84,6 +84,13 @@
   * [自定义配置项](scan-qrcode/app-qrcode/customize.md)
   * [扫码登录原理](scan-qrcode/app-qrcode/how-it-works.md)
 
+## 移动应用登录 <a id="mobile"></a>
+
+* [移动应用 SSO](mobile/mobile-app-sso/README.md)
+  * [自动检测登录](mobile/mobile-app-sso/track-session.md)
+  * [唤起 App 登录](mobile/mobile-app-sso/launch-app.md)
+* [移动应用身份提供商](mobile/yi-dong-ying-yong-shen-fen-ti-gong-shang.md)
+
 ## 授权 <a id="authorization"></a>
 
 * [Authorization 基础概念](authorization/authorization/README.md)

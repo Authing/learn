@@ -115,7 +115,7 @@ $ curl https://users.authing.cn/authing/token?access_token=YOUR_TOKEN
 
 密钥在控制台中 OIDC 应用的详情中可以获取到，如下图所示：
 
-![](../.gitbook/assets/image%20%28495%29.png)
+![](../.gitbook/assets/image%20%28496%29.png)
 
 ![](../.gitbook/assets/image%20%28243%29.png)
 
