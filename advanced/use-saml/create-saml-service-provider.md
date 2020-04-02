@@ -24,7 +24,7 @@
 
 接下来需要填写一些 SP 的基础配置才能使 SP 正常工作。
 
-![&#x57FA;&#x7840;&#x914D;&#x7F6E;](../../.gitbook/assets/image%20%28602%29.png)
+![&#x57FA;&#x7840;&#x914D;&#x7F6E;](../../.gitbook/assets/image%20%28604%29.png)
 
 **IdP 登录 URL** 由 IdP 提供，如果没有，可以从 IdP 元数据 XML 文档中查找。
 
