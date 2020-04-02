@@ -338,7 +338,7 @@ function formatError(error) {
 
 需要先在[**控制台**](https://authing.cn/dashboard) &gt; **第三方登录** &gt; **OIDC 应用**，授权模式中勾选 authingToken。
 
-**Authing.refreshOidcToken\(options\)**
+**Authing.authingTokenToOidcToken\(options\)**
 
 * **参数：**
   * `{Object} options`
