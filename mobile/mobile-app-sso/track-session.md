@@ -213,6 +213,7 @@ application/json
 }
 
 // 返回 ticket
+{
     code: 200,
     message: '获取 session 用户信息成功',
     data: {
