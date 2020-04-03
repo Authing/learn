@@ -765,6 +765,178 @@ https://example.com/#code=pIY83Jl_bcerNN9Wt57Sq0TAjTr&id_token=eyJhbGciOiJSUzI1N
 
 1. [scope 与用户信息对应表](https://docs.authing.cn/authing/advanced/oidc/oidc-params#scope-can-shu-dui-ying-de-yong-hu-xin-xi)
 
+## 使用 Password 模式
+
+### 在控制台配置 OIDC 应用
+
+在[**控制台**](https://authing.cn/dashboard) &gt; **第三方登录** &gt; **OIDC 应用**，打开 OIDC 应用详情，在表单的**授权模式**中勾选「password」。
+
+![&#x5F00;&#x542F; Password &#x6A21;&#x5F0F;](https://cdn.authing.cn/docs/20200403105822.png)
+
+### 发起授权
+
+{% api-method method="post" host="https://core.authing.cn" path="/oauth/oidc/token" %}
+{% api-method-summary %}
+使用登录凭据换取 token
+{% endapi-method-summary %}
+
+{% api-method-description %}
+在 Password 模式中，可以直接使用用户的登录凭据换取 OIDC token
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-body-parameters %}
+{% api-method-parameter name="scope" type="string" required=false %}
+授权域，一个字符串，openid 为必选，可选值有 profile email address phone offline\_access。不同的值之间用空格分开。profile 是用户基本信息，email 是用户邮箱，address 是用户地址，phone 是用户手机号，offline\_access 会返回 refresh\_token，用于后续刷新 OIDC Token。默认为 openid profile。
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="password" type="string" required=false %}
+密码，当没有填写 unionid 时必填
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="unionid" type="string" required=false %}
+三方身份提供商身份 ID，与手机号、邮箱、用户名互斥
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="phone" type="string" required=false %}
+手机号，与邮箱、用户名、unionid 互斥
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="email" type="string" required=false %}
+邮箱，与用户名、手机号、unionid 互斥
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="username" type="string" required=false %}
+用户名，与邮箱、手机号、unionid 互斥
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="grant\_type" type="string" required=true %}
+必须填 `password`
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="client\_secret" type="string" required=true %}
+OIDC 应用 secret
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="client\_id" type="string" required=true %}
+OIDC 应用 id
+{% endapi-method-parameter %}
+{% endapi-method-body-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+用户登录凭证正确，返回 OIDC 相关 Token。
+{% endapi-method-response-example-description %}
+
+```
+{
+    "access_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlJJQ015UV9yVFFESlZGYkJEclBDdml0ME9LczBSNWNRX3N1Vmt4alRmOUkifQ.eyJqdGkiOiJXWEl3TldJZ3ZCZ0tXN0lncnVzdXQiLCJzdWIiOiI1ZTg1YWRlZDljYzE4ZTRjYzY3ZTc4MGEiLCJpc3MiOiJodHRwczovL3Rlc3Q4OC5jZWxlYmVzLmxpdmUvb2F1dGgvb2lkYyIsImlhdCI6MTU4NTgxOTExOCwiZXhwIjoxNTg1ODIyNzE4LCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIGVtYWlsIHBob25lIG9mZmxpbmVfYWNjZXNzIiwiYXVkIjoiNWU1ZmMzNGZmMTRiYjI1OTkyZWUyNzgxIn0.Tk4npueRIyJPVxrfiOVQgMKEbk4z_KOvOkOGNyVKyeMtSHEcvU8tMRhjBP_ZrISaT4XO-vu_O1tDUBFhCKMDXWnPMwNotbbcRwRdmzueoe1G0YyxHvcuNihAFyfT_99Skaq3TuG7EzeeFuuvkUejFKRmaODraQY1vQrJl_0WNX1f6NZVYNUcOTCslb_R6qNodFQvjfOJv73FyArETKRAKN5sdTtUWuwxf9QfNm5jwJ_iratqSb5GYU-hd6U-47JKzqv_NEEVrGcRSDrW4ICrulOVPduKOwUqwg7VjHqpvAk2cIt5UdgSh2aaj3KpBhRWm2Exp2AY62sP-oLU3qigBQ",
+    "id_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlJJQ015UV9yVFFESlZGYkJEclBDdml0ME9LczBSNWNRX3N1Vmt4alRmOUkifQ.eyJzdWIiOiI1ZTg1YWRlZDljYzE4ZTRjYzY3ZTc4MGEiLCJiaXJ0aGRhdGUiOiIiLCJmYW1pbHlfbmFtZSI6IiIsImdlbmRlciI6IiIsImdpdmVuX25hbWUiOiIiLCJsb2NhbGUiOiIiLCJtaWRkbGVfbmFtZSI6IiIsIm5hbWUiOiIiLCJuaWNrbmFtZSI6IiIsInBpY3R1cmUiOiJodHRwczovL3VzZXJjb250ZW50cy5hdXRoaW5nLmNuL2F1dGhpbmctYXZhdGFyLnBuZyIsInByZWZlcnJlZF91c2VybmFtZSI6IiIsInByb2ZpbGUiOiIiLCJ1cGRhdGVkX2F0IjoiIiwid2Vic2l0ZSI6IiIsInpvbmVpbmZvIjoiIiwidXNlcm5hbWUiOiJwNGdnMnVhcWRjZUB0ZXN0LmNvbSIsImNvbXBhbnkiOiIiLCJicm93c2VyIjoiIiwiZGV2aWNlIjoiIiwibG9naW5zX2NvdW50IjoxLCJyZWdpc3Rlcl9tZXRob2QiOiJkZWZhdWx0OnVzZXJuYW1lLXBhc3N3b3JkIiwiYmxvY2tlZCI6ZmFsc2UsImxhc3RfaXAiOiIxMjQuMjA0LjU2Ljk4IiwicmVnaXN0ZXJfaW5fdXNlcnBvb2wiOiI1ZTE5OTQyMTg4YjAxMzA3ODEyN2MwMjQiLCJsYXN0X2xvZ2luIjoiMjAyMC0wNC0wMlQwOToxODozNy4zNDJaIiwic2lnbmVkX3VwIjoiMjAyMC0wNC0wMlQwOToxODozNy4xODFaIiwiZW1haWwiOiJwNGdnMnVhcWRjZUB0ZXN0LmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicGhvbmVfbnVtYmVyIjoiIiwicGhvbmVfbnVtYmVyX3ZlcmlmaWVkIjpmYWxzZSwiYXdzIjoiZGVtbyIsImF1ZCI6IjVlNWZjMzRmZjE0YmIyNTk5MmVlMjc4MSIsImV4cCI6MTU4NTgyMjcxOCwiaWF0IjoxNTg1ODE5MTE4LCJpc3MiOiJodHRwczovL3Rlc3Q4OC5jZWxlYmVzLmxpdmUvb2F1dGgvb2lkYyJ9.XUOWiKi0mpkcw570rCBZVz0wHWz1gBi5N5Bgz8mqU08FA2dlFradoZ9m_pZYlZPHW6A9R54rI7MzONQlt-sDjGqxLkL6wSNrYIJuYlysRldK3E1NRmziVukMQn8jkyq1DLhKK3WzX_ODbkasHTxdFmJ6iAgouuTjdCdcGv1B1ZTXIKJoIgXwMnYjrWbDULkJg_5_o7eP1GCVG8l5UgIRy5YNunEg7nEVLAu0aj-ob613x5k7ceb-jYLjCX2_9PVIEDeE5exGbz-3txhAxn77xjTi7m1-NEhusTHhd_p315fs0ziCYCaXXsO9eRlJ7I78geP87Thq3-vgQH7YgNy8tA",
+    "refresh_token": "vRZXKWcvyVE9_kKq26OD2gFyame",
+    "expires_in": 3600,
+    "token_type": "Bearer",
+    "scope": "openid profile email phone offline_access"
+}
+```
+{% endapi-method-response-example %}
+
+{% api-method-response-example httpCode=400 %}
+{% api-method-response-example-description %}
+用户登录凭证错误，返回错误信息。
+{% endapi-method-response-example-description %}
+
+```
+{
+    error: 'invalid_grant',
+    error_description: 'invalid credentials provided',
+}
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+## 使用 authingToken 模式
+
+### 在控制台配置 OIDC 应用
+
+在[**控制台**](https://authing.cn/dashboard) &gt; **第三方登录** &gt; **OIDC 应用**，打开 OIDC 应用详情，在表单的**授权模式**中勾选「authingToken」。
+
+![&#x5F00;&#x542F; authingToken &#x6388;&#x6743;&#x6A21;&#x5F0F;](https://cdn.authing.cn/docs/20200403121146.png)
+
+### 发起授权
+
+{% api-method method="post" host="https://core.authing.cn" path="/oauth/oidc/token" %}
+{% api-method-summary %}
+使用登录凭据换取 token
+{% endapi-method-summary %}
+
+{% api-method-description %}
+在 authingToken 模式中，可以直接使用用户的 Authing Token 换取 OIDC token。
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-body-parameters %}
+{% api-method-parameter name="scope" type="string" required=false %}
+授权域，一个字符串，openid 为必选，可选值有 profile email address phone offline\_access。不同的值之间用**空格分开**。profile 是用户基本信息，email 是**用户邮箱**，address 是用户地址，phone 是**用户手机号**，offline\_access 会返回 **refresh\_token**，用于后续刷新 OIDC Token。默认为 openid profile。
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="authingToken" type="string" required=true %}
+用户的 Authing Token。
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="grant\_type" type="string" required=true %}
+必须填 `password`
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="client\_secret" type="string" required=true %}
+OIDC 应用 secret
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="client\_id" type="string" required=true %}
+OIDC 应用 id
+{% endapi-method-parameter %}
+{% endapi-method-body-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+用户登录凭证正确，返回 OIDC 相关 Token。
+{% endapi-method-response-example-description %}
+
+```
+{
+    "access_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlJJQ015UV9yVFFESlZGYkJEclBDdml0ME9LczBSNWNRX3N1Vmt4alRmOUkifQ.eyJqdGkiOiJXWEl3TldJZ3ZCZ0tXN0lncnVzdXQiLCJzdWIiOiI1ZTg1YWRlZDljYzE4ZTRjYzY3ZTc4MGEiLCJpc3MiOiJodHRwczovL3Rlc3Q4OC5jZWxlYmVzLmxpdmUvb2F1dGgvb2lkYyIsImlhdCI6MTU4NTgxOTExOCwiZXhwIjoxNTg1ODIyNzE4LCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIGVtYWlsIHBob25lIG9mZmxpbmVfYWNjZXNzIiwiYXVkIjoiNWU1ZmMzNGZmMTRiYjI1OTkyZWUyNzgxIn0.Tk4npueRIyJPVxrfiOVQgMKEbk4z_KOvOkOGNyVKyeMtSHEcvU8tMRhjBP_ZrISaT4XO-vu_O1tDUBFhCKMDXWnPMwNotbbcRwRdmzueoe1G0YyxHvcuNihAFyfT_99Skaq3TuG7EzeeFuuvkUejFKRmaODraQY1vQrJl_0WNX1f6NZVYNUcOTCslb_R6qNodFQvjfOJv73FyArETKRAKN5sdTtUWuwxf9QfNm5jwJ_iratqSb5GYU-hd6U-47JKzqv_NEEVrGcRSDrW4ICrulOVPduKOwUqwg7VjHqpvAk2cIt5UdgSh2aaj3KpBhRWm2Exp2AY62sP-oLU3qigBQ",
+    "id_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlJJQ015UV9yVFFESlZGYkJEclBDdml0ME9LczBSNWNRX3N1Vmt4alRmOUkifQ.eyJzdWIiOiI1ZTg1YWRlZDljYzE4ZTRjYzY3ZTc4MGEiLCJiaXJ0aGRhdGUiOiIiLCJmYW1pbHlfbmFtZSI6IiIsImdlbmRlciI6IiIsImdpdmVuX25hbWUiOiIiLCJsb2NhbGUiOiIiLCJtaWRkbGVfbmFtZSI6IiIsIm5hbWUiOiIiLCJuaWNrbmFtZSI6IiIsInBpY3R1cmUiOiJodHRwczovL3VzZXJjb250ZW50cy5hdXRoaW5nLmNuL2F1dGhpbmctYXZhdGFyLnBuZyIsInByZWZlcnJlZF91c2VybmFtZSI6IiIsInByb2ZpbGUiOiIiLCJ1cGRhdGVkX2F0IjoiIiwid2Vic2l0ZSI6IiIsInpvbmVpbmZvIjoiIiwidXNlcm5hbWUiOiJwNGdnMnVhcWRjZUB0ZXN0LmNvbSIsImNvbXBhbnkiOiIiLCJicm93c2VyIjoiIiwiZGV2aWNlIjoiIiwibG9naW5zX2NvdW50IjoxLCJyZWdpc3Rlcl9tZXRob2QiOiJkZWZhdWx0OnVzZXJuYW1lLXBhc3N3b3JkIiwiYmxvY2tlZCI6ZmFsc2UsImxhc3RfaXAiOiIxMjQuMjA0LjU2Ljk4IiwicmVnaXN0ZXJfaW5fdXNlcnBvb2wiOiI1ZTE5OTQyMTg4YjAxMzA3ODEyN2MwMjQiLCJsYXN0X2xvZ2luIjoiMjAyMC0wNC0wMlQwOToxODozNy4zNDJaIiwic2lnbmVkX3VwIjoiMjAyMC0wNC0wMlQwOToxODozNy4xODFaIiwiZW1haWwiOiJwNGdnMnVhcWRjZUB0ZXN0LmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicGhvbmVfbnVtYmVyIjoiIiwicGhvbmVfbnVtYmVyX3ZlcmlmaWVkIjpmYWxzZSwiYXdzIjoiZGVtbyIsImF1ZCI6IjVlNWZjMzRmZjE0YmIyNTk5MmVlMjc4MSIsImV4cCI6MTU4NTgyMjcxOCwiaWF0IjoxNTg1ODE5MTE4LCJpc3MiOiJodHRwczovL3Rlc3Q4OC5jZWxlYmVzLmxpdmUvb2F1dGgvb2lkYyJ9.XUOWiKi0mpkcw570rCBZVz0wHWz1gBi5N5Bgz8mqU08FA2dlFradoZ9m_pZYlZPHW6A9R54rI7MzONQlt-sDjGqxLkL6wSNrYIJuYlysRldK3E1NRmziVukMQn8jkyq1DLhKK3WzX_ODbkasHTxdFmJ6iAgouuTjdCdcGv1B1ZTXIKJoIgXwMnYjrWbDULkJg_5_o7eP1GCVG8l5UgIRy5YNunEg7nEVLAu0aj-ob613x5k7ceb-jYLjCX2_9PVIEDeE5exGbz-3txhAxn77xjTi7m1-NEhusTHhd_p315fs0ziCYCaXXsO9eRlJ7I78geP87Thq3-vgQH7YgNy8tA",
+    "refresh_token": "vRZXKWcvyVE9_kKq26OD2gFyame",
+    "expires_in": 3600,
+    "token_type": "Bearer",
+    "scope": "openid profile email phone offline_access"
+}
+```
+{% endapi-method-response-example %}
+
+{% api-method-response-example httpCode=400 %}
+{% api-method-response-example-description %}
+用户登录凭证错误，返回错误信息。
+{% endapi-method-response-example-description %}
+
+```
+{
+    error: 'invalid_grant',
+    error_description: 'invalid credentials provided',
+}
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
 ## 退出 SSO
 
 如果你使用了 OAuth、OIDC 或 SAML 实现了单点登录，那么使用户退出登录需要跳转到一个 URL：
