@@ -197,6 +197,90 @@ $ http-server
 
 ![](../.gitbook/assets/image%20%28470%29.png)
 
+trackSession 返回数据格式如下：
+
+```text
+{
+    "session": {
+        "_id": "mbC_oeqTz0WPaspPAxpXEGXSDqlCo5i4",
+        "__v": 0,
+        "appId": "5cded9bf4efab36f02fa666a",
+        "cookie": {
+            "originalMaxAge": 86400000,
+            "expires": "2020-04-04T14:55:22.397Z",
+            "secure": true,
+            "httpOnly": true,
+            "path": "/cas",
+            "sameSite": "none"
+        },
+        "type": "oidc",
+        "userId": "5e71a7ec3e494a56f5f4d03b"
+    },
+    "userInfo": {
+        "thirdPartyIdentity": {
+            "updatedAt": "2020-03-17T01:34:40.998Z"
+        },
+        "email": "test3@123.com",
+        "phone": "",
+        "emailVerified": false,
+        "phoneVerified": false,
+        "username": "test3",
+        "nickname": "",
+        "company": "",
+        "photo": "https://usercontents.authing.cn/authing-avatar.png",
+        "browser": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36",
+        "device": "",
+        "loginsCount": 3,
+        "registerMethod": "default:username-password",
+        "blocked": false,
+        "isDeleted": false,
+        "oauth": "",
+        "phoneCode": "",
+        "name": "",
+        "givenName": "",
+        "familyName": "",
+        "middleName": "",
+        "profile": "",
+        "preferredUsername": "",
+        "website": "",
+        "gender": "",
+        "birthdate": "",
+        "zoneinfo": "",
+        "locale": "",
+        "address": "",
+        "formatted": "",
+        "streetAddress": "",
+        "locality": "",
+        "region": "",
+        "postalCode": "",
+        "country": "",
+        "updatedAt": "",
+        "metadata": "",
+        "_operate_history": [],
+        "sendSMSCount": 0,
+        "sendSMSLimitCount": 1000,
+        "_id": "5e71a7ec3e494a56f5f4d03b",
+        "registerInClient": "5cce4aa83ed9f97b4dfd95f0",
+        "lastLogin": "2020-04-03T14:55:13.135Z",
+        "signedUp": "2020-03-18T04:47:40.926Z",
+        "__v": 0,
+        "lastIP": "115.183.147.109",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoidGVzdDNAMTIzLmNvbSIsImlkIjoiNWU3MWE3ZWMzZTQ5NGE1NmY1ZjRkMDNiIiwiY2xpZW50SWQiOiI1Y2NlNGFhODNlZDlmOTdiNGRmZDk1ZjAifSwiaWF0IjoxNTg1OTI1NzEzLCJleHAiOjE1ODcyMjE3MTN9.WUXSo4FIX7UlV4k2DbnPczwrAcbFvVz0cWmkSlt9d_s",
+        "tokenExpiredAt": "2020-04-18T14:55:13.000Z",
+        "__Token 验证方式说明": "https://docs.authing.cn/authing/advanced/authentication/verify-jwt-token#fa-song-token-gei-authing-fu-wu-qi-yan-zheng"
+    },
+    "urlParams": {
+        "code": "N_J4aPRa6vIJUQyeO8NNJlozO4E",
+        "__参数使用说明": {
+            "OIDC 本地验证 access_token 和 id_token 的方式": "https://docs.authing.cn/authing/advanced/authentication/verify-jwt-token#oidc-secret-token",
+            "OIDC access_token 和 id_token 合法性在线验证": "https://docs.authing.cn/authing/advanced/authentication/verify-jwt-token#yan-zheng-oidc-accesstoken-huo-idtoken-de-he-fa-xing",
+            "OIDC code 使用文档": "https://docs.authing.cn/authing/advanced/oidc/oidc-authorization#shi-yong-code-huan-qu-token"
+        },
+        "__authing_hint": "code token id_token 字段只会在第一次回调到业务地址的时候从 url 取出，请自行存储以备使用"
+    }
+}
+```
+
 点击 logout 按钮，输出单点登出成功。
 
 ![](../.gitbook/assets/image%20%28296%29.png)
@@ -221,38 +305,124 @@ https://<appDomain>.authing.cn/login/profile
 
 ![&#x4E2A;&#x4EBA;&#x4E2D;&#x5FC3;](../.gitbook/assets/image%20%28188%29.png)
 
-## 访问同一用户池下的其他应用 <a id="validate-token"></a>
-
-Single Sign On \(简称  SSO\) 单点登录，可以实现登录一个授权应用之后，**自动登录**同一用户池下的所有其他应用。下面我们再按照上面的步骤创建一个新的应用，并将 appId、appType、appDomain 修改成相对应的，用 http-server 再起一个页面。现在我们有两个页面：
-
-* [http://localhost:8080](http://localhost:8080)
-* [http://localhost:8081](http://localhost:8081)
-
-目前都处于未登录状态下。在其中一个页面中点击「login」之后点击 「trackSession」：
-
-![](../.gitbook/assets/image%20%28294%29.png)
-
-再在第二个页面中点击「trackSession」：
-
-![](../.gitbook/assets/image%20%28228%29.png)
-
-可以看到没有点击登录的情况下，也已经获取到了用户登录信息。
-
-接着在第一个页面点击「logout」单点退出再点击「trackSession」：
-
-![](../.gitbook/assets/image%20%28105%29.png)
-
-接着再在第二个页面中点击「trackSession」：
-
-![](../.gitbook/assets/image%20%2841%29.png)
-
-可以看到第二个页面也已经自动退出登录了。现在我们就已经成功实现了单点登录，你可以用此构建更复杂的单点登录系统了！
-
 ## 检验 token 合法性 <a id="validate-token"></a>
 
 成功登录之后，你获得的用户信息中包含一个 token 字段，这是用于的登录凭证，可以在后端用于判断用户身份。Authing 内部涉及到三种 token，建议先[了解它们的用途和区别](https://docs.authing.cn/authing/advanced/oidc/oidc-params#idtokenaccesstoken-he-token-zhi-jian-de-qu-bie)，然后你可能需要了解如何验证它们的合法性。
 
 {% page-ref page="../advanced/verify-jwt-token.md" %}
+
+## 检验 token 的最佳实践 <a id="validate-token"></a>
+
+在调用 **trackSession** 函数之后，返回结果中 res.userInfo.token 字段是 Authing Token，只能通过向 Authing 服务器发送请求来检验合法性，不利于性能。可以将 Authing Token **转换为 OIDC Token**，然后在**本地验证 OIDC Token** 的合法性。
+
+{% api-method method="post" host="https://<你的应用域名>.authing.cn" path="/oauth/oidc/token" %}
+{% api-method-summary %}
+Authing Token 转 OIDC Token
+{% endapi-method-summary %}
+
+{% api-method-description %}
+使用用户的 **Authing Token** 换取 **OIDC token**。
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-body-parameters %}
+{% api-method-parameter name="scope" type="string" required=false %}
+授权域，一个字符串，openid 为必选，可选值有 profile email address phone offline\_access。不同的值之间用**空格分开**。profile 是用户基本信息，email 是**用户邮箱**，address 是用户地址，phone 是**用户手机号**，offline\_access 会返回 **refresh\_token**，用于后续刷新 OIDC Token。默认为 openid profile。
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="authingToken" type="string" required=true %}
+用户的 Authing Token。
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="grant\_type" type="string" required=true %}
+必须填 `authingToken`。
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="client\_secret" type="string" required=true %}
+OIDC 应用 secret。
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="client\_id" type="string" required=true %}
+OIDC 应用 id。
+{% endapi-method-parameter %}
+{% endapi-method-body-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+用户登录凭证正确，返回 OIDC 相关 Token。
+{% endapi-method-response-example-description %}
+
+```
+{
+    "access_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlJJQ015UV9yVFFESlZGYkJEclBDdml0ME9LczBSNWNRX3N1Vmt4alRmOUkifQ.eyJqdGkiOiJXWEl3TldJZ3ZCZ0tXN0lncnVzdXQiLCJzdWIiOiI1ZTg1YWRlZDljYzE4ZTRjYzY3ZTc4MGEiLCJpc3MiOiJodHRwczovL3Rlc3Q4OC5jZWxlYmVzLmxpdmUvb2F1dGgvb2lkYyIsImlhdCI6MTU4NTgxOTExOCwiZXhwIjoxNTg1ODIyNzE4LCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIGVtYWlsIHBob25lIG9mZmxpbmVfYWNjZXNzIiwiYXVkIjoiNWU1ZmMzNGZmMTRiYjI1OTkyZWUyNzgxIn0.Tk4npueRIyJPVxrfiOVQgMKEbk4z_KOvOkOGNyVKyeMtSHEcvU8tMRhjBP_ZrISaT4XO-vu_O1tDUBFhCKMDXWnPMwNotbbcRwRdmzueoe1G0YyxHvcuNihAFyfT_99Skaq3TuG7EzeeFuuvkUejFKRmaODraQY1vQrJl_0WNX1f6NZVYNUcOTCslb_R6qNodFQvjfOJv73FyArETKRAKN5sdTtUWuwxf9QfNm5jwJ_iratqSb5GYU-hd6U-47JKzqv_NEEVrGcRSDrW4ICrulOVPduKOwUqwg7VjHqpvAk2cIt5UdgSh2aaj3KpBhRWm2Exp2AY62sP-oLU3qigBQ",
+    "id_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlJJQ015UV9yVFFESlZGYkJEclBDdml0ME9LczBSNWNRX3N1Vmt4alRmOUkifQ.eyJzdWIiOiI1ZTg1YWRlZDljYzE4ZTRjYzY3ZTc4MGEiLCJiaXJ0aGRhdGUiOiIiLCJmYW1pbHlfbmFtZSI6IiIsImdlbmRlciI6IiIsImdpdmVuX25hbWUiOiIiLCJsb2NhbGUiOiIiLCJtaWRkbGVfbmFtZSI6IiIsIm5hbWUiOiIiLCJuaWNrbmFtZSI6IiIsInBpY3R1cmUiOiJodHRwczovL3VzZXJjb250ZW50cy5hdXRoaW5nLmNuL2F1dGhpbmctYXZhdGFyLnBuZyIsInByZWZlcnJlZF91c2VybmFtZSI6IiIsInByb2ZpbGUiOiIiLCJ1cGRhdGVkX2F0IjoiIiwid2Vic2l0ZSI6IiIsInpvbmVpbmZvIjoiIiwidXNlcm5hbWUiOiJwNGdnMnVhcWRjZUB0ZXN0LmNvbSIsImNvbXBhbnkiOiIiLCJicm93c2VyIjoiIiwiZGV2aWNlIjoiIiwibG9naW5zX2NvdW50IjoxLCJyZWdpc3Rlcl9tZXRob2QiOiJkZWZhdWx0OnVzZXJuYW1lLXBhc3N3b3JkIiwiYmxvY2tlZCI6ZmFsc2UsImxhc3RfaXAiOiIxMjQuMjA0LjU2Ljk4IiwicmVnaXN0ZXJfaW5fdXNlcnBvb2wiOiI1ZTE5OTQyMTg4YjAxMzA3ODEyN2MwMjQiLCJsYXN0X2xvZ2luIjoiMjAyMC0wNC0wMlQwOToxODozNy4zNDJaIiwic2lnbmVkX3VwIjoiMjAyMC0wNC0wMlQwOToxODozNy4xODFaIiwiZW1haWwiOiJwNGdnMnVhcWRjZUB0ZXN0LmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicGhvbmVfbnVtYmVyIjoiIiwicGhvbmVfbnVtYmVyX3ZlcmlmaWVkIjpmYWxzZSwiYXdzIjoiZGVtbyIsImF1ZCI6IjVlNWZjMzRmZjE0YmIyNTk5MmVlMjc4MSIsImV4cCI6MTU4NTgyMjcxOCwiaWF0IjoxNTg1ODE5MTE4LCJpc3MiOiJodHRwczovL3Rlc3Q4OC5jZWxlYmVzLmxpdmUvb2F1dGgvb2lkYyJ9.XUOWiKi0mpkcw570rCBZVz0wHWz1gBi5N5Bgz8mqU08FA2dlFradoZ9m_pZYlZPHW6A9R54rI7MzONQlt-sDjGqxLkL6wSNrYIJuYlysRldK3E1NRmziVukMQn8jkyq1DLhKK3WzX_ODbkasHTxdFmJ6iAgouuTjdCdcGv1B1ZTXIKJoIgXwMnYjrWbDULkJg_5_o7eP1GCVG8l5UgIRy5YNunEg7nEVLAu0aj-ob613x5k7ceb-jYLjCX2_9PVIEDeE5exGbz-3txhAxn77xjTi7m1-NEhusTHhd_p315fs0ziCYCaXXsO9eRlJ7I78geP87Thq3-vgQH7YgNy8tA",
+    "refresh_token": "vRZXKWcvyVE9_kKq26OD2gFyame",
+    "expires_in": 3600,
+    "token_type": "Bearer",
+    "scope": "openid profile email phone offline_access"
+}
+```
+{% endapi-method-response-example %}
+
+{% api-method-response-example httpCode=400 %}
+{% api-method-response-example-description %}
+用户登录凭证错误，返回错误信息。
+{% endapi-method-response-example-description %}
+
+```
+{
+    error: 'invalid_grant',
+    error_description: 'invalid credentials provided',
+}
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+代码示例：
+
+```javascript
+const qs = require('querystring');
+const axios = require('axios');
+let res = await axios.post(
+  'https://first-oidc-app.authing.cn',
+  qs.stringify({
+    client_id: '你的 OIDC 应用 ID',
+    client_secret: '你的 OIDC 应用 Secret',
+    grant_type: 'authingToken',
+    scope: 'openid profile email address phone offline_access',
+  }),
+);
+console.log(res)
+/**
+{
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJuQ0tSOEUwck1LR3RVdXprR0IzcUoiLCJzdWIiOiI1ZTg1YTY1YmMwNjA3YzBkMzAyZDdmMWIiLCJpc3MiOiJodHRwczovL3llbGV4aW4uaGVwLmF1dGhpbmcuY28vb2F1dGgvb2lkYyIsImlhdCI6MTU4NTg4NzQ2MiwiZXhwIjoxNTg1ODkxMDYyLCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIGVtYWlsIHBob25lIG9mZmxpbmVfYWNjZXNzIiwiYXVkIjoiNWU2NTA5YzhjMzNkZWUyN2FhMzZhNGUyIn0.t36WfP8NNFSGO7Ww7roYQ-Iz2ro4sgH8KZk20GzNKmw",
+    "id_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZTg1YTY1YmMwNjA3YzBkMzAyZDdmMWIiLCJiaXJ0aGRhdGUiOiIiLCJmYW1pbHlfbmFtZSI6IiIsImdlbmRlciI6IiIsImdpdmVuX25hbWUiOiIiLCJsb2NhbGUiOiIiLCJtaWRkbGVfbmFtZSI6IiIsIm5hbWUiOiIiLCJuaWNrbmFtZSI6IiIsInBpY3R1cmUiOiJodHRwczovL3VzZXJjb250ZW50cy5hdXRoaW5nLmNuL2F1dGhpbmctYXZhdGFyLnBuZyIsInByZWZlcnJlZF91c2VybmFtZSI6IiIsInByb2ZpbGUiOiIiLCJ1cGRhdGVkX2F0IjoiIiwid2Vic2l0ZSI6IiIsInpvbmVpbmZvIjoiIiwidXNlcm5hbWUiOiJlcmhhZXJnIiwiY29tcGFueSI6IiIsImJyb3dzZXIiOiJNb3ppbGxhLzUuMCAoTWFjaW50b3NoOyBJbnRlbCBNYWMgT1MgWCAxMF8xNF82KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvODAuMC4zOTg3LjE0OSBTYWZhcmkvNTM3LjM2IiwiZGV2aWNlIjoiIiwibG9naW5zX2NvdW50IjoxLCJyZWdpc3Rlcl9tZXRob2QiOiJkZWZhdWx0OnVzZXJuYW1lLXBhc3N3b3JkIiwiYmxvY2tlZCI6ZmFsc2UsImxhc3RfaXAiOiIxMjQuMjA0LjU2Ljk4IiwicmVnaXN0ZXJfaW5fdXNlcnBvb2wiOiI1ZTY1MDljOGMzM2RlZTI0YzkzNmE0ZGIiLCJsYXN0X2xvZ2luIjoiMjAyMC0wNC0wMlQwODo0NjozMi43NTVaIiwic2lnbmVkX3VwIjoiMjAyMC0wNC0wMlQwODo0NjoxOS42MTlaIiwiZW1haWwiOiJhZXJhZXJAMTIzLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicGhvbmVfbnVtYmVyIjoiIiwicGhvbmVfbnVtYmVyX3ZlcmlmaWVkIjpmYWxzZSwiS0VZIjoiVkFMVUUiLCJhdWQiOiI1ZTY1MDljOGMzM2RlZTI3YWEzNmE0ZTIiLCJleHAiOjE1ODU4OTEwNjIsImlhdCI6MTU4NTg4NzQ2MiwiaXNzIjoiaHR0cHM6Ly95ZWxleGluLmhlcC5hdXRoaW5nLmNvL29hdXRoL29pZGMifQ.USFlIFkL23jlehnyjNlEOaLUYCqN_jNY8bFYiAiuRhg",
+    "refresh_token": "3tjpVQqQa1uMT55U0sonRtkCV6U",
+    "expires_in": 3600,
+    "token_type": "Bearer",
+    "scope": "openid profile email phone offline_access"
+}
+*/
+```
+
+然后可以通过 OIDC 应用的 secret 检验 id\_token 的合法性：
+
+```javascript
+const jwt = require('jsonwebtoken');
+const id_token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZTg1YTY1YmMwNjA3YzBkMzAyZDdmMWIiLCJiaXJ0aGRhdGUiOiIiLCJmYW1pbHlfbmFtZSI6IiIsImdlbmRlciI6IiIsImdpdmVuX25hbWUiOiIiLCJsb2NhbGUiOiIiLCJtaWRkbGVfbmFtZSI6IiIsIm5hbWUiOiIiLCJuaWNrbmFtZSI6IiIsInBpY3R1cmUiOiJodHRwczovL3VzZXJjb250ZW50cy5hdXRoaW5nLmNuL2F1dGhpbmctYXZhdGFyLnBuZyIsInByZWZlcnJlZF91c2VybmFtZSI6IiIsInByb2ZpbGUiOiIiLCJ1cGRhdGVkX2F0IjoiIiwid2Vic2l0ZSI6IiIsInpvbmVpbmZvIjoiIiwidXNlcm5hbWUiOiJlcmhhZXJnIiwiY29tcGFueSI6IiIsImJyb3dzZXIiOiJNb3ppbGxhLzUuMCAoTWFjaW50b3NoOyBJbnRlbCBNYWMgT1MgWCAxMF8xNF82KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvODAuMC4zOTg3LjE0OSBTYWZhcmkvNTM3LjM2IiwiZGV2aWNlIjoiIiwibG9naW5zX2NvdW50IjoxLCJyZWdpc3Rlcl9tZXRob2QiOiJkZWZhdWx0OnVzZXJuYW1lLXBhc3N3b3JkIiwiYmxvY2tlZCI6ZmFsc2UsImxhc3RfaXAiOiIxMjQuMjA0LjU2Ljk4IiwicmVnaXN0ZXJfaW5fdXNlcnBvb2wiOiI1ZTY1MDljOGMzM2RlZTI0YzkzNmE0ZGIiLCJsYXN0X2xvZ2luIjoiMjAyMC0wNC0wMlQwODo0NjozMi43NTVaIiwic2lnbmVkX3VwIjoiMjAyMC0wNC0wMlQwODo0NjoxOS42MTlaIiwiZW1haWwiOiJhZXJhZXJAMTIzLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicGhvbmVfbnVtYmVyIjoiIiwicGhvbmVfbnVtYmVyX3ZlcmlmaWVkIjpmYWxzZSwiS0VZIjoiVkFMVUUiLCJhdWQiOiI1ZTY1MDljOGMzM2RlZTI3YWEzNmE0ZTIiLCJleHAiOjE1ODU4OTEwNjIsImlhdCI6MTU4NTg4NzQ2MiwiaXNzIjoiaHR0cHM6Ly95ZWxleGluLmhlcC5hdXRoaW5nLmNvL29hdXRoL29pZGMifQ.USFlIFkL23jlehnyjNlEOaLUYCqN_jNY8bFYiAiuRhg';
+const secret = '你的 OIDC 应用 Secret';
+let decoded;
+try {
+  decoded = jwt.verify(id_token, secret);
+} catch (err) {
+  console.log('id_token 非法');
+} 
+```
 
 ## 接下来你可能还需要 <a id="next"></a>
 
