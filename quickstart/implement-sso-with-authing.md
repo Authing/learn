@@ -429,6 +429,10 @@ try {
 } 
 ```
 
+### 什么是 id\_token？
+
+当你需要向你**自己的服务器**请求资源时，应该携带 **id\_token**，同时你的服务器应该[检验此 token 的合法性](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token#oidc-secret-token)，然后再返回相应资源。**id\_token** 相当于终端用户的身份证，用于认证用户身份，在 OIDC 授权后签发。id\_token、access\_token、Authing Token 的区别请看[这里](../authentication/oidc/oidc-params.md#idtokenaccesstoken-he-token-zhi-jian-de-qu-bie)。
+
 ## 接下来你可能还需要 <a id="next"></a>
 
 学习 Authing 的基础知识以及我们会用到的专业术语：
