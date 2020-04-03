@@ -389,7 +389,7 @@ OIDC 应用 id。
 const qs = require('querystring');
 const axios = require('axios');
 let res = axios.post(
-  'https://<你的 OIDC 应用域名>.authing.cn/oauth/oidc',
+  'https://<你的 OIDC 应用域名>.authing.cn/oauth/oidc/token',
   qs.stringify({
     client_id: '你的 OIDC 应用 ID',
     client_secret: '你的 OIDC 应用 Secret',
@@ -398,7 +398,7 @@ let res = axios.post(
     scope: 'openid profile email address phone offline_access',
   }),
 ).then(res => {
-  console.log(res)
+  console.log(res.data)
 /**
 {
     "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJuQ0tSOEUwck1LR3RVdXprR0IzcUoiLCJzdWIiOiI1ZTg1YTY1YmMwNjA3YzBkMzAyZDdmMWIiLCJpc3MiOiJodHRwczovL3llbGV4aW4uaGVwLmF1dGhpbmcuY28vb2F1dGgvb2lkYyIsImlhdCI6MTU4NTg4NzQ2MiwiZXhwIjoxNTg1ODkxMDYyLCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIGVtYWlsIHBob25lIG9mZmxpbmVfYWNjZXNzIiwiYXVkIjoiNWU2NTA5YzhjMzNkZWUyN2FhMzZhNGUyIn0.t36WfP8NNFSGO7Ww7roYQ-Iz2ro4sgH8KZk20GzNKmw",
@@ -409,6 +409,8 @@ let res = axios.post(
     "scope": "openid profile email phone offline_access"
 }
 */
+}).catch(err => {
+  console.log(err.response.data)
 });
 
 ```
