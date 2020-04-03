@@ -307,7 +307,7 @@ https://<appDomain>.authing.cn/login/profile
 
 ## 检验 token 合法性 <a id="validate-token"></a>
 
-成功登录之后，你获得的用户信息中包含一个 token 字段，这是用于的登录凭证，可以在后端用于判断用户身份。Authing 内部涉及到三种 token，建议先[了解它们的用途和区别](https://docs.authing.cn/authing/advanced/oidc/oidc-params#idtokenaccesstoken-he-token-zhi-jian-de-qu-bie)，然后你可能需要了解如何验证它们的合法性。
+成功登录之后，你获得的用户信息中包含一个 token 字段，这是用于的登录凭证，可以在后端用于判断用户身份。Authing 内部涉及到三种 token，建议先[了解它们的用途和区别](../authentication/oidc/oidc-params.md#idtokenaccesstoken-he-token-zhi-jian-de-qu-bie)，然后你可能需要了解如何验证它们的合法性。
 
 {% page-ref page="../advanced/verify-jwt-token.md" %}
 
