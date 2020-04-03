@@ -859,9 +859,9 @@ OIDC 应用 id
 {% endapi-method-spec %}
 {% endapi-method %}
 
-## 使用 authingToken 模式
+## 使用 authingToken 模式 <a id="use-authing-token-mode"></a>
 
-### 在控制台配置 OIDC 应用
+### 在控制台配置 OIDC 应用 <a id="configure-oidc-app-in-dashboard"></a>
 
 在[**控制台**](https://authing.cn/dashboard) &gt; **第三方登录** &gt; **OIDC 应用**，打开 OIDC 应用详情，在表单的**授权模式**中勾选「authingToken」。
 
