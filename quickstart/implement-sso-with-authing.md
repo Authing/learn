@@ -383,7 +383,7 @@ OIDC 应用 id。
 {% endapi-method-spec %}
 {% endapi-method %}
 
-代码示例：
+Authing Token 换 OIDC Token 的代码示例：
 
 ```javascript
 const qs = require('querystring');
