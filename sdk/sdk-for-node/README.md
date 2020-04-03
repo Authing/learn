@@ -361,6 +361,8 @@ function formatError(error) {
 
 返回数据：
 
+* 请求成功
+
 ```text
 {
     "access_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlJJQ015UV9yVFFESlZGYkJEclBDdml0ME9LczBSNWNRX3N1Vmt4alRmOUkifQ.eyJqdGkiOiJXWEl3TldJZ3ZCZ0tXN0lncnVzdXQiLCJzdWIiOiI1ZTg1YWRlZDljYzE4ZTRjYzY3ZTc4MGEiLCJpc3MiOiJodHRwczovL3Rlc3Q4OC5jZWxlYmVzLmxpdmUvb2F1dGgvb2lkYyIsImlhdCI6MTU4NTgxOTExOCwiZXhwIjoxNTg1ODIyNzE4LCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIGVtYWlsIHBob25lIG9mZmxpbmVfYWNjZXNzIiwiYXVkIjoiNWU1ZmMzNGZmMTRiYjI1OTkyZWUyNzgxIn0.Tk4npueRIyJPVxrfiOVQgMKEbk4z_KOvOkOGNyVKyeMtSHEcvU8tMRhjBP_ZrISaT4XO-vu_O1tDUBFhCKMDXWnPMwNotbbcRwRdmzueoe1G0YyxHvcuNihAFyfT_99Skaq3TuG7EzeeFuuvkUejFKRmaODraQY1vQrJl_0WNX1f6NZVYNUcOTCslb_R6qNodFQvjfOJv73FyArETKRAKN5sdTtUWuwxf9QfNm5jwJ_iratqSb5GYU-hd6U-47JKzqv_NEEVrGcRSDrW4ICrulOVPduKOwUqwg7VjHqpvAk2cIt5UdgSh2aaj3KpBhRWm2Exp2AY62sP-oLU3qigBQ",
@@ -369,6 +371,15 @@ function formatError(error) {
     "expires_in": 3600,
     "token_type": "Bearer",
     "scope": "openid profile email phone offline_access"
+}
+```
+
+* 请求失败
+
+```text
+{
+  error: 'invalid_grant',
+  error_description: 'invalid credentials provided',
 }
 ```
 

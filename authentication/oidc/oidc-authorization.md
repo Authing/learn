@@ -775,7 +775,7 @@ https://example.com/#code=pIY83Jl_bcerNN9Wt57Sq0TAjTr&id_token=eyJhbGciOiJSUzI1N
 
 ### 发起授权
 
-{% api-method method="post" host="https://core.authing.cn" path="/oauth/oidc/token" %}
+{% api-method method="post" host="https://<你的应用域名>.authing.cn" path="/oauth/oidc/token" %}
 {% api-method-summary %}
 使用登录凭据换取 token
 {% endapi-method-summary %}
@@ -869,7 +869,7 @@ OIDC 应用 id。
 
 ### 发起授权
 
-{% api-method method="post" host="https://core.authing.cn" path="/oauth/oidc/token" %}
+{% api-method method="post" host="https://<你的应用域名>.authing.cn" path="/oauth/oidc/token" %}
 {% api-method-summary %}
 使用登录凭据换取 token
 {% endapi-method-summary %}
@@ -890,7 +890,7 @@ OIDC 应用 id。
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="grant\_type" type="string" required=true %}
-必须填 `password`。
+必须填 `authingToken`。
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="client\_secret" type="string" required=true %}
