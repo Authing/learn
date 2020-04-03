@@ -311,7 +311,7 @@ https://<appDomain>.authing.cn/login/profile
 
 {% page-ref page="../advanced/verify-jwt-token.md" %}
 
-## 检验 token 的最佳实践 <a id="validate-token"></a>
+## 检验 token 的最佳实践 <a id="best-practise-to-validate-token"></a>
 
 在调用 **trackSession** 函数之后，返回结果中 res.userInfo.token 字段是 Authing Token，只能通过向 Authing 服务器发送请求来检验合法性，不利于性能。可以将 Authing Token **转换为 OIDC Token**，然后在**本地验证 OIDC Token** 的合法性。
 
