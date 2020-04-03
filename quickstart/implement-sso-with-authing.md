@@ -419,11 +419,51 @@ let res = axios.post(
 
 ```javascript
 const jwt = require('jsonwebtoken');
-const id_token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZTg1YTY1YmMwNjA3YzBkMzAyZDdmMWIiLCJiaXJ0aGRhdGUiOiIiLCJmYW1pbHlfbmFtZSI6IiIsImdlbmRlciI6IiIsImdpdmVuX25hbWUiOiIiLCJsb2NhbGUiOiIiLCJtaWRkbGVfbmFtZSI6IiIsIm5hbWUiOiIiLCJuaWNrbmFtZSI6IiIsInBpY3R1cmUiOiJodHRwczovL3VzZXJjb250ZW50cy5hdXRoaW5nLmNuL2F1dGhpbmctYXZhdGFyLnBuZyIsInByZWZlcnJlZF91c2VybmFtZSI6IiIsInByb2ZpbGUiOiIiLCJ1cGRhdGVkX2F0IjoiIiwid2Vic2l0ZSI6IiIsInpvbmVpbmZvIjoiIiwidXNlcm5hbWUiOiJlcmhhZXJnIiwiY29tcGFueSI6IiIsImJyb3dzZXIiOiJNb3ppbGxhLzUuMCAoTWFjaW50b3NoOyBJbnRlbCBNYWMgT1MgWCAxMF8xNF82KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvODAuMC4zOTg3LjE0OSBTYWZhcmkvNTM3LjM2IiwiZGV2aWNlIjoiIiwibG9naW5zX2NvdW50IjoxLCJyZWdpc3Rlcl9tZXRob2QiOiJkZWZhdWx0OnVzZXJuYW1lLXBhc3N3b3JkIiwiYmxvY2tlZCI6ZmFsc2UsImxhc3RfaXAiOiIxMjQuMjA0LjU2Ljk4IiwicmVnaXN0ZXJfaW5fdXNlcnBvb2wiOiI1ZTY1MDljOGMzM2RlZTI0YzkzNmE0ZGIiLCJsYXN0X2xvZ2luIjoiMjAyMC0wNC0wMlQwODo0NjozMi43NTVaIiwic2lnbmVkX3VwIjoiMjAyMC0wNC0wMlQwODo0NjoxOS42MTlaIiwiZW1haWwiOiJhZXJhZXJAMTIzLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicGhvbmVfbnVtYmVyIjoiIiwicGhvbmVfbnVtYmVyX3ZlcmlmaWVkIjpmYWxzZSwiS0VZIjoiVkFMVUUiLCJhdWQiOiI1ZTY1MDljOGMzM2RlZTI3YWEzNmE0ZTIiLCJleHAiOjE1ODU4OTEwNjIsImlhdCI6MTU4NTg4NzQ2MiwiaXNzIjoiaHR0cHM6Ly95ZWxleGluLmhlcC5hdXRoaW5nLmNvL29hdXRoL29pZGMifQ.USFlIFkL23jlehnyjNlEOaLUYCqN_jNY8bFYiAiuRhg';
+const id_token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZTg1YTY1YmMwNjA3YzBkMzAyZDdmMWIiLCJiaXJ0aGRhdGUiOiIiLCJmYW1pbHlfbmFtZSI6IiIsImdlbmRlciI6IiIsImdpdmVuX25hbWUiOiIiLCJsb2NhbGUiOiIiLCJtaWRkbGVfbmFtZSI6IiIsIm5hbWUiOiIiLCJuaWNrbmFtZSI6IiIsInBpY3R1cmUiOiJodHRwczovL3VzZXJjb250ZW50cy5hdXRoaW5nLmNuL2F1dGhpbmctYXZhdGFyLnBuZyIsInByZWZlcnJlZF91c2VybmFtZSI6IiIsInByb2ZpbGUiOiIiLCJ1cGRhdGVkX2F0IjoiIiwid2Vic2l0ZSI6IiIsInpvbmVpbmZvIjoiIiwidXNlcm5hbWUiOiJlcmhhZXJnIiwiY29tcGFueSI6IiIsImJyb3dzZXIiOiJNb3ppbGxhLzUuMCAoTWFjaW50b3NoOyBJbnRlbCBNYWMgT1MgWCAxMF8xNF82KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvODAuMC4zOTg3LjE0OSBTYWZhcmkvNTM3LjM2IiwiZGV2aWNlIjoiIiwibG9naW5zX2NvdW50IjoxLCJyZWdpc3Rlcl9tZXRob2QiOiJkZWZhdWx0OnVzZXJuYW1lLXBhc3N3b3JkIiwiYmxvY2tlZCI6ZmFsc2UsImxhc3RfaXAiOiIxMjQuMjA0LjU2Ljk4IiwicmVnaXN0ZXJfaW5fdXNlcnBvb2wiOiI1ZTY1MDljOGMzM2RlZTI0YzkzNmE0ZGIiLCJsYXN0X2xvZ2luIjoiMjAyMC0wNC0wMlQwODo0NjozMi43NTVaIiwic2lnbmVkX3VwIjoiMjAyMC0wNC0wMlQwODo0NjoxOS42MTlaIiwiZW1haWwiOiJhZXJhZXJAMTIzLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicGhvbmVfbnVtYmVyIjoiIiwicGhvbmVfbnVtYmVyX3ZlcmlmaWVkIjpmYWxzZSwiS0VZIjoiVkFMVUUiLCJhdWQiOiI1ZTY1MDljOGMzM2RlZTI3YWEzNmE0ZTIiLCJleHAiOjE1ODU5MzI1OTIsImlhdCI6MTU4NTkyODk5MiwiaXNzIjoiaHR0cHM6Ly95ZWxleGluLmhlcC5hdXRoaW5nLmNvL29hdXRoL29pZGMifQ.o8A201IPyQ-Eb9S6sGj3BbCDF4lxM6VETXSt6Rgo31k';
 const secret = '你的 OIDC 应用 Secret';
 let decoded;
 try {
   decoded = jwt.verify(id_token, secret);
+  console.log(decoded)
+/*
+{
+  sub: '5e85a65bc0607c0d302d7f1b',
+  birthdate: '',
+  family_name: '',
+  gender: '',
+  given_name: '',
+  locale: '',
+  middle_name: '',
+  name: '',
+  nickname: '',
+  picture: 'https://usercontents.authing.cn/authing-avatar.png',
+  preferred_username: '',
+  profile: '',
+  updated_at: '',
+  website: '',
+  zoneinfo: '',
+  username: 'erhaerg',
+  company: '',
+  browser: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36',
+  device: '',
+  logins_count: 1,
+  register_method: 'default:username-password',
+  blocked: false,
+  last_ip: '124.204.56.98',
+  register_in_userpool: '5e6509c8c33dee24c936a4db',
+  last_login: '2020-04-02T08:46:32.755Z',
+  signed_up: '2020-04-02T08:46:19.619Z',
+  email: 'aeraer@123.com',
+  email_verified: false,
+  phone_number: '',
+  phone_number_verified: false,
+  KEY: 'VALUE',
+  aud: '5e6509c8c33dee27aa36a4e2',
+  exp: 1585932592,
+  iat: 1585928992,
+  iss: 'https://yelexin.hep.authing.co/oauth/oidc'
+}
+*/
 } catch (err) {
   console.log('id_token 非法');
 } 
