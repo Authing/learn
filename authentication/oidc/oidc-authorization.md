@@ -792,35 +792,35 @@ https://example.com/#code=pIY83Jl_bcerNN9Wt57Sq0TAjTr&id_token=eyJhbGciOiJSUzI1N
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="password" type="string" required=false %}
-密码，当没有填写 unionid 时必填
+密码，当没有填写 unionid 时必填。
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="unionid" type="string" required=false %}
-三方身份提供商身份 ID，与手机号、邮箱、用户名互斥
+三方身份提供商身份 ID，与手机号、邮箱、用户名互斥。
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="phone" type="string" required=false %}
-手机号，与邮箱、用户名、unionid 互斥
+手机号，与邮箱、用户名、unionid 互斥。
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="email" type="string" required=false %}
-邮箱，与用户名、手机号、unionid 互斥
+邮箱，与用户名、手机号、unionid 互斥。
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="username" type="string" required=false %}
-用户名，与邮箱、手机号、unionid 互斥
+用户名，与邮箱、手机号、unionid 互斥。
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="grant\_type" type="string" required=true %}
-必须填 `password`
+必须填 `password`。
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="client\_secret" type="string" required=true %}
-OIDC 应用 secret
+OIDC 应用 secret。
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="client\_id" type="string" required=true %}
-OIDC 应用 id
+OIDC 应用 id。
 {% endapi-method-parameter %}
 {% endapi-method-body-parameters %}
 {% endapi-method-request %}
@@ -890,15 +890,15 @@ OIDC 应用 id
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="grant\_type" type="string" required=true %}
-必须填 `password`
+必须填 `password`。
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="client\_secret" type="string" required=true %}
-OIDC 应用 secret
+OIDC 应用 secret。
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="client\_id" type="string" required=true %}
-OIDC 应用 id
+OIDC 应用 id。
 {% endapi-method-parameter %}
 {% endapi-method-body-parameters %}
 {% endapi-method-request %}
