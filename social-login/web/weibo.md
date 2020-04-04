@@ -85,6 +85,10 @@
 | data | userInfo，若 code 为非 200 不返回此参数 |
 | bindOAuth | 是否是登录操作， 无此参数或此参数为`0`则为登录, 此参数为`1`则为绑定账号操作, 此时可使用`data`参数中的数据[绑定OAuth](../../sdk/sdk-for-node/bind-social-login.md#bang-ding-she-hui-hua-zhang-hao) |
 
+{% hint style="warning" %}
+部分浏览器和 Web Server 在 URL 过长的情况下有可能出现 404，如 ASP.NET，这个时候需要修改一下配置，具体方式请见[这个 StackOverflow 回答](https://stackoverflow.com/questions/28681366/in-asp-net-mvc-would-a-querystring-too-long-result-in-404-file-not-found-error/28681600)。
+{% endhint %}
+
 data 数据示例：
 
 ```javascript

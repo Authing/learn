@@ -120,6 +120,10 @@ Authing 为你隐藏了和企业微信服务器的交互过程，你可以直接
 Authing 回调给你的用户信息是经过加工过的，会自动注册到你的用户池，会和企业微信返回的原始数据不一样。
 {% endhint %}
 
+{% hint style="warning" %}
+部分浏览器和 Web Server 在 URL 过长的情况下有可能出现 404，如 ASP.NET，这个时候需要修改一下配置，具体方式请见[这个 StackOverflow 回答](https://stackoverflow.com/questions/28681366/in-asp-net-mvc-would-a-querystring-too-long-result-in-404-file-not-found-error/28681600)。
+{% endhint %}
+
 data （用户信息）示例：
 
 ```javascript

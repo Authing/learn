@@ -123,6 +123,10 @@ authing.startWXAppScaning({
 
 开发者可自行获取 URL 中的参数以获取 userInfo，获取方式见[获取用户数据](https://learn.authing.cn/authing/advanced/social-login#huo-qu-yong-hu-shu-ju)。
 
+{% hint style="warning" %}
+部分浏览器和 Web Server 在 URL 过长的情况下有可能出现 404，如 ASP.NET，这个时候需要修改一下配置，具体方式请见[这个 StackOverflow 回答](https://stackoverflow.com/questions/28681366/in-asp-net-mvc-would-a-querystring-too-long-result-in-404-file-not-found-error/28681600)。
+{% endhint %}
+
 {% hint style="info" %}
 若不想在扫码登录后发生页面跳转，可以配置 redirect 参数为 false，然后在 onSuccess 函数中获取用户数据后执行相应业务，如：
 
