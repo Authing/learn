@@ -35,7 +35,7 @@ Pre-Register  Pipeline 函数定义：
 async function pipe(context, callback)
 ```
 
-Post-Authentication Pipeline 和 Post-Authentication Pipeline 函数定义：
+Post-Register Pipeline 和 Post-Authentication Pipeline 函数定义：
 
 ```javascript
 async function pipe(user, context, callback)
