@@ -32,7 +32,7 @@
 * Client Secret: 微信网页应用的 App Secret
 * Redirect：**这是你的业务回调域名，非 Authing 的链接**。比如你的网站域名是 https://example.com ， 处理 Authing 回调请求的 url 为 /auth/wechat/callback ， 那么你应该填写为 `https://example.com/auth/wechat/callback`。如果你需要在 OIDC 或 OAuth 应用中单独配置回调链接，此处地址可填入： \#。
 
-![](../../.gitbook/assets/image%20%28248%29.png)
+![](../../.gitbook/assets/image%20%28249%29.png)
 
 ## 开始接入
 
@@ -90,7 +90,7 @@
 
 访问此页面你应该可以看到类似以下页面：
 
-![](../../.gitbook/assets/image%20%28487%29.png)
+![](../../.gitbook/assets/image%20%28488%29.png)
 
 {% hint style="info" %}
 你可以在 Web 页面上放置一个可点击的按钮或 Logo 链接到上面的链接以便用户可以点击登录。

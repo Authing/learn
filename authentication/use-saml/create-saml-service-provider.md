@@ -8,11 +8,11 @@
 
 打开应用控制台 -&gt; 第三方登录 -&gt; 社会化登录选项卡
 
-![Authing &#x63A7;&#x5236;&#x53F0;](../../.gitbook/assets/image%20%28541%29.png)
+![Authing &#x63A7;&#x5236;&#x53F0;](../../.gitbook/assets/image%20%28542%29.png)
 
 滚动到页面下方，在 SAML Service Provider 区域，点击 ➕
 
-![&#x521B;&#x5EFA; SAML SP](../../.gitbook/assets/image%20%28396%29.png)
+![&#x521B;&#x5EFA; SAML SP](../../.gitbook/assets/image%20%28397%29.png)
 
 在弹出的窗口中，输入应用信息，点击「创建应用」。
 
@@ -24,7 +24,7 @@
 
 接下来需要填写一些 SP 的基础配置才能使 SP 正常工作。
 
-![&#x57FA;&#x7840;&#x914D;&#x7F6E;](../../.gitbook/assets/image%20%28604%29.png)
+![&#x57FA;&#x7840;&#x914D;&#x7F6E;](../../.gitbook/assets/image%20%28605%29.png)
 
 **IdP 登录 URL** 由 IdP 提供，如果没有，可以从 IdP 元数据 XML 文档中查找。
 
@@ -56,7 +56,7 @@
 
 接下来，需要配置一些 SP 对 IdP 的“要求”。
 
-![SP &#x5BF9; IdP &#x7684;&#x201C;&#x8981;&#x6C42;&#x201D;](../../.gitbook/assets/image%20%28319%29.png)
+![SP &#x5BF9; IdP &#x7684;&#x201C;&#x8981;&#x6C42;&#x201D;](../../.gitbook/assets/image%20%28320%29.png)
 
  **要求的用户唯一标识符形式** SP 可以要求 IdP 返回特定格式的用户唯一标识符。默认为 unspecified，会返回 persistent 类型的用户 Id。
 
@@ -112,7 +112,7 @@ SP 可以要求 IdP 对 SAML Assertion 进行加密，SP 需要为 IdP 提供加
 
 SP 可以对发出的 SAML Request 进行签名，确保此 SAML Request 的发出者身份合法。IdP 可能通过 SAML Request 签名来判断请求来源，从而拒绝非法的 SALM Request 请求。
 
-![&#x7B7E;&#x540D; SAML Request](../../.gitbook/assets/image%20%28435%29.png)
+![&#x7B7E;&#x540D; SAML Request](../../.gitbook/assets/image%20%28436%29.png)
 
 输入或从文件读入证书内容，注意证书算法必须与选择的签名和摘要算法**一致**。如果你没有证书，可以从[这里](https://www.samltool.com/self_signed_certs.php)生成一个。
 
@@ -179,7 +179,7 @@ company：不填，因为 Assertion 中无此信息
 
 完成设置后，点击确定，会展示一些使用提示。
 
-![SAML SP &#x4F7F;&#x7528;&#x65B9;&#x6CD5;](../../.gitbook/assets/image%20%28297%29.png)
+![SAML SP &#x4F7F;&#x7528;&#x65B9;&#x6CD5;](../../.gitbook/assets/image%20%28298%29.png)
 
 到此 SAML Service Provider 创建完成。
 

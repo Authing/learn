@@ -155,7 +155,7 @@ description: 控制台是你管理和配置所有 Authing 资源的地方，这�
 
 社会化登录指使用「Github」或「微信」等第三方社交网络进行登录，配置方式请参考：
 
-![](../.gitbook/assets/image%20%28568%29.png)
+![](../.gitbook/assets/image%20%28569%29.png)
 
 ### 添加 OAuth 应用
 
@@ -163,7 +163,7 @@ OAuth 是一种企业级认证方案，使用方法请参考：
 
 {% page-ref page="../authentication/oauth2/" %}
 
-![](../.gitbook/assets/image%20%28234%29.png)
+![](../.gitbook/assets/image%20%28235%29.png)
 
 ### 添加 OIDC 应用
 
@@ -181,7 +181,7 @@ LDAP 是轻量目录访问协议，英文全称是 Lightweight Directory Access 
 
 {% page-ref page="../authentication/ldap/ldap.md" %}
 
-![](../.gitbook/assets/image%20%28563%29.png)
+![](../.gitbook/assets/image%20%28564%29.png)
 
 ## 设置
 
@@ -199,7 +199,7 @@ LDAP 是轻量目录访问协议，英文全称是 Lightweight Directory Access 
 8. 是否开启频繁登录失败限制
 9. 是否开启邮箱验证
 
-![](../.gitbook/assets/image%20%28324%29.png)
+![](../.gitbook/assets/image%20%28325%29.png)
 
 ### 配置 CORS 域
 
@@ -209,17 +209,17 @@ LDAP 是轻量目录访问协议，英文全称是 Lightweight Directory Access 
 
 ### 配置 JWT 到期时间
 
-![](../.gitbook/assets/image%20%28286%29.png)
+![](../.gitbook/assets/image%20%28287%29.png)
 
 ### 开启/关闭注册
 
-![](../.gitbook/assets/image%20%28239%29.png)
+![](../.gitbook/assets/image%20%28240%29.png)
 
 ### 开启/关闭/配置注册频率限制
 
 注册频率限制是根据用户的 IP 来决定的，若你想修改频率请按照界面中的说明修改即可：
 
-![](../.gitbook/assets/image%20%28246%29.png)
+![](../.gitbook/assets/image%20%28247%29.png)
 
 ### 开启/关闭/配置多次登录失败
 
@@ -245,7 +245,7 @@ LDAP 是轻量目录访问协议，英文全称是 Lightweight Directory Access 
 
 若你有私有部署的需求可点击「联系我们」与我们进行接触。
 
-![](../.gitbook/assets/image%20%28301%29.png)
+![](../.gitbook/assets/image%20%28302%29.png)
 
 
 

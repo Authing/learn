@@ -18,7 +18,7 @@ faas:
 
 ![](../../.gitbook/assets/image%20%28151%29.png)
 
-![](../../.gitbook/assets/image%20%28310%29.png)
+![](../../.gitbook/assets/image%20%28311%29.png)
 
 * REGION: 地区，如 cn-beijing, cn-hangzhou。
 * ACCESS\_KEY\_ID: 在 **阿里云控制台右上角** 选择 **个人头像**，点击 **AccessKey 管理**，在此页面可获得。

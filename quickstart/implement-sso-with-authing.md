@@ -1,24 +1,28 @@
 ---
-description: >-
-  单点登录（Single Sign On），简称为 SSO，是目前比较流行的企业业务整合的解决方案之一。 SSO
-  的定义是在多个应用系统中，用户只需要登录一次就可以访问所有相互信任的应用系统。
+description: 本文讲述如何使用 Authing 实现应用账号打通和单点登录。
 ---
 
 # 实现单点登录
 
+## 什么是单点登录
+
+我们通过一个例子来说明，假设有一所大学，内部有两个系统，一个是邮箱系统，一个是课表查询系统。现在想实现这样的效果：在邮箱系统中登录一遍，然后此时进入课表系统的网站，无需再次登录，课表网站系统直接跳转到个人课表页面，反之亦然。比较专业的定义如下：
+
+**单点登录**（Single Sign On），简称为 **SSO**，是目前比较流行的企业业务整合的解决方案之一。 SSO 的定义是在多个应用系统中，**用户只需要登录一次**就可以**访问所有**相互信任的应用系统。
+
 ## 开始之前 <a id="before-start"></a>
 
-如果你不了解用户池、单点登录和认证授权，建议先阅读[基础概念](https://docs.authing.cn/authing/quickstart/basic)。
+如果你不了解用户池和认证授权，建议先阅读[基础概念](https://docs.authing.cn/authing/quickstart/basic)。
 
 ### 预备知识 <a id="prepare"></a>
 
-1. 基本的 HTML 和 CSS 知识
-2. 中级 JavaScript 技能
+1. 基本的 HTML 和 CSS 知识。
+2. 中级 JavaScript 技能。
 
 ### 所需工具 <a id="tools"></a>
 
-1. 你喜欢的文本编辑器
-2. 可以在本地运行的 Web 服务器（比如：`npm install http-server -g`）
+1. 你喜欢的文本编辑器。
+2. 可以在本地运行的 Web 服务器（比如：`npm install http-server -g`）。
 
 ## 注册一个 Authing 账号 <a id="register-authing-account"></a>
 
@@ -30,17 +34,17 @@ description: >-
 若你是首次注册 Authing，可略过此步骤，首次注册时已自动完成此步骤。
 {% endhint %}
 
-选择**第三方登录** -&gt; **OIDC 应用**选项卡，点击「创建 OIDC 应用」按钮创建应用。
+进入**控制台** &gt; **第三方登录** &gt; **OIDC 应用**，点击「创建 OIDC 应用」按钮。
 
-![](../.gitbook/assets/image%20%28412%29.png)
+![&#x521B;&#x5EFA;&#x6388;&#x6743;&#x5E94;&#x7528;](https://cdn.authing.cn/blog/20200319185519.png)
 
-点击按钮后会弹出一个创建表单，如下图所示：
+在弹出的对话框中，只需填写**应用名称**、**认证地址**和**回调地址**，这三个参数即可，其他参数保留默认，然后点击「确定」。
 
-![](../.gitbook/assets/image%20%28577%29.png)
-
-**填写应用名称**，并指定此应用的二级域名（用户将通过此网址进行认证）和回调地址（业务地址），其他参数保留默认，然后点击「确定」。 
+![&#x586B;&#x5199; OIDC &#x5E94;&#x7528;&#x914D;&#x7F6E;&#x4FE1;&#x606F;](https://cdn.authing.cn/docs/20200319190903.png)
 
 **参数解释**
+
+**应用名称**，请为你的应用起一个名字。
 
 **认证地址**，一个 authing.cn 的二级域名，用户将在此网址进行登录。
 
@@ -48,11 +52,19 @@ description: >-
 
 在应用列表中点击刚创建好的应用，记录下 AppID，二级域名，供以后使用。
 
-## 使用 AuthingSSO SDK 集成单点登录 <a id="use-authing-sso-sdk"></a>
+## 快速集成单点登录 <a id="use-authing-sso-sdk"></a>
 
-### 创建一个空白的 HTML 文档用来编写 Authing 程序 <a id="add-empty-html"></a>
+在 Web 应用启动时，如何判断当前已经为登录状态？关键在于，**Web 应用启动时，需要先询问一下 Authing：当前有人登录了吗？**
 
-本教程只是为了演示，因此我们没选择高级框架，这可以让我们专注于 Authing 本身。
+假设我们的业务逻辑很简单：如果为**未登录状态**，需要**显示登录按钮**，并提示用户登录；如果已经为**登录状态**，就要**显示用户的个人信息和登出按钮**。下面让我们开始编码实现。
+
+### 开发 Web 应用程序 <a id="add-empty-html"></a>
+
+本教程只是为了演示，因此我们没选择高级框架，这可以让我们专注于 Authing 本身。我们使用 [AuthingSSO SDK](https://github.com/Authing/AuthingSSO) 快速为应用集成单点登录能力。
+
+### 新建一个 HTML 文件
+
+创建一个 HTML 文件，开始编码我们的第一个 Web 应用，首先引入 [AuthingSSO SDK](https://github.com/Authing/AuthingSSO.git)，方便我们快速询问 Authing：**当前有人登录了吗？**
 
 ```markup
 <!DOCTYPE html>
@@ -60,61 +72,86 @@ description: >-
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Authing SSO Example</title>
+    <title>第一个应用</title>
   </head>
-  <body></body>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/@authing/sso/dist/AuthingSSO.umd.min.js"></script>
+  </body>
 </html>
 ```
 
-### 添加三个按钮 <a id="add-three-button"></a>
+### 初始化 AuthingSSO SDK
 
-增加三个按钮控件到 body 中，目的是为了演示如何使用 SDK 管理单点登录状态。
+按照以下方式进行初始化，填入前面记录的 OIDC 应用的 AppId 和认证地址，完成 SDK 的初始化。
 
 ```markup
-<button id="btn-login">login</button>
-<button id="btn-track-session">trackSession</button>
-<button id="btn-logout">logout</button>
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/@authing/sso/dist/AuthingSSO.umd.min.js"></script>
+  <script>
+    let auth = new AuthingSSO({
+      // OIDC 应用 ID
+      appId: '5e7343597f905c025e99e660',
+      // OIDC 应用认证地址
+      appDomain: 'first-oidc-app.authing.cn'
+    });
+  </script>
+</body>
 ```
 
-### 引入 AuthingSSO 并初始化 <a id="init-authing-sso"></a>
+### 放置用于实现业务逻辑的基本 HTML 控件
 
-从 CDN 加载 [AuthingSSO](https://github.com/Authing/AuthingSSO) 的 SDK。填入你的 OIDC 应用 ID 和 域名，进行初始化。
+当 Web 应用启动时，如果没有人登录，就显示登录按钮；如果已经是登录状态，就显示用户的个人信息。放置以下控件，以便用于完成我们的业务逻辑。
 
 ```markup
-<script src="https://cdn.jsdelivr.net/npm/@authing/sso/dist/AuthingSSO.umd.min.js"></script>
+<body>
+  <h1 id="h1-login" style="display: none;">请登录</h1>
+  <input type="button" value="登录" id="btn-login" style="display: none;" />
+  <h1 id="h1-user-info" style="display: none;">用户信息</h1>
+  <input type="button" value="登出" id="btn-logout" style="display: none;" />
+  <pre id="user-info"></pre>
+  <script src="https://cdn.jsdelivr.net/npm/@authing/sso/dist/AuthingSSO.umd.min.js"></script>
+  <script>
+    let auth = new AuthingSSO({
+      // OIDC 应用 ID
+      appId: '5e7343597f905c025e99e660',
+      // OIDC 应用认证地址
+      appDomain: 'first-oidc-app.authing.cn'
+    });
+  </script>
+</body>
+```
+
+### 查询登录状态
+
+为了每次启动 Web 应用时，先向 Authing 询问登录状态，以便执行登录状态或未登录状态的业务逻辑，加入以下代码：
+
+```markup
 <script>
   let auth = new AuthingSSO({
-    appId: "YOUR_OIDC_APP_ID",
-    appType: "oidc",
-    appDomain: "YOUR_OIDC_APP_DOMAIN.authing.cn"
+    appId: '5cded9bf4efab36f02fa666a',
+    appDomain: 'first-oidc-app.authing.cn',
+  });
+  window.onload = async function () {
+    let res = await auth.trackSession();
+    if (res.session !== null) {
+      document.getElementById('h1-user-info').style.display = 'block';
+      document.getElementById('user-info').innerHTML = JSON.stringify(res.userInfo, null, 4);
+      document.getElementById('btn-logout').style.display = 'inline';
+    } else {
+      document.getElementById('h1-login').style.display = 'block';
+      document.getElementById('btn-login').style.display = 'inline';
+    }
+  };
+  document.getElementById('btn-login').addEventListener('click', function () {
+    auth.login();
+  });
+  document.getElementById('btn-logout').addEventListener('click', function () {
+    auth.logout().then((res) => {
+      alert(JSON.stringify(res));
+      location.reload();
+    });
   });
 </script>
-```
-
-### 监听按钮的点击事件 <a id="listen-click-event"></a>
-
-达到的效果是：
-
-* 点击 login 按钮，浏览器会跳转到登录页面，与用户完成身份确认。
-* 点击 trackSession 按钮，会显示当前登录状态。
-* 点击 logout 按钮，进行单点登出。
-
-```javascript
-let login = document.getElementById("btn-login");
-let trackSession = document.getElementById("btn-track-session");
-let logout = document.getElementById("btn-logout");
-login.onclick = function() {
-  auth.login();
-};
-trackSession.onclick = async function() {
-  let res = await auth.trackSession();
-  alert(JSON.stringify(res));
-};
-logout.onclick = async function() {
-  let res = await auth.logout();
-  alert(JSON.stringify(res));
-};
 ```
 
 ### 完整代码 <a id="full-code"></a>
@@ -125,37 +162,44 @@ logout.onclick = async function() {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Authing SSO Example</title>
+    <title>第一个应用</title>
   </head>
   <body>
-    <button id="btn-login">login</button>
-    <button id="btn-track-session">trackSession</button>
-    <button id="btn-logout">logout</button>
+    <h1 id="h1-login" style="display: none;">请登录</h1>
+    <input type="button" value="登录" id="btn-login" style="display: none;" />
+    <h1 id="h1-user-info" style="display: none;">用户信息</h1>
+    <input type="button" value="登出" id="btn-logout" style="display: none;" />
+    <pre id="user-info"></pre>
     <script src="https://cdn.jsdelivr.net/npm/@authing/sso/dist/AuthingSSO.umd.min.js"></script>
     <script>
       let auth = new AuthingSSO({
-        appId: "YOUR_OIDC_APP_ID",
-        appType: "oidc",
-        appDomain: "YOUR_OIDC_APP_DOMAIN.authing.cn"
+        appId: '5cded9bf4efab36f02fa666a',
+        appDomain: 'first-oidc-app.authing.cn',
       });
-      let login = document.getElementById("btn-login");
-      let trackSession = document.getElementById("btn-track-session");
-      let logout = document.getElementById("btn-logout");
-      login.onclick = function() {
-        auth.login();
-      };
-      trackSession.onclick = async function() {
+      window.onload = async function () {
         let res = await auth.trackSession();
-        alert(JSON.stringify(res));
+        if (res.session !== null) {
+          document.getElementById('h1-user-info').style.display = 'block';
+          document.getElementById('user-info').innerHTML = JSON.stringify(res.userInfo, null, 4);
+          document.getElementById('btn-logout').style.display = 'inline';
+        } else {
+          document.getElementById('h1-login').style.display = 'block';
+          document.getElementById('btn-login').style.display = 'inline';
+        }
       };
-      logout.onclick = async function() {
-        let res = await auth.logout();
-        alert(JSON.stringify(res));
-      };
+      document.getElementById('btn-login').addEventListener('click', function () {
+        auth.login();
+      });
+      document.getElementById('btn-logout').addEventListener('click', function () {
+        auth.logout().then((res) => {
+          alert(JSON.stringify(res));
+          location.reload();
+        });
+      });
     </script>
   </body>
 </html>
+
 ```
 
 示例代码可从 [Github](https://github.com/Authing/authing-sso-demo) 上找到，建议将 Github 上的代码下载运行。
@@ -183,21 +227,23 @@ $ http-server
 
 ### 运行效果 <a id="demo-result"></a>
 
-首先点击 trackSession 按钮，获取到的登录状态为空，因为我们还未登录。
+打开我们编写的 Web 应用，当前是未登录状态，页面提示用户登录，并显示登录按钮。我们点击「登录」。
 
-![](../.gitbook/assets/image%20%28184%29.png)
+![&#x672A;&#x767B;&#x5F55;](https://cdn.authing.cn/docs/20200405180101.png)
 
-现在我们点击 login 按钮，会跳转到 OIDC 应用的用户认证页面，输入用户名密码进行登录。
+
+
+浏览器会跳转到 OIDC 应用的用户认证页面，输入用户名密码进行登录。
 
 ![](../.gitbook/assets/image%20%28206%29.png)
 
-浏览器被重定向到我们之前设置的回调链接。
 
-点击 trackSession 按钮，此时能够获取到该用户的登录状态，包括用户 ID，应用 ID，应用类型，还有此用户的详细信息。
 
-![](../.gitbook/assets/image%20%28470%29.png)
+浏览器被重定向到我们之前设置的回调链接。本示例依然回调到 localhost:8080。
 
-trackSession 返回数据格式如下：
+![&#x5DF2;&#x767B;&#x5F55;](https://cdn.authing.cn/docs/20200405180354.png)
+
+登录之后我们通过 AuthingSSO SDK 的 trackSession 函数获取用户信息，并显示在页面上。trackSession 返回数据格式如下：
 
 ```text
 {
@@ -281,13 +327,15 @@ trackSession 返回数据格式如下：
 }
 ```
 
-点击 logout 按钮，输出单点登出成功。
 
-![](../.gitbook/assets/image%20%28296%29.png)
 
-此时我们再点击 trackSession 按钮，可见登录状态为空，说明用户已经单点登出了。
+你可以在这个页面多刷新几次，因为当前是已登录状态，浏览器会一直显示用户信息。接下来，我们点击「登出」按钮，进行单点登出。
 
-![](../.gitbook/assets/image%20%28242%29.png)
+![](https://cdn.authing.cn/docs/20200405180656.png)
+
+浏览器弹出单点登出成功信息，点击确定之后，浏览器会自动刷新。之后发现用户已经是登出状态了，于是浏览器执行未登录时的业务逻辑：提示用户登录并显示登录按钮。
+
+![](https://cdn.authing.cn/docs/20200405180852.png)
 
 ## 访问用户个人中心页面 <a id="visit-profile"></a>
 
@@ -383,7 +431,13 @@ OIDC 应用 id。
 {% endapi-method-spec %}
 {% endapi-method %}
 
-Authing Token 换 OIDC Token 的代码示例：
+Authing Token 换 OIDC Token 的 JS 代码示例：
+
+安装依赖：
+
+```bash
+$ npm install axios querystring jsonwebtoken
+```
 
 ```javascript
 const qs = require('querystring');

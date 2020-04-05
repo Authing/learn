@@ -24,17 +24,17 @@ https://oauth.authing.cn/oauth/github/redirect
 
 如下图所示：
 
-![](../../.gitbook/assets/image%20%28240%29.png)
+![](../../.gitbook/assets/image%20%28241%29.png)
 
 之后你可以获取到 GitHub OAuth 应用的 Client ID 和 Client Secret：
 
-![](../../.gitbook/assets/image%20%28390%29.png)
+![](../../.gitbook/assets/image%20%28391%29.png)
 
 ### 在 Authing 控制台填入 GitHub OAuth 应用信息
 
 在 Github 创建完 OAuth 应用后请按照下图指示在 Authing 控制台找到 Github 社会化登录配置：
 
-![](../../.gitbook/assets/image%20%28535%29.png)
+![](../../.gitbook/assets/image%20%28536%29.png)
 
 在此需要填入你的 GitHub 应用信息：
 
@@ -64,7 +64,7 @@ https://oauth.authing.cn/oauth/github/redirect
 
 > 访问上述链接，你应该可以看到类似以下的页面：
 
-![](../../.gitbook/assets/image%20%28599%29.png)
+![](../../.gitbook/assets/image%20%28600%29.png)
 
 ### 处理 Authing 回调请求
 
