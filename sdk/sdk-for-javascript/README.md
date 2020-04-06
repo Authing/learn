@@ -558,7 +558,7 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](../../authentication/lda
 
 ```javascript
 {
-  status: false,
+  status: true,
   code: 200,
   message: '已登录',
   token: {
