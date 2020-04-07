@@ -75,7 +75,10 @@ function callback(error, user, context)
 function callback(error, context)
 ```
 
-callback 函数的第一个参数表示是开发者希望传给终端用户的  error，**如果不为 null，整个认证流程将会中断，直接返回错误给前端**。同时请务必将最新的 user 和 context 传给 callback 函数，否则之后的 pipeline 函数将可能无法正常工作。
+说明：
+
+1. callback 函数的第一个参数表示是开发者希望传给终端用户的  error，**如果不为 null，整个认证流程将会中断，直接返回错误给前端**。
+2. 如果第一个参数为 null ，请务必将最新的 user 和 context 传给 callback 函数，否则之后的 pipeline 函数将无法正常工作。
 
 ## Pipeline 函数示例 <a id="example"></a>
 
