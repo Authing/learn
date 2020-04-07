@@ -130,8 +130,16 @@ description: 'context 对象中保存了当前认证流程的上下文，包括�
         href="../../social-login/mobile/alipay.md">&#x63A5;&#x5165;&#x79FB;&#x52A8; APP &#x652F;&#x4ED8;&#x5B9D;&#x767B;&#x5F55;</a>&#x3002;</td>
     </tr>
     <tr>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
+      <td style="text-align:left">social:wechatwork-web</td>
+      <td style="text-align:left">&#x4F01;&#x4E1A;&#x5FAE;&#x4FE1;&#x7F51;&#x9875;&#x6388;&#x6743;&#x767B;&#x5F55;&#x3002;&#x8BE6;&#x60C5;&#x89C1;
+        <a
+        href="../../social-login/web/wechatwork-web.md">&#x4F01;&#x4E1A;&#x5FAE;&#x4FE1;&#x7F51;&#x9875;&#x6388;&#x6743;&#x767B;&#x5F55;</a>&#x3002;</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">social:wechatwork-qrconnect</td>
+      <td style="text-align:left">&#x4F01;&#x4E1A;&#x5FAE;&#x4FE1;&#x626B;&#x7801;&#x767B;&#x5F55;&#x3002;&#x8BE6;&#x60C5;&#x89C1;
+        <a
+        href="../../social-login/web/wechatwork-qrconnect.md">&#x4F01;&#x4E1A;&#x5FAE;&#x4FE1;&#x626B;&#x7801;&#x767B;&#x5F55;</a>&#x3002;</td>
     </tr>
   </tbody>
 </table>## data 对象 <a id="data-object"></a>
