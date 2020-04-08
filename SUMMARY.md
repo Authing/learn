@@ -132,7 +132,7 @@
 * [SDK for JavaScript](sdk/sdk-for-javascript/README.md)
   * [查询用户权限](sdk/sdk-for-javascript/query-permissions.md)
   * [绑定社会化登录](sdk/sdk-for-javascript/bind-social-accounts.md)
-  * [用户自定义 Metadata](sdk/sdk-for-javascript/yong-hu-zi-ding-yi-metadata.md)
+  * [自定义用户字段](sdk/sdk-for-javascript/metadata.md)
   * [管理 MFA 口令](sdk/sdk-for-javascript/guan-li-mfa-kou-ling.md)
   * [自定义请求链接](sdk/sdk-for-javascript/zi-ding-yi-qing-qiu-lian-jie.md)
 * [SDK for Node.js](sdk/sdk-for-node/README.md)
