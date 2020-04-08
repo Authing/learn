@@ -142,7 +142,7 @@ Pre-Register（注册前） Pipeline 中没有 user  对象。
     <tr>
       <td style="text-align:left">addMetaData</td>
       <td style="text-align:left">&#x6DFB;&#x52A0;&#x81EA;&#x5B9A;&#x4E49; metadata &#x5230; user &#x5BF9;&#x8C61;&#x3002;&#x4E0D;&#x4F1A;&#x6301;&#x4E45;&#x6027;&#x4FDD;&#x5B58;&#x81F3;&#x6570;&#x636E;&#x5E93;&#xFF0C;<b>&#x53EA;&#x5BF9;&#x5F53;&#x524D;&#x8BF7;&#x6C42;&#x6709;&#x6548;</b>&#x3002;&#x5F00;&#x53D1;&#x8005;&#x53EF;&#x7528;&#x4E8E;&#x6DFB;&#x52A0;&#x4E00;&#x6B21;&#x6027;&#x7684;&#x6570;&#x636E;&#x3002;&#x6709;&#x5173;&#x5982;&#x4F55;&#x83B7;&#x53D6;&#x3001;&#x7BA1;&#x7406;&#x7528;&#x6237;
-        metadata&#xFF0C;&#x8BF7;&#x89C1; <a href="../../scan-qrcode/app-qrcode/">&#x7BA1;&#x7406;&#x7528;&#x6237; MetaData</a>&#x3002;</td>
+        metadata&#xFF0C;&#x8BF7;&#x89C1; <a href="../user-metadata.md">&#x7BA1;&#x7406;&#x7528;&#x6237; MetaData</a>&#x3002;</td>
       <td
       style="text-align:left">user.addMetaData(&quot;KEY&quot;, &quot;VALUE&quot;)</td>
     </tr>
@@ -150,7 +150,7 @@ Pre-Register（注册前） Pipeline 中没有 user  对象。
       <td style="text-align:left">addMetaDataAndPersist</td>
       <td style="text-align:left">&#x6DFB;&#x52A0;&#x81EA;&#x5B9A;&#x4E49; metadata &#x5230; user &#x5BF9;&#x8C61;&#xFF0C;<b>&#x540C;&#x65F6;&#x6301;&#x4E45;&#x5316;&#x4FDD;&#x5B58;&#x81F3;&#x6570;&#x636E;&#x5E93;</b>&#x3002;VALUE
         &#x957F;&#x5EA6;&#x4E0D;&#x80FD;&#x8D85;&#x8FC7; 1000 &#x5B57;&#x7B26;&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x88AB;&#x4E22;&#x5F03;&#x3002;&#x6709;&#x5173;&#x5982;&#x4F55;&#x83B7;&#x53D6;&#x3001;&#x7BA1;&#x7406;&#x7528;&#x6237;
-        metadata&#xFF0C;&#x8BF7;&#x89C1; <a href="../../scan-qrcode/app-qrcode/">&#x7BA1;&#x7406;&#x7528;&#x6237; MetaData</a>&#x3002;</td>
+        metadata&#xFF0C;&#x8BF7;&#x89C1; <a href="../user-metadata.md">&#x7BA1;&#x7406;&#x7528;&#x6237; MetaData</a>&#x3002;</td>
       <td
       style="text-align:left">user.addMetaDataAndPersist(&quot;KEY&quot;, &quot;VALUE&quot;)</td>
     </tr>
@@ -188,4 +188,3 @@ Pre-Register（注册前） Pipeline 中没有 user  对象。
     </tr>
   </tbody>
 </table>
-
