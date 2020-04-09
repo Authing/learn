@@ -25,7 +25,7 @@
 * Redirect：**这是你的业务回调域名，和 QQ 网页应用里配置的回调链接不一样**。比如你的网站域名是 https://example.com ， 处理 Authing 回调请求的 url 为 /auth/qq/callback ， 那么你应该填写为 `https://example.com/auth/qq/callback`。如果你需要在 OIDC 或 OAuth 应用中单独配置回调链接，此处地址可填入： \#。
 * Scopes（可选）: 默认情况下，Authing 只会向用户申请基础用户信息（如头像、昵称等）的授权，如果你需要更多高级权限，可以勾选上对应的选项。详细说明请见[配置登录授权 Scopes](social-login-scopes.md#qq)。
 
-![](../../.gitbook/assets/image%20%28423%29.png)
+![](../../.gitbook/assets/image%20%28424%29.png)
 
 
 

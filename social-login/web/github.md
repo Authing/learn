@@ -24,17 +24,17 @@ https://oauth.authing.cn/oauth/github/redirect
 
 如下图所示：
 
-![](../../.gitbook/assets/image%20%28241%29.png)
+![](../../.gitbook/assets/image%20%28242%29.png)
 
 之后你可以获取到 GitHub OAuth 应用的 Client ID 和 Client Secret：
 
-![](../../.gitbook/assets/image%20%28391%29.png)
+![](../../.gitbook/assets/image%20%28392%29.png)
 
 ### 在 Authing 控制台填入 GitHub OAuth 应用信息
 
 在 Github 创建完 OAuth 应用后请按照下图指示在 Authing 控制台找到 Github 社会化登录配置：
 
-![](../../.gitbook/assets/image%20%28536%29.png)
+![](../../.gitbook/assets/image%20%28537%29.png)
 
 在此需要填入你的 GitHub 应用信息：
 
@@ -43,7 +43,7 @@ https://oauth.authing.cn/oauth/github/redirect
 * Redirect：**这是你的业务回调域名，和 GitHub OAuth 应用配置的回调链接不一样**。比如你的网站域名是 https://example.com ， 处理 Authing 回调请求的 url 为 /auth/github/callback ， 那么你应该填写为 `https://example.com/auth/github/callback`。如果你需要在 OIDC 或 OAuth 应用中单独配置回调链接，此处地址可填入： \#。
 * Scopes（可选）: 默认情况下，Authing 只会向用户申请基础用户信息（如头像、昵称、邮箱等）的授权，如果你需要更多高级权限，可以勾选上对应的选项。详细说明请见[配置登录授权 Scopes](social-login-scopes.md#github)。
 
-![](../../.gitbook/assets/image%20%2879%29.png)
+![](../../.gitbook/assets/image%20%2880%29.png)
 
 配置完成后请点击「确定」保存信息。
 
@@ -64,7 +64,7 @@ https://oauth.authing.cn/oauth/github/redirect
 
 > 访问上述链接，你应该可以看到类似以下的页面：
 
-![](../../.gitbook/assets/image%20%28600%29.png)
+![](../../.gitbook/assets/image%20%28601%29.png)
 
 ### 处理 Authing 回调请求
 

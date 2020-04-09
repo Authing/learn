@@ -36,7 +36,7 @@ authing.qrlogin.startScanning({
 
 运行后将自动生成用于 APP 扫码登录的二维码：
 
-![](../../.gitbook/assets/image%20%28601%29.png)
+![](../../.gitbook/assets/image%20%28602%29.png)
 
 扫码成功之后，Authing 将会回调开发者传入的 onSuccess，回调的参数中包含了 ticket 和 userInfo，ticket 可以用来换取用户信息。
 
@@ -132,7 +132,7 @@ Authing 生成的二维码中包含的原始信息为一串字符串，转换为
 
 移动端确认授权之后，Web 将会看到相关提示。
 
-![](../../.gitbook/assets/image%20%28563%29.png)
+![](../../.gitbook/assets/image%20%28564%29.png)
 
 这个时候，整个登录流程也就完成了，开发者可以使用 ticket 去换取用户信息了。
 

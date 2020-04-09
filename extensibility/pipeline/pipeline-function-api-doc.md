@@ -76,6 +76,14 @@ function callback(error, context)
 1. callback 函数的第一个参数表示是开发者希望传给终端用户的  error，**如果不为 null，整个认证流程将会中断，直接返回错误给前端**。
 2. 如果第一个参数为 null ，请务必将最新的 user 和 context 传给 callback 函数，否则之后的 pipeline 函数将无法正常工作。
 
+### 设置异步执行
+
+设置为异步执行（ **这里的异步非语言层面上** ）的 pipeline 函数不会阻塞注册、登录、OIDC 流程的执行，callback 函数传入的参数对后续流程无影响，适用于进行异步通知的场景，比如飞书群通知、钉钉群通知、触发外部系统统计等。
+
+如下图所示，勾选上此框表示让该 pipeline 函数异步执行：
+
+![](../../.gitbook/assets/image%20%2873%29.png)
+
 ## Pipeline 函数示例 <a id="example"></a>
 
 这里我们实现一个注册邮箱白名单的 **Pre-Register  Pipeline**。

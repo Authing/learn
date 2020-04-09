@@ -235,7 +235,7 @@ $ http-server
 
 浏览器会跳转到 OIDC 应用的用户认证页面，输入用户名密码进行登录。
 
-![](../.gitbook/assets/image%20%28206%29.png)
+![](../.gitbook/assets/image%20%28207%29.png)
 
 
 
@@ -351,7 +351,7 @@ https://<appDomain>.authing.cn/login/profile
 
 如果用户未登录，会先要求用户登录再进入个人中心；对于已登录的用户则会直接进入个人中心。
 
-![&#x4E2A;&#x4EBA;&#x4E2D;&#x5FC3;](../.gitbook/assets/image%20%28188%29.png)
+![&#x4E2A;&#x4EBA;&#x4E2D;&#x5FC3;](../.gitbook/assets/image%20%28189%29.png)
 
 ## 检验 token 合法性 <a id="validate-token"></a>
 

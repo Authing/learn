@@ -17,7 +17,7 @@
 
 之后你需要将相关配置填入下面的表单：
 
-![](../../.gitbook/assets/image%20%28191%29.png)
+![](../../.gitbook/assets/image%20%28192%29.png)
 
 ### 添加 IP 白名单
 
@@ -35,7 +35,7 @@
 
 你需要提供 CorpID 和 ProviderSecret，可在 [应用管理 - 通用开发参数 ](https://open.work.weixin.qq.com/wwopen/developer#/sass/power/inter)页面获取：
 
-![](../../.gitbook/assets/image%20%28185%29.png)
+![](../../.gitbook/assets/image%20%28186%29.png)
 
 之后填入上文提示的表单。
 
@@ -99,7 +99,7 @@
 
 在浏览器中访问上述链接，你应该成功可以跳转企业微信扫码登录页面：
 
-![](../../.gitbook/assets/image%20%28120%29.png)
+![](../../.gitbook/assets/image%20%28121%29.png)
 
 ### 处理 Authing 回调数据
 
