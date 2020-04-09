@@ -21,3 +21,7 @@
 
 由于 Authing Pipeline 函数完全运行在云端，所以刷新用户池 secret 会同时更新用户池内所有的 Pipeline 函数。这意味着在一小段时间之内 Pipeline 函数中将无法正常使用 authing-js-sdk。
 
+## 有哪些性能优化方法？
+
+* 如果是和 pipeline 流程不直接相关的函数，如新用户注册通知等，可以[设置为异步执行](pipeline-function-api-doc.md#she-zhi-yi-bu-zhi-hang)。
+
