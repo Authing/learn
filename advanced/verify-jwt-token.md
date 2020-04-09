@@ -128,7 +128,7 @@ try {
       expired = (Date.parse(new Date()) / 1000) > decoded.exp
   if (expired) {
     // 过期
-  }else {
+  } else {
     // 合法也没过期，正常放行
   }
 } catch (error) {
@@ -137,7 +137,7 @@ try {
 ```
 
 {% hint style="info" %}
-为了避免在客户端暴露 Token，建议将 Token 验证放在服务端执行。‌
+为了避免在客户端暴露 OIDC App Secret，建议在**服务端**通过 OIDC App Secret 验证 id\_token 的合法性。‌
 {% endhint %}
 
 如果你对如何在后端处理 OIDC 有困惑，请参考 Github 上的示例代码：[oidc-demo](https://github.com/Authing/oidc-demo)。‌

@@ -332,6 +332,40 @@ changeAvatar: function() {
 },
 ```
 
+### 用户自定义字段
+
+用户自定义 Metadata 是除了 Authing 基础用户字段之外，开发者可以给用户添加的额外字段，属于 Authing 扩展能力的一部分。
+
+Metadata 是一组 key-value 值，开发者可以通过设置自定义字段，存储**少量**业务相关的数据。
+
+详细的接口请见： [用户自定义字段](https://docs.authing.cn/authing/sdk/sdk-for-node/user-metadata) 。
+
+调用示例：
+
+```javascript
+const userId = this.data.userinfo._id
+authing.metadata(userId).then(async metadata => {
+    console.log("初始用户自定义字段为空：", metadata)
+
+    await authing.setMetadata({
+        _id: userId,
+        key: "KEY",
+        value: "VALUE"
+    })
+
+    metadata = await authing.metadata(userId)
+    console.log("setMetadata 之后的用户自定义字段：", metadata)
+
+    await authing.removeMetadata({
+        _id: userId,
+        key: "KEY"
+    })
+
+    metadata = await authing.metadata(userId)
+    console.log("removeMetadata 之后的用户自定义字段：", metadata)
+})
+```
+
 ### 其他接口
 
 其他和 JavaScript 版本相同：[https://github.com/Authing/authing-js-sdk](https://github.com/Authing/authing-js-sdk)，若存在问题，可以发 issue 指出。
@@ -339,4 +373,8 @@ changeAvatar: function() {
 ## 完成接入
 
 恭喜你，此时已经接入了微信小程序登录。获取到用户信息之后，你可以得到登录凭证 token，你可以在后续的 API 请求中携带上此 token, 然后在后端接口中根据此 token 区分不同用户，详情请见[验证 token](../advanced/verify-jwt-token.md#yan-zheng-authing-qian-fa-de-token)。
+
+## Get Help
+
+Join us on Gitter: [\#authing-chat](https://gitter.im/authing-chat/community)
 
