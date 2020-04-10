@@ -4,7 +4,7 @@ description: 如果你的微信应用使用同一微信主体注册，Authing �
 
 # 打通微信账号体系
 
-## 准备工作
+## 准备工作 <a id="prepare"></a>
 
 你一共需要准备以下内容：
 
@@ -18,23 +18,23 @@ description: 如果你的微信应用使用同一微信主体注册，Authing �
    * [移动 APP 拉起小程序登录](miniprogram/app2wxapp.md) （小程序）
    * [小程序扫码登录](../scan-qrcode/wxapp-qrcode/)（小程序）
 
-### 如何查看同一微信主体注册的所有微信应用
+### 如何查看同一微信主体注册的所有微信应用 <a id="wechat"></a>
 
 前往[微信开放平台](https://open.weixin.qq.com/) - **管理中心** 页面，你可以看到该微信主体注册的所有微信应用：
 
 ![](../.gitbook/assets/image%20%28116%29.png)
 
-## 开始接入
+## 开始接入 <a id="start"></a>
 
 这里我们以接入[**微信 PC 扫码登录**](web/wechat-pc.md)和[**小程序扫码登录**](../scan-qrcode/wxapp-qrcode/)为例，介绍一下如何打通微信账号体系。
 
-### 第一步：接入微信 PC 扫码登录
+### 第一步：接入微信 PC 扫码登录 <a id="wechat-pc"></a>
 
 具体接入流程请见：
 
 {% page-ref page="web/wechat-pc.md" %}
 
-### 第二步：接入小程序扫码登录
+### 第二步：接入小程序扫码登录 <a id="wechat-miniprogram"></a>
 
 「小程序扫码登录」指的是：扫描小程序二维码登录 Web 应用，据 Authing 客户统计，该方式能提高 80% 的注册转化率并在获取到用户手机号的同时，节省 100% 的短信成本。详细介绍请见：[https://wxapp.authing.cn/](https://wxapp.authing.cn/) 。
 
@@ -48,7 +48,7 @@ description: 如果你的微信应用使用同一微信主体注册，Authing �
 
 {% page-ref page="../scan-qrcode/wxapp-qrcode/" %}
 
-### 接下来：Authing 自动为你完成统一微信账号的工作
+### 接下来：Authing 自动为你完成统一微信账号的工作 <a id="authing"></a>
 
 如果你的微信应用使用同一微信主体注册，Authing 会将终端用户自动识别为同一个用户，不需要你进行额外操作。
 
