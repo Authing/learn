@@ -11,7 +11,7 @@
 
 ### 在 Authing  控制台找到「企业微信（内部应用）扫码登录」
 
-![](../../.gitbook/assets/image%20%28274%29.png)
+![](../../.gitbook/assets/image%20%28280%29.png)
 
 之后你需要将相关配置填入下面的表单：
 
@@ -21,19 +21,19 @@
 
 在 [我的企业 - 企业信息 ](https://work.weixin.qq.com/wework_admin/frame#profile)页面可以获取到。
 
-![](../../.gitbook/assets/image%20%28464%29.png)
+![](../../.gitbook/assets/image%20%28475%29.png)
 
 ### 获取 AgentID 和 Secret
 
 在 [应用管理 - 应用管理 ](https://work.weixin.qq.com/wework_admin/frame#apps)页面的应用详情可以获取到。
 
-![](../../.gitbook/assets/image%20%2848%29.png)
+![](../../.gitbook/assets/image%20%2849%29.png)
 
 ### 启用企业微信授权登录
 
 在应用详情页，点击设置企业微信授权登录：
 
-![](../../.gitbook/assets/image%20%28567%29.png)
+![](../../.gitbook/assets/image%20%28578%29.png)
 
 在新打开的页面，设置授权回调域为 core.authing.cn 。
 
@@ -43,7 +43,7 @@
 
 在应用详情页，设置网页授权及JS-SDK域名，填写你的 OIDC 应用二级域名，如 yourapp.authing.cn 。
 
-![](../../.gitbook/assets/image%20%28316%29.png)
+![](../../.gitbook/assets/image%20%28322%29.png)
 
 ### 配置回调链接 Redirect URL
 
@@ -95,7 +95,7 @@
 
 在浏览器中访问上述链接，你应该成功可以跳转企业微信扫码登录页面：
 
-![](../../.gitbook/assets/image%20%28187%29.png)
+![](../../.gitbook/assets/image%20%28191%29.png)
 
 ### 处理 Authing 回调数据
 

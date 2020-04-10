@@ -82,7 +82,7 @@ function callback(error, context)
 
 如下图所示，勾选上此框表示让该 pipeline 函数异步执行：
 
-![](../../.gitbook/assets/image%20%2873%29.png)
+![](../../.gitbook/assets/image%20%2875%29.png)
 
 ## Pipeline 函数示例 <a id="demo"></a>
 

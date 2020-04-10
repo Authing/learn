@@ -16,9 +16,9 @@ description: 学习 Authing 的基础知识以及我们会用到的一些术语�
 
 [注册完 Authing 账户](https://authing.cn/login)后，你看到的是一个空白的列表页，此时你需要创建一个**用户池**。拥有了一个用户池之后你可以授权其他应用（第三方应用或者你自己写的应用）读取用户数据，授权协议支持 [OAuth2.0](https://docs.authing.cn/authing/advanced/oauth2)、[OIDC](https://docs.authing.cn/authing/advanced/oidc)、[SAML](https://docs.authing.cn/authing/advanced/shi-yong-saml) 和 [LDAP](https://docs.authing.cn/authing/advanced/ldap)。
 
-![](../.gitbook/assets/image%20%28448%29.png)
+![](../.gitbook/assets/image%20%28459%29.png)
 
-![](../.gitbook/assets/image%20%2877%29.png)
+![](../.gitbook/assets/image%20%2879%29.png)
 
 创建应用时可以选择如下四种类型：
 
@@ -28,7 +28,7 @@ description: 学习 Authing 的基础知识以及我们会用到的一些术语�
 
 userPoolId 和 secret 在控制台中的查看位置如下图所示：
 
-![](../.gitbook/assets/image%20%28259%29.png)
+![](../.gitbook/assets/image%20%28265%29.png)
 
 如上图所示，如果你的 secret 不小心泄漏，可以通过「刷新」按钮重置 secret。但是请注意，如果你在某些程序中使用了该 secret，那么使用该 secret 的程序也必须要手动更新 secret，否则会造成该程序的「身份认证功能」毁坏。
 
@@ -51,13 +51,13 @@ userPoolId 和 secret 在控制台中的查看位置如下图所示：
 
 你可以在控制台中创建用户：
 
-![](../.gitbook/assets/image%20%28531%29.png)
+![](../.gitbook/assets/image%20%28542%29.png)
 
 {% hint style="success" %}
 在本文的例子中，「非凡科技」创建了一个邮箱为「test@feifantech.com」的账号用来测试 Authing 的账号系统。
 {% endhint %}
 
-![](../.gitbook/assets/image%20%28575%29.png)
+![](../.gitbook/assets/image%20%28586%29.png)
 
 在「原始 JSON 数据」选项卡中可以看到一段用来表示该账号的 JSON 数据：
 

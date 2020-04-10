@@ -4,9 +4,9 @@
 
 在 Authing 创建 OIDC 应用非常简单，按照下图即可完成创建：
 
-![](../../.gitbook/assets/image%20%28441%29.png)
+![](../../.gitbook/assets/image%20%28452%29.png)
 
-![](../../.gitbook/assets/image%20%28449%29.png)
+![](../../.gitbook/assets/image%20%28460%29.png)
 
 ### 参数解释
 
@@ -24,15 +24,15 @@
 
 如：
 
-![](../../.gitbook/assets/image%20%28514%29.png)
+![](../../.gitbook/assets/image%20%28525%29.png)
 
 点击确定创建完成后可看到：
 
-![](../../.gitbook/assets/image%20%28571%29.png)
+![](../../.gitbook/assets/image%20%28582%29.png)
 
 每一个 OIDC 应用都有一个 **App ID** 和一个 **App Secret**，**请妥善保管好 App Secret**。
 
-![](../../.gitbook/assets/image%20%28549%29.png)
+![](../../.gitbook/assets/image%20%28560%29.png)
 
 ## 接下来你可能需要
 

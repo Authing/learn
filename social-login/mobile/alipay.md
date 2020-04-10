@@ -22,7 +22,7 @@
 
 前往 [支付宝开放平台](https://openhome.alipay.com/) 注册支付宝移动应用，你需要按照[此页面](https://docs.open.alipay.com/291/105971/)的指引生成一对 RSA 密钥对，私钥自己妥善保存，将公钥提交给支付宝换取支付宝公钥。
 
-![](../../.gitbook/assets/image%20%28120%29.png)
+![](../../.gitbook/assets/image%20%28123%29.png)
 
 {% hint style="info" %}
 请确保开启了 “获取会员信息” 功能。
@@ -40,7 +40,7 @@
 * AlipayPID（合作伙伴账号 PID）：在 [账号中心 - 合作伙伴管理](https://openhome.alipay.com/platform/accountSetting.htm) 页面可以获取到。
 * AppPrivateKey（应用私钥）：上一步生成的应用私钥。
 
-![](../../.gitbook/assets/image%20%28474%29.png)
+![](../../.gitbook/assets/image%20%28485%29.png)
 
 ## 正式接入
 
@@ -135,7 +135,7 @@ AlipaySDK().auth_V2(withInfo: authInfo, fromScheme: "authing-alipay", callback: 
 这里的 fromSchema 需要和设置的 URL Types 中的 URL Schema 一致：如下图所示：
 {% endhint %}
 
-![](../../.gitbook/assets/image%20%28485%29.png)
+![](../../.gitbook/assets/image%20%28496%29.png)
 
 ### 接收支付宝回调数据
 

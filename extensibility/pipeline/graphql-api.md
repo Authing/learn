@@ -2,13 +2,13 @@
 
 非 JS 开发者可以使用我们的 [GraphQL 调试器](https://authing.cn/graphiql/) 查看 Pipeline 相关 API：
 
-![](../../.gitbook/assets/image%20%28102%29.png)
+![](../../.gitbook/assets/image%20%28104%29.png)
 
-![](../../.gitbook/assets/image%20%28174%29.png)
+![](../../.gitbook/assets/image%20%28178%29.png)
 
 点击 “生成查询语句“ 按钮，可生成查询语句：
 
-![](../../.gitbook/assets/image%20%28194%29.png)
+![](../../.gitbook/assets/image%20%28198%29.png)
 
 
 

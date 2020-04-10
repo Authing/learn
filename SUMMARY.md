@@ -72,6 +72,7 @@
   * [小程序登录](social-login/miniprogram/miniprogram/README.md)
     * [用户登录凭证（code）最佳实践](social-login/miniprogram/miniprogram/code-best-practice.md)
   * [APP 拉起小程序登录](social-login/miniprogram/app2wxapp.md)
+* [打通微信账号体系](social-login/wechat-account.md)
 
 ## 扫码登录 <a id="scan-qrcode"></a>
 
