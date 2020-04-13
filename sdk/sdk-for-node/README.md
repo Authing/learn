@@ -466,7 +466,7 @@ function formatError(error) {
 
 ## 检测手机号验证码是否正确
 
-**Authing.checkPhoneCode\(options\)**
+**Authing.verifyPhoneCode\(options\)**
 
 * **参数:**
   * `{Object} options`
@@ -481,7 +481,7 @@ function formatError(error) {
   	secret: 'your_userpool_secret'
   });
   
-  const result = await authing.loginByPhoneCode({
+  const result = await authing.verifyPhoneCode({
     phone: 'Your Phone',
     phoneCode: 'Your Phone Code',
   })
