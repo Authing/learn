@@ -400,8 +400,7 @@ function formatError(error) {
       	secret: 'your_userpool_secret'
       });
   
-      const userInfo = await authing.getVerificationCode('phone number')
-        .catch((error) => { ... })
+      const result = await authing.getVerificationCode('phone number')
     })();
     ```
 * **返回数据:**
@@ -419,8 +418,6 @@ function formatError(error) {
 {% hint style="info" %}
 当前不支持修改短信模版。
 {% endhint %}
-
-验证码接口可结合[使用手机验证码登录](./#shi-yong-shou-ji-yan-zheng-ma-deng-lu)使用。
 
 ## 使用手机验证码登录
 
@@ -466,6 +463,48 @@ function formatError(error) {
         "isDeleted": false,
     }
     ```
+
+## 检测手机号验证码是否正确
+
+**Authing.checkPhoneCode\(options\)**
+
+* **参数:**
+  * `{Object} options`
+    * **phone**，必填，手机号
+    * **phoneCode**，必填，使用发送短信接口获取
+* **使用方法:**
+
+```javascript
+(async function() {
+  const authing = new Authing({
+    userPoolId: 'your_userpool_id',
+  	secret: 'your_userpool_secret'
+  });
+  
+  const result = await authing.loginByPhoneCode({
+    phone: 'Your Phone',
+    phoneCode: 'Your Phone Code',
+  })
+})();
+```
+
+* 返回数据
+
+```javascript
+// 验证码正确的返回数据
+{
+    code: 200,
+    message: '验证码正确',
+    status: true
+}
+
+// 验证码不正确的示例
+{
+    code: 2300,
+    message: '验证码过期',
+    status: false
+}
+```
 
 ## 使用手机号注册
 
