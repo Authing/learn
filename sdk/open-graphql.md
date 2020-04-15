@@ -240,6 +240,35 @@ mutation login($phone: String, $phoneCode: Int, $registerInClient: String!, $bro
 {% endapi-method-spec %}
 {% endapi-method %}
 
+## 通过 AD 登录
+
+使用 Active Directory 登录，登录后返回的 Token 需要在客户端维护
+
+```graphql
+mutation LoginByAd($adConnectorId: String!, $username: String!, $password: String!) {
+  LoginByLDAP(adConnectorId: $adConnectorId, username: $username, password: $password) {
+      _id
+      email
+      emailVerified
+      unionid
+      oauth
+      registerMethod
+      username
+      nickname
+      company
+      photo
+      browser
+      token
+      tokenExpiredAt
+      loginsCount
+      lastLogin
+      lastIP
+      signedUp
+      blocked
+  }
+}
+```
+
 ## 通过 LDAP 登录
 
  使用 LDAP 登录，登录后返回的 Token 需要在客户端维护

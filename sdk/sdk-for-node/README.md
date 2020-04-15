@@ -592,6 +592,56 @@ const authing = new Authing({
      }
     ```
 
+## 使用 AD 登录
+
+Active Directory 的连接流程请参考：
+
+{% page-ref page="../../authentication/active-directory/config.md" %}
+
+**Authing.loginByAd\(options\)**
+
+* **参数:**
+  * `{Object} options`
+    * `username`，必传，在 Active Directory 服务中的用户名，必须是 `username@domain.com` 或 `domain\username` 形式。
+    * `password`，必传，AD 域用户密码。
+    * `adConnectorId`，必传，AD Connector ID，可以在[**控制台**](https://authing.cn/dashboard) &gt; **第三方登录** &gt; **Active Directory** 获得。
+* **使用方法：**
+
+```javascript
+(async function() {
+  const authing = new Authing({
+    userPoolId: 'your_userpool_id',
+  	secret: 'your_userpool_secret'
+  });
+  
+  const userInfo = await authing.loginByAd({
+    adConnectorId: 'Your AD Connector ID',
+    username: 'Your AD domain username',
+    passowrd: 'Your AD domain password',
+  }).catch((error) => { ... })
+})();
+```
+
+* **返回数据**：
+
+```javascript
+{
+  "_id": "5e95788552c17c38d6674fbf",
+  "email": "mary@123.com",
+  "phone": "13112341234",
+  "name": null,
+  "givenName": null,
+  "familyName": null,
+  "username": "mycompany\\mary.smith",
+  "nickname": "Mary Smith",
+  "company": "acompany",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoibWFyeUAxMjMuY29tIiwidW5pb25pZCI6ImFkfDVlOTJkOGVlNjZlY2Y3NWI4MTI3ODNhNHxDTj1NYXJ5IFNtaXRoLENOPVVzZXJzLERDPW15Y29tcGFueSxEQz1sb2NhbCIsImlkIjoiNWU5NTc4ODU1MmMxN2MzOGQ2Njc0ZmJmIiwiY2xpZW50SWQiOiI1ZThjMWY4MmUzYWUxNDJlY2I3YWZhNjciLCJwaG9uZSI6IjEzMTEyMzQxMjM0In0sImlhdCI6MTU4Njg3Mzk2MSwiZXhwIjoxNTg4MTY5OTYxfQ.cmP9k9CKvqqrskcW42LHlOEbvJ2gG2ERJ8VaCmBRRi4",
+  "registerMethod": "ad",
+  "unionid": "ad|5e92d8ee66ecf75b812783a4|CN=Mary Smith,CN=Users,DC=mycompany,DC=local",
+  "postalCode": null
+}
+```
+
 ## 使用 LDAP 登录
 
 LDAP 服务的配置流程请参考[配置 LDAP 服务](../../authentication/ldap/ldap.md)。

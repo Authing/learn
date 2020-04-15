@@ -66,7 +66,7 @@ log(context)
 
 如果你的函数有语法错误， Authing Pipeline 也能捕捉到，这里我们修改一下代码，在 pipe 函数最前面加上了一行 xxxxxxx：
 
-![](../../.gitbook/assets/image%20%28602%29.png)
+![](../../.gitbook/assets/image%20%28603%29.png)
 
 再次点击调试，可以看到相应的错误提示：`message: “xxxxxxx is not defined”`。
 

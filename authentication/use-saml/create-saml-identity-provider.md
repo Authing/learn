@@ -126,7 +126,7 @@ curl 'https://idp1.authing.cn/oauth/saml/idp/5ce2afd11c4f9813a24d214a/SingleSign
 
 IdP 必须对每个 SAML Response 进行签名再返回给 SP，确保断言颁发者的身份合法性。选择签名算法和摘要算法，输入或从文件读入证书内容，注意证书算法必须与选择的签名和摘要算法**一致**。如果你没有证书，可以从[这里](https://www.samltool.com/self_signed_certs.php)生成一个。
 
-![&#x7B7E;&#x540D;&#x8BBE;&#x7F6E;](../../.gitbook/assets/image%20%28530%29.png)
+![&#x7B7E;&#x540D;&#x8BBE;&#x7F6E;](../../.gitbook/assets/image%20%28531%29.png)
 
 #### 要求 SAML Request 签名
 
@@ -170,7 +170,7 @@ IdP 可以对 SAML Response 进行加密。打开此开关后，IdP 会将 SAML 
 
 点击确定，会显示本 IdP 的一些使用信息。
 
-![&#x4F7F;&#x7528;&#x65B9;&#x6CD5;](../../.gitbook/assets/image%20%28620%29.png)
+![&#x4F7F;&#x7528;&#x65B9;&#x6CD5;](../../.gitbook/assets/image%20%28621%29.png)
 
 到此完成了 SAML Identity Provider 的创建。
 

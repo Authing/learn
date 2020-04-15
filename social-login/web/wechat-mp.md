@@ -18,21 +18,21 @@
 
 按照[微信官方文档](https://mp.weixin.qq.com/cgi-bin/readtemplate?t=register/step1_tmpl&lang=zh_CN&token=)指引注册成功之后，你可以在微信公众平台后台的 **开发** -&gt; **基本配置** 页面获取开发者ID\(AppID\) 和开发者密码\(AppSecret\)。
 
-![](../../.gitbook/assets/image%20%28540%29.png)
+![](../../.gitbook/assets/image%20%28541%29.png)
 
 之后需在微信公众平台后台的 **设置** -&gt; **公众号设置** -&gt; **功能设置** 页面设置 **网页授权域名** 为 **oauth.authing.cn：**
 
-![](../../.gitbook/assets/image%20%28543%29.png)
+![](../../.gitbook/assets/image%20%28544%29.png)
 
 出于安全验证考虑，微信服务器需要和 Authing 服务器做一次请求验证，开发者需要下载 txt 文件，并记录 **文件名** 和 **文本内容，**之后需要填入 Authing 控制台**。**
 
-![](../../.gitbook/assets/image%20%28539%29.png)
+![](../../.gitbook/assets/image%20%28540%29.png)
 
 ### 将公众号信息填入 Authing 控制台
 
 在微信公众平台创建完服务号之后，请按照下图指示在 Authing 控制台找到 Github 社会化登录配置：
 
-![](../../.gitbook/assets/image%20%28548%29.png)
+![](../../.gitbook/assets/image%20%28549%29.png)
 
 在此需要填入你的公众号信息：
 
@@ -43,7 +43,7 @@
 * Txt Content:  上一步配置网页授权域名中下载的的 txt 文件内容。
 * Scopes（可选）：详情请见[配置登录授权 Scopes](social-login-scopes.md#wechat-web-browser)。
 
-![](../../.gitbook/assets/image%20%28605%29.png)
+![](../../.gitbook/assets/image%20%28606%29.png)
 
 ## 开始接入
 

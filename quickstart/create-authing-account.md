@@ -32,7 +32,7 @@ description: 本文引导你如何创建一个 Authing 开发者账号，并熟�
 
 你需要为你的 OIDC 应用选择一个二级域名：
 
-![](../.gitbook/assets/image%20%28568%29.png)
+![](../.gitbook/assets/image%20%28569%29.png)
 
 之后系统为为你自动创建一个 OIDC 应用：
 
@@ -48,7 +48,7 @@ description: 本文引导你如何创建一个 Authing 开发者账号，并熟�
 
 点击下图所示按钮可在线体验：
 
-![](../.gitbook/assets/image%20%28598%29.png)
+![](../.gitbook/assets/image%20%28599%29.png)
 
 ## Authing 控制台简介
 
@@ -101,6 +101,10 @@ Authing 控制台一级菜单一共包括：
 配置 SAML 服务：
 
 {% page-ref page="../authentication/use-saml/" %}
+
+配置 Active Directory 登录：
+
+{% page-ref page="../authentication/active-directory/" %}
 
 ### 扩展能力
 

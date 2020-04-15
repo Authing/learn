@@ -102,7 +102,7 @@ server {
 
 假设你的域名为 example.com，Path 为 `/native/*`在手机上安装了你的 App 之后，使用 Safari 浏览器访问 `https://example.com/native/`，网上拉动网页，你应该能看到你的 App: 
 
-![](../../.gitbook/assets/image%20%28545%29.png)
+![](../../.gitbook/assets/image%20%28546%29.png)
 
 再访问 `https://example.com/native/xxx`，依旧可以看到。
 
@@ -114,7 +114,7 @@ server {
 
 在 Authing 控制台 **用户池** -&gt; **第三方登录** -&gt; **社会化登录** 页面找到“移动端社会化登录“中的“微信移动应用“：
 
-![](../../.gitbook/assets/image%20%28619%29.png)
+![](../../.gitbook/assets/image%20%28620%29.png)
 
 填入你的移动应用 AppID 和 AppSecret: 
 
@@ -122,7 +122,7 @@ server {
 
 AppID 和 AppSecret 可在微信开放平台 **管理中心** - **移动应用** - **应用详情** 页面看到：
 
-![](../../.gitbook/assets/image%20%28563%29.png)
+![](../../.gitbook/assets/image%20%28564%29.png)
 
 ## 正式接入
 

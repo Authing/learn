@@ -46,7 +46,7 @@ Authing 提供了很多开箱即用的模版，帮助你快速上手。
 
 回到  Pipeline 函数列表页面，可以看到我们刚刚添加的那个函数。
 
-![](../../.gitbook/assets/image%20%28621%29.png)
+![](../../.gitbook/assets/image%20%28622%29.png)
 
 {% hint style="success" %}
 如果你有多个 Pipeline 函数，可以拖拽进行排序。

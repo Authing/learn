@@ -155,7 +155,7 @@ description: 控制台是你管理和配置所有 Authing 资源的地方，这�
 
 社会化登录指使用「Github」或「微信」等第三方社交网络进行登录，配置方式请参考：
 
-![](../.gitbook/assets/image%20%28581%29.png)
+![](../.gitbook/assets/image%20%28582%29.png)
 
 ### 添加 OAuth 应用
 
@@ -181,7 +181,7 @@ LDAP 是轻量目录访问协议，英文全称是 Lightweight Directory Access 
 
 {% page-ref page="../authentication/ldap/ldap.md" %}
 
-![](../.gitbook/assets/image%20%28576%29.png)
+![](../.gitbook/assets/image%20%28577%29.png)
 
 ## 设置
 
