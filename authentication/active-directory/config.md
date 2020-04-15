@@ -162,3 +162,7 @@ Authing AD Connector 需要**安装在局域网 AD 域环境**中，但不一定
 
 ![](https://cdn.authing.cn/docs/20200416010008.png)
 
+{% hint style="danger" %}
+Authing 不提供 AD 测试服务器，本示例 AD 域用户信息已经失效。
+{% endhint %}
+
