@@ -16,7 +16,7 @@ IdP：身份认证提供方
 
 ## 发起 SAML 登录到登录成功的整个过程
 
-![SAML &#x6D41;&#x7A0B;](../../.gitbook/assets/image%20%28567%29.png)
+![SAML &#x6D41;&#x7A0B;](../../.gitbook/assets/image%20%28568%29.png)
 
 1. 用户试图登录 SP 提供的应用。
 2. SP 生成 SAML Request，通过浏览器重定向，向 IdP 发送 SAML Request。
@@ -40,7 +40,7 @@ SP 通过重定向 GET 请求把 SAML Request 发送到 IdP，IdP 通过立即�
 
 IdP 通过立即提交的 Form 表单以 POST 请求的方式将 SAML Request 发到 SP。IdP 通过立即提交的 Form 表单以 POST 请求的方式将 SAML Response 发到 SP。
 
-![](../../.gitbook/assets/image%20%28531%29.png)
+![](../../.gitbook/assets/image%20%28532%29.png)
 
 ### HTTP Artifact Binding
 
