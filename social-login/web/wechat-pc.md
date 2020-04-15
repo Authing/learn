@@ -90,7 +90,7 @@
 
 访问此页面你应该可以看到类似以下页面：
 
-![](../../.gitbook/assets/image%20%28500%29.png)
+![](../../.gitbook/assets/image%20%28501%29.png)
 
 {% hint style="info" %}
 你可以在 Web 页面上放置一个可点击的按钮或 Logo 链接到上面的链接以便用户可以点击登录。

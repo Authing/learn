@@ -239,7 +239,7 @@ Authing  trackSession 返回的数据支持两种形式（你可以在  Authing 
 
 如果你采用第二种方式，可以在前端展示用户昵称和头像，如下图所示：
 
-![](../../.gitbook/assets/image%20%28461%29.png)
+![](../../.gitbook/assets/image%20%28462%29.png)
 
 {% api-method method="post" host="https://core.authing.cn" path="/oauth/sso/mobile/exchangeUserInfoWithTicket" %}
 {% api-method-summary %}

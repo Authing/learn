@@ -687,7 +687,7 @@ code 换 token 接口返回的 refresh\_token。例：WPsGJbvpBjqXz6IJIr1UHKyrdV
 
 选择 `implicit` 模式，并在下方选择 `id_token token` 和 `id_token`。
 
-![](../../.gitbook/assets/image%20%28397%29.png)
+![](../../.gitbook/assets/image%20%28398%29.png)
 
 ### 发起授权
 

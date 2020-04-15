@@ -27,11 +27,11 @@
 
 在 Apple Developer 控制台 **Membership** 页面找到自己的 Team ID:
 
-![](../../.gitbook/assets/image%20%28474%29.png)
+![](../../.gitbook/assets/image%20%28475%29.png)
 
 在 Xcode  **Targets** -&gt; **Signing & Capabilities** 中找到 Bundle Identifier:
 
-![](../../.gitbook/assets/image%20%28394%29.png)
+![](../../.gitbook/assets/image%20%28395%29.png)
 
 接下来创建 apple-app-site-association 文件：
 
@@ -88,7 +88,7 @@ server {
 
 加下来在 Xcode 中配置 Associated Domains。 在 Xcode   **Targets** -&gt; **Signing & Capabilities** 页面点击右上角的 **+Capability** :
 
-![](../../.gitbook/assets/image%20%28470%29.png)
+![](../../.gitbook/assets/image%20%28471%29.png)
 
 选择 Associated Domains: 
 
@@ -102,7 +102,7 @@ server {
 
 假设你的域名为 example.com，Path 为 `/native/*`在手机上安装了你的 App 之后，使用 Safari 浏览器访问 `https://example.com/native/`，网上拉动网页，你应该能看到你的 App: 
 
-![](../../.gitbook/assets/image%20%28546%29.png)
+![](../../.gitbook/assets/image%20%28547%29.png)
 
 再访问 `https://example.com/native/xxx`，依旧可以看到。
 
@@ -114,7 +114,7 @@ server {
 
 在 Authing 控制台 **用户池** -&gt; **第三方登录** -&gt; **社会化登录** 页面找到“移动端社会化登录“中的“微信移动应用“：
 
-![](../../.gitbook/assets/image%20%28620%29.png)
+![](../../.gitbook/assets/image%20%28622%29.png)
 
 填入你的移动应用 AppID 和 AppSecret: 
 
@@ -122,7 +122,7 @@ server {
 
 AppID 和 AppSecret 可在微信开放平台 **管理中心** - **移动应用** - **应用详情** 页面看到：
 
-![](../../.gitbook/assets/image%20%28564%29.png)
+![](../../.gitbook/assets/image%20%28565%29.png)
 
 ## 正式接入
 
@@ -147,7 +147,7 @@ func loginByWechat() {
 
 你可以在 AppDelegate 或 SceneDelegate 的 onResp 方法获取到授权码 code,  如下图所示：
 
-![](../../.gitbook/assets/image%20%28384%29.png)
+![](../../.gitbook/assets/image%20%28385%29.png)
 
 ### 接收微信回调数据获取 code
 

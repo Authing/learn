@@ -76,7 +76,7 @@ Authing AD Connector 需要**安装在局域网 AD 域环境**中，但不一定
 
 系统可能提出警告，点击「仍要运行」。
 
-![](../../.gitbook/assets/image%20%28519%29.png)
+![](../../.gitbook/assets/image%20%28520%29.png)
 
 
 
@@ -124,9 +124,7 @@ Authing AD Connector 需要**安装在局域网 AD 域环境**中，但不一定
 
 接下来，打开浏览器，访问 localhost:9742，会看到以下界面：
 
-![](https://cdn.authing.cn/docs/20200414215104.png)
-
-
+![](https://cdn.authing.cn/docs/20200416004727.png)
 
 将你的 AD Connector ID、AD Connector Secret、AD 服务器链接地址、Base DN、域用户名、密码填入，然后点击「**保存**」按钮。
 
@@ -148,7 +146,19 @@ Authing AD Connector 需要**安装在局域网 AD 域环境**中，但不一定
 
 ## 使用 Guard 体验 AD 登录
 
+先按照上述步骤完成 AD Connector 的开启，然后访问你的 OIDC 或 OAuth 应用的登录地址。点击「使用 AD」单选框，切换到 AD 登录。
+
+![](https://cdn.authing.cn/docs/20200416005523.png)
 
 
 
+输入 AD 域用户账号和密码信息，点击「登录」。
+
+![](https://cdn.authing.cn/docs/20200416005738.png)
+
+
+
+之后会提示授权，点击「授权登录」后，跳转到业务地址。
+
+![](https://cdn.authing.cn/docs/20200416010008.png)
 

@@ -85,13 +85,13 @@ FQDN 处输入 Authing SP 应用的云上地址（不含 `https://`）。
 
 点击「Submit」。
 
-![](../../../.gitbook/assets/image%20%28374%29.png)
+![](../../../.gitbook/assets/image%20%28375%29.png)
 
 ## 使用 Authing SAML SP 发起登录
 
 将 Authing SAML SP 应用详情 -&gt; 使用方法选项卡 -&gt; 发起 SAML 登录项目下的地址复制到浏览器地址栏，进行访问。
 
-![](../../../.gitbook/assets/image%20%28414%29.png)
+![](../../../.gitbook/assets/image%20%28415%29.png)
 
 浏览器会跳转到 SSOCircle IdP 用户认证登录页，选择一种方式进行登录。此 IdP 需要科学上网使用，否则确权页面无法加载 Google 的资源。
 

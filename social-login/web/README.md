@@ -4,7 +4,7 @@
 在线体验地址：[https://sample.authing.cn/](https://sample.authing.cn/)
 {% endhint %}
 
-![](../../.gitbook/assets/image%20%28516%29.png)
+![](../../.gitbook/assets/image%20%28517%29.png)
 
 社会化登录指使用微信、Github 等 Web 第三方服务登录自己的应用，Authing 目前支持的 Web 端社会化登录手段有：
 
