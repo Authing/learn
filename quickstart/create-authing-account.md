@@ -104,8 +104,6 @@ Authing 控制台一级菜单一共包括：
 
 配置 Active Directory 登录：
 
-{% page-ref page="../authentication/active-directory/" %}
-
 ### 扩展能力
 
 #### Pipeline 函数

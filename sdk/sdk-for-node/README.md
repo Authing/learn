@@ -596,7 +596,7 @@ const authing = new Authing({
 
 Active Directory 的连接流程请参考：
 
-{% page-ref page="../../authentication/active-directory/config.md" %}
+{% page-ref page="../../authentication/config.md" %}
 
 **Authing.loginByAd\(options\)**
 
