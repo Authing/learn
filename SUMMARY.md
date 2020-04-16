@@ -51,7 +51,7 @@
 * [接入 LDAP](authentication/ldap/README.md)
   * [配置 LDAP 服务](authentication/ldap/ldap.md)
   * [使用 Authing 的 LDAP 用户目录](authentication/ldap/ldap-idp.md)
-* [接入 Active Directory](authentication/config.md)
+* [接入 Active Directory](authentication/active-directory.md)
 
 ## 社会化登录 <a id="social-login"></a>
 
