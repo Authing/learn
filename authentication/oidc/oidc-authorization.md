@@ -679,9 +679,9 @@ code 换 token 接口返回的 refresh\_token。例：WPsGJbvpBjqXz6IJIr1UHKyrdV
 
 ![](../../.gitbook/assets/image%20%28197%29.png)
 
-## 使用隐式流程（Implicit Flow）
+## 使用隐式模式（Implicit Flow）
 
-隐式流程将不获取 code，直接在回调地址中附带 `access_token` 和 `id_token`。
+隐式模式将不获取 code，直接在回调地址中附带 `access_token` 和 `id_token`。
 
 ### 在控制台配置 OIDC 应用
 
@@ -767,13 +767,15 @@ https://example.com/#code=pIY83Jl_bcerNN9Wt57Sq0TAjTr&id_token=eyJhbGciOiJSUzI1N
 
 ## 使用 Password 模式
 
+不推荐使用此模式，尽量使用其他模式。
+
 ### 在控制台配置 OIDC 应用
 
 在[**控制台**](https://authing.cn/dashboard) &gt; **第三方登录** &gt; **OIDC 应用**，打开 OIDC 应用详情，在表单的**授权模式**中勾选「password」。
 
-![&#x5F00;&#x542F; Password &#x6A21;&#x5F0F;](https://cdn.authing.cn/docs/20200403105822.png)
+在 `password` 模式选项框打勾。点击「确定」。
 
-### 发起授权
+![&#x5F00;&#x542F; Password &#x6A21;&#x5F0F;](https://cdn.authing.cn/docs/20200403105822.png)
 
 {% api-method method="post" host="https://<你的应用域名>.authing.cn" path="/oauth/oidc/token" %}
 {% api-method-summary %}
@@ -859,7 +861,19 @@ OIDC 应用 id。
 {% endapi-method-spec %}
 {% endapi-method %}
 
-## 使用 authingToken 模式 <a id="use-authing-token-mode"></a>
+当使用 unionid 作为用户标识时，可以不传 password 字段。其他标识 email、phone、username 必须传入用户密码 password 字段。
+
+{% hint style="warning" %}
+**用户标识字段**「unionid、email、phone、username」是**互斥**的，你**不能同时传入**其中任何两个或以上的参数组合。
+{% endhint %}
+
+**参考资料**
+
+1. [scope 与用户信息对应表](https://docs.authing.cn/authing/advanced/oidc/oidc-params#scope-can-shu-dui-ying-de-yong-hu-xin-xi)
+2. [什么时候使用 Password 模式？「视频」](https://www.youtube.com/watch?v=qMtYaDmhnHU)
+3. [Password 模式仅用于向前兼容「视频」](https://www.youtube.com/watch?v=zuVuhl_Axbs)
+
+## 使用 authingToken 模式
 
 ### 在控制台配置 OIDC 应用 <a id="configure-oidc-app-in-dashboard"></a>
 
@@ -867,11 +881,9 @@ OIDC 应用 id。
 
 ![&#x5F00;&#x542F; authingToken &#x6388;&#x6743;&#x6A21;&#x5F0F;](https://cdn.authing.cn/docs/20200403121146.png)
 
-### 发起授权
-
 {% api-method method="post" host="https://<你的应用域名>.authing.cn" path="/oauth/oidc/token" %}
 {% api-method-summary %}
-使用登录凭据换取 token
+使用 Authing Token 换取 OIDC token
 {% endapi-method-summary %}
 
 {% api-method-description %}
