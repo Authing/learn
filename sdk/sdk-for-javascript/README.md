@@ -177,6 +177,7 @@ function formatError(error) {
     * **unionid**，若不使用 email 和 password 则 unionid 必选
     * **oauth** 可选，oauth 信息的字符串，或者其他自定义的用户字段都可以以 JSON 字符串的形式存在这里
     * **username**，可选，用户名
+    * **phone**，可选，手机号
     * **nickname**，可选，昵称
     * **company**，可选，公司名称
     * **photo**，可选，用户头像
