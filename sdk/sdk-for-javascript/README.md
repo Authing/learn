@@ -655,8 +655,21 @@ LDAP 服务的配置流程请参考[配置 LDAP 服务](../../authentication/lda
       const authing = new Authing({
         userPoolId: 'your_client_id'
       });
+      // 先执行登录
+      const userInfo = await authing.login({email: 'test@authing.cn', password: 'authing'})
   
-      await authing.logout('59e5ff4935eebf1913cfe8a1')
+      await authing.logout(userInfo._id)
+        .catch((error) => { ... })
+    })();
+    ```
+  * ```javascript
+    (async function() {
+      // 使用用户信息中的 token 字段初始化 SDK
+      const authing = new Authing({
+        accessToken: 'userToken'
+      });
+  
+      await authing.logout('用户 ID')
         .catch((error) => { ... })
     })();
     ```
