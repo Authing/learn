@@ -47,6 +47,7 @@ const auth = new Authing({
 
 ```javascript
 const auth = new Authing({
+	userPoolId: "your_userpool_id",
 	accessToken: 'user_token',
 });
 // authing.user({id: '用户自己的 id'}).then(info => {})
