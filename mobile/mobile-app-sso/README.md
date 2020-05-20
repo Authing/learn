@@ -13,7 +13,7 @@
 
 如下图所示：
 
-![](../../.gitbook/assets/image%20%28593%29.png)
+![](../../.gitbook/assets/image%20%28595%29.png)
 
 你还可以查看这个视频的演示：
 

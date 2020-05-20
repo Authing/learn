@@ -126,11 +126,9 @@ https://<你的应用域名>.authing.cn/oauth/oidc/auth?client_id=5c9b079883e333
 
 上一个请求验证通过后会重定向到 Authing 提供的登录框页面，此时用户需要输入他的用户名和密码进行登录。
 
-> 你可以前往这个网址体验：https://sample-sso.authing.cn/login
+> 你可以前往这个网址体验：[https://sample-sso.authing.cn/login](https://sample-sso.authing.cn/login)
 
-![](../../.gitbook/assets/image%20%2883%29.png)
-
-
+![](https://cdn.authing.cn/docs/20200514150042.png)
 
 此时 Authing 会验证此用户是否合法，如果合法则会跳到用户配置好的 redirect\_uri 中并附带 code 参数。
 
@@ -624,9 +622,9 @@ token 过期
 {% endapi-method-summary %}
 
 {% api-method-description %}
-同时发起登录请求时必须填写正确的参数；  
-如需使用刷新 token 功能，需要在控制台 OIDC 应用设置中勾选 refresh\_ token。  
-同时发起登录请求时必须填写正确的参数，带刷新 token 功能的登录请求示例：  
+如需使用刷新 token 功能，需要进入**控制台** &gt; **第三方登录** &gt; **OIDC 应用**，点击你的 OIDC 应用，在 OIDC 应用设置中勾选 **refresh\_ token**。  
+  
+发起登录请求时必须填写正确 URL 的参数，**scope** 参数中必须有 **offline\_access**，**prompt** 参数值必须为 **consent**。带刷新 token 权限的**登录请求**示例：  
 `https://example.authing.cn/oauth/oidc/auth?client_id=5c9b079883e333d55a101082&redirect_uri=https://example.com&scope=openid profile offline_access&response_type=code&prompt=consent&state=235345`  
 {% endapi-method-description %}
 
@@ -677,7 +675,7 @@ code 换 token 接口返回的 refresh\_token。例：WPsGJbvpBjqXz6IJIr1UHKyrdV
 {% endapi-method-spec %}
 {% endapi-method %}
 
-![](../../.gitbook/assets/image%20%28197%29.png)
+![&#x5F00;&#x542F; refresh\_token &#x529F;&#x80FD;](https://cdn.authing.cn/docs/20200514151225.png)
 
 ## 使用隐式模式（Implicit Flow）
 
@@ -687,7 +685,7 @@ code 换 token 接口返回的 refresh\_token。例：WPsGJbvpBjqXz6IJIr1UHKyrdV
 
 选择 `implicit` 模式，并在下方选择 `id_token token` 和 `id_token`。
 
-![](../../.gitbook/assets/image%20%28398%29.png)
+![&#x914D;&#x7F6E; OIDC implicit &#x6A21;&#x5F0F;](https://cdn.authing.cn/docs/20200514151616.png)
 
 ### 发起授权
 
@@ -695,13 +693,13 @@ code 换 token 接口返回的 refresh\_token。例：WPsGJbvpBjqXz6IJIr1UHKyrdV
 
 | 参数名 | 意义 |
 | :--- | :--- |
-| client\_id | OIDC 应用的 **app\_id** |
-| redirect\_uri | 在控制台配置的 OIDC 回调 url 其中的一个值。启用隐式模式时，**控制台配置的所有** redirect\_uri 必须都为 https 协议 |
+| client\_id | OIDC 应用的 **app\_id**。 |
+| redirect\_uri | 在控制台配置的 OIDC 回调 url 其中的一个值。启用隐式模式时，**控制台配置的所有** redirect\_uri **必须都为 https 协议**。 |
 | scope | 需要请求的权限，必须包含 **openid**。如果需要获取 unionid 需要包含 unionid；如果需要**获取手机号**和 **email** 需要包含 phone email；如果需要用户与 Authing 之间的 Token 需要包含 authing\_token；多个 scope 请用**空格分隔**。同时 id\_token 中会包含相关的字段。**隐式模式不能刷新 token**，所以 offline\_access 字段无效。 |
-| response\_type | OIDC 模式，可以为 id\_token, id\_token token [参考 OIDC 规范](https://openid.net/specs/openid-connect-core-1_0.html#AuthorizationExamples) |
-| prompt | 可以为 none，login，consent 或 select\_account，指定 AP 与 End-User 的交互方式。[参考 OIDC 规范](https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) |
-| state | 一个随机字符串，用于防范 CSRF 攻击，如果 response 中的 state 值和发送请求之前设置的 state 值不同，说明受到攻击 |
-| nonce | 一个随机字符串，用于防范 Replay 攻击，implicit 模式下必须填 |
+| response\_type | OIDC 模式，可以为 id\_token, id\_token token。[参考 OIDC 规范](https://openid.net/specs/openid-connect-core-1_0.html#AuthorizationExamples)。 |
+| prompt | 可以为 none，login，consent 或 select\_account，指定 AP 与 End-User 的交互方式。[参考 OIDC 规范](https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest)。 |
+| state | 一个随机字符串，用于防范 CSRF 攻击，如果 response 中的 state 值和发送请求之前设置的 state 值不同，说明受到攻击。 |
+| nonce | 一个随机字符串，用于防范 Replay 攻击，implicit 模式下必须填。 |
 
 假设你创建了一个域名为 `example` 的 OIDC 应用，那么授权网址是：
 
@@ -711,7 +709,7 @@ GET https://example.authing.cn/oauth/oidc/auth?client_id=5ca765e393194d5891db192
 
 ### 获取 id\_token 和 access\_token
 
-id\_token、access\_token 会以 url **hash** 的形式传递，跳转后链接示例：
+id\_token、access\_token 会以 URL **hash** 的形式传递，跳转后链接示例：
 
 ```text
 https://authing.cn/#id_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1Y2QwMjZlZjNlZDlmOTRkODBmZTM2YWUiLCJub25jZSI6IjE4MzEyODkiLCJzaWQiOiI4YzgzN2I5My01OTNlLTQzZjctYWMzNC0yYjRmZDU3ZGFhMTciLCJhdF9oYXNoIjoiVFFtbFlEVTVPZGF1Zjl0U0VKdHY5USIsInNfaGFzaCI6Ind3SDNXclV2b0hiSUp5TWVZVHU4bHciLCJhdWQiOiI1ZDAxZTM4OTk4NWY4MWM2YzFkZDMxZGUiLCJleHAiOjE1NjA0MDkzNjgsImlhdCI6MTU2MDQwNTc2OCwiaXNzIjoiaHR0cHM6Ly9vYXV0aC5hdXRoaW5nLmNuL29hdXRoL29pZGMifQ.T9M0s6rk4Teq6VOOBRIElgHK9KyM3q0ZJj2aS0VD_Fw&access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI3OE9XcVJNVXJEUXpMMXpHVzVtUWoiLCJzdWIiOiI1Y2QwMjZlZjNlZDlmOTRkODBmZTM2YWUiLCJpc3MiOiJodHRwczovL29hdXRoLmF1dGhpbmcuY24vb2F1dGgvb2lkYyIsImlhdCI6MTU2MDQwNTc2OCwiZXhwIjoxNTYwNDA5MzY4LCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIiwiYXVkIjoiNWQwMWUzODk5ODVmODFjNmMxZGQzMWRlIn0.mR0MZDwlZWGRMsAZjQ27sDFFqYoDgZ6WHTK4C7JbML4&expires_in=3600&token_type=Bearer&state=jazz&session_state=26ec053be9f47d68dc430f84b97efb1095469fe10169a9e00ef4092718714b8b
@@ -731,7 +729,7 @@ https://authing.cn/#id_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1Y2
 
 选择 `authorization_code` 和 `implicit`，并在下方勾选 `code id_token token` 、`code id_token` 、`code token`。
 
-![](../../.gitbook/assets/image%20%28223%29.png)
+![&#x914D;&#x7F6E; OIDC Hybrid &#x6A21;&#x5F0F;](https://cdn.authing.cn/docs/20200514152113.png)
 
 ### 发起授权
 
@@ -739,13 +737,13 @@ https://authing.cn/#id_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1Y2
 
 | 参数名 | 意义 |
 | :--- | :--- |
-| client\_id | OIDC 应用的 **app\_id** |
-| redirect\_uri | 在控制台配置的 OIDC 回调 url 其中的一个值。启用隐式模式时，**控制台配置的所有** redirect\_uri 必须都为 https 协议 |
+| client\_id | OIDC 应用的 **app\_id**。 |
+| redirect\_uri | 在控制台配置的 OIDC 回调 url 其中的一个值。启用隐式模式时，**控制台配置的所有** redirect\_uri 必须都为 https 协议。 |
 | scope | 需要请求的权限，必须包含 **openid**。如果需要获取 unionid 需要包含 unionid，如果需要**获取手机号**和 **email** 需要包含 phone email，如果需要用户与 Authing 之间的 Token 需要包含 authing\_token。多个 scope 请用空格分开。同时 **id\_token** 中会包含相关的字段。如果需要刷新 token，需要有 offline\_access 参数，同时 **response\_type** 参数中**必须包含 code**，**并使用 code 换取 token**，否则 offline\_access 字段无效。 |
-| response\_type | OIDC 模式，此处为 code id\_token token [参考 OIDC 规范](https://openid.net/specs/openid-connect-core-1_0.html#AuthorizationExamples) |
-| prompt | 可以为 none，login，consent 或 select\_account，指定 AP 与 End-User 的交互方式。[参考 OIDC 规范](https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) |
-| state | 一个随机字符串，用于防范 CSRF 攻击，如果 response 中的 state 值和发送请求之前设置的 state 值不同，说明受到攻击 |
-| nonce | 一个随机字符串，用于防范 Replay 攻击，混合模式下必填 |
+| response\_type | OIDC 模式，此处为 code id\_token token。[参考 OIDC 规范](https://openid.net/specs/openid-connect-core-1_0.html#AuthorizationExamples)。 |
+| prompt | 可以为 none，login，consent 或 select\_account，指定 AP 与 End-User 的交互方式。[参考 OIDC 规范](https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest)。 |
+| state | 一个随机字符串，用于防范 CSRF 攻击，如果 response 中的 state 值和发送请求之前设置的 state 值不同，说明受到攻击。 |
+| nonce | 一个随机字符串，用于防范 Replay 攻击，混合模式下必填。 |
 
 假设你创建了一个域名为 `example` 的 OIDC 应用，那么授权网址是：
 
@@ -753,7 +751,7 @@ https://authing.cn/#id_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1Y2
 GET https://example.authing.cn/oauth/oidc/auth?client_id=5ca765e393194d5891db1927&redirect_uri=https://example.com&scope=openid profile&response_type=code id_token token&state=jazz&nonce=1831289
 ```
 
-跳转后链接示例：
+code、access\_token 和 id\_token 通过 URL **hash** 传递，跳转后链接示例：
 
 ```text
 https://example.com/#code=pIY83Jl_bcerNN9Wt57Sq0TAjTr&id_token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InIxTGtiQm8zOTI1UmIyWkZGckt5VTNNVmV4OVQyODE3S3gwdmJpNmlfS2MifQ.eyJzdWIiOiI1YzlmNzVjN2NjZjg3YjA1YTkyMWU5YjAiLCJub25jZSI6IjE4MzEyODkiLCJzaWQiOiIxOTdlOGExMy0wMzE4LTRkZDEtYjQ3Mi0xZjI0MDk5ZTUzOWYiLCJhdF9oYXNoIjoiUFlXaTFER29jRlotYmlYd0d5WXlpZyIsImNfaGFzaCI6Ik4yUmkyUFpidktYdXRmdGhZbUhrM2ciLCJzX2hhc2giOiJ3d0gzV3JVdm9IYklKeU1lWVR1OGx3IiwiYXVkIjoiNWNhNzY1ZTM5MzE5NGQ1ODkxZGIxOTI3IiwiZXhwIjoxNTU0NjE1NjcyLCJpYXQiOjE1NTQ2MTIwNzIsImlzcyI6Imh0dHBzOi8vYXV0aGluZy5jbiJ9.a--JC_6CyUi0Z7z3DCKT51wJkKT7MmtlVHhrNujhxHCfgQqzqS3wMxVj6oEe_cfjVQNgJ-Xe1oiL8uMAxVN-cM1Ra1JQcavUujua2IxxtG4Nkh84rTukqsrPfuNhNO7MRP6Fa9qIIdKeKkQKyh1zBKE6322zK_ECdfGd2sWdqqXiQyJXg6ODhPZDidsGuluV3bZiAY3brMSMmh6QC99StOP5ZwSKtlRMyYE3MIRWsQ4W2HkHBrk67T_scQ6XN6mdBKi2OZW-E7fXeyVwH-ibWDzlUpmFSaj3a-WbkDe3nfCv8MHj439aJNU-AXfIgLsckvCO5_dJOUWGHg6hemT9bw&access_token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InIxTGtiQm8zOTI1UmIyWkZGckt5VTNNVmV4OVQyODE3S3gwdmJpNmlfS2MifQ.eyJqdGkiOiIxUzgyaUtSdXFlWW1DUmFrMFl1S0kiLCJzdWIiOiI1YzlmNzVjN2NjZjg3YjA1YTkyMWU5YjAiLCJpc3MiOiJodHRwczovL2F1dGhpbmcuY24iLCJpYXQiOjE1NTQ2MTIwNzIsImV4cCI6MTU1NDYxNTY3Miwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSIsImF1ZCI6IjVjYTc2NWUzOTMxOTRkNTg5MWRiMTkyNyJ9.tHwxiH5QXXA46Y4mIwcBck3uDArMj5TMGEBAQ8Eeln6oFbwBY3aS5cSV6e3anZDwKZrdgrdFlyj9-Bl1T5V1rNJK-Xz_aFnM6XxyO1jSHcn-6KXGwmz68D50VIHior39cuoj9OXbNCei5RVghjh2cRT3SenYki7UeJBgmfQA6l2aZZpBrn9aphXr9OoPS47T59I0Ynn2yMIYIMDOX7hh8E5oV1hrK3hyjAvp3ghmzyRfj2BlG9rBo1hd_d5E8x6OIzNdvPKXwVASJZRxov2Dx0ma36zxzSObyXgCloUv2KlbmL9-Wj8d3H6FhHC75DLfJYx-uRgNqW7CFKGeRkPjkQ&expires_in=3600&token_type=Bearer&state=jazz&session_state=101666b6b70cfb4406ad9c0c906039de39776140e66e48acdb63ab8acb309701

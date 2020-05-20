@@ -224,7 +224,35 @@ function formatError(error) {
           "createdAt": "Sun Oct 15 2017 22:44:03 GMT+0800 (CST)"
         }
     }
+
     ```
+
+### 查询用户信息是否存在
+
+**Authing.userExist\(userPoolId,options\)**
+
+* **参数:**
+  * `userPoolId`  要查询的用户池 ID
+  * `{Objects} options`
+    * **email 邮箱**
+    * **phone 电话**
+    * **username 用户名**
+* **使用方法:**
+
+  ```javascript
+  (async function() {  
+  const authing = new Authing({
+      userPoolId: 'your_userpool_id'
+    });
+  
+    const userExist = await authing.userExist( 'your_userpool_id',{
+      phone: 'Your Phone',
+    }).catch((error) => { ... })
+  })(); 
+  ```
+
+* **返回数据:**
+  * Boolean
 
 ## 登录
 

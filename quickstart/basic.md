@@ -51,13 +51,13 @@ userPoolId 和 secret 在控制台中的查看位置如下图所示：
 
 你可以在控制台中创建用户：
 
-![](../.gitbook/assets/image%20%28544%29.png)
+![](../.gitbook/assets/image%20%28546%29.png)
 
 {% hint style="success" %}
 在本文的例子中，「非凡科技」创建了一个邮箱为「test@feifantech.com」的账号用来测试 Authing 的账号系统。
 {% endhint %}
 
-![](../.gitbook/assets/image%20%28588%29.png)
+![](../.gitbook/assets/image%20%28590%29.png)
 
 在「原始 JSON 数据」选项卡中可以看到一段用来表示该账号的 JSON 数据：
 

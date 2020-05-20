@@ -77,7 +77,7 @@ Authing AD Connector 需要**安装在局域网 AD 域环境**中，但不一定
 
 系统可能提出警告，点击「仍要运行」。
 
-![](../.gitbook/assets/image%20%28520%29.png)
+![](../.gitbook/assets/image%20%28521%29.png)
 
 
 

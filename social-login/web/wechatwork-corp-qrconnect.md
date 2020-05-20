@@ -33,7 +33,7 @@
 
 在应用详情页，点击设置企业微信授权登录：
 
-![](../../.gitbook/assets/image%20%28580%29.png)
+![](../../.gitbook/assets/image%20%28582%29.png)
 
 在新打开的页面，设置授权回调域为 core.authing.cn 。
 

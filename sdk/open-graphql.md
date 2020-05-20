@@ -563,6 +563,16 @@ mutation register(
 1. 此处（登录）的密码需要加密，Authing 使用了非对称加密算法，加密方式是 `PKCS1v1.5`。注意，个别语言，如 JavaScript（非 Node）和 Go 在加密之后还要使用 `base64` 包一层。
 2. 此接口不需要发送任何 `Token`。
 
+### 查询用户是否存在
+
+此接口可以查询符合条件的用户是否存在，避免重复注册。
+
+```graphql
+query userExist($userPoolId: String!,$phone: String,$username: String,$email: String){
+  userExist(userPoolId: $userPoolId,phone: $phone,username: $username,email: $email)
+}
+```
+
 ### **Public Key**
 
 ```text

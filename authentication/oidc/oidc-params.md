@@ -37,7 +37,7 @@ description: 了解 OIDC 包含的常见问题，在开发时可以查阅此文�
 
 请参考：[使用 OIDC 应用的密钥验证 Token 合法性](https://docs.authing.cn/authing/advanced/authentication/verify-jwt-token#oidc-secret-token)。
 
-## scope 参数对应的用户信息
+## scope 参数对应的用户信息 <a id="scope-params-detail"></a>
 
 | scope 名称 | 对应信息 |
 | :--- | :--- |

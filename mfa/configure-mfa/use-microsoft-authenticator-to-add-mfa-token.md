@@ -61,11 +61,11 @@
 
 输入你刚才开启 MFA 验证的账户的邮箱和密码，点击「登录」。
 
-![&#x4F7F;&#x7528;&#x5F00;&#x542F;&#x8FC7; MFA &#x7684;&#x7528;&#x6237;&#x767B;&#x5F55;](../../.gitbook/assets/image%20%28530%29.png)
+![&#x4F7F;&#x7528;&#x5F00;&#x542F;&#x8FC7; MFA &#x7684;&#x7528;&#x6237;&#x767B;&#x5F55;](../../.gitbook/assets/image%20%28531%29.png)
 
 此时，由于账户开启了 MFA 验证，会显示要求输入 MFA 口令的页面。
 
-![](../../.gitbook/assets/image%20%28519%29.png)
+![](../../.gitbook/assets/image%20%28520%29.png)
 
 输入「Microsoft Authenticator」中刚刚导入的动态口令。点击「提交」。
 

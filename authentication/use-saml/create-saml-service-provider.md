@@ -8,7 +8,7 @@
 
 打开应用控制台 -&gt; 第三方登录 -&gt; 社会化登录选项卡
 
-![Authing &#x63A7;&#x5236;&#x53F0;](../../.gitbook/assets/image%20%28556%29.png)
+![Authing &#x63A7;&#x5236;&#x53F0;](../../.gitbook/assets/image%20%28558%29.png)
 
 滚动到页面下方，在 SAML Service Provider 区域，点击 ➕
 
@@ -24,7 +24,7 @@
 
 接下来需要填写一些 SP 的基础配置才能使 SP 正常工作。
 
-![&#x57FA;&#x7840;&#x914D;&#x7F6E;](../../.gitbook/assets/image%20%28621%29.png)
+![&#x57FA;&#x7840;&#x914D;&#x7F6E;](../../.gitbook/assets/image%20%28623%29.png)
 
 **IdP 登录 URL** 由 IdP 提供，如果没有，可以从 IdP 元数据 XML 文档中查找。
 
