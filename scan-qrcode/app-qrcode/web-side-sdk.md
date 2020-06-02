@@ -140,7 +140,9 @@ authing.startAppAuthScanning({
       <td style="text-align:left">&#x4E8C;&#x7EF4;&#x7801;&#x52A0;&#x8F7D;&#x5931;&#x8D25;&#x65F6;&#x4F1A;&#x88AB;&#x56DE;&#x8C03;&#x3002;</td>
     </tr>
   </tbody>
-</table>下面是一个最简的调用：一共只需要 5 行代码。
+</table>
+
+下面是一个最简的调用：一共只需要 5 行代码。
 
 ```javascript
 authing.qrlogin.startScanning({
@@ -396,7 +398,9 @@ authing.qrlogin.pollingCodeStatus({
       </td>
     </tr>
   </tbody>
-</table>![&#x4E00;&#x4E2A;&#x5B8C;&#x6574;&#x7684;&#x626B;&#x7801;&#x6D41;&#x7A0B;](../../.gitbook/assets/image%20%28379%29.png)
+</table>
+
+![&#x4E00;&#x4E2A;&#x5B8C;&#x6574;&#x7684;&#x626B;&#x7801;&#x6D41;&#x7A0B;](../../.gitbook/assets/image%20%28379%29.png)
 
 ## ticket 换用户信息接口
 

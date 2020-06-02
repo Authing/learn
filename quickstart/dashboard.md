@@ -106,7 +106,9 @@ description: 控制台是你管理和配置所有 Authing 资源的地方，这�
       <td style="text-align:left">&#x67E5;&#x770B; Authing &#x7684;&#x5F00;&#x53D1;&#x8D44;&#x6E90;</td>
     </tr>
   </tbody>
-</table>## 用户中心
+</table>
+
+## 用户中心
 
 ### 查看用户列表
 

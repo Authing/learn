@@ -128,7 +128,9 @@ Pre-Register（注册前） Pipeline 中没有 user  对象。
       <td style="text-align:left">&#x5730;&#x5740;</td>
     </tr>
   </tbody>
-</table>## 方法 <a id="methods"></a>
+</table>
+
+## 方法 <a id="methods"></a>
 
 <table>
   <thead>
@@ -188,3 +190,4 @@ Pre-Register（注册前） Pipeline 中没有 user  对象。
     </tr>
   </tbody>
 </table>
+

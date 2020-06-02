@@ -210,7 +210,9 @@ let res = await auth.logout();
       <td style="text-align:left">&#x5F53;&#x524D;&#x65F6;&#x95F4;&#x6233;</td>
     </tr>
   </tbody>
-</table>示例
+</table>
+
+示例
 
 ```text
 let auth = new AuthingSSO({

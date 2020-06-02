@@ -142,7 +142,9 @@ description: 'context 对象中保存了当前认证流程的上下文，包括�
         href="../../social-login/web/wechatwork-qrconnect.md">&#x4F01;&#x4E1A;&#x5FAE;&#x4FE1;&#x626B;&#x7801;&#x767B;&#x5F55;</a>&#x3002;</td>
     </tr>
   </tbody>
-</table>## data 对象 <a id="data-object"></a>
+</table>
+
+## data 对象 <a id="data-object"></a>
 
 注册前、注册后 Pipeline 中 data 对象部分请求字段如下：详情请见 [Authing GraphQL 调试器](https://authing.cn/graphiql/) **用户鉴权** - **注册**接口。
 
