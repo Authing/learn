@@ -2,6 +2,8 @@
 
 Node SDK 用于 Node 环境下，可以用于管理用户池中所有用户，拥有全部操作权限。
 
+**请注意** [**SDK for JavaScript**](./) **与** [**SDK for Node.js**](./) **接口存在差异，请根据需求选择 SDK。**
+
 Github：[https://github.com/Authing/authing.js](https://github.com/Authing/authing.js)。
 
 ## 安装

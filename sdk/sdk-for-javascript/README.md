@@ -1,6 +1,8 @@
 # SDK for JavaScript
 
-JavaScript SDK 支持 **Angular.js，React.js，Vue.js** 以及**浏览器原生环境**。JavaScript SDK 可用来处理登录、注册等工作，若需要删除用户等敏感操作请使用 [SDK for Node.js](../sdk-for-node/)。
+JavaScript SDK 支持 **Angular.js，React.js，Vue.js** 以及**浏览器原生环境**。JavaScript SDK 可用来处理登录、注册等工作。
+
+**请注意** [**SDK for JavaScript**](../sdk-for-node/) **与** [**SDK for Node.js**](../sdk-for-node/) **接口存在差异，请根据需求选择 SDK。**
 
 Github：[https://github.com/Authing/authing.js](https://github.com/Authing/authing.js)。
 
