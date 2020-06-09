@@ -51,6 +51,6 @@ authing.startWXAppScaning({
 });
 ```
 
-若你想在后端验证 Token 合法性，请参考：[验证 Token 合法性](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token)。
+若你想在后端验证 Token 合法性，请参考：[验证 Token 合法性](../../advanced/verify-jwt-token.md)。
 {% endhint %}
 
