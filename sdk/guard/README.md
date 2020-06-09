@@ -77,7 +77,7 @@ form.on('login', (userInfo) => {
 
 ## 使用小程序扫码认证
 
-请在 Authing 控制台中配置好小程序扫码登录的信息，Guard 就会自动显示扫码登录的界面，配置方式请参考：[配置小程序信息](https://learn.authing.cn/authing/advanced/wxapp-qrcode#pei-zhi-xiao-cheng-xu-xin-xi)。
+请在 Authing 控制台中配置好小程序扫码登录的信息，Guard 就会自动显示扫码登录的界面，配置方式请参考：[配置小程序信息](../../scan-qrcode/wxapp-qrcode/#pei-zhi-xiao-cheng-xu-xin-xi)。
 
 ![&#x7531; Guard &#x81EA;&#x52A8;&#x751F;&#x6210;&#x7684;&#x5C0F;&#x7A0B;&#x5E8F;&#x626B;&#x7801;&#x767B;&#x5F55;&#x754C;&#x9762;](../../.gitbook/assets/image%20%28519%29.png)
 
@@ -144,7 +144,7 @@ form.on('scanned-success', (userInfo) => {
 
 ## SSO 场景
 
-你想为其他人**提供**身份服务或**使用**他人提供的身份服务。此部分供私有部署用户参考，使用 SaaS 的用户直接使用 Authing 云上部署的 Guard，无需操心 Guard 部署问题，只需关注[如何发起 SSO 登录请求](https://docs.authing.cn/authing/advanced/oidc/oidc-authorization#fa-qi-shou-quan)。
+你想为其他人**提供**身份服务或**使用**他人提供的身份服务。此部分供私有部署用户参考，使用 SaaS 的用户直接使用 Authing 云上部署的 Guard，无需操心 Guard 部署问题，只需关注[如何发起 SSO 登录请求](https://docs.authing.co/authing/authentication/oidc/oidc-authorization#fa-qi-oidc-deng-lu-qing-qiu-bing-rang-zhong-duan-yong-hu-zai-liu-lan-qi-zhong-fang-wen)。
 
 作为 IdP（身份提供商），**对外提供身份服务**，Guard 此场景下用于 IdP 确认用户身份。支持的协议有 OAuth 2.0，OIDC，SAML，LDAP。
 
