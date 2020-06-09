@@ -157,6 +157,12 @@ description: 控制台是你管理和配置所有 Authing 资源的地方，这�
 
 社会化登录指使用「Github」或「微信」等第三方社交网络进行登录，配置方式请参考：
 
+{% page-ref page="../social-login/web/" %}
+
+{% page-ref page="../social-login/mobile/" %}
+
+{% page-ref page="../social-login/miniprogram/" %}
+
 ![](../.gitbook/assets/image%20%28585%29.png)
 
 ### 添加 OAuth 应用
