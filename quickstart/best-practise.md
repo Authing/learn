@@ -42,7 +42,7 @@
 
 ## 在后端验证 JWT Token 的合法性
 
-点击[查看如何验证 JWT Token 的合法性](https://docs.authing.co/authing/advanced/verify-jwt-token#oidc-secret-token)。
+点击[查看如何验证 JWT Token 的合法性](../advanced/verify-jwt-token.md#oidc-secret-token)。
 
 {% hint style="info" %}
 若你使用了 OIDC 流程，建议在后端验证 JWT Token 的合法性（避免 OIDC 密钥泄漏）。
