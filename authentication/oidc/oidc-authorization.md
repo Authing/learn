@@ -118,7 +118,7 @@ https://<你的应用域名>.authing.cn/oauth/oidc/auth?client_id=5c9b079883e333
 
 参考资料：
 
-1. scope 与用户信息对应表
+1. [scope 与用户信息对应表](oidc-params.md#scope-params-detail)
 2. [response\_type 参数 OIDC 规范](https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest)
 3. [prompt 参数 OIDC 规范](https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest)
 
