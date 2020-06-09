@@ -34,7 +34,7 @@ OIDC 流程包含两个 Token：
 1. access\_token 用来获取用户数据；
 2. id\_token 包含用户的基本信息；
 
-两者都可以使用 OIDC 应用的 secret 验证，验证过程请参考：[使用 OIDC 应用的密钥验证 Token 合法性](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token#oidc-secret-token)。
+两者都可以使用 OIDC 应用的 secret 验证，验证过程请参考：[使用 OIDC 应用的密钥验证 Token 合法性](../advanced/verify-jwt-token.md#oidc-secret-token)。
 
 {% hint style="info" %}
 验证 OIDC 流程中 Token 所使用的 secret 的获取方式如下图所示：
