@@ -35,7 +35,7 @@ description: 了解 OIDC 包含的常见问题，在开发时可以查阅此文�
 
 ## 如何验证 Token 合法性
 
-请参考：[使用 OIDC 应用的密钥验证 Token 合法性](https://docs.authing.cn/authing/advanced/authentication/verify-jwt-token#oidc-secret-token)。
+请参考：[使用 OIDC 应用的密钥验证 Token 合法性](../../advanced/verify-jwt-token.md#oidc-secret-token)。
 
 ## scope 参数对应的用户信息 <a id="scope-params-detail"></a>
 
