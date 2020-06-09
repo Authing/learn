@@ -13,7 +13,7 @@
 ## UserPool ID/UserPool Secret 和 OAuth/OIDC 应用的 App ID 和 App Secret 的区别？
 
 1. UserPool ID 和 UserPool Secret 是 Authing 开发者创建的用户池的信息，通过 UserPool ID 和 UserPool Secret，Authing 的开发者拥有用户池的所有访问权限；
-2. OAuth/OIDC 应用的 App ID 和 App Secret 是 OAuth 或 OIDC 应用的信息，用来授权其他应用访问用户池，还可以用来[验证 JWT token 的合法性](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token)。
+2. OAuth/OIDC 应用的 App ID 和 App Secret 是 OAuth 或 OIDC 应用的信息，用来授权其他应用访问用户池，还可以用来[验证 JWT token 的合法性](../advanced/verify-jwt-token.md)。
 
 ## 什么是 JWT Token？
 
