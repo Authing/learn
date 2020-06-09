@@ -14,7 +14,7 @@ description: 学习 Authing 的基础知识以及我们会用到的一些术语�
 
 ## 用户池
 
-[注册完 Authing 账户](https://authing.cn/login)后，你看到的是一个空白的列表页，此时你需要创建一个**用户池**。拥有了一个用户池之后你可以授权其他应用（第三方应用或者你自己写的应用）读取用户数据，授权协议支持 [OAuth2.0](https://docs.authing.cn/authing/advanced/oauth2)、[OIDC](https://docs.authing.cn/authing/advanced/oidc)、[SAML](https://docs.authing.cn/authing/advanced/shi-yong-saml) 和 [LDAP](https://docs.authing.cn/authing/advanced/ldap)。
+[注册完 Authing 账户](https://authing.cn/login)后，你看到的是一个空白的列表页，此时你需要创建一个**用户池**。拥有了一个用户池之后你可以授权其他应用（第三方应用或者你自己写的应用）读取用户数据，授权协议支持 [OAuth2.0](../authentication/oauth2/)、[OIDC](../authentication/oidc/understand-oidc.md)、[SAML](../authentication/use-saml/) 和 [LDAP](../authentication/ldap/)。
 
 ![](../.gitbook/assets/image%20%28460%29.png)
 
