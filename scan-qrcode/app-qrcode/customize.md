@@ -22,7 +22,7 @@ description: Authing 一直以来都致力于带给开发者高度自定义的�
 
 ### 是否允许在浏览器使用 ticket 换取用户信息 <a id="allow-exchange-userrinfo-from-browser"></a>
 
-默认不允许，需要在服务器端调用，即需要使用用户池密钥初始化之后。[点击了解如何初始化后端 SDK](https://docs.authing.cn/authing/sdk/sdk-for-node#chu-shi-hua)。
+默认不允许，需要在服务器端调用，即需要使用用户池密钥初始化之后。[点击了解如何初始化后端 SDK](../../sdk/sdk-for-javascript/#chu-shi-hua)。
 
 一个典型的使用场景是：用户扫码同意授权、开发者得到 ticket 之后，发送到自己的后端，使用后端 SDK 换取用户信息，之后重定向到已登录页面，同时将用户信息写入 localStroage。
 
