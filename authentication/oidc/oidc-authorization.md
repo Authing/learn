@@ -118,7 +118,7 @@ https://<你的应用域名>.authing.cn/oauth/oidc/auth?client_id=5c9b079883e333
 
 参考资料：
 
-1. [scope 与用户信息对应表](https://docs.authing.cn/authing/advanced/oidc/oidc-params#scope-can-shu-dui-ying-de-yong-hu-xin-xi)
+1. scope 与用户信息对应表
 2. [response\_type 参数 OIDC 规范](https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest)
 3. [prompt 参数 OIDC 规范](https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest)
 
