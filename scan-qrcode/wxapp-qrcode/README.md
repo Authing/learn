@@ -4,7 +4,7 @@ description: 扫描小程序二维码并使用小程序「小登录」进行认�
 
 # 小程序扫码登录
 
-小程序扫码登录指使用 Authing 官方开发的小程序「小登录」执行扫码登录，使用 JavaScript SDK 可以快速接入，除此之外我们还提供了 [HTTP 接口](https://docs.authing.cn/authing/advanced/wxapp-qrcode#tiao-yong-http-api-jie-ru-xiao-cheng-xu-sao-ma-ren-zheng)。
+小程序扫码登录指使用 Authing 官方开发的小程序「小登录」执行扫码登录，使用 JavaScript SDK 可以快速接入，除此之外我们还提供了 [HTTP 接口](./#tiao-yong-http-api-jie-ru-xiao-cheng-xu-sao-ma-ren-zheng)。
 
 点击此处[体验小程序扫码登录](https://sample.authing.cn/)。
 
