@@ -8,7 +8,7 @@ Guard 是一种可嵌入的登录表单，可根据你的需求进行配置，�
 * 忘记密码以及重置密码；
 * 记住账号功能（加密存储到浏览器本地）；
 * 社会化登录，如 Github 登录、微信登录（[需先在后台配置](https://learn.authing.cn/authing/advanced/social-login)）；
-* 小程序扫码登录（[需先在后台配置](https://learn.authing.cn/authing/advanced/authentication/wxapp-qrcode)）；
+* 小程序扫码登录（[需先在后台配置](../../scan-qrcode/wxapp-qrcode/)）；
 * 响应式特性（兼容移动端和 PC 端）；
 * 使用 LDAP 登录（[什么是 LDAP？](../../authentication/ldap/ldap.md#ldap-是什么？)）；
 * 完整的 UI 自定义功能。
