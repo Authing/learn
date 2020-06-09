@@ -25,7 +25,7 @@
 
 ## 如何验证 OIDC 流程中的 id\_token 合法性？
 
-请参考：[使用 OIDC 应用的密钥验证 Token 合法性](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token#oidc-secret-token)。
+请参考：[使用 OIDC 应用的密钥验证 Token 合法性](../advanced/verify-jwt-token.md#yan-zheng-oidc-accesstoken-huo-idtoken-de-he-fa-xing)。
 
 ## OIDC 流程中的两个 Token 有何不同？
 
