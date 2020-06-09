@@ -62,7 +62,7 @@ description: 控制台是你管理和配置所有 Authing 资源的地方，这�
       <td style="text-align:left">
         <p>&#x5728;&#x8FD9;&#x4E2A;&#x9875;&#x9762;&#x4E2D;&#x53EF;&#x4EE5;&#x914D;&#x7F6E;
           <a
-          href="https://learn.authing.cn/authing/quickstart/basic#di-san-fang-deng-lu">&#x7B2C;&#x4E09;&#x65B9;&#x767B;&#x5F55;</a>&#xFF0C;&#x5305;&#x542B;&#xFF1A;</p>
+          href="basic.md#di-san-fang-deng-lu">&#x7B2C;&#x4E09;&#x65B9;&#x767B;&#x5F55;</a>&#xFF0C;&#x5305;&#x542B;&#xFF1A;</p>
         <ol>
           <li>&#x793E;&#x4F1A;&#x5316;&#x767B;&#x5F55;&#xFF1B;</li>
           <li>&#x5355;&#x70B9;&#x767B;&#x5F55;&#xFF08;&#x4F01;&#x4E1A;&#x7EA7;&#x8BA4;&#x8BC1;&#xFF09;&#xFF1B;</li>
