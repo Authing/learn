@@ -87,7 +87,7 @@ description: 了解 OIDC 包含的常见问题，在开发时可以查阅此文�
 
 ## id\_token、access\_token 和 token 之间的区别
 
-当你需要向你**自己的服务器**请求资源时，应该携带 **id\_token**，同时你的服务器应该[检验此 token 的合法性](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token#oidc-secret-token)，然后再返回相应资源。**id\_token** 相当于终端用户的身份证，用于认证用户身份。
+当你需要向你**自己的服务器**请求资源时，应该携带 **id\_token**，同时你的服务器应该[检验此 token 的合法性](../../advanced/verify-jwt-token.md#oidc-secret-token)，然后再返回相应资源。**id\_token** 相当于终端用户的身份证，用于认证用户身份。
 
 当你需要向 **Authing 服务器**请求属于该用户的资源时，需要携带 **access\_token**，拥有 **access\_token**，你就能够以终端用户的身份，访问位于 Authing 服务器上属于他的资源。
 
