@@ -234,7 +234,7 @@ https://<appDomain>.authing.cn/login/profile
 
 #### authing 对象
 
-如果你想获取 authing 对象以调用[用户管理接口](https://docs.authing.cn/authing/sdk/authing-sdk-for-web)，请使用如下代码：
+如果你想获取 authing 对象以调用[用户管理接口](../sdk-for-javascript/)，请使用如下代码：
 
 `authing-load` 事件是 `Authing` 对象初始化后的回调事件。
 

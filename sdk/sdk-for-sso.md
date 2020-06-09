@@ -29,7 +29,7 @@ import AuthingSSO from "@authing/sso";
 
 ## 开始使用 <a id="getting-started"></a>
 
-需要先注册一个 [Authing](https://authing.cn/login) 账号，并[创建一个 OIDC 应用](https://docs.authing.cn/authing/advanced/oidc/create-oidc)。
+需要先注册一个 [Authing](https://authing.cn/login) 账号，并[创建一个 OIDC 应用](../authentication/oidc/create-oidc.md)。
 
 ### 发起登录 <a id="start-login"></a>
 
