@@ -15,6 +15,6 @@ description: 使用发送到手机上的一次性密码登录
 
 ## 接下来你可能还需要
 
-1. [发送手机验证码](https://learn.authing.cn/authing/sdk/authing-sdk-for-web#fa-song-shou-ji-yan-zheng-ma)（SDK for Web）
-2. [使用手机验证码登录](https://learn.authing.cn/authing/sdk/authing-sdk-for-web#shi-yong-shou-ji-yan-zheng-ma-deng-lu)（SDK for Web）
+1. [发送手机验证码](../sdk/sdk-for-javascript/#shi-yong-shou-ji-hao-zhu-ce)（SDK for Web）
+2. [使用手机验证码登录](../sdk/sdk-for-javascript/#shi-yong-shou-ji-yan-zheng-ma-deng-lu)（SDK for Web）
 
