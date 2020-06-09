@@ -2,7 +2,7 @@
 
 ## 准备工作
 
-1. [注册一个 Authing 账号](https://authing.cn/login)并[创建一个 OIDC 应用](https://docs.authing.cn/authing/advanced/oidc/create-oidc)。
+1. [注册一个 Authing 账号](https://authing.cn/login)并[创建一个 OIDC 应用](../../authentication/oidc/create-oidc.md)。
 2. 进入 OIDC 登录页面 `https://<appDomain>.authing.cn/login/profile`
 
 你可以在此在线体验：[https://first-oidc-app.authing.cn/login/profile](https://first-oidc-app.authing.cn/login/profile)
