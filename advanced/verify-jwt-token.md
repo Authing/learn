@@ -2,9 +2,9 @@
 
 ‌JWT Token 是用户登录后的唯一凭证，验证 Token 合法性和用户的登录状态有三种方法：‌
 
-1. ​[发送 Token 给 Authing 服务器验证](https://docs.authing.co/authing/advanced/verify-jwt-token)​
-2. ​[使用 OIDC 应用的密钥（secret）验证 Token](https://docs.authing.co/authing/advanced/verify-jwt-token)​
-3. ​[通过 OIDC 应用或 OAuth 应用的在线验证接口验证](https://docs.authing.co/authing/advanced/verify-jwt-token)
+1. ​[发送 Token 给 Authing 服务器验证](verify-jwt-token.md)​
+2. ​[使用 OIDC 应用的密钥（secret）验证 Token](verify-jwt-token.md#oidc-secret-token)​
+3. ​[通过 OIDC 应用或 OAuth 应用的在线验证接口验证](verify-jwt-token.md#zai-xian-yan-zheng-oidc-huo-oauth-token)
 
 请根据以下信息选择验证 Token 的方式：
 
