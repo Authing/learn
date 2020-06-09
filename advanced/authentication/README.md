@@ -4,7 +4,7 @@ description: 理解 Authing 提供的认证方式
 
 # 理解认证和授权
 
-认证指确认访问者身份，Authing 分为两种主要的认证方式（[如何选择认证方式？](https://learn.authing.cn/authing/advanced/authentication#ru-he-xuan-ze-ren-zheng-fang-shi)），分别为普通认证和标准协议认证。
+认证指确认访问者身份，Authing 分为两种主要的认证方式（[如何选择认证方式？](./#ru-he-xuan-ze-ren-zheng-fang-shi)），分别为普通认证和标准协议认证。
 
 ## 普通认证
 
