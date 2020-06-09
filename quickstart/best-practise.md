@@ -34,11 +34,15 @@
 
 同时我们建议你配置社会化登录或小程序扫码登录使得终端用户拥有更好的登录体验：
 
+{% page-ref page="../social-login/web/" %}
+
+{% page-ref page="../social-login/mobile/" %}
+
 {% page-ref page="../scan-qrcode/wxapp-qrcode/" %}
 
 ## 在后端验证 JWT Token 的合法性
 
-点击[查看如何验证 JWT Token 的合法性](https://learn.authing.cn/authing/advanced/authentication/verify-jwt-token)。
+点击[查看如何验证 JWT Token 的合法性](https://docs.authing.co/authing/advanced/verify-jwt-token#oidc-secret-token)。
 
 {% hint style="info" %}
 若你使用了 OIDC 流程，建议在后端验证 JWT Token 的合法性（避免 OIDC 密钥泄漏）。

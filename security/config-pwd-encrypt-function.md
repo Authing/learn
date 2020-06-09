@@ -4,7 +4,7 @@ description: 自定义用户池中用户密码的加密方式
 
 # 配置密码加密函数
 
-如果你想自定义密码加密函数，请在此上传函数片段（目前仅支持 Node.js），函数模版请[点击这里下载](http://localhost:5555/faas/template/download)（Authing 不会存储用户的密码原文）。   
+如果你想自定义密码加密函数，请在此上传函数片段（目前仅支持 Node.js），函数模版请[点击这里下载](https://core.authing.cn/faas/template/download)（Authing 不会存储用户的密码原文）。   
   
 此功能适用于以下场景：
 
