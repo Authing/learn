@@ -7,8 +7,8 @@
 
 * [注册 Authing 开发者账号](quickstart/create-authing-account.md)
 * [第一个应用](quickstart/hello-world.md)
-* [实现单点登录](quickstart/implement-sso-with-authing.md)
 * [基础概念](quickstart/basic.md)
+* [实现单点登录](quickstart/implement-sso-with-authing.md)
 * [控制台概览](quickstart/dashboard.md)
 * [部署模型和价格](quickstart/deployment.md)
 * [最佳开发实践](quickstart/best-practise.md)
