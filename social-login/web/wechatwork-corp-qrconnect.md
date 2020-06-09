@@ -181,7 +181,7 @@ if(code !== 200) {
 
 ## 完成接入
 
-恭喜你，此时已经接入了企业微信扫码登录。获取到用户信息之后，你可以得到登录凭证 token，你可以在后续的 API 请求中携带上此 token, 然后在后端接口中根据此 token 区分不同用户，详情请见[验证 token](https://docs.authing.cn/authing/advanced/verify-jwt-token#yan-zheng-authing-qian-fa-de-token)。
+恭喜你，此时已经接入了企业微信扫码登录。获取到用户信息之后，你可以得到登录凭证 token，你可以在后续的 API 请求中携带上此 token, 然后在后端接口中根据此 token 区分不同用户，详情请见[验证 token](../../advanced/verify-jwt-token.md)。
 
 
 
