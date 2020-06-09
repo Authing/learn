@@ -23,7 +23,7 @@ description: Webhooks 允许你对用户注册、登录等行为进行监听，�
 | 请求地址 | 远程 HTTP URL 地址 |
 | 请求密钥 | 设置好密钥（值由开发者自定）后，Authing 将在每个请求中（HTTP Header：X-Authing-Token）附带此密钥，你可以通过验证此密钥来避免一些非法操作 |
 | 请求数据格式 | 指定发起 Webhook 请求时 Request body 的数据格式，可选值有 `application/json` 和 `application/x-www-form-urlencoded` |
-| 触发事件 | [请查看支持的事件](http://docs.authing.cn/authing/advanced/use-webhook#zhi-chi-de-shi-jian) |
+| 触发事件 | [请查看支持的事件](use-webhook.md#zhi-chi-de-shi-jian) |
 | 激活 | 是否启用此 Hook |
 
 ## 管理 Webhook
