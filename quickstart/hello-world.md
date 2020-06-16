@@ -132,7 +132,7 @@ const form = new Guard('userPoolId', {
 
 **userPoolId** 参数获取方式如下：
 
-![](../.gitbook/assets/image%20%28268%29.png)
+![](../.gitbook/assets/image%20%28628%29.png)
 
 你可以点击这里[访问 DEMO 网站](https://sample.authing.cn/#/)。
 
