@@ -169,7 +169,7 @@ authorization\_code
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="code" type="string" required=true %}
-获取到的授权码
+获取到的授权码，一个 code 仅限一次性使用，用后作废，有效期 10 分钟
 {% endapi-method-parameter %}
 {% endapi-method-form-data-parameters %}
 {% endapi-method-request %}
@@ -321,7 +321,7 @@ application/x-www-form-urlencoded
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="code" type="string" required=true %}
-获取到的授权码
+获取到的授权码，一个 code 仅限一次性使用，用后作废，有效期 10 分钟
 {% endapi-method-parameter %}
 {% endapi-method-form-data-parameters %}
 {% endapi-method-request %}
@@ -380,7 +380,7 @@ authorization\_code
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="code" type="string" required=true %}
-获取到的授权码
+获取到的授权码，一个 code 仅限一次性使用，用后作废，有效期 10 分钟
 {% endapi-method-parameter %}
 {% endapi-method-form-data-parameters %}
 {% endapi-method-request %}
