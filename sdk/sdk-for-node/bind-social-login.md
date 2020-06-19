@@ -8,8 +8,8 @@
   * `{Object} options`
     * type `{String} 必填, 暂时只支持github, wechat`
     * unionid `{String} 必填，OAuth返回的用户信息中的唯一ID`
-    * userInfo `{String} 必填, JSON.strify(OAuth返回的用户信息)`
-    * uesr `{String} 用户ID，可选，默认为当前登录用户的ID`
+    * userInfo `{String} 必填, JSON.stringfy(OAuth返回的用户信息)`
+    * user `{String} 用户ID，可选，默认为当前登录用户的ID`
     * client `{String} 应用ID，可选，默认为当前登录应用的ID`
 * **使用方法:**
   * ```javascript
