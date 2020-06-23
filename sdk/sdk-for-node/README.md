@@ -167,6 +167,10 @@ function formatError(error) {
 
 ## 注册
 
+{% hint style="info" %}
+如果你希望用手机号注册用户，可以使用 loginByPhone （手机验证码登录）方法，该方法在用户不存在的时候会自动创建。
+{% endhint %}
+
 **Authing.register\(options\)**
 
 * **参数:**
@@ -546,7 +550,7 @@ const authing = new Authing({
 })();
 ```
 
-## 使用手机号登录
+## 使用手机号密码登录
 
 **Authing.loginByPhonePassword\(options\)**
 

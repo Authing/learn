@@ -274,6 +274,10 @@ public class Demo2 {
 
 ### 创建用户
 
+{% hint style="info" %}
+如果你希望用手机号注册用户，可以使用 loginByPhone （手机验证码登录）方法，该方法在用户不存在的时候会自动创建。
+{% endhint %}
+
 userService.createUser\(params\)
 
 * params {Object}
@@ -341,6 +345,10 @@ public class LoginByEmail {
 ```
 
 ### 手机验证码登录
+
+{% hint style="success" %}
+当用户不存在的时候，会自动创建账号。
+{% endhint %}
 
 userService.loginByPhone\(params\)
 
