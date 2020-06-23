@@ -14,11 +14,11 @@ Authing 提供两种部署方式：
 | 私有云 | 运行在客户自己的基础设施中或其他云环境 |
 | 专有云 | 运行在 Authing 开辟的单租户公有云环境中 |
 
-如果你有私有部署的需求请联系[销售](https://app.gitbook.com/@authing/s/authing/quickstart/deployment#ke-fu-lian-xi-fang-shi)。
+如果你有私有部署的需求请联系[销售](deployment.md#ke-fu-lian-xi-fang-shi)。
 
 ## 公有云价格说明
 
-使用 Authing 身份云创建一个用户池，在体验完 8000 次的认证次数之后，则只需按每月活跃用户 \(MAU\) 付费。如果在某个自然月内，某用户有任何与身份相关的操作（如注册、登录、密码更改），该用户即被计为 1 个 MAU。您无需为不活跃的用户付费。购买用量请联系[销售](https://app.gitbook.com/@authing/s/authing/quickstart/deployment#ke-fu-lian-xi-fang-shi)。
+使用 Authing 身份云创建一个用户池，在体验完 8000 次的认证次数之后，则只需按每月活跃用户 \(MAU\) 付费。如果在某个自然月内，某用户有任何与身份相关的操作（如注册、登录、密码更改），该用户即被计为 1 个 MAU。您无需为不活跃的用户付费。购买用量请联系[销售](deployment.md#ke-fu-lian-xi-fang-shi)。
 
 | 定价套餐（MAU） | 每 MAU 价格 |
 | :--- | :--- |
