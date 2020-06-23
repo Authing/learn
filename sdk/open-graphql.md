@@ -94,14 +94,15 @@ query ReadOAuthList($clientId: String!) {
 此接口用来执行用户登录的操作，登录成功后会返回 `UserToken`，建议单独维护此 Token。
 
 ```graphql
-mutation login($unionid: String, $email: String, $password: String, $lastIP: String, $registerInClient: String!, $verifyCode: String, $browser: String, $device: String) {
-    login(unionid: $unionid, email: $email, password: $password, lastIP: $lastIP, registerInClient: $registerInClient, verifyCode: $verifyCode, browser: $browser, device: $device) {
+mutation login($unionid: String, $email: String, $phone: String, $password: String, $lastIP: String, $registerInClient: String!, $verifyCode: String, $browser: String, $device: String) {
+    login(unionid: $unionid, email: $email, phone: $phone, password: $password, lastIP: $lastIP, registerInClient: $registerInClient, verifyCode: $verifyCode, browser: $browser, device: $device) {
         _id
         email
         emailVerified
         username
         nickname
         company
+        phone
         photo
         browser
         token
@@ -522,6 +523,7 @@ mutation register(
     $registerMethod: String,
     $photo: String,
     $browser: String, 
+    $phone: String,
     $device: String
 ) {
     register(userInfo: {
@@ -534,6 +536,7 @@ mutation register(
         oauth: $oauth,
         registerMethod: $registerMethod,
         photo: $photo,
+        phone: $phone,
         username: $username,
         nickname: $nickname,
         device: $device,
@@ -546,6 +549,7 @@ mutation register(
         nickname,
         company,
         photo,
+        phone,
         browser,
         password,
         token,
