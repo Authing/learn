@@ -109,6 +109,7 @@
 * [自定义认证流程（Pipeline）](extensibility/pipeline/README.md)
   * [创建你的第一个 Pipeline 函数](extensibility/pipeline/write-your-first-pipeline-function.md)
   * [Pipeline 函数开发指南](extensibility/pipeline/pipeline-function-api-doc.md)
+  * [应用场景](extensibility/pipeline/usage.md)
   * [user 对象](extensibility/pipeline/user-object.md)
   * [context 对象](extensibility/pipeline/context-object.md)
   * [使用环境变量](extensibility/pipeline/env.md)
